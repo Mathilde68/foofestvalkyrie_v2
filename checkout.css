@@ -73,6 +73,9 @@ input{
       box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.274);
   }
 
+  label{
+      font-weight: 700;
+  }
 
 
 /* The visual styling of the sections */
@@ -80,3 +83,85 @@ input{
   #cart_section, #costumer_section, #payment_section{
       margin: 6.5rem;
   }
+
+
+  .costumer_grid, .payment_grid{
+      margin: 0 auto;
+      display: grid;
+      gap: 2rem;
+      grid-template-columns: 1fr 1fr;
+  }
+
+ /*  Styling of timer */
+
+ .timer{
+     background-color: black;
+     text-align: center;
+     color: white;
+     width: 16rem;
+     padding: 1rem;
+     border-radius: 20px;
+     height: auto;
+ }
+
+ .timer h2{
+     font-size: 60px;
+ }
+
+
+ .costumer_timer_cart, .payment_timer_card{
+     display: grid;
+     gap: 3rem;
+     justify-content: center;
+ }
+
+ .costumer_cart{
+    height: 20rem;
+    border-radius: 6px;
+    background-color: rgb(244, 244, 244);
+    box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.106);
+ }
+
+ .credit_card_visual{
+     background-image: url("ui_icons/credit-card-svgrepo-com\(1\).svg");
+     background-repeat: no-repeat;
+        background-size: 198px;
+        display: block;
+        width: 17rem;
+        background-position: center;
+     height: 11rem;
+    
+    }
+   /* Popup window styling */
+    #order_popup{
+        margin: 0 auto;
+    
+    }
+    .order_popup_background{
+        height: 10rem;
+        width: 20rem;
+        padding: 2rem;
+        margin: 0 auto;
+        border: solid 2px;
+        border-radius: 6px;
+        background-color: rgb(244, 244, 244);
+        box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.106);
+
+    }
+
+    .order_graphic{
+        position: relative;
+background-repeat: no-repeat;
+width: 8rem;
+height: 8rem;
+z-index: 2;
+margin: 0 auto;
+        background-image: url("ui_icons/ticket-svgrepo-com.svg");
+    }
+
+    .order_text{
+        text-align: center;
+    }
+ 
+
+ 
