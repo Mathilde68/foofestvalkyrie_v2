@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="checkout.css">
     <title>Checkout</title>
 </head>
 
@@ -32,10 +33,11 @@
                         <label for="fullname">Full name*</label>
                         <input type="text" id="fullname" name="fullname" required>
                         <label for="address">Address*</label>
+                        <span class="invalid_span">Hej bitch</span>
                         <input type="text" id="Address" name="Address" required>
                         <label for="city">City*</label>
                         <input type="text" id="city" name="city" required>
-                        <label for="country"></label>
+                        <label for="country">Country</label>
                         <select id="country" name="country" required>
                             <option value="Select Country" disabled selected hidden>Select Country</option>
                             <option value="Afganistan">Afghanistan</option>
@@ -288,9 +290,9 @@
                         <label for="mail">Email*</label>
                         <input type="email" id="mail" name="mail" required>
                         <label for="number">Enter your phone number</label>
-                        <input type="tel" id="phone" name="phone">
+                        <input type="tel" id="phone" name="phone" maxlength="4">
                         <div class="costumer_button">
-                            <button class="return_cart">Return</button>
+                            <a href="" class="return_cart">Return to cart</a>
                             <button class="p_payment">Proceed to payment</button>
                         </div>
                     </form>
@@ -313,8 +315,8 @@
             <div class="payment_grid">
                 <div class="payment_info">
                     <form>
-                        <label for="fullname">Full name*</label>
-                        <input type="text" id="fullname" name="fullname" required>
+                        <label for="cardname">Card holders name</label>
+                        <input type="text" id="cardname" name="cardname">
                         <label for="ccn">Creditcard number *</label>
                         <input type="text" id="ccn" name="ccn" maxlength="16">
                         <label for="date">Date *</label>
