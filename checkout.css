@@ -2,10 +2,132 @@
 /* The visual styling of the sections */
 
   #cart_section, #costumer_section, #payment_section{
-      margin: 6.5rem;
+      margin:2rem;
   }
 
+/* For style.css */
 
+form{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    width: 99%;
+    -webkit-appearance: none;
+    padding: 2rem;
+    border-radius: 6px;
+    background-color: rgb(244, 244, 244);
+    box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.106);
+}
+
+/* MOBILE STYLING DEFUALT */
+
+.proces_line{
+    max-width: 100%;
+    height: 5rem;
+    background-repeat: no-repeat;
+    background-size: 500px;
+    margin: 0 auto;
+    margin-bottom: 1rem;
+}
+
+.proces_line img{
+    width: 100%;
+}
+
+.timer{
+    display: none;
+}
+
+.timer_mobile{
+    display: block;
+    background-color: black;
+    text-align: center;
+    color: white;
+    width: 100%;
+    padding: 1rem;
+    border-radius: 20px;
+    height: auto;
+}
+
+
+
+button{
+    width: 9rem;
+    padding: 0.8rem;
+    border: none;
+    border-radius: 25px;
+    box-shadow: inset 2px 1.5px 6px rgba(255, 255, 255, 0.545), 1px 3px 4px rgba(0, 0, 0, 0.182);
+    color: white;
+    background-color: black;
+    cursor: pointer;
+}
+
+
+.cart_products{
+    gap: 1rem;
+    width: 99%;
+    -webkit-appearance: none;
+    padding: 2rem;
+    border-radius: 6px;
+    background-color: rgb(255, 255, 255);
+    border: solid 15px;
+    box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.106);
+
+}
+
+.costumer_grid, .payment_grid{
+    margin: 0 auto;
+    display: grid;
+    gap: 1rem;
+}
+
+.costumer_button, .cart_button{
+    display: grid;
+    padding: 1rem;
+    grid-template-columns: 1fr 1fr;
+    margin: 0 auto;
+    gap: 0.5rem;
+}
+
+#order_popup{
+    margin: 0 auto;
+
+}
+.order_popup_background{
+    width: 90%;
+    padding: 2rem;
+    margin: 0 auto;
+    border: solid 2px;
+    border-radius: 6px;
+    background-color: rgb(244, 244, 244);
+    box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.106);
+
+}
+
+.order_graphic{
+    position: relative;
+    background-repeat: no-repeat;
+    width: 8rem;
+    height: 8rem;
+    z-index: 2;
+    margin: 0 auto;
+    background-image: url("ui_icons/ticket-svgrepo-com.svg");
+}
+
+.order_text{
+    text-align: center;
+}
+
+
+
+/* DESKTOP STYLING */
+
+@media screen and (min-width: 992px) {
+
+    .proces_line{
+        margin-bottom: 4rem;
+    }
+  
   .cart_wrapper {
     display: grid;
     justify-content: center;
@@ -109,11 +231,11 @@ gap: 1rem;
 
     .order_graphic{
         position: relative;
-background-repeat: no-repeat;
-width: 8rem;
-height: 8rem;
-z-index: 2;
-margin: 0 auto;
+        background-repeat: no-repeat;
+        width: 8rem;
+        height: 8rem;
+        z-index: 2;
+        margin: 0 auto;
         background-image: url("ui_icons/ticket-svgrepo-com.svg");
     }
 
@@ -122,19 +244,10 @@ margin: 0 auto;
     }
  
 
-    .proces_line{
-        width: 31rem;
-        height: 5rem;
-        background-repeat: no-repeat;
-        background-size: 500px;
-        margin: 0 auto;
-        margin-bottom: 4rem;
+
+    .timer_mobile{
+        display: none;
     }
 
-    .proces_line img{
-        width: 100%;
-    }
-
-
-
+}
  
