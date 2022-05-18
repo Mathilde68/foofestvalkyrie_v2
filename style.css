@@ -227,6 +227,19 @@ input:optional:focus{
   border: none;
 }
 
+input[name="cvc"]{
+  width: 3.2rem;
+}
+
+input[name="date"]{
+  width: 4rem;
+}
+
+.date_cvc{
+  display: flex;
+  flex-direction: row;
+  gap: 3rem;
+}
 
 button:focus{
     color: black;

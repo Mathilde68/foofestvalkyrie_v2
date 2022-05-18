@@ -364,14 +364,17 @@
                 </div>
                 <div class="payment_info">
                     <form>
-                        <label for="cardname">Card holders name</label>
-                        <input type="text" id="cardname" name="cardname">
+                        <label for="cardname">Card holders name *</label>
+                        <input type="text" id="cardname" name="cardname" required>
                         <label for="ccn">Creditcard number *</label>
-                        <input type="text" id="ccn" name="ccn" maxlength="16">
-                        <label for="date">Date *</label>
-                        <input type="text" id="date" name="date" maxlength="4">
-                        <label for="cvc">CVC *</label>
-                        <input type="text" id="cvc" name="cvc" maxlength="3">
+                        <input type="text" id="ccn" name="ccn" required maxlength="16" pattern="[0-9]+">
+                        <div class="date_cvc">
+                            <label for="date">Date *
+                                <input type="text" id="date" name="date" maxlength="4" pattern="[0-9]+"
+                                    required></label>
+                            <label for="cvc">CVC *
+                                <input type="text" id="cvc" name="cvc" maxlength="3" pattern="[0-9]+" required></label>
+                        </div>
                         <button id="submit" name="submit" class="p_buy">Buy</button>
                     </form>
                 </div>

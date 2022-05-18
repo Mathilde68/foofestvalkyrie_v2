@@ -81,6 +81,7 @@ button{
     gap: 1rem;
 }
 
+
 .costumer_button, .cart_button{
     display: grid;
     padding: 1rem;
@@ -118,11 +119,43 @@ button{
     text-align: center;
 }
 
+/* Small devices (landscape phones, 576px and up) */
+
+@media screen and (min-width: 576px) {
+    form{
+        gap: 1rem;
+        width: 100%;
+    }
+
+    .proces_line img{
+        width: 50%;
+    }
+
+    .order_popup_background{
+        width: 50%;
+    }
+
+    .cart_wrapper, .costumer_wrapper, .payment_wrapper{
+        margin: 0 auto;
+    }
+  
+}
 
 
-/* DESKTOP STYLING */
+/* Medium devices (tablets, 768px and up) */
+
+@media screen and (min-width: 768px) {
+  
+}
+
+
+/* Large devices (desktops, 992px and up) */
 
 @media screen and (min-width: 992px) {
+
+    #cart_section, #costumer_section, #payment_section{
+        margin:6rem;
+    }
 
     .proces_line{
         margin-bottom: 4rem;
