@@ -248,3 +248,28 @@ a:active {
 }
 
 
+/* Small devices (landscape phones, 576px and up) */
+
+@media screen and (min-width: 576px) {
+  
+}
+
+/* Medium devices (tablets, 768px and up) */
+
+@media screen and (min-width: 768px) {
+  
+}
+
+/* Large devices (desktops, 992px and up) */
+
+@media screen and (min-width: 992px) {
+  
+}
+
+/* X-Large devices (large desktops, 1200px and up) */
+
+@media screen and (min-width: 1200px) {
+  
+}
+
+
