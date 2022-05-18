@@ -6,6 +6,53 @@
   }
 
 
+  .cart_wrapper {
+    display: grid;
+    justify-content: center;
+    }
+
+    .cart_p_checkout {
+        margin: 1rem auto;
+        }
+
+        .cart_button {
+            display: flex;
+            gap: 2rem;
+            margin: 0 auto;
+            padding: 1rem;
+            }
+
+  .cart_products{
+      background-image: url("ui_icons/ticket_cart.svg");
+        background-repeat: no-repeat;
+        background-position: center;
+        width: 62rem;
+height: 18rem;
+background-size: 67rem;
+display: grid;
+padding: 1rem;
+gap: 1rem;
+  }
+
+  .cart_prroduct_list {
+    width: 65%;
+    height: 11rem;
+    border-radius: 3px;
+    box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.199);
+    background-color: white;
+    margin: 0 3rem auto;
+    }
+
+    .cart_product_title_list {
+        width: 65%;
+        height: 3rem;
+        border-radius: 3px;
+        box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.199);
+        background-color: white;
+        margin: 0 3rem auto;
+        }
+
+
   .costumer_grid, .payment_grid{
       margin: 0 auto;
       display: grid;
@@ -50,7 +97,6 @@
     
     }
     .order_popup_background{
-        height: 10rem;
         width: 20rem;
         padding: 2rem;
         margin: 0 auto;
@@ -75,5 +121,20 @@ margin: 0 auto;
         text-align: center;
     }
  
+
+    .proces_line{
+        width: 31rem;
+        height: 5rem;
+        background-repeat: no-repeat;
+        background-size: 500px;
+        margin: 0 auto;
+        margin-bottom: 4rem;
+    }
+
+    .proces_line img{
+        width: 100%;
+    }
+
+
 
  
