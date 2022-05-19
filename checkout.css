@@ -160,10 +160,11 @@ button{
     .proces_line{
         margin-bottom: 4rem;
     }
-  
-  .cart_wrapper {
-    display: grid;
-    justify-content: center;
+
+    .cart_wrapper, .costumer_wrapper, .payment_wrapper{
+        margin: 0 auto;
+        display: grid;
+        justify-content: center;
     }
 
     .cart_p_checkout {
