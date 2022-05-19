@@ -119,19 +119,59 @@ main{
 }
 
 
-/* Overall form and input styling */
+/* Overall form and input styling desktop */
+@media screen and (min-width: 992px) {
 form{
   display: flex;
   flex-direction: column;
   gap: 1rem;
   -webkit-appearance: none;
-  width: 40rem;
+  max-width: 40rem;
   padding: 2rem;
   border-radius: 6px;
   background-color: rgb(244, 244, 244);
   box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.106);
 
 }
+
+button:hover{
+    background-color: rgb(98, 98, 98);
+}
+
+/* mouse over link */
+a:hover {
+  color: black;
+  text-decoration: underline;
+  text-decoration-color: blue;
+
+}
+
+ /*  Styling of timer */
+
+ .timer{
+  display: block;
+  background-color: black;
+  text-align: center;
+  color: white;
+  max-width: 16rem;
+  padding: 1rem;
+  border-radius: 20px;
+  height: auto;
+}
+
+.timer h2{
+  font-size: 60px;
+}
+
+button{
+  width: 10rem;
+  padding: 1rem;
+}
+
+}
+
+/* General styling that doesnt need changing */
+
 input{
   width: 100%;
   height: 2rem;
@@ -141,6 +181,7 @@ input{
   box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.199);
   transition: 0.5s;
   background-color: white;
+  padding: 15px;
 }
 
 input:required:valid {
@@ -151,9 +192,14 @@ input:required:valid:focus{
   border: none;
 }
 
+input:focus{
+  border: none;
+}
+
 input:focus:invalid {
     border: none;
   background: rgb(255, 218, 218);
+  animation: bounce .5s;
   
 }
 
@@ -173,19 +219,22 @@ input:focus{
 
 input:not(:focus){color: rgb(35, 35, 35);}
 
-button{
-    width: 10rem;
-    padding: 1rem;
-    border: none;
-    border-radius: 25px;
-    box-shadow: inset 2px 1.5px 6px rgba(255, 255, 255, 0.545), 1px 3px 4px rgba(0, 0, 0, 0.182);
-    color: white;
-    background-color: black;
-    cursor: pointer;
+input:optional:focus{
+  border: none;
 }
 
-button:hover{
-    background-color: rgb(98, 98, 98);
+input[name="cvc"]{
+  width: 3.2rem;
+}
+
+input[name="date"]{
+  width: 4rem;
+}
+
+.date_cvc{
+  display: flex;
+  flex-direction: row;
+  gap: 3rem;
 }
 
 button:focus{
@@ -212,13 +261,6 @@ a:visited {
   text-decoration: none;
 }
 
-/* mouse over link */
-a:hover {
-  color: black;
-  text-decoration: underline;
-  text-decoration-color: blue;
-
-}
 
 /* selected link */
 a:active {
@@ -226,21 +268,43 @@ a:active {
   text-decoration-color: blue;
 } 
 
-
- /*  Styling of timer */
-
- .timer{
-  background-color: black;
-  text-align: center;
-  color: white;
-  width: 16rem;
-  padding: 1rem;
-  border-radius: 20px;
-  height: auto;
-}
-
-.timer h2{
-  font-size: 60px;
+select{
+  height: 2rem;
 }
 
 
+
+/* Small devices (landscape phones, 576px and up) */
+
+@media screen and (min-width: 576px) {
+  
+}
+
+/* Medium devices (tablets, 768px and up) */
+
+@media screen and (min-width: 768px) {
+  
+}
+
+/* Large devices (desktops, 992px and up) */
+
+@media screen and (min-width: 992px) {
+  
+}
+
+/* X-Large devices (large desktops, 1200px and up) */
+
+@media screen and (min-width: 1200px) {
+  
+}
+
+
+
+
+/* ALL ANIMATION KEYFRAMES */
+
+@keyframes bounce { 
+  0%, 20%, 50%, 80%, 100% {-webkit-transform: translateY(0);} 
+  40% {-webkit-transform: translateY(-5px);} 
+  60% {-webkit-transform: translateY(-2px);} 
+} 
