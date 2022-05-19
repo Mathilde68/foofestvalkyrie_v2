@@ -50,8 +50,8 @@
             <div class="table-container">
 
                 <select name="day" id="day">
-                    <option value="mon">Monday</option>
-                    <option value="tue" selected >Tuesday</option>
+                    <option value="mon" selected>Monday</option>
+                    <option value="tue"  >Tuesday</option>
                     <option value="wed" >Wednesday</option>
                     <option value="thu" >Thursday</option>
                     <option value="fri" >Friday</option>
@@ -61,12 +61,14 @@
                 <h2 id="day">Monday</h2>
 
                 <table id="list">
+                    <thead>
                     <tr>
                         <th id="stage1">Midgaard</th>
                         <th id="stage2">Vanaheim</th>
                         <th id="stage3">Jotunheim</th>
                     </tr>
-                    <tbody></tbody>
+                </thead>
+                    <tbody id="schedulelist"></tbody>
                 </table>
 
 
