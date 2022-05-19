@@ -49,20 +49,6 @@ form{
     height: auto;
 }
 
-
-
-button{
-    width: 9rem;
-    padding: 0.8rem;
-    border: none;
-    border-radius: 25px;
-    box-shadow: inset 2px 1.5px 6px rgba(255, 255, 255, 0.545), 1px 3px 4px rgba(0, 0, 0, 0.182);
-    color: white;
-    background-color: black;
-    cursor: pointer;
-}
-
-
 .cart_products{
     gap: 1rem;
     width: 99%;
