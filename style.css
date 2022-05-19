@@ -11,7 +11,7 @@ body {
 main{
   margin:3rem;
 }
-
+/*navigation top menu*/
 .top-nav {
   display: flex;
   flex-direction: row;
@@ -51,12 +51,8 @@ main{
   padding: 0.5em 0;
   width: 100%;
   color: white;
-  background-color: rgb(67, 61, 61);
+  background-color: rgb(230, 229, 229);
   text-decoration: none;
-}
-
-.menu > a:hover{ 
-  color:#55b7e0;
 }
 
 .menu-button-container {
