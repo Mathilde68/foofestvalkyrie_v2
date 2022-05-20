@@ -36,7 +36,7 @@ const settings = {
 
 window.addEventListener("DOMContentLoaded", start);
 
-const form = document.querySelector("#theSchedule");
+const form = document.querySelector("#schedule-form");
 const input = form.elements.day;
 
 
@@ -208,16 +208,20 @@ function displayList(schedule) {
 }
 
 function displaySchedule(act) {
+  document.querySelector("#activeDay").textContent = act.fullDay;
 
 
-  const clone = document.querySelector("template").content.cloneNode(true);
+ 
+
+
 
 if( act.artist !== "break"){
-document.querySelector("#activeDay").textContent = act.fullDay;
-clone.querySelector("#artist").textContent = act.artist;
+  const clone = document.querySelector("template").content.cloneNode(true);
+
+  clone.querySelector("#artist").textContent = act.artist;
 clone.querySelector("#time").textContent = `${act.start} - ${act.end}`;
 
-}
+
 
 
   if (act.stage == "Midgard") {
@@ -236,7 +240,7 @@ clone.querySelector("#time").textContent = `${act.start} - ${act.end}`;
 
   }
 
-
+}
 
 }
 
