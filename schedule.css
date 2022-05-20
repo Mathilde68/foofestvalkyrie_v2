@@ -1,8 +1,15 @@
 
+#schedule-form{
+    -webkit-appearance: none;
+    padding: 1rem;
+    border-radius: 6px;
+    background-color: rgb(244, 244, 244);
+    box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.106);
+}
 
 #schedule{
     margin: 0 auto;
-    width:max-content;
+    width:fit-content;
 }
 
 #schedule h1{
@@ -24,7 +31,7 @@
 #stage-buttons{
     display: flex;
     flex-direction: column-reverse;
-    width: 5rem;
+    width: 3rem;
     grid-gap: 8rem;
     align-items: center;
 }
@@ -55,7 +62,7 @@
 #table-wrapper{
     display:flex;
     align-items: center;
-    margin:1rem;
+    margin:1rem 0;
 }
 
 #activeDay{
@@ -70,6 +77,10 @@
 
 /*-----desktop and tablets-----*/
 @media screen and (min-width: 768px)  {
+
+    #schedule-form{
+        padding:2rem;
+    }
 
     #table2,#table3{
         display: block;
