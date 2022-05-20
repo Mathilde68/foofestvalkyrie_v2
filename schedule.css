@@ -1,6 +1,13 @@
 
 
+#schedule{
+    margin: 0 auto;
+    width:max-content;
+}
 
+#schedule h1{
+    text-align: center;
+}
 /*obs day-indicator in mobile is only select element*/
 .day-indicator{
     display: flex;
