@@ -17,7 +17,7 @@ body {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  background-color: #EB5B1B;
+  background-color: grey;
   color: #fff;
   height: 50px;
   padding: 1em;
@@ -97,7 +97,7 @@ body {
 }
 
 #menu-toggle:checked + .menu-button-container .menu-button {
-  background: #EB5B1B;
+  background: grey;
 }
 
 #menu-toggle:checked + .menu-button-container .menu-button::after {
