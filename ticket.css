@@ -215,7 +215,6 @@ padding: 0;
     }
 
     .regu_fillout{
-        max-width: 70%;
         margin: 0 auto;
         outline: solid 10px;
         padding: 1rem;
@@ -224,7 +223,6 @@ padding: 0;
     }
 
     .vip_fillout{
-        max-width: 70%;
         margin: 0 auto;
         outline: solid 10px grey;
         padding: 1rem;
