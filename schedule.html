@@ -7,10 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Schedule</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="schedule.css">
 </head>
 
 <body>
-    
+
 
     <!-- NAV AND TOGGLEMENU -->
     <header>
@@ -45,46 +46,73 @@
 
         <h1>Schedule</h1>
 
-        <section id="schedule-pc">
-           <form action="" id="theSchedule">
-            <div class="table-container">
+        <section id="schedule">
+            <form action="" id="schedule-form">
+                <div class="table-container">
+                    <div class="sidebar">
+                        <select name="day" id="day">
+                            <option value="mon" selected>Monday</option>
+                            <option value="tue">Tuesday</option>
+                            <option value="wed">Wednesday</option>
+                            <option value="thu">Thursday</option>
+                            <option value="fri">Friday</option>
+                            <option value="sat">Saturday</option>
+                            <option value="sun">Sunday</option>
+                        </select>
+                        <h2 id="activeDay">Monday</h2>
+                    </div>
+                    
+                    <div id="table-wrapper">
+                        <table id="table1">
+                            <thead>
+                                <tr>
+                                    <th id="midgaard" class="table-title">Midgaard</th>
+                                </tr>
+                            </thead>
+                            <tbody class="schedule-list" id="list1">
 
-                <select name="day" id="day">
-                    <option value="mon" selected>Monday</option>
-                    <option value="tue"  >Tuesday</option>
-                    <option value="wed" >Wednesday</option>
-                    <option value="thu" >Thursday</option>
-                    <option value="fri" >Friday</option>
-                    <option value="sat" >Saturday</option>
-                    <option value="sun" >Sunday</option>
-                </select>
-                <h2 id="day">Monday</h2>
+                            </tbody>
+                        </table>
 
-                <table id="list">
-                    <thead>
-                    <tr>
-                        <th id="stage1">Midgaard</th>
-                        <th id="stage2">Vanaheim</th>
-                        <th id="stage3">Jotunheim</th>
-                    </tr>
-                </thead>
-                    <tbody id="schedulelist"></tbody>
-                </table>
+                        <table id="table2">
+                            <thead>
+                                <tr>
+                                    <th id="vanaheim" class="table-title">Vanaheim</th>
+                                </tr>
+                            </thead>
+                            <tbody class="schedule-list" id="list2">
 
+                            </tbody>
 
-            </div>
-        </form>
+                        </table>
+                        <table id="table3">
+                            <thead>
+                                <tr>
+                                    <th id="jotunheim" class="table-title">Jotunheim</th>
+                                </tr>
+                            </thead>
+                            <tbody class="schedule-list" id="list3">
+
+                            </tbody>
+
+                        </table>
+
+                    </div>
+
+                </div>
+            </form>
         </section>
 
     </main>
     <template id="template">
-        <tr >
-            <td data-field="stage1"></td>
-            <td data-field="stage2"></td>
-            <td data-field="stage3"></td>
+        <tr>
+            <td class="table-cell">
+                <h5 id="artist"></h5>
+                <p id="time"></p>
+            </td>
         </tr>
-    
-    
+
+
     </template>
 
 
