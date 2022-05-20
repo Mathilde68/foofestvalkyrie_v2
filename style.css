@@ -8,9 +8,9 @@ body {
   margin: 0 auto;
 }
 
-main{
-  margin:3rem;
-}
+ main{
+  margin:1rem;
+} 
 /*navigation top menu*/
 .top-nav {
   display: flex;
@@ -300,12 +300,18 @@ select{
 /* Large devices (desktops, 992px and up) */
 
 @media screen and (min-width: 992px) {
+  main{
+    margin:3rem;
+  } 
   
 }
 
 /* X-Large devices (large desktops, 1200px and up) */
 
 @media screen and (min-width: 1200px) {
+  main{
+    margin:3rem;
+  } 
   
 }
 

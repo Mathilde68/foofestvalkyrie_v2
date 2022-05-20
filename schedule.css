@@ -1,39 +1,115 @@
 
-#schedule-form{
-    max-width: 60rem;
+
+
+/*obs day-indicator in mobile is only select element*/
+.day-indicator{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: -4.5rem;
+}
+.schedule-list{
+    background-color: white;
+    box-shadow: inset 2px 5px 10px rgba(0, 0, 0, 0.106);
+ 
 }
 
+#stage-buttons{
+    display: flex;
+    flex-direction: column-reverse;
+    width: 5rem;
+    grid-gap: 8rem;
+    align-items: center;
+}
 
+#stage-buttons button{
+    vertical-align:top;
+	transform:rotateZ(270deg);
+    font-size: 1rem;
+    width:10rem;    
+}
+/*each cell in the table*/
+.table-cell{
+    padding: 0.9rem;
+    width: 19rem;
+    height:8rem;
+}
+/*title of each table - the stagename*/
+.table-title{
+    padding: 1.6rem;
+    font-size: 1.3rem;
+}
+
+#artist{
+    font-weight: bold;
+}
+
+/* in mobile - wrapper for the stagebuttons and the single table*/
+#table-wrapper{
+    display:flex;
+    align-items: center;
+    margin:1rem;
+}
+
+#activeDay{
+    display: none;
+    transform: rotateZ(270deg);
+    font-size: 3rem;
+}
+
+#table2,#table3{
+    display: none;
+}
+
+/*-----desktop and tablets-----*/
+@media screen and (min-width: 768px)  {
+
+    #table2,#table3{
+        display: block;
+    }
+
+    #schedule-form{
+        max-width: 60rem;
+    }
+
+   
+
+    #stage-buttons{
+        display: none;
+    }
+
+/*the dayindicatorr showing the active day as well as select*/
+.day-indicator{
+    display: flex;
+    flex-direction: column;
+    grid-gap: 20rem;
+    margin-bottom: 0;
+    max-width: 6rem;
+    justify-content: flex-start;
+}
+/*container for entire table*/
 .table-container{
     display:flex;
     grid-gap: 1rem;
 }
 
-.sidebar{
-    display: flex;
-    flex-direction: column;
-    grid-gap: 20rem;
-    max-width: 6rem;
-  
-}
-
-#activeDay{
-        transform: rotateZ(270deg);
-        font-size: 3rem;
-}
-
+/*wrapper round the three schedule tables, obs in desktop no stage buttons*/
 #table-wrapper{
     display:flex;
     grid-gap:10px;
 }
 
-.schedule-list{
-    background-color: white;
-    box-shadow: inset 2px 5px 10px rgba(0, 0, 0, 0.106);
+
+#activeDay{
+    display: block;
+    transform: rotateZ(270deg);
+    font-size: 3rem;
+}
+  
+
+
 }
 
-.table-cell{
-    padding: 0.9rem;
-    width: 15rem;
+.hidden{
+    display: none;
 }
-

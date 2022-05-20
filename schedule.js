@@ -36,6 +36,8 @@ const settings = {
 
 window.addEventListener("DOMContentLoaded", start);
 
+
+const mediaQuery = window.matchMedia('(min-width: 768px)');
 const form = document.querySelector("#schedule-form");
 const input = form.elements.day;
 
@@ -44,9 +46,12 @@ const input = form.elements.day;
 
 function start() {
   console.log("started");
-  //adds eventlistener to button
+  //adds eventlistener to buttons
 
-  input.addEventListener("input", selectFilter);
+  input.addEventListener("input", selectDay);
+
+  document.querySelectorAll("[data-action='filter']")
+  .forEach(button => button.addEventListener("click", selectStage));
   //load my json
   loadJSON();
 }
@@ -125,22 +130,23 @@ function prepareData(jsondata) {
 
 
 
+
 //sets filter to value of input day field
-function selectFilter() {
+function selectDay() {
   const inputday = input.value
   const filter = inputday;
   console.log(`user selected: ${filter}`);
-  setFilter(filter);
+  setDay(filter);
 }
 
 /*changes the value of filterDay in the settings, and calls buildlist*/
-function setFilter(filter) {
+function setDay(filter) {
   settings.filterDay = filter;
   buildList();
 }
 
 /*returns a filtered schedule list based on day*/
-function filterList(filteredSchedule) {
+function filterListDay(filteredSchedule) {
 
   if (settings.filterDay === "mon") {
     filteredSchedule = filteredSchedule.filter(isMonday);
@@ -189,13 +195,72 @@ function filterList(filteredSchedule) {
   return filteredSchedule;
 }
 
+
+
+
+function selectStage(event) {
+  const filter = event.target.dataset.filter;
+  
+  console.log(`user selected: ${filter}`);
+  setStage(filter);
+}
+
+/*changes the value of filterStage in the settings, and calls buildlist*/
+function setStage(filter) {
+  settings.filterStage = filter;
+  buildList();
+}
+
+
+/*returns a filtered schedule list based on day*/
+function filterListStage(filteredSchedule) {
+
+  if (settings.filterStage === "Midgard") {
+    filteredSchedule = filteredSchedule.filter(isMidgard);
+  } else if (settings.filterStage === "Vanaheim") {
+    filteredSchedule = filteredSchedule.filter(isVanaheim);
+  } else if (settings.filterStage === "Jotunheim") {
+    filteredSchedule = filteredSchedule.filter(isJotunheim);
+  } 
+
+  function isMidgard(schedule) {
+    return schedule.stage === "Midgard";
+  }
+
+  function isVanaheim(schedule) {
+    return schedule.stage === "Vanaheim";
+  }
+
+  function isJotunheim(schedule) {
+    return schedule.stage === "Jotunheim";
+  }
+
+
+  return filteredSchedule;
+}
+
 /*builds the list based on the returned filtered schedule*/
 function buildList() {
-  const todaysSchedule = filterList(allSchedule);
+  const todaysSchedule = filterListDay(allSchedule);
+  const byStageTodaysSchedule = filterListStage(todaysSchedule);
+
+
+  
+if( mediaQuery.matches){
+
   displayList(todaysSchedule);
   console.log(todaysSchedule);
 
+  
+
+ }else{
+  displayList(byStageTodaysSchedule);
+  console.log(byStageTodaysSchedule);
+
+ }
+
 }
+
 
 /*clears the list, before calling display schedule for each act */
 function displayList(schedule) {
@@ -211,10 +276,6 @@ function displaySchedule(act) {
   document.querySelector("#activeDay").textContent = act.fullDay;
 
 
- 
-
-
-
 if( act.artist !== "break"){
   const clone = document.querySelector("template").content.cloneNode(true);
 
@@ -223,6 +284,7 @@ clone.querySelector("#time").textContent = `${act.start} - ${act.end}`;
 
 
 
+if( mediaQuery.matches){
 
   if (act.stage == "Midgard") {
 
@@ -240,7 +302,14 @@ clone.querySelector("#time").textContent = `${act.start} - ${act.end}`;
 
   }
 
+ }else{ 
+   
+  document.querySelector("#list1").appendChild(clone);
+  document.querySelector("#table1 .table-title").textContent = settings.filterStage;
+ 
+  
+}
+}
 }
 
-}
 
