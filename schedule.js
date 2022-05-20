@@ -1,38 +1,45 @@
 
-//indhent data
-//split op efter scene
-//split op efter dag
-//vis data
-//vis data efter input af dag/ scene
+//indhent data -done
+//split op efter scene -done
+//split op efter dag -done
+//split op i enkelte tider -done
+//vis data -done
+//filtrer data efter input af dag - done
+// fiks template og vis data pænt
+//filtrer efter scene på mobile ??? 
 
 
 "use strict";
 
-window.addEventListener("DOMContentLoaded", start);
 
-const form = document.querySelector("#theSchedule");
-
-const input = form.elements.day;
-let inputday;
 const Act = {
   stage: "stagename",
   day: "day",
-    start: "",
-    end: "",
-    artist: ""
+  fullDay: "",
+  start: "",
+  end: "",
+  artist: ""
 
-  
+
 };
 
-const allSchedule=[];
+const allSchedule = [];
 
 
 
 const settings = {
   filterDay: "mon",
-  filterStage:""
-  
+  filterStage: "Midgard"
+
 }
+
+
+window.addEventListener("DOMContentLoaded", start);
+
+const form = document.querySelector("#theSchedule");
+const input = form.elements.day;
+
+
 
 
 function start() {
@@ -42,8 +49,6 @@ function start() {
   input.addEventListener("input", selectFilter);
   //load my json
   loadJSON();
-
-
 }
 
 async function loadJSON() {
@@ -79,21 +84,35 @@ function prepareData(jsondata) {
 
       const times = Object.entries(day[1]);
 
-      times.forEach( time => {
+      times.forEach(time => {
 
-      const act = Object.create(Act);
-        
-      act.stage = stage[0];
-      act.day = day[0];
-      act.start = time[1].start;
-      act.end = time[1].end;
-      act.artist = time[1].act;
+        const act = Object.create(Act);
 
-      //console.log(schedule);
+        act.stage = stage[0];
+        act.day = day[0];
+        act.start = time[1].start;
+        act.end = time[1].end;
+        act.artist = time[1].act;
 
-    allSchedule.push(act);
-    
-    
+        let fullDay;
+        if (act.day === "tue") {
+          fullDay = act.day + "sday";
+        } else if (act.day === "wed") {
+          fullDay = act.day + "nesday"
+        } else if (act.day === "thu") {
+          fullDay = act.day + "rsday"
+        } else if (act.day === "sat") {
+          fullDay = act.day + "urday"
+        } else {
+          fullDay = act.day + "day";
+        }
+
+        act.fullDay = fullDay.charAt(0).toUpperCase() + fullDay.slice(1);
+        //console.log(schedule);
+
+        allSchedule.push(act);
+
+
       });
 
     });
@@ -108,7 +127,7 @@ function prepareData(jsondata) {
 
 //sets filter to value of input day field
 function selectFilter() {
-  inputday = input.value
+  const inputday = input.value
   const filter = inputday;
   console.log(`user selected: ${filter}`);
   setFilter(filter);
@@ -121,68 +140,71 @@ function setFilter(filter) {
 }
 
 /*returns a filtered schedule list based on day*/
-function filterList (filteredSchedule){
+function filterList(filteredSchedule) {
 
   if (settings.filterDay === "mon") {
     filteredSchedule = filteredSchedule.filter(isMonday);
-} else if (settings.filterDay === "tue") {
+  } else if (settings.filterDay === "tue") {
     filteredSchedule = filteredSchedule.filter(isTuesday);
-} else if (settings.filterDay === "wed") {
+  } else if (settings.filterDay === "wed") {
     filteredSchedule = filteredSchedule.filter(isWednesday);
-} else if (settings.filterDay === "thu") {
+  } else if (settings.filterDay === "thu") {
     filteredSchedule = filteredSchedule.filter(isThursday);
-}else if (settings.filterDay === "fri") {
-  filteredSchedule = filteredSchedule.filter(isFriday);
-}else if (settings.filterDay === "sat") {
-  filteredSchedule = filteredSchedule.filter(isSaturday);
-}else if (settings.filterDay === "sun") {
-  filteredSchedule = filteredSchedule.filter(isSunday);
-}
+  } else if (settings.filterDay === "fri") {
+    filteredSchedule = filteredSchedule.filter(isFriday);
+  } else if (settings.filterDay === "sat") {
+    filteredSchedule = filteredSchedule.filter(isSaturday);
+  } else if (settings.filterDay === "sun") {
+    filteredSchedule = filteredSchedule.filter(isSunday);
+  }
 
-function isMonday(schedule) {
+  function isMonday(schedule) {
     return schedule.day === "mon";
-}
+  }
 
-function isTuesday(schedule) {
+  function isTuesday(schedule) {
     return schedule.day === "tue";
-}
+  }
 
-function isWednesday(schedule) {
+  function isWednesday(schedule) {
     return schedule.day === "wed";
-}
+  }
 
-function isThursday(schedule) {
+  function isThursday(schedule) {
     return schedule.day === "thu";
 
-}
-function isFriday(schedule) {
-  return schedule.day === "fri";
+  }
+  function isFriday(schedule) {
+    return schedule.day === "fri";
 
-}
-function isSaturday(schedule) {
-  return schedule.day === "sat";
+  }
+  function isSaturday(schedule) {
+    return schedule.day === "sat";
 
-}function isSunday(schedule) {
-  return schedule.day === "sun";
+  } function isSunday(schedule) {
+    return schedule.day === "sun";
 
-}
+  }
 
-return filteredSchedule;
+  return filteredSchedule;
 }
 
 /*builds the list based on the returned filtered schedule*/
-function buildList(){
+function buildList() {
   const todaysSchedule = filterList(allSchedule);
   displayList(todaysSchedule);
-  
+  console.log(todaysSchedule);
+
 }
 
 /*clears the list, before calling display schedule for each act */
-function displayList(schedule){
+function displayList(schedule) {
 
-  document.querySelector("#schedulelist").innerHTML = "";
+  document.querySelector("#list1").innerHTML = "";
+  document.querySelector("#list2").innerHTML = "";
+  document.querySelector("#list3").innerHTML = "";
   schedule.forEach(displaySchedule);
-  
+
 }
 
 function displaySchedule(act) {
@@ -190,20 +212,30 @@ function displaySchedule(act) {
 
   const clone = document.querySelector("template").content.cloneNode(true);
 
-  if ( act.stage == "Midgard") {
-   
-    clone.querySelector("[data-field=stage1").textContent = act.artist;
+if( act.artist !== "break"){
+document.querySelector("#activeDay").textContent = act.fullDay;
+clone.querySelector("#artist").textContent = act.artist;
+clone.querySelector("#time").textContent = `${act.start} - ${act.end}`;
+
+}
+
+
+  if (act.stage == "Midgard") {
+
+    document.querySelector("#list1").appendChild(clone);
+ 
   }
-  if ( act.stage == "Vanaheim") {
+  if (act.stage == "Vanaheim") {
+
+    document.querySelector("#list2").appendChild(clone);
   
-    clone.querySelector("[data-field=stage2").textContent = act.artist;
-  }
-  if ( act.stage == "Jotunheim") {
-
-    clone.querySelector("[data-field=stage3").textContent = act.artist;
   }
 
-  document.querySelector("#schedulelist").appendChild(clone);
+  if (act.stage == "Jotunheim") {
+    document.querySelector("#list3").appendChild(clone);
+
+  }
+
 
 
 }
