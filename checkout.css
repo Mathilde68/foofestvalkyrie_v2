@@ -21,12 +21,8 @@
     width: 100%;
 }
 
-.timer{
-    display: none;
-}
-
 .timer_mobile{
-    display: block;
+    display: none;
     background-color: black;
     text-align: center;
     color: white;
@@ -129,6 +125,23 @@
 /* Large devices (desktops, 992px and up) */
 
 @media screen and (min-width: 992px) {
+
+     /*  Styling of timer */
+
+ .timer{
+    display: block;
+    background-color: black;
+    text-align: center;
+    color: white;
+    max-width: 16rem;
+    padding: 1rem;
+    border-radius: 20px;
+    height: auto;
+  }
+  
+  .timer span{
+    font-size: 60px;
+  }
 
     #cart_section, #costumer_section, #payment_section{
         margin:6rem;
@@ -253,12 +266,8 @@ gap: 1rem;
     .order_text{
         text-align: center;
     }
- 
 
-
-    .timer_mobile{
-        display: none;
-    }
 
 }
  
+

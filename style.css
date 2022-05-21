@@ -164,23 +164,6 @@ a:hover {
 
 }
 
- /*  Styling of timer */
-
- .timer{
-  display: block;
-  background-color: black;
-  text-align: center;
-  color: white;
-  max-width: 16rem;
-  padding: 1rem;
-  border-radius: 20px;
-  height: auto;
-}
-
-.timer h2{
-  font-size: 60px;
-}
-
 button{
   width: 10rem;
   padding: 1rem;
