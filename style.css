@@ -118,6 +118,25 @@ body {
   transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
 }
 
+form{
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 99%;
+  padding: 1rem;
+  border-radius: 6px;
+  background-color: rgb(244, 244, 244);
+  box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.106);
+}
+
+
+input, form, button{
+  -webkit-appearance:none;
+   -moz-appearance:none;
+   -ms-appearance:none;
+   -o-appearance:none;
+ }
+
 
 /* Overall form and input styling desktop */
 @media screen and (min-width: 992px) {
@@ -125,7 +144,6 @@ form{
   display: flex;
   flex-direction: column;
   gap: 1rem;
-  -webkit-appearance: none;
   max-width: 40rem;
   padding: 2rem;
   border-radius: 6px;
