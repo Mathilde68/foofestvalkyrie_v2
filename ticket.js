@@ -13,8 +13,10 @@ const allAreas=[];
 
 const Reservation ={
 tickets: 0,
-tents:[]
-
+tent_four:0,
+tent_two:0,
+area:"",
+amount:0
 }
  
 //Function that starts the whole systaaaaam
@@ -103,6 +105,13 @@ function displayAreaAvailability(camping){
   }
     
 
+}
+
+
+function getUserInput(){
+
+
+    
 }
 
 
