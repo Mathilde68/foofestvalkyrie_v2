@@ -104,14 +104,27 @@
                                 <div class="onec">
                                     <label for="c_a">Area A</label>
                                     <input type="radio" id="c_a" name="camparea" value="c_a">
+                                    <tbody id="camping_one"></tbody>
                                 </div>
                                 <div class="twoc">
                                     <label for="c_b">Area B</label>
                                     <input type="radio" id="c_b" name="camparea" value="c_b">
+                                    <tbody id="camping_two"></tbody>
                                 </div>
                                 <div class="threec">
-                                    <label for="c_bc">Area C</label>
+                                    <label for="c_c">Area C</label>
                                     <input type="radio" id="c_c" name="camparea" value="c_c">
+                                    <tbody id="camping_three"></tbody>
+                                </div>
+                                <div class="fourc">
+                                    <label for="c_d">Area D</label>
+                                    <input type="radio" id="c_d" name="camparea" value="c_d">
+                                    <tbody id="camping_four"></tbody>
+                                </div>
+                                <div class="fivec">
+                                    <label for="c_e">Area E</label>
+                                    <input type="radio" id="c_e" name="camparea" value="c_e">
+                                    <tbody id="camping_five"></tbody>
                                 </div>
                             </div>
                         </div>
@@ -177,20 +190,44 @@
                                 <div class="onec">
                                     <label for="c_av">Area A</label>
                                     <input type="radio" id="c_av" name="campareav" value="c_av">
+                                    <tbody id="camping_one"></tbody>
                                 </div>
                                 <div class="twoc">
                                     <label for="c_bv">Area B</label>
                                     <input type="radio" id="c_bv" name="campareav" value="c_bv">
+                                    <tbody id="camping_two"></tbody>
                                 </div>
                                 <div class="threec">
-                                    <label for="c_bcv">Area C</label>
+                                    <label for="c_cv">Area C</label>
                                     <input type="radio" id="c_cv" name="campareav" value="c_cv">
+                                    <tbody id="camping_three"></tbody>
+                                </div>
+                                <div class="fourc">
+                                    <label for="c_dv">Area D</label>
+                                    <input type="radio" id="c_dv" name="campareav" value="c_dv">
+                                    <tbody id="camping_four"></tbody>
+                                </div>
+                                <div class="fivec">
+                                    <label for="c_ev">Area E</label>
+                                    <input type="radio" id="c_ev" name="campareav" value="c_ev">
+                                    <tbody id="camping_five"></tbody>
                                 </div>
                             </div>
                         </div>
                         <button type="submit" class="ticket_buy">Buy</button>
                     </form>
                 </div>
+
+                <template id="template_camping">
+                    <tr>
+                        <td class="table-cell_camping">
+                            <p id="total"></p>
+                            <p id="available"></p>
+                        </td>
+                    </tr>
+
+
+                </template>
 
             </div>
 
