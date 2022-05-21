@@ -10,12 +10,13 @@ const Area ={
 }
 
 const allAreas=[];
-/* 
-const reservation ={
-amount
+
+const Reservation ={
+tickets: 0,
+tents:[]
 
 }
- */
+ 
 //Function that starts the whole systaaaaam
 function start(){
     console.log("start");
@@ -67,25 +68,37 @@ allAreas.forEach(displayAreaAvailability);
 
 function displayAreaAvailability(camping){
   const clone = document.querySelector("#template_camping").content.cloneNode(true);
+    const cloneV = document.querySelector("#template_camping").content.cloneNode(true);
 
   clone.querySelector("[data-field=area]").textContent= camping.area;
   clone.querySelector("[data-field=spots]").textContent= "Spots: "+ camping.spots;
   clone.querySelector("[data-field=available]").textContent= "Available: "+camping.available;
 
+  cloneV.querySelector("[data-field=area]").textContent= camping.area;
+  cloneV.querySelector("[data-field=spots]").textContent= "Spots: "+ camping.spots;
+  cloneV.querySelector("[data-field=available]").textContent= "Available: "+camping.available;
+
   if(camping.area === "Svartheim"){
     document.querySelector("#camping_one").appendChild(clone);
+    document.querySelector("#camping_one_v").appendChild(cloneV);
+
   }
   if(camping.area === "Nilfheim"){
     document.querySelector("#camping_two").appendChild(clone);
+    document.querySelector("#camping_two_v").appendChild(cloneV);
+ 
 
   }  if(camping.area === "Helheim"){
     document.querySelector("#camping_three").appendChild(clone);
+    document.querySelector("#camping_three_v").appendChild(cloneV);
 
   }  if(camping.area === "Muspelheim"){
     document.querySelector("#camping_four").appendChild(clone);
+    document.querySelector("#camping_four_v").appendChild(cloneV);
 
   } else if(camping.area === "Alfheim"){
     document.querySelector("#camping_five").appendChild(clone);
+    document.querySelector("#camping_five_v").appendChild(cloneV);
 
   }
     
