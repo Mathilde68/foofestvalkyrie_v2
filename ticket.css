@@ -257,7 +257,10 @@ padding: 0;
 
     }
     input[type=radio]{
-        -webkit-appearance: none;
+      -webkit-appearance:none;
+      -moz-appearance:none;
+      -ms-appearance:none;
+      -o-appearance:none;
         height: 6rem;
         border-radius: 20px;
         transition: 0.5s;
