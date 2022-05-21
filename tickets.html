@@ -16,7 +16,7 @@
     <header>
         <nav class="top-nav">
             <div class="left-nav">
-                <a href="#landing">
+                <a href="index.html">
                     <!-- <img src="" /> -->
                     <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" fill="#F3F3F3" class="bi bi-flower3"
                         viewBox="0 0 16 16">
@@ -54,7 +54,7 @@
                     </div>
 
                     <!-- BOX FOR ADDING -->
-                    <div class="regu_fillout">
+                    <form class="regu_fillout">
                         <div class="closeRegu">
                             <p>X</p>
                         </div>
@@ -65,9 +65,9 @@
                             <div class="select_ticket">
                                 <div class="ticket_visual"></div>
                                 <div class="reg_amount">
-                                    <button class="amount_btn">-</button>
-                                    <p>1</p>
-                                    <button class="amount_btn">+</button>
+                                    <button type="button" class="amount_btn" id="minus_r_t">-</button>
+                                    <input id=amount_reg_ticket type=number min=1 max=10>
+                                    <button type="button" class="amount_btn" id="plus_r_t">+</button>
                                 </div>
                             </div>
                         </div>
@@ -80,9 +80,9 @@
                                     <p>2P tent</p>
                                 </div>
                                 <div class="tent_two_amount">
-                                    <button class="amount_btn">-</button>
-                                    <p>1</p>
-                                    <button class="amount_btn">+</button>
+                                    <button type="button" class="amount_btn" id="minus_r_two">-</button>
+                                    <input id=amount_tent_two type=number min=0 max=10>
+                                    <button type="button" class="amount_btn" id="plus_r_two">+</button>
                                 </div>
                             </div>
                             <div class="tent_four_p">
@@ -90,9 +90,9 @@
                                     <p>4P tent</p>
                                 </div>
                                 <div class="tent_four_amount">
-                                    <button class="amount_btn">-</button>
-                                    <p>1</p>
-                                    <button class="amount_btn">+</button>
+                                    <button type="button" class="amount_btn" id="minus_r_four">-</button>
+                                    <input id=amount_tent_four type=number min=0 max=10>
+                                    <button type="button" class="amount_btn" id="plus_r_four">+</button>
                                 </div>
                             </div>
                         </div>
@@ -101,19 +101,22 @@
                             <h4>3. Step - choose camping area</h4>
                             <div class="underline"></div>
                             <div class="camping_grid">
-                                <div class="camping_one">
-                                    <p>Camping Area one</p>
+                                <div class="onec">
+                                    <label for="c_a">Area A</label>
+                                    <input type="radio" id="c_a" name="camparea" value="c_a">
                                 </div>
-                                <div class="camping_two">
-                                    <p>Camping Area two</p>
+                                <div class="twoc">
+                                    <label for="c_b">Area B</label>
+                                    <input type="radio" id="c_b" name="camparea" value="c_b">
                                 </div>
-                                <div class="camping_three">
-                                    <p>Camping Area three</p>
+                                <div class="threec">
+                                    <label for="c_bc">Area C</label>
+                                    <input type="radio" id="c_c" name="camparea" value="c_c">
                                 </div>
                             </div>
                         </div>
                         <button class="ticket_buy">Buy</button>
-                    </div>
+                    </form>
                 </div>
 
                 <!-- VIP tickets -->
@@ -124,7 +127,7 @@
                     </div>
 
                     <!-- BOX FOR ADDING -->
-                    <div class="vip_fillout">
+                    <form class="vip_fillout">
                         <div class="closeVip">
                             <p>X</p>
                         </div>
@@ -135,9 +138,9 @@
                             <div class="select_ticket">
                                 <div class="ticket_visual"></div>
                                 <div class="vip_amount">
-                                    <button class="amount_btn">-</button>
-                                    <p>1</p>
-                                    <button class="amount_btn">+</button>
+                                    <button type="button" class="amount_btn" id="minus_v_t">-</button>
+                                    <input id=amount_vip_ticket type=number min=1 max=10>
+                                    <button type="button" class="amount_btn" id="plus_v_t">+</button>
                                 </div>
                             </div>
                         </div>
@@ -150,9 +153,9 @@
                                     <p>2P tent</p>
                                 </div>
                                 <div class="tent_two_amount">
-                                    <button class="amount_btn">-</button>
-                                    <p>1</p>
-                                    <button class="amount_btn">+</button>
+                                    <button type="button" class="amount_btn" id="minus_v_two">-</button>
+                                    <input id=amount_tent_two type=number min=0 max=10>
+                                    <button type="button" class="amount_btn" id="plus_v_two">+</button>
                                 </div>
                             </div>
                             <div class="tent_four_p">
@@ -160,9 +163,9 @@
                                     <p>4P tent</p>
                                 </div>
                                 <div class="tent_four_amount">
-                                    <button class="amount_btn">-</button>
-                                    <p>1</p>
-                                    <button class="amount_btn">+</button>
+                                    <button type="button" class="amount_btn" id="minus_v_four">-</button>
+                                    <input id=amount_tent_four type=number min=0 max=10>
+                                    <button type="button" class="amount_btn" id="plus_v_four">+</button>
                                 </div>
                             </div>
                         </div>
@@ -171,19 +174,22 @@
                             <h4>3. Step - choose camping area</h4>
                             <div class="underline"></div>
                             <div class="camping_grid">
-                                <div class="camping_one">
-                                    <p>Camping Area one</p>
+                                <div class="onec">
+                                    <label for="c_av">Area A</label>
+                                    <input type="radio" id="c_av" name="campareav" value="c_av">
                                 </div>
-                                <div class="camping_two">
-                                    <p>Camping Area two</p>
+                                <div class="twoc">
+                                    <label for="c_bv">Area B</label>
+                                    <input type="radio" id="c_bv" name="campareav" value="c_bv">
                                 </div>
-                                <div class="camping_three">
-                                    <p>Camping Area three</p>
+                                <div class="threec">
+                                    <label for="c_bcv">Area C</label>
+                                    <input type="radio" id="c_cv" name="campareav" value="c_cv">
                                 </div>
                             </div>
                         </div>
-                        <button class="ticket_buy">Buy</button>
-                    </div>
+                        <button type="submit" class="ticket_buy">Buy</button>
+                    </form>
                 </div>
 
             </div>

@@ -256,29 +256,65 @@ padding: 0;
         gap: 1rem;
 
     }
-    .camping_one, .camping_two, .camping_three{
+    input[type=radio]{
+        -webkit-appearance: none;
         height: 6rem;
         border-radius: 20px;
-        transition: 1s;
+        transition: 0.5s;
+        width: 8rem;
         cursor: pointer;
+        box-shadow: none;
     }
 
-    .camping_one{
+    #c_a, #c_av{
         background-color: red;
+
     }
 
-    .camping_two{
-        background-color: greenyellow;
+    #c_a:checked, #c_b:checked, #c_c:checked{
+        background-color: black;
+        background-size: 20px;
+        transform: scale(1.1);
+        transition: 1s;
     }
 
-    .camping_three{
+    #c_av:checked, #c_bv:checked, #c_cv:checked{
+        background-color: rgb(59, 59, 59);
+        background-size: 20px;
+        transform: scale(1.1);
+        transition: 1s;
+    }
+
+        #c_b, #c_bv{
+            background-color: greenyellow;
+        }
+    #c_c, #c_cv{
         background-color: blue;
     }
 
-    .camping_one:hover, .camping_two:hover, .camping_three:hover{
+    input[type=radio]:hover{
         transform: scale(1.1);
         box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.106);
         transition: 1s;
     }
 }  
 
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+
+.onec, .twoc, .threec{
+    text-align: center;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+}
+/* Firefox */
+/* input[type=number] {
+    width: 3rem;
+  -moz-appearance: textfield;
+} */
