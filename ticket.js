@@ -2,7 +2,6 @@
 
 window.addEventListener("DOMContentLoaded", start);
 
-endpoint="https://valkyriefest.herokuapp.com/available-spots";
 
 
 //Function that starts the whole systaaaaam
@@ -12,7 +11,25 @@ function start(){
     //Here I call functions
     registerButtons();
 
+    // calling the get  availability function
+    getAvailability();
+
 }
+
+async function getAvailability(){
+
+    const endpoint="https://valkyriefest.herokuapp.com/available-spots";
+
+
+    const data = await fetch(endpoint);
+    const availability = await data.json();
+  
+  
+    console.log(availability);
+
+}
+
+
 
 function registerButtons(){
    
