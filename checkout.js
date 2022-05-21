@@ -1,9 +1,9 @@
-
 timerDesktop();
+
 
 function timerDesktop(){
 //Here I set the timer layout to be 05:00 as default
-document.querySelector(".timer").innerHTML = "05" + ":" + "00";
+document.querySelector(".timer").innerHTML = "05" + ":" + "01";
 //Setting so when calling timerDesktop, the timer for desktop starts
 startTimer();
 
@@ -16,10 +16,10 @@ function startTimer(){
  const arraytime = min_sec.split(/[:]+/);
 
  //Here I set m, my minutes variable, as the first part of the array 0
- const m = arraytime[0];
+ let m = arraytime[0];
 
  //Here I set s, my seconds variable, as the last part of the array 1 -1 for countdown and call the function seconds
- const s = checkSecond(arraytime[1] - 1);
+ let s = seconds(arraytime[1] - 1);
 
  //Here I make an if statement saying if seconds hits 59, minutes have to decrement 1 value
  if (s == 59) {
@@ -42,14 +42,15 @@ function startTimer(){
  }
 }
 //Here I make the function seconds to make sure when seconds hits under 10 or are over or equal 0, it needs a 0 infront (09), and when its neither its counting down from 59
-function checkSecond(sec) {
- if (sec < 10 && sec >= 0) {
-   sec = "0" + sec;
- if (sec < 0) {
-   sec = "59";
- }
- return sec;
+function seconds(sec) {
+  if (sec < 10 && sec >= 0) {
+    sec = "0" + sec;
+  } 
+  if (sec < 0) {
+    sec = "59";
+  }
+  return sec;
 }
-}
+
 
 }
