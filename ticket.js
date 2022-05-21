@@ -18,7 +18,7 @@ function start(){
     //Here I call functions
     registerButtons();
 
-    // calling the get  availability function
+    // calling the get  camping function
     loadJSON();
 
 }
@@ -41,31 +41,49 @@ function prepareData(json){
 
     json.forEach(jsonobject => {
 
-        const availability = Object.create(Area);
+        const camping = Object.create(Area);
 
-        availability.area = jsonobject.area;
-        availability.spots = jsonobject.spots;
-        availability.available = jsonobject.available;
+        camping.area = jsonobject.area;
+        camping.spots = jsonobject.spots;
+        camping.available = jsonobject.available;
 
-        console.log(availability);
+        console.log(camping);
 
-        allAreas.push(availability);
+        allAreas.push(camping);
 
     });
 
 
 console.log(allAreas);
+allAreas.forEach(displayAreaAvailability);
 
 }
 
 
-function displayAreaAvailability(){
+function displayAreaAvailability(camping){
   const clone = document.querySelector("#template_camping").content.cloneNode(true);
 
-  clone.querySelector()
+  clone.querySelector("[data-field=area]").textContent= camping.area;
+  clone.querySelector("[data-field=spots]").textContent= "Spots: "+ camping.spots;
+  clone.querySelector("[data-field=available]").textContent= "Available: "+camping.available;
+
+  if(camping.area === "Svartheim"){
+    document.querySelector("#camping_one").appendChild(clone);
+  }
+  if(camping.area === "Nilfheim"){
+    document.querySelector("#camping_two").appendChild(clone);
+
+  }  if(camping.area === "Helheim"){
+    document.querySelector("#camping_three").appendChild(clone);
+
+  }  if(camping.area === "Muspelheim"){
+    document.querySelector("#camping_four").appendChild(clone);
+
+  } else if(camping.area === "Alfheim"){
+    document.querySelector("#camping_five").appendChild(clone);
+
+  }
     
-
-
 
 }
 
