@@ -3,7 +3,7 @@ timerDesktop();
 
 function timerDesktop(){
 //Here I set the timer layout to be 05:00 as default
-document.querySelector(".timer").innerHTML = "05" + ":" + "01";
+document.querySelector(".timer").innerHTML = "00" + ":" + "07";
 //Setting so when calling timerDesktop, the timer for desktop starts
 startTimer();
 
@@ -38,7 +38,7 @@ function startTimer(){
 
  //Here I make an if statement saying, if the timer seconds hits the string 00, it stops the settimeOut function
  if(s === "00"){
-     clearTimeout(setTimeout, console.log("stop"));
+     clearTimeout(setTimeout, timesUp());
  }
 }
 //Here I make the function seconds to make sure when seconds hits under 10 or are over or equal 0, it needs a 0 infront (09), and when its neither its counting down from 59
@@ -51,6 +51,8 @@ function seconds(sec) {
   }
   return sec;
 }
+}
 
-
+function timesUp(){
+  console.log("TIMES UP BIIIIIIITCH");
 }
