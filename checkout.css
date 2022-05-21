@@ -242,7 +242,19 @@ gap: 1rem;
         margin: 0 auto;
     
     }
-    .order_popup_background{
+
+    #timesup_popup{
+        display: none;
+        position: fixed;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 10;
+        margin: 0 auto;
+        background-color: rgba(0, 0, 0, 0.435);
+    }
+    .order_popup_background, .timesup_popup_background{
         width: 20rem;
         padding: 2rem;
         margin: 0 auto;
@@ -263,7 +275,17 @@ gap: 1rem;
         background-image: url("ui_icons/ticket-svgrepo-com.svg");
     }
 
-    .order_text{
+    .timesup_graphic{
+        position: relative;
+        font-size: 89px;
+        justify-content: center;
+        left: 46%;
+        z-index: 2;
+        margin: 0 auto;
+
+    }
+
+    .order_text, .timesup_text{
         text-align: center;
     }
 
