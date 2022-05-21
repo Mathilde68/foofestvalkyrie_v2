@@ -104,27 +104,37 @@
                                 <div class="onec">
                                     <label for="c_a">Area A</label>
                                     <input type="radio" id="c_a" name="camparea" value="c_a">
+                                    <table>
                                     <tbody id="camping_one"></tbody>
+                                </table>
                                 </div>
                                 <div class="twoc">
                                     <label for="c_b">Area B</label>
                                     <input type="radio" id="c_b" name="camparea" value="c_b">
-                                    <tbody id="camping_two"></tbody>
+                                    <table>
+                                        <tbody id="camping_two"></tbody>
+                                    </table>
                                 </div>
                                 <div class="threec">
                                     <label for="c_c">Area C</label>
                                     <input type="radio" id="c_c" name="camparea" value="c_c">
-                                    <tbody id="camping_three"></tbody>
+                                    <table>
+                                        <tbody id="camping_three"></tbody>
+                                    </table>
                                 </div>
                                 <div class="fourc">
                                     <label for="c_d">Area D</label>
                                     <input type="radio" id="c_d" name="camparea" value="c_d">
-                                    <tbody id="camping_four"></tbody>
+                                    <table>
+                                        <tbody id="camping_four"></tbody>
+                                    </table>
                                 </div>
                                 <div class="fivec">
                                     <label for="c_e">Area E</label>
                                     <input type="radio" id="c_e" name="camparea" value="c_e">
-                                    <tbody id="camping_five"></tbody>
+                                    <table>
+                                        <tbody id="camping_five"></tbody>
+                                    </table>
                                 </div>
                             </div>
                         </div>
@@ -221,9 +231,9 @@
                 <template id="template_camping">
                     <tr>
                         <td class="table-cell_camping">
-                            <p id="area"></p>
-                            <p id="spots"></p>
-                            <p id="available"></p>
+                            <p id="area" data-field="area"></p>
+                            <p id="spots" data-field="spots"></p>
+                            <p id="available" data-field="available"></p>
                         </td>
                     </tr>
 
