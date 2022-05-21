@@ -256,52 +256,7 @@ padding: 0;
         gap: 1rem;
 
     }
-    input[type=radio]{
-      -webkit-appearance:none;
-      -moz-appearance:none;
-      -ms-appearance:none;
-      -o-appearance:none;
-        height: 6rem;
-        border-radius: 20px;
-        transition: 0.5s;
-        width: 8rem;
-        cursor: pointer;
-        box-shadow: none;
-    }
-
-    #c_a, #c_av{
-        background-color: red;
-
-    }
-
-    #c_a:checked, #c_b:checked, #c_c:checked, #c_d:checked, #c_e:checked{
-        background-color: black;
-        background-size: 20px;
-        transform: scale(1.1);
-        transition: 1s;
-    }
-
-    #c_av:checked, #c_bv:checked, #c_cv:checked, #c_dv:checked, #c_ev:checked{
-        background-color: rgb(59, 59, 59);
-        background-size: 20px;
-        transform: scale(1.1);
-        transition: 1s;
-    }
-
-        #c_b, #c_bv{
-            background-color: greenyellow;
-        }
-    #c_c, #c_cv{
-        background-color: blue;
-    }
-
-    #c_d, #c_dv{
-        background-color: rgb(175, 47, 255);
-    }
-#c_e, #c_ev{
-    background-color: rgb(246, 255, 0);
-}
-
+   
     input[type=radio]:hover{
         transform: scale(1.1);
         box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.106);
@@ -323,6 +278,53 @@ input::-webkit-inner-spin-button {
     display: flex;
     flex-direction: column;
 }
+
+input[type=radio]{
+  -webkit-appearance:none;
+  -moz-appearance:none;
+  -ms-appearance:none;
+  -o-appearance:none;
+    height: 6rem;
+    border-radius: 20px;
+    transition: 0.5s;
+    width: 8rem;
+    cursor: pointer;
+    box-shadow: none;
+}
+
+#c_a, #c_av{
+    background-color: red;
+
+}
+
+#c_a:checked, #c_b:checked, #c_c:checked, #c_d:checked, #c_e:checked{
+    background-color: black;
+    background-size: 20px;
+    transform: scale(1.1);
+    transition: 1s;
+}
+
+#c_av:checked, #c_bv:checked, #c_cv:checked, #c_dv:checked, #c_ev:checked{
+    background-color: rgb(59, 59, 59);
+    background-size: 20px;
+    transform: scale(1.1);
+    transition: 1s;
+}
+
+    #c_b, #c_bv{
+        background-color: greenyellow;
+    }
+#c_c, #c_cv{
+    background-color: blue;
+}
+
+#c_d, #c_dv{
+    background-color: rgb(175, 47, 255);
+}
+#c_e, #c_ev{
+background-color: rgb(246, 255, 0);
+}
+
 /* Firefox */
 /* input[type=number] {
     width: 3rem;
