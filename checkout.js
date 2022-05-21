@@ -1,6 +1,3 @@
-timerDesktop();
-
-
 function timerDesktop(){
 //Here I set the timer layout to be 05:00 as default
 document.querySelector(".timer").innerHTML = "00" + ":" + "07";
@@ -55,4 +52,21 @@ function seconds(sec) {
 
 function timesUp(){
   console.log("TIMES UP BIIIIIIITCH");
+  
+  const timesupPop = document.getElementById("timesup_popup");
+
+  timesupPop.style.display ="block"
+
+
+  document.querySelector(".timesup_continue").addEventListener("click", closeDownTime);
+
+function closeDownTime(){
+  const timesupPop = document.getElementById("timesup_popup");
+
+  timesupPop.style.display ="none"
 }
+
+
+
+}
+
