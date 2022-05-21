@@ -2,7 +2,14 @@
 
 window.addEventListener("DOMContentLoaded", start);
 
+const Area ={
+    area: "area",
+    spots: 0,
+    available: 0
 
+}
+
+const allAreas=[];
 
 //Function that starts the whole systaaaaam
 function start(){
@@ -12,23 +19,55 @@ function start(){
     registerButtons();
 
     // calling the get  availability function
-    getAvailability();
+    loadJSON();
 
 }
 
-async function getAvailability(){
+async function loadJSON(){
 
     const endpoint="https://valkyriefest.herokuapp.com/available-spots";
 
 
     const data = await fetch(endpoint);
-    const availability = await data.json();
+    const json = await data.json();
   
   
-    console.log(availability);
+    console.log(json);
+    prepareData(json);
 
 }
 
+function prepareData(json){
+
+    json.forEach(jsonobject => {
+
+        const availability = Object.create(Area);
+
+        availability.area = jsonobject.area;
+        availability.spots = jsonobject.spots;
+        availability.available = jsonobject.available;
+
+        console.log(availability);
+
+        allAreas.push(availability);
+
+    });
+
+
+console.log(allAreas);
+
+}
+
+
+function displayAreaAvailability(){
+  const clone = document.querySelector("#template_camping").content.cloneNode(true);
+
+  clone.querySelector()
+    
+
+
+
+}
 
 
 function registerButtons(){
