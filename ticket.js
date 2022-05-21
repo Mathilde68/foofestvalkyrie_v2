@@ -16,7 +16,8 @@ tickets: 0,
 tent_four:0,
 tent_two:0,
 area:"",
-amount:0
+amount:0,
+VIP: false
 }
  
 //Function that starts the whole systaaaaam
@@ -69,6 +70,7 @@ allAreas.forEach(displayAreaAvailability);
 
 
 function displayAreaAvailability(camping){
+    
   const clone = document.querySelector("#template_camping").content.cloneNode(true);
     const cloneV = document.querySelector("#template_camping").content.cloneNode(true);
 
@@ -109,6 +111,18 @@ function displayAreaAvailability(camping){
 
 
 function getUserInput(){
+    const Rform = document.querySelector(".regu_fillout");
+    const Rtickets =  Rform.elements.amount_reg_ticket.value;
+    const Rreservation = Object.create(Reservation);
+    const RtentTwo = Rform.elements.amount_tent_two.value;
+    const RtentFour = Rform.elements.amount_tent_four.value;
+    const Rcamp = Rform.elements.camparea.value;
+
+    Rreservation.tickets = parseInt(Rtickets);
+    Rreservation.tent_two = parseInt(RtentTwo);;
+    Rreservation.tent_four = RtentFour*2;
+    Rreservation.area = Rcamp;
+        console.log(Rreservation);
 
 
     
@@ -142,7 +156,6 @@ function registerButtons(){
 
 function showVipDetails() {
     const vipDetail = document.querySelector(".vip_fillout");
-    console.log("LOL");
     vipDetail.style.display = "block";
     document.querySelector(".closeVip").addEventListener("click", () => vipDetail.style.display = "none");
 }
