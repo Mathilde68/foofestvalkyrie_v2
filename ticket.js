@@ -2,6 +2,8 @@
 
 window.addEventListener("DOMContentLoaded", start);
 
+endpoint="https://valkyriefest.herokuapp.com/available-spots";
+
 
 //Function that starts the whole systaaaaam
 function start(){
