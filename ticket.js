@@ -10,7 +10,12 @@ const Area ={
 }
 
 const allAreas=[];
+/* 
+const reservation ={
+amount
 
+}
+ */
 //Function that starts the whole systaaaaam
 function start(){
     console.log("start");
