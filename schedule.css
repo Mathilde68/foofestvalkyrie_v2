@@ -1,4 +1,7 @@
 
+
+
+/*default mobile*/
 #schedule-form{
     -webkit-appearance: none;
     padding: 1rem;
@@ -27,7 +30,7 @@
     box-shadow: inset 2px 5px 10px rgba(0, 0, 0, 0.106);
  
 }
-
+/*the buttons for choosing stage in mobile view*/
 #stage-buttons{
     display: flex;
     flex-direction: column-reverse;

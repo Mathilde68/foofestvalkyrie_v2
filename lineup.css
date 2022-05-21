@@ -1,0 +1,35 @@
+
+
+#list-section{
+
+    margin: 0 auto;
+    max-width: 100%;
+
+}
+
+
+.list-wrapper{
+    position:fixed;
+    max-height:45rem;
+ margin:1rem;
+    background-color: black;
+    cursor: pointer;
+    border: dotted 3px white;
+    outline: solid 5px black;
+    transition: 1s;
+  
+  }
+
+
+  #lineup-list{
+  
+    overflow-y:scroll;
+    overflow-x:hidden;
+    max-height:40rem;
+    margin:1rem;
+    background-color: white;
+    box-shadow: inset 2px 5px 10px rgba(0, 0, 0, 0.106);
+    font-size: 1.3rem;
+ 
+}
+
