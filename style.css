@@ -119,6 +119,14 @@ body {
 }
 
 
+input, form, button{
+  -webkit-appearance:none;
+   -moz-appearance:none;
+   -ms-appearance:none;
+   -o-appearance:none;
+ }
+
+
 /* Overall form and input styling desktop */
 @media screen and (min-width: 992px) {
 form{
