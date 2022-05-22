@@ -1,6 +1,20 @@
+
+/* let form = document.querySelector("form");
+
+form.addEventListener("input", test);
+
+function test (e) {
+ if(e.target.value.length == e.target.maxLength){
+        e.target.nextElementSibling.focus();
+          
+    }
+}
+ */
+
+//Timer function and times up
 function timerDesktop(){
 //Here I set the timer layout to be 05:00 as default
-document.querySelector(".timer").innerHTML = "00" + ":" + "07";
+document.querySelector(".timer").innerHTML = "05" + ":" + "01";
 //Setting so when calling timerDesktop, the timer for desktop starts
 startTimer();
 
@@ -66,7 +80,6 @@ function closeDownTime(){
   timesupPop.style.display ="none"
 }
 
-
-
 }
+
 
