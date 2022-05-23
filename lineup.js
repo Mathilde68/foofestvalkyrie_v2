@@ -59,23 +59,34 @@ function prepareData(jsondata) {
 
 /* calls display artist for each artst on the list*/
 function displayList(list) {
-  console.log(list);
+ 
   list.forEach(displayArtist);
 
 }
 
 
 function displayArtist(artist) {
-  console.log(artist.name);
+
 
   const clone = document.querySelector("#template").content.cloneNode(true);
 
 
   clone.querySelector("#artist-name").textContent = artist.name;
 
+  clone.querySelector("#artist-name").addEventListener( "click", seeDetails);
+
   document.querySelector(".list-wrapper #lineup-list").appendChild(clone);
 
 
 }
 
+
+function seeDetails(){
+
+const id= this.textContent;
+ console.log(id);
+
+ window.location.href = `single.html?id=${id}`;
+
+}
 
