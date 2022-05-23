@@ -33,7 +33,8 @@ async function loadJSON() {
   const lineup = await fetch(endpoint);
   const data = await lineup.json();
 
-  prepareData(data);
+  //prepareData(data);
+  displayList(data);
 }
 
 //preparing the data by creating an Artist object for each.

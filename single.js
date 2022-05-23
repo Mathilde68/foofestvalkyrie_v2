@@ -13,11 +13,6 @@ const Artist = {
 }
 
 
-//find the ID (artist-name) and saves in the variable id
-const urlParams = new URLSearchParams(window.location.search);
-const id = urlParams.get("id");
-
-console.log("ID", id);
 
 
 
@@ -40,14 +35,18 @@ async function loadJSON() {
 
     const lineup = await fetch(endpoint);
     const data = await lineup.json();
-
-
-
     prepareData(data);
 }
 
 
 function prepareData(jsondata) {
+
+    //find the ID (artist-name) and saves in the variable id
+    const urlParams = new URLSearchParams(window.location.search);
+    const id = urlParams.get("id");
+
+    console.log("ID", id);
+
     const jsonobject = jsondata.filter(artist => { return artist.name === id });
 
 
@@ -72,11 +71,10 @@ function prepareData(jsondata) {
     console.log(artist);
 
     displayArtist(artist);
-
-
 }
 
 function displayArtist(artist) {
+    document.title = `FooFest - ${artist.name}`;
     document.querySelector("#artist-name").textContent = artist.name;
     document.querySelector("#bandImage").src = artist.logo;
     document.querySelector(".logo_credits").textContent = artist.logoCredits;
@@ -86,7 +84,7 @@ function displayArtist(artist) {
         document.querySelector(".member_list").innerHTML += `<li>${member}</li>`;
     });
 
-    document.querySelector("#bio").textContent= artist.bio;
+    document.querySelector("#bio").textContent = artist.bio;
 
 
 }

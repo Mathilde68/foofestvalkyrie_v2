@@ -1,0 +1,58 @@
+
+main{
+    margin:0rem;
+}
+.name_wrapper{
+    margin-top: -1rem;
+    text-align: center;
+    padding: 1rem;
+}
+
+.img_wrapper{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: rgb(246, 246, 246);
+    box-shadow: inset 0px 0px 6px rgba(0, 0, 0, 0.274);
+
+   
+}
+#bandImage{
+    padding-top: 1.5rem;
+    width: 100%;
+}
+
+.logo_credits{
+    font-size: 0.7rem;
+    padding:0.5rem;
+}
+
+.label{
+    font-weight: bold;
+}
+
+.genre_text{
+    font-weight: 400;
+}
+
+.artist_info{
+   margin:3rem 0.8rem;
+}
+
+.artist_info{
+    display: flex;
+    flex-wrap: wrap;
+    gap:1rem;
+}
+
+.bio{
+    line-height: 1.3rem;
+}
+
+#back_arrow{
+background-color: white;
+color:black;
+margin: 1rem;
+width: min-content;
+height: min-content;
+}
