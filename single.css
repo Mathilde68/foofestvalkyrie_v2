@@ -40,11 +40,19 @@ main{
    margin:3rem 0.8rem;
 }
 
+.info_group_first{
+    margin-bottom: 3rem;
 
+}
 
-.bio{
+#bio{
+  padding: 1rem;
     line-height: 1.3rem;
-    max-width: 30rem;
+
+}
+
+.info{
+    margin:1rem;
 }
 
 #back_arrow{
@@ -63,17 +71,23 @@ box-shadow: none;
 @media screen and (min-width: 768px)  {
     .artist_info_wrapper{
         display: flex;
-        flex-direction: row-reverse;
-        gap:2rem;
+        flex-wrap: wrap;
+        gap: 2rem;
         background-color: rgb(246, 246, 246);
         box-shadow: inset 0px 0px 6px rgba(0, 0, 0, 0.274);
+        flex-direction: row-reverse;
+        justify-content: flex-end;
     }
 
     .img_wrapper{
         background-color: rgba(255, 255, 255, 0);
         box-shadow: none;
      padding:1rem;
+
+     flex: 0 1 25rem;
     }
+
+    
 
 }
 
