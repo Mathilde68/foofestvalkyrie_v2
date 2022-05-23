@@ -1,26 +1,3 @@
-<<<<<<< HEAD
-"use strict"
-
-
-function getReservation(){
-    /* 
-alert(Reservation);
-
-const order = Reservation;
-
-console.log(order)
-console.log(Reservation)
-
- */
-
-}
-
-function displayList(){}
-
-
-
-function displayCart(){}
-=======
 
 /* let form = document.querySelector("form");
 
@@ -106,4 +83,3 @@ function closeDownTime(){
 }
 
 
->>>>>>> 7d45ebe575fa1ec93cdee62c9ae3784e249704c4
