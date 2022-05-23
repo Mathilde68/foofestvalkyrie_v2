@@ -53,12 +53,53 @@
         <div class="cart_wrapper">
             <div class="proces_line"><img src="ui_icons/cart.svg" alt=""></div>
             <div class="cart_products">
-                <div class="cart_product_title_list"></div>
-                <div class="cart_prroduct_list"></div>
-            </div>
-            <div class="cart_button">
-                <a href="" class="return_buy">Return shopping</a>
-                <button class="cart_p_checkout">Proceed to checkout</button>
+                <table>
+                    <tbody id="cart">
+                        <tr>
+                            <th>Product</th>
+                            <th>Quantity</th>
+                            <th>Price</th>
+                            <th>Subtotal</th>
+                        </tr>
+                        <tr>
+                            <td data-field="cart_regu_ticket"></td>
+                            <td data-field="cart_regu_quantity"></td>
+                            <td data-field="cart_regu_price"></td>
+                            <td data-field="cart_regu_total"></td>
+                        </tr>
+                        <tr>
+                            <td data-field="cart_camp_area"></td>
+                        </tr>
+                        <tr>
+                            <td data-field="cart_vip_ticket"></td>
+                            <td data-field="cart_vip_quantity"></td>
+                            <td data-field="cart_vip_price"></td>
+                            <td data-field="cart_vip_total"></td>
+                        </tr>
+                        <tr>
+                            <td data-field="cart_two_tent"></td>
+                            <td data-field="cart_two_tent_quantity"></td>
+                            <td data-field="cart_two_tent_price"></td>
+                            <td data-field="cart_two_tent_total"></td>
+                        </tr>
+                        <tr>
+                            <td data-field="cart_four_tent"></td>
+                            <td data-field="cart_four_tent_quantity"></td>
+                            <td data-field="cart_four_tent_price"></td>
+                            <td data-field="cart_four_tent_total"></td>
+                        </tr>
+                        <tr>
+                            <td data-field="cart_booking">Fixed Booking Fee</td>
+                            <td data-field="cart_booking_quantity">1x</td>
+                            <td data-field="cart_booking_price">99</td>
+                            <td data-field="cart_booking_total">99</td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="cart_button">
+                    <a href="" class="return_buy">Return shopping</a>
+                    <button class="cart_p_checkout">Proceed to checkout</button>
+                </div>
             </div>
         </div>
     </section>
@@ -347,6 +388,57 @@
                     </div>
                     <div class="costumer_cart">
                         <article class="cart_template">
+                            <table id="cart_two">
+                                <tr>
+                                    <h4>YOUR CART</h4>
+                                    <th></th>
+                                    <th></th>
+                                    <th></th>
+                                </tr>
+                                <tr>
+                                    <td data-field="cart_regu_ticket">d</td>
+                                    <td data-field="cart_regu_quantity"></td>
+                                    <td data-field="cart_regu_total"></td>
+                                </tr>
+                                <tr>
+                                    <td data-field="cart_vip_ticket">d</td>
+                                    <td data-field="cart_vip_quantity"></td>
+                                    <td data-field="cart_vip_total"></td>
+                                </tr>
+                                <tr>
+                                    <td data-field="cart_two_tent">d</td>
+                                    <td data-field="cart_two_tent_quantity"></td>
+                                    <td data-field="cart_two_tent_total"></td>
+                                </tr>
+                                <tr>
+                                    <td data-field="cart_four_tent">d</td>
+                                    <td data-field="cart_four_tent_quantity"></td>
+                                    <td data-field="cart_four_tent_total"></td>
+                                </tr>
+                                <tr class="underline_cart">
+                                    <td data-field="cart_booking">Fixed Booking Fee</td>
+                                    <td data-field="cart_booking_quantity">1x</td>
+                                    <td data-field="cart_booking_total">99</td>
+                                </tr>
+
+                                <tr>
+                                    <td>Item subtotal</td>
+                                    <td></td>
+                                    <td data-field="cart_sub_total"></td>
+                                </tr>
+
+                                <tr class="underline_cart">
+                                    <td>MOMS 25%</td>
+                                    <td></td>
+                                    <td data-field="cart_moms"></td>
+                                </tr>
+
+                                <tr>
+                                    <td>TOTAL</td>
+                                    <td></td>
+                                    <td data-field="cart_sub_total"></td>
+                                </tr>
+                            </table>
                         </article>
                     </div>
                 </div>

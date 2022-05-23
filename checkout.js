@@ -1,16 +1,91 @@
+//Adding the same object from ticket
+const Area ={
+  area: "area",
+  spots: 0,
+  available: 0
 
-/* let form = document.querySelector("form");
-
-form.addEventListener("input", test);
-
-function test (e) {
- if(e.target.value.length == e.target.maxLength){
-        e.target.nextElementSibling.focus();
-          
-    }
 }
- */
 
+const allAreas=[];
+
+const Reservation ={
+tickets: 0,
+tent_four:0,
+tent_two:0,
+area:"",
+amount:0,
+vip: false
+}
+
+/* console.log("Person object:", savedVIP); */
+prepareData();
+
+function prepareData(){
+
+  let storageVip =localStorage.getItem("vip");
+ console.log(storageVip);
+ let savedVIP = JSON.parse(storageVip);
+
+
+const cartVIP = Object.create(Reservation);
+
+cartVIP.tickets = savedVIP.tickets;
+cartVIP.tent_four = savedVIP.tent_four;
+cartVIP.tent_two = savedVIP.tent_two;
+cartVIP.area = savedVIP.area;
+
+allAreas.push(cartVIP);
+
+allAreas.forEach(displayCart);
+
+
+}
+
+function displayCart(cartVIP){
+
+  const clone = document.querySelector("#cart").content.cloneNode(true);
+
+
+  const priceVIP = 1299;
+  const tentTwoPrice = 299;
+  const tentFourPrice = 399;
+  const ticketName = "VIP Festival Ticket";
+  const tentTwoName = "2 Person tent";
+  const tentFourName = "4 Person tent";
+
+  clone.querySelector("[cart_camp_area]").textContent= cartVIP.area;
+  clone.querySelector("[cart_vip_ticket]").textContent= ticketName;
+  clone.querySelector("[cart_vip_quantity]").textContent= cartVIP.tickets;
+  clone.querySelector("[cart_vip_price]").textContent = priceVIP + "DKK";
+  clone.querySelector("[cart_vip_total]").textContent= priceVIP * cartVIP.tickets +"DKK";
+
+  clone.querySelector("[cart_two_tent]").textContent= tentTwoName;
+  clone.querySelector("[cart_two_tent_quantity]").textContent= cartVIP.tent_two;
+  clone.querySelector("[cart_two_tent_price]").textContent= tentTwoPrice;
+  clone.querySelector("[cart_two_tent_total]").textContent = tentTwoPrice * cartVIP.tent_two + "DKK";
+
+  clone.querySelector("[cart_four_tent]").textContent= tentFourName;
+  clone.querySelector("[cart_four_tent_quantity]").textContent= cartVIP.tent_four;
+  clone.querySelector("[cart_four_tent_price]").textContent= tentFourPrice;
+  clone.querySelector("[cart_four_tent_total]").textContent = tentFourPrice * cartVIP.tent_four + "DKK";
+  
+
+}
+
+
+/* function displayAreaAvailability(camping){
+  
+const clone = document.querySelector("#template_camping").content.cloneNode(true);
+  const cloneV = document.querySelector("#template_camping").content.cloneNode(true);
+
+clone.querySelector("[data-field=area]").textContent= camping.area;
+clone.querySelector("[data-field=spots]").textContent= "Spots: "+ camping.spots;
+clone.querySelector("[data-field=available]").textContent= "Available: "+camping.available;
+
+cloneV.querySelector("[data-field=area]").textContent= camping.area;
+cloneV.querySelector("[data-field=spots]").textContent= "Spots: "+ camping.spots;
+cloneV.querySelector("[data-field=available]").textContent= "Available: "+camping.available;
+} */
 //Timer function and times up
 function timerDesktop(){
 //Here I set the timer layout to be 05:00 as default
@@ -81,5 +156,17 @@ function closeDownTime(){
 }
 
 }
+
+/* let form = document.querySelector("form");
+
+form.addEventListener("input", test);
+
+function test (e) {
+ if(e.target.value.length == e.target.maxLength){
+        e.target.nextElementSibling.focus();
+          
+    }
+}
+ */
 
 
