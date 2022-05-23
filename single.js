@@ -89,6 +89,8 @@ function displayArtist(artist) {
 
 }
 
+document.querySelector("#back_arrow").addEventListener("click", () => {history.back(); })
+
 
 
 
