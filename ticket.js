@@ -19,19 +19,49 @@ area:"",
 amount:0,
 vip: false
 }
+
+const form = document.querySelector(".vip_fillout");
  
 //Function that starts the whole systaaaaam
 function start(){
     console.log("start");
+
 
     //Here I call functions
     registerButtons();
 
     // calling the get  camping function
     loadJSON();
+}
+
+function registerButtons(){
+   
+    //Here I add eventlistener for the tickets
+    document.querySelector(".regu_ticket").addEventListener("click", showRegDetails);
+    document.querySelector(".vip_ticket").addEventListener("click", showVipDetails);
+
+    //Here I add eventlistener for the increment and decrement buttons for ticket and tent
+    //regular
+    document.getElementById("minus_r_t").addEventListener("click", deRT);
+    document.getElementById("plus_r_t").addEventListener("click", inRT);
+    document.getElementById("minus_r_two").addEventListener("click", deRTwo);
+    document.getElementById("plus_r_two").addEventListener("click", inRTwo);
+    document.getElementById("minus_r_four").addEventListener("click", deRFour);
+    document.getElementById("plus_r_four").addEventListener("click", inRFour);
+   //vip
+   document.getElementById("minus_v_t").addEventListener("click", deVT);
+   document.getElementById("plus_v_t").addEventListener("click", inVT);
+   document.getElementById("minus_v_two").addEventListener("click", deVTwo);
+   document.getElementById("plus_v_two").addEventListener("click", inVTwo);
+   document.getElementById("minus_v_four").addEventListener("click", deVFour);
+   document.getElementById("plus_v_four").addEventListener("click", inVFour);
+
+   document.querySelector(".ticket_buy").addEventListener("click", getUserInputRegu);
+   document.querySelector(".ticket_buyVip").addEventListener("click", getUserInputVIP);
 
 }
 
+//Here we fetch the endpoint
 async function loadJSON(){
 
     const endpoint="https://valkyriefest.herokuapp.com/available-spots";
@@ -41,7 +71,7 @@ async function loadJSON(){
     const json = await data.json();
   
   
-    console.log(json);
+    /* console.log(json); */
     prepareData(json);
 
 }
@@ -110,13 +140,30 @@ function displayAreaAvailability(camping){
 }
 
 
-function getUserInput(){
+function getUserInputRegu(){
     const Rform = document.querySelector(".regu_fillout");
     const Rtickets =  parseInt(Rform.elements.amount_reg_ticket.value);
     const Rreservation = Object.create(Reservation);
     const RtentTwo = parseInt(Rform.elements.amount_tent_two.value);
     const RtentFour = parseInt(Rform.elements.amount_tent_four.value*2);
     const Rcamp = Rform.elements.camparea.value;
+
+    Rreservation.tickets = Rtickets;
+    Rreservation.tent_two = RtentTwo;
+    Rreservation.tent_four = RtentFour;
+    Rreservation.area = Rcamp;
+
+    Rreservation.amount = RtentTwo + RtentFour;
+
+    localStorage.setItem("regu", JSON.stringify(Rreservation));
+    let storageRegu = localStorage.getItem("regu");
+    let savedRegu = JSON.parse(storageRegu);
+    console.log("Person Object Regu:", savedRegu);
+}
+
+
+
+function getUserInputVIP(){
 
     const Vform = document.querySelector(".vip_fillout");
     const Vtickets =  parseInt(Vform.elements.amount_vip_ticket.value);
@@ -133,45 +180,15 @@ function getUserInput(){
 
     Vreservation.amount = VtentTwo + VtentFour;
 
-    Rreservation.tickets = Rtickets;
-    Rreservation.tent_two = RtentTwo;
-    Rreservation.tent_four = RtentFour;
-    Rreservation.area = Rcamp;
-
-    Rreservation.amount = RtentTwo + RtentFour;
-
-
-        console.log(Rreservation, Vreservation);
-
-
-    
+  /*   console.log(Rreservation, Vreservation); */
+  localStorage.setItem("vip", JSON.stringify(Vreservation));
+  location.href = "checkout.html";
 }
 
 
-function registerButtons(){
-   
-    //Here I add eventlistener for the tickets
-    document.querySelector(".regu_ticket").addEventListener("click", showRegDetails);
-    document.querySelector(".vip_ticket").addEventListener("click", showVipDetails);
 
-    //Here I add eventlistener for the increment and decrement buttons for ticket and tent
-    
-    //regular
-    document.getElementById("minus_r_t").addEventListener("click", deRT);
-    document.getElementById("plus_r_t").addEventListener("click", inRT);
-    document.getElementById("minus_r_two").addEventListener("click", deRTwo);
-    document.getElementById("plus_r_two").addEventListener("click", inRTwo);
-    document.getElementById("minus_r_four").addEventListener("click", deRFour);
-    document.getElementById("plus_r_four").addEventListener("click", inRFour);
-   //vip
-   document.getElementById("minus_v_t").addEventListener("click", deVT);
-   document.getElementById("plus_v_t").addEventListener("click", inVT);
-   document.getElementById("minus_v_two").addEventListener("click", deVTwo);
-   document.getElementById("plus_v_two").addEventListener("click", inVTwo);
-   document.getElementById("minus_v_four").addEventListener("click", deVFour);
-   document.getElementById("plus_v_four").addEventListener("click", inVFour);
 
-}
+
 
 function showVipDetails() {
     const vipDetail = document.querySelector(".vip_fillout");

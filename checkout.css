@@ -38,7 +38,7 @@
     padding: 2rem;
     border-radius: 6px;
     background-color: rgb(255, 255, 255);
-    border: solid 15px;
+    border: solid 1px;
     box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.106);
 
 }
@@ -168,7 +168,7 @@
             padding: 1rem;
             }
 
-  .cart_products{
+  ._productcarts{
       background-image: url("ui_icons/ticket_cart.svg");
         background-repeat: no-repeat;
         background-position: center;
@@ -180,23 +180,6 @@ padding: 1rem;
 gap: 1rem;
   }
 
-  .cart_prroduct_list {
-    width: 65%;
-    height: 11rem;
-    border-radius: 3px;
-    box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.199);
-    background-color: white;
-    margin: 0 3rem auto;
-    }
-
-    .cart_product_title_list {
-        width: 65%;
-        height: 3rem;
-        border-radius: 3px;
-        box-shadow: inset 1px 1px 3px rgba(0, 0, 0, 0.199);
-        background-color: white;
-        margin: 0 3rem auto;
-        }
 
 
   .costumer_grid, .payment_grid{
@@ -221,7 +204,6 @@ gap: 1rem;
  }
 
  .costumer_cart{
-    height: 20rem;
     border-radius: 6px;
     background-color: rgb(244, 244, 244);
     box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.106);
@@ -292,4 +274,29 @@ gap: 1rem;
 
 }
  
+#cart{
+    width: 100%;
+    background-color:white;
+    box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.199);
+    text-align: left;
+    border:solid 1px rgb(186, 186, 186);
+  }
 
+  th{
+      font-family: 'Righteous', cursive;
+    font-size: 1.3rem;
+      padding: 1rem;
+      border-bottom: 2px solid rgb(0, 0, 0);
+  }
+
+  td {
+    font-size: 1.1rem;
+    padding: 1rem;
+    height: 0.5rem;
+    vertical-align: bottom;
+  }
+
+  #cart_two th{
+      display: none;
+      border: none;
+  }
