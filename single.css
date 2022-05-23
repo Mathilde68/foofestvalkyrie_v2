@@ -3,7 +3,7 @@ main{
     margin:0rem;
 }
 .name_wrapper{
-    margin-top: -1rem;
+    margin-top: -1.2rem;
     text-align: center;
     padding: 1rem;
 }
@@ -14,8 +14,6 @@ main{
     align-items: center;
     background-color: rgb(246, 246, 246);
     box-shadow: inset 0px 0px 6px rgba(0, 0, 0, 0.274);
-
-   
 }
 #bandImage{
     padding-top: 1.5rem;
@@ -36,23 +34,52 @@ main{
 }
 
 .artist_info{
-   margin:3rem 0.8rem;
-}
-
-.artist_info{
     display: flex;
     flex-wrap: wrap;
     gap:1rem;
+   margin:3rem 0.8rem;
 }
+
+
 
 .bio{
     line-height: 1.3rem;
+    max-width: 30rem;
 }
 
 #back_arrow{
 background-color: white;
 color:black;
-margin: 1rem;
+margin: 1.5rem 1rem;
+
 width: min-content;
 height: min-content;
+box-shadow: none;
 }
+
+
+
+/*-----tablet----------*/
+@media screen and (min-width: 768px)  {
+    .artist_info_wrapper{
+        display: flex;
+        flex-direction: row-reverse;
+        gap:2rem;
+        background-color: rgb(246, 246, 246);
+        box-shadow: inset 0px 0px 6px rgba(0, 0, 0, 0.274);
+    }
+
+    .img_wrapper{
+        background-color: rgba(255, 255, 255, 0);
+        box-shadow: none;
+     padding:1rem;
+    }
+
+}
+
+
+/*-------desktop-----------*/
+@media screen and (min-width: 992px) {
+  
+    
+  }
