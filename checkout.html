@@ -53,48 +53,8 @@
         <div class="cart_wrapper">
             <div class="proces_line"><img src="ui_icons/cart.svg" alt=""></div>
             <div class="cart_products">
-                <table>
-                    <tbody id="cart">
-                        <tr>
-                            <th>Product</th>
-                            <th>Quantity</th>
-                            <th>Price</th>
-                            <th>Subtotal</th>
-                        </tr>
-                        <tr>
-                            <td data-field="cart_regu_ticket"></td>
-                            <td data-field="cart_regu_quantity"></td>
-                            <td data-field="cart_regu_price"></td>
-                            <td data-field="cart_regu_total"></td>
-                        </tr>
-                        <tr>
-                            <td data-field="cart_camp_area"></td>
-                        </tr>
-                        <tr>
-                            <td data-field="cart_vip_ticket"></td>
-                            <td data-field="cart_vip_quantity"></td>
-                            <td data-field="cart_vip_price"></td>
-                            <td data-field="cart_vip_total"></td>
-                        </tr>
-                        <tr>
-                            <td data-field="cart_two_tent"></td>
-                            <td data-field="cart_two_tent_quantity"></td>
-                            <td data-field="cart_two_tent_price"></td>
-                            <td data-field="cart_two_tent_total"></td>
-                        </tr>
-                        <tr>
-                            <td data-field="cart_four_tent"></td>
-                            <td data-field="cart_four_tent_quantity"></td>
-                            <td data-field="cart_four_tent_price"></td>
-                            <td data-field="cart_four_tent_total"></td>
-                        </tr>
-                        <tr>
-                            <td data-field="cart_booking">Fixed Booking Fee</td>
-                            <td data-field="cart_booking_quantity">1x</td>
-                            <td data-field="cart_booking_price">99</td>
-                            <td data-field="cart_booking_total">99</td>
-                        </tr>
-                    </tbody>
+                <table id="cart_table">
+                  
                 </table>
                 <div class="cart_button">
                     <a href="" class="return_buy">Return shopping</a>
@@ -514,7 +474,49 @@
             </div>
         </div>
     </div>
-
+    <template id="cart">
+        <tbody >
+            <tr>
+                <th>Product</th>
+                <th>Quantity</th>
+                <th>Price</th>
+                <th>Subtotal</th>
+            </tr>
+            <tr>
+                <td data-field="cart_regu_ticket"></td>
+                <td data-field="cart_regu_quantity"></td>
+                <td data-field="cart_regu_price"></td>
+                <td data-field="cart_regu_total"></td>
+            </tr>
+            <tr>
+                <td data-field="cart_camp_area"></td>
+            </tr>
+            <tr>
+                <td data-field="cart_vip_ticket"></td>
+                <td data-field="cart_vip_quantity"></td>
+                <td data-field="cart_vip_price"></td>
+                <td data-field="cart_vip_total"></td>
+            </tr>
+            <tr>
+                <td data-field="cart_two_tent"></td>
+                <td data-field="cart_two_tent_quantity"></td>
+                <td data-field="cart_two_tent_price"></td>
+                <td data-field="cart_two_tent_total"></td>
+            </tr>
+            <tr>
+                <td data-field="cart_four_tent"></td>
+                <td data-field="cart_four_tent_quantity"></td>
+                <td data-field="cart_four_tent_price"></td>
+                <td data-field="cart_four_tent_total"></td>
+            </tr>
+            <tr>
+                <td data-field="cart_booking">Fixed Booking Fee</td>
+                <td data-field="cart_booking_quantity">1x</td>
+                <td data-field="cart_booking_price">99</td>
+                <td data-field="cart_booking_total">99</td>
+            </tr>
+        </tbody>
+    </template>
     <script src="checkout.js"></script>
 </body>
 

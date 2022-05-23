@@ -53,22 +53,23 @@ function displayCart(cartVIP){
   const tentTwoName = "2 Person tent";
   const tentFourName = "4 Person tent";
 
-  clone.querySelector("[cart_camp_area]").textContent= cartVIP.area;
-  clone.querySelector("[cart_vip_ticket]").textContent= ticketName;
-  clone.querySelector("[cart_vip_quantity]").textContent= cartVIP.tickets;
-  clone.querySelector("[cart_vip_price]").textContent = priceVIP + "DKK";
-  clone.querySelector("[cart_vip_total]").textContent= priceVIP * cartVIP.tickets +"DKK";
+  clone.querySelector("[data-field=cart_camp_area]").textContent= cartVIP.area;
+  clone.querySelector("[data-field=cart_vip_ticket]").textContent= ticketName;
+  clone.querySelector("[data-field=cart_vip_quantity]").textContent= cartVIP.tickets;
+  clone.querySelector("[data-field=cart_vip_price]").textContent = priceVIP + "DKK";
+  clone.querySelector("[data-field=cart_vip_total]").textContent= priceVIP * cartVIP.tickets +"DKK";
 
-  clone.querySelector("[cart_two_tent]").textContent= tentTwoName;
-  clone.querySelector("[cart_two_tent_quantity]").textContent= cartVIP.tent_two;
-  clone.querySelector("[cart_two_tent_price]").textContent= tentTwoPrice;
-  clone.querySelector("[cart_two_tent_total]").textContent = tentTwoPrice * cartVIP.tent_two + "DKK";
+  clone.querySelector("[data-field=cart_two_tent]").textContent= tentTwoName;
+  clone.querySelector("[data-field=cart_two_tent_quantity]").textContent= cartVIP.tent_two;
+  clone.querySelector("[data-field=cart_two_tent_price]").textContent= tentTwoPrice;
+  clone.querySelector("[data-field=cart_two_tent_total]").textContent = tentTwoPrice * cartVIP.tent_two + "DKK";
 
-  clone.querySelector("[cart_four_tent]").textContent= tentFourName;
-  clone.querySelector("[cart_four_tent_quantity]").textContent= cartVIP.tent_four;
-  clone.querySelector("[cart_four_tent_price]").textContent= tentFourPrice;
-  clone.querySelector("[cart_four_tent_total]").textContent = tentFourPrice * cartVIP.tent_four + "DKK";
+  clone.querySelector("[data-field=cart_four_tent]").textContent= tentFourName;
+  clone.querySelector("[data-field=cart_four_tent_quantity]").textContent= cartVIP.tent_four;
+  clone.querySelector("[data-field=cart_four_tent_price]").textContent= tentFourPrice;
+  clone.querySelector("[data-field=cart_four_tent_total]").textContent = tentFourPrice * cartVIP.tent_four + "DKK";
   
+  document.querySelector("#cart_table").appendChild(clone);
 
 }
 
