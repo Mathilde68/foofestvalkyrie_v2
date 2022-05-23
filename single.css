@@ -2,22 +2,26 @@ main {
   margin: 0rem;
 }
 .name_wrapper {
-  margin-top: -1rem;
-  text-align: center;
+  display: flex;
+  flex-direction: column;
   padding: 1rem;
+}
+
+.name_wrapper h1 {
+  text-align: center;
 }
 
 /*flexbox for img and info*/
 .artist_info_wrapper {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-  }
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
 
 .img_wrapper {
-     flex: 1 0 100%;
-     background-color: rgb(246, 246, 246);
-     box-shadow: inset 0px 0px 6px rgba(0, 0, 0, 0.274);
+  flex: 1 0 100%;
+  background-color: rgb(246, 246, 246);
+  box-shadow: inset 0px 0px 6px rgba(0, 0, 0, 0.274);
 }
 #bandImage {
   padding-top: 1.5rem;
@@ -60,14 +64,18 @@ main {
   box-shadow: none;
 }
 
-
-
 /*-----tablet and small desktop----------*/
 @media screen and (min-width: 768px) {
+  .name_wrapper {
+    padding: 2rem;
+    flex-direction: row;
+    align-items: center;
+    gap: 3rem;
+  }
   .artist_info_wrapper {
     flex-direction: row-reverse;
     justify-content: space-around;
-    padding: 0 2rem 2rem 2rem;
+    padding: 2rem;
     background-color: rgb(246, 246, 246);
     box-shadow: inset 0px 0px 6px rgba(0, 0, 0, 0.274);
   }
@@ -79,13 +87,7 @@ main {
     flex: 0 1 25rem;
   }
 
-  #back_arrow {
-    margin: 3rem;
-  }
 
-  .name_wrapper {
-    margin-top: -8rem;
-  }
 }
 
 /*-------desktops-----------*/
