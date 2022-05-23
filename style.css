@@ -2,6 +2,45 @@
   box-sizing: border-box;
 }
 
+/* All them fonts */
+@font-face {
+  font-family:bellyBeans;
+  src: url(fonts/bellybeans_1_.woff);
+}
+
+/* Font hierarchy for mobile and tablet major third scale 1.250 */
+h1{
+  font-family: bellyBeans;
+  font-size: 3.852rem;
+  margin: 1rem;
+}
+
+h2{
+  font-family: 'Righteous', cursive;
+  font-size: 2.441rem;
+  margin: 1rem;
+}
+
+h3{
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.953rem;
+  margin: 1rem;
+
+}
+
+h4{
+  font-family: 'Open Sans', sans-serif;
+  font-size: 1.563rem;
+  margin: 1rem;
+
+}
+
+p{
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  margin: 1rem;
+}
+
 /* Navigation */
 
 body {
@@ -138,8 +177,33 @@ input, form, button{
  }
 
 
-/* Overall form and input styling desktop */
+/* Overall styling desktop */
 @media screen and (min-width: 992px) {
+
+  .title_wrapper h1{
+    margin: 0 auto;
+    letter-spacing: 20px;
+  }
+
+/* desktop font hierachy perfect fifth ratio */
+h1{
+  font-size: 7.594rem;
+}
+
+h2{
+  font-size: 5.063rem;
+}
+
+h3{
+  font-size: 3.375rem;
+
+}
+
+h4{
+  font-size: 2.25rem;
+
+}
+
 form{
   display: flex;
   flex-direction: column;
@@ -162,23 +226,6 @@ a:hover {
   text-decoration: underline;
   text-decoration-color: blue;
 
-}
-
- /*  Styling of timer */
-
- .timer{
-  display: block;
-  background-color: black;
-  text-align: center;
-  color: white;
-  max-width: 16rem;
-  padding: 1rem;
-  border-radius: 20px;
-  height: auto;
-}
-
-.timer h2{
-  font-size: 60px;
 }
 
 button{
@@ -256,6 +303,8 @@ input[name="date"]{
 }
 
 button{
+  font-family: 'Righteous', cursive;
+  font-weight: 100;
   width: 9rem;
   padding: 0.8rem;
   border: none;
@@ -345,6 +394,21 @@ select{
   60% {-webkit-transform: translateY(-2px);} 
 } 
 
+@keyframes pulse {
+	0% {
+		transform: scale(0.95) rotate(2deg);
+		
+	}
+
+	70% {
+		transform: scale(1) rotate(2deg);
+		
+	}
+
+	100% {
+		transform: scale(0.95) rotate(2deg);
+	}
+}
 
 
 
@@ -353,106 +417,332 @@ select{
 
 
 
-/* TAKEN FROM ONLINE CREATORS */
+
+/* TAKEN FROM ONLINE CREATORS AND EDITED MOBILE DEFAULT */
 
 /* https://codepen.io/alvarotrigo/pen/PoKMyWE */
 
-h1 {
-  color: rgb(0, 0, 0);
-  font-family: tahoma;
-  font-size: 3rem;
-  font-weight: 100;
+ .highligt_anim {
+   height: 5rem;
   line-height: 1.5;
   text-transform: uppercase;
   white-space: nowrap;
   overflow: hidden;
   position: relative;
-  width: 650px;
-}
-
-h1 span {
-  font-size: 40px;
-  margin-left: 40px;
+  width: 400px;
 }
 
 .message {
-  background-color: rgb(133, 133, 133);
+  background-color: rgb(0, 0, 0);
   color: rgb(255, 255, 255);
+  font-family: bellyBeans;
+  font-size: 3rem;
   display: block;
   font-weight: 900;
   overflow: hidden;
   position: absolute;
   padding-left: 0.5rem;
-  top: 0.2rem;
-  left: 280px;
-  animation: openclose 5s ease-in-out infinite;
+  width: 300px;
+  top: 0.4rem;
+  animation: openclose 6s infinite alternate-reverse;
+}
+ .word2, .word3 {
+  font-family: bellyBeans;
+}
+.word1, .word6{
+  font-family: 'Times New Roman', Times, serif;
 }
 
-.word1, .word2, .word3 {
-  font-family: tahoma;
-}
+
+   /*  Line up top 0.4, led zep top -4.3, beatles top -9 */
 
 @keyframes openclose {
   0% {
-    top: 0.2rem;
-    width: 0;
-  }
-  5% {
-    width: 0;
-  }
-  15% {
-    width: 330px;
-  }
-  30% {
-    top: 0.2rem;
-    width: 330px;
-  }
-  33% {
-    top: 0.2rem;
-    width: 0;
-  }
-  35% {
-    top: 0.2rem;
-    width: 0;
-  }
-  38% {
-    top: -4.5rem;
+    top: 0.4rem;
     
   }
-  48% {
-    top: -4.5rem;
-    width: 400px;
+  10% {
+    top: 0.4rem;
+   
   }
-  62% {
-    top: -4.5rem;
-    width: 400px;
+  20% {
+    top: 0.4rem;
+   
   }
-  66% {
-    top: -4.5rem;
-    width: 0;
-    text-indent: 0;
+  30% {
+    top: -4rem;
   }
-  71% {
-    top: -9rem;
-    width: 0;
-    text-indent: 5px;
+  35% {
+    top: -4rem;
   }
-  86% {
-    top: -9rem;
-    width: 285px;
+
+  40% {
+    top: -4rem;
   }
+  
+  45% {
+    top: -8.5rem;
+
+  }
+  50% {
+    top: -8.rem;
+    
+  }
+
+  55% {
+    top: -8.5rem;
+    
+  }
+  60% {
+    top: -13rem;
+  }
+  65% {
+    top: -13rem;
+
+  }
+  70% {
+    top: -13rem;
+  }
+
+  75% {
+    top: -17.5rem;
+  }
+  80% {
+    top: -17.5rem;
+  }
+  85% {
+    top: -17.5rem;
+  }
+  90% {
+    top: -22.5rem;
+  } 
   95% {
-    top: -9rem;
-    width: 285px;
-  }
-  98% {
-    top: -9rem;
-    width: 0;
-    text-indent: 5px;
-  }
+    top: -22.5rem;
+  } 
   100% {
-    top: 0;
-    width: 0;
-    text-indent: 0;
-  }
+    top: -22.5rem;
+  } 
+ 
+} 
+
+
+/* Small devices (landscape phones, 576px and up) */
+
+@media screen and (min-width: 576px) {
+  .highligt_anim {
+    margin: 0 auto;
+    height: 6rem;
+   line-height: 1.5;
+   text-transform: uppercase;
+   white-space: nowrap;
+   overflow: hidden;
+   position: relative;
+   width: 500px;
+ }
+ 
+ .message {
+   text-align: center;
+   background-color: rgb(0, 0, 0);
+   color: rgb(255, 255, 255);
+   font-family: bellyBeans;
+   font-size: 4rem;
+   display: block;
+   font-weight: 900;
+   overflow: hidden;
+   position: absolute;
+   width: 500px;
+   
+   animation: openclose 10s infinite  alternate-reverse;
+ }
+  .word2, .word3 {
+   font-family: bellyBeans;
+ }
+ .word1, .word6{
+   font-family: 'Times New Roman', Times, serif;
+ }
+ 
+ 
+    /*  Line up top 0.4, led zep top -4.3, beatles top -9 */
+ 
+ @keyframes openclose {
+   0% {
+     top: 0.4rem;
+     
+   }
+   10% {
+     top: 0.4rem;
+    
+   }
+   20% {
+     top: 0.4rem;
+    
+   }
+   30% {
+     top: -5.5rem;
+   }
+   35% {
+     top: -5.5rem;
+   }
+ 
+   40% {
+     top: -5.5rem;
+   }
+   
+   45% {
+     top: -11.5rem;
+ 
+   }
+   50% {
+     top: -11.5rem;
+     
+   }
+ 
+   55% {
+     top: -11.5rem;
+     
+   }
+   60% {
+     top: -17.5rem;
+   }
+   65% {
+     top: -17.5rem;
+ 
+   }
+
+   70% {
+     top: -17.5rem;
+   }
+ 
+   75% {
+     top: -23.5rem;
+   }
+   80% {
+     top: -23.5rem;
+   }
+   85% {
+     top: -23.5rem;
+   }
+   90% {
+     top: -30rem;
+   } 
+   95% {
+     top: -30rem;
+   } 
+   100% {
+     top: -30rem;
+   } 
+  
+ } 
+  
+}
+
+/* Large devices (desktops, 992px and up) */
+
+@media screen and (min-width: 992px) {
+  .highligt_anim {
+    margin: 0 auto;
+    height: 9rem;
+   line-height: 1.5;
+   text-transform: uppercase;
+   white-space: nowrap;
+   overflow: hidden;
+   position: relative;
+   width: 900px;
+ }
+ 
+ .message {
+   text-align: center;
+   background-color: rgb(0, 0, 0);
+   color: rgb(255, 255, 255);
+   font-family: bellyBeans;
+   font-size: 6rem;
+   display: block;
+   font-weight: 900;
+   overflow: hidden;
+   position: absolute;
+   width: 900px;
+   
+   animation: openclose 12s infinite ease-in-out /* alternate-reverse */;
+ }
+  .word2, .word3 {
+   font-family: bellyBeans;
+ }
+ .word1, .word6{
+   font-family: 'Times New Roman', Times, serif;
+ }
+ 
+ 
+    /*  Line up top 0.4, led zep top -4.3, beatles top -9 */
+ 
+ @keyframes openclose {
+   0% {
+     top: 0.4rem;
+     
+   }
+   10% {
+     top: 0.4rem;
+    
+   }
+   20% {
+     top: 0.4rem;
+    
+   }
+   30% {
+     top: -8.5rem;
+   }
+   35% {
+     top: -8.5rem;
+   }
+ 
+   40% {
+     top: -8.5rem;
+   }
+   
+   45% {
+     top: -17.5rem;
+ 
+   }
+   50% {
+     top: -17.5rem;
+     
+   }
+ 
+   55% {
+     top: -17.5rem;
+     
+   }
+   60% {
+     top: -26.5rem;
+   }
+   65% {
+     top: -26.5rem;
+ 
+   }
+
+   70% {
+     top: -26.5rem;
+   }
+ 
+   75% {
+     top: -35.5rem;
+   }
+   80% {
+     top: -35.5rem;
+   }
+   85% {
+     top: -35.5rem;
+   }
+   90% {
+     top: -45rem;
+   } 
+   95% {
+     top: -45rem;
+   } 
+   100% {
+     top: -45rem;
+   } 
+  
+ } 
+
+
 }

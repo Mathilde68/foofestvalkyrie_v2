@@ -5,8 +5,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300&family=Righteous&display=swap"
+        rel="stylesheet">
     <title>FooFest</title>
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="landingpage.css">
+
 </head>
 
 <body>
@@ -42,7 +50,7 @@
     <main>
         <section id="landing">
             <div class="title_wrapper">
-                <h1 id="title">FOOFEST</h1>
+                <h1>FOOFEST</h1>
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dicta fuga error cupiditate sit nostrum
                     iusto sequi aute.</p>
             </div>
@@ -53,74 +61,61 @@
         </section>
 
         <section id="lineup_highlight">
-            <h2>LINEUP</h2>
-            <h1>
-                <span>HIGHLIGHTS </span>
+            <h2>Line up</h2>
+            <h3>HIGHLIGHTS:</h3>
+            <div class="highligt_anim">
                 <div class="message">
-                    <div class="word1">Metallica</div>
+                    <div class="word1">_🌼_🌼_🌼_</div>
                     <div class="word2">Led Zeppelin</div>
                     <div class="word3">Beatles</div>
-                    <div class="word4">Beatles</div>
+                    <div class="word4">Pink Floyd</div>
+                    <div class="word5">Metallica</div>
+                    <div class="word6">_🌼_🌼_🌼_</div>
                 </div>
-            </h1>
-            <!--             <div class="highlight_flex">
-                <article id="artist_wrapper">
-                    <h3 class="artist_title">Metallica</h3>
-                    <img src="" alt="">
-                </article>
-                <article id="artist_wrapper">
-                    <h3 class="artist_title">Led Zeppelin</h3>
-                    <img src="" alt="">
-                </article>
-                <article id="artist_wrapper">
-                    <h3 class="artist_title">Beatles</h3>
-                    <img src="" alt="">
-                </article>
-                <article id="artist_wrapper">
-                    <h3 class="artist_title">Pink Floyd</h3>
-                    <img src="" alt="">
-                </article>
-            </div> -->
-
-            <div id="link_wrapper"><a href="line_up.html">See Full Lineup</a></div>
+            </div>
+            <div class="link_wrapper_container">
+                <button class="link_wrapper"><a href="line_up.html"></a>See Full Lineup</button>
+            </div>
         </section>
         <section id="newsletter">
             <h2>Newsletter</h2>
-            <form action="">
+            <form class="newsletter_form">
                 <input type="email" id="mail" name="mail" placeholder="YourEmail@mail.com" required>
                 <div class="radio_list_wrapper">
                     <div class="newslet_radio">
-                        <input type="radio" name="radio" id="radio_imp" value="Most important">
                         <label for="radio_imp">
-                            <dl>
+                            <dl class="grid_radio_new">
                                 <dt>Just the most important news please</dt>
                                 <dd>We will let you know about announcements, ticket sales, camping and other essential
                                     news.</dd>
+                                <input type="radio" name="radio" id="radio_imp" value="Most important">
                             </dl>
                         </label>
 
                     </div>
                     <div class="newslet_radio">
-
-                        <input type="radio" name="radio" id="radio_all" value="All news">
                         <label for="radio_all">
-                            <dl>
+                            <dl class="grid_radio_new">
                                 <dt>Give me all the news!</dt>
                                 <dd>Dont wanna miss out on anything? Learn more about Foofest, in addition to all the
                                     essential
                                     news.</dd>
+                                <input type="radio" name="radio" id="radio_all" value="All news">
+
                             </dl>
                         </label>
                     </div>
 
                 </div>
-                <button>Sign me up!</button>
+                <div class="sign_btn">
+                    <button type="submit">Sign me up!</button>
+                </div>
             </form>
         </section>
 
     </main>
     <footer></footer>
 </body>
-<script src="script.js"></script>
+
 
 </html>

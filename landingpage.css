@@ -1,0 +1,140 @@
+/* MOBILE DEFAULT STYLING */
+
+#newsletter {
+margin-top: 6rem;
+}
+
+#lineup_highlight {
+    margin-top: 6rem;
+    }
+
+#radio_imp, #radio_all{
+    cursor: pointer;
+    border-radius: 50%;
+    width: 2rem;
+}
+
+#radio_imp:checked, #radio_all:checked{
+    background-color: black;
+}
+
+.grid_radio_new{
+    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.236);
+    background-color: rgb(252, 252, 252);
+    max-width: 90%;
+    text-align: left;
+    display: flex;
+    padding: 1rem;
+    gap: 0.5rem;
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    margin-top: 1rem;
+}
+.grid_radio_new dd{
+    font-size: 14px;
+    text-align: left;
+    font-weight: 400;
+    padding: 0.5rem;
+}
+.grid_radio_new dt{
+    font-size: 18px;
+   text-align: center;
+    font-weight: 600;
+}
+
+.newsletter_form input[type="email"]{
+    margin: 0 auto;
+    max-width: 90%;
+    height: 3rem;
+}
+.newsletter_form{
+    margin: 0 auto;
+    padding-top: 2rem;
+    max-width: 100%;
+}
+
+.sign_btn{
+    display: grid;
+    justify-content: center;
+}
+
+.title_wrapper {
+    margin-top: 2rem;
+    }
+
+.title_wrapper p{
+    margin: 0 auto;
+    text-align: center;
+    max-width: 80%;
+    margin-top: 2rem;
+}
+
+.title_wrapper h1{
+    letter-spacing: 9px;
+}
+
+#ticket{
+background-color:grey;
+width: 17rem;
+padding: 2rem;
+transform: rotate(2deg);
+animation: pulse 1s infinite;
+}
+
+.ticket_wrapper{
+    padding-top: 5rem;
+    display: flex;
+    justify-content: end;
+}
+
+#lineup_highlight h3{
+    margin-bottom: -0.2rem;
+}
+
+.link_wrapper_container{
+    display: flex;
+    justify-content: space-around;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.link_wrapper{
+    margin: 0 auto;
+    width: 10rem;
+    height: 3.5rem;
+    background-color: rgb(71, 71, 71);
+    color: white;
+}
+
+
+/* Small devices (landscape phones, 576px and up) */
+
+@media screen and (min-width: 576px) {
+    .title_wrapper h1{
+        letter-spacing: 20px;
+    }
+
+    #ticket{
+        width: 23rem;
+        padding: 3rem;
+    }
+}
+
+/* Large devices (desktops, 992px and up) */
+
+@media screen and (min-width: 992px) {
+    main{
+      margin:3rem;
+    } 
+
+    .title_wrapper h1{
+        letter-spacing: 50px;
+    }
+
+    #ticket{
+        width: 45rem;
+        padding: 5rem;
+    }
+    
+  }

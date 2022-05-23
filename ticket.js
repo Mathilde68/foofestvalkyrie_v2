@@ -17,7 +17,7 @@ tent_four:0,
 tent_two:0,
 area:"",
 amount:0,
-VIP: false
+vip: false
 }
  
 //Function that starts the whole systaaaaam
@@ -112,17 +112,36 @@ function displayAreaAvailability(camping){
 
 function getUserInput(){
     const Rform = document.querySelector(".regu_fillout");
-    const Rtickets =  Rform.elements.amount_reg_ticket.value;
+    const Rtickets =  parseInt(Rform.elements.amount_reg_ticket.value);
     const Rreservation = Object.create(Reservation);
-    const RtentTwo = Rform.elements.amount_tent_two.value;
-    const RtentFour = Rform.elements.amount_tent_four.value;
+    const RtentTwo = parseInt(Rform.elements.amount_tent_two.value);
+    const RtentFour = parseInt(Rform.elements.amount_tent_four.value*2);
     const Rcamp = Rform.elements.camparea.value;
 
-    Rreservation.tickets = parseInt(Rtickets);
-    Rreservation.tent_two = parseInt(RtentTwo);;
-    Rreservation.tent_four = RtentFour*2;
+    const Vform = document.querySelector(".vip_fillout");
+    const Vtickets =  parseInt(Vform.elements.amount_vip_ticket.value);
+    const Vreservation = Object.create(Reservation);
+    const VtentTwo = parseInt(Vform.elements.amountv_tent_two.value);
+    const VtentFour = parseInt(Vform.elements.amountv_tent_four.value*2);
+    const Vcamp = Vform.elements.campareav.value;
+
+    Vreservation.tickets = Vtickets;
+    Vreservation.tent_two = VtentTwo;
+    Vreservation.tent_four = VtentFour;
+    Vreservation.area = Vcamp;
+    Vreservation.vip = true;
+
+    Vreservation.amount = VtentTwo + VtentFour;
+
+    Rreservation.tickets = Rtickets;
+    Rreservation.tent_two = RtentTwo;
+    Rreservation.tent_four = RtentFour;
     Rreservation.area = Rcamp;
-        console.log(Rreservation);
+
+    Rreservation.amount = RtentTwo + RtentFour;
+
+
+        console.log(Rreservation, Vreservation);
 
 
     

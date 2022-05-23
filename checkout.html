@@ -5,9 +5,15 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- GOOGLE FONTS -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300&family=Righteous&display=swap"
+        rel="stylesheet">
+    <title>Checkout</title>
     <link rel="stylesheet" href="checkout.css">
     <link rel="stylesheet" href="style.css">
-    <title>Checkout</title>
 </head>
 
 <body>
@@ -63,10 +69,9 @@
                 <img src="ui_icons/cart_cost.svg" alt="">
             </div>
             <div class="costumer_grid">
-                <div class="timer_mobile">
-                    <span id="timer_n"></span>
+                <!--                 <div class="timer_mobile">
                     <p>Time to proceed your order</p>
-                </div>
+                </div> -->
 
                 <div class="costumer_form">
                     <form>
@@ -339,8 +344,6 @@
                 </div>
                 <div class="costumer_timer_cart">
                     <div class="timer">
-                        <span id="timer_n"></span>
-                        <p>Time to proceed your order</p>
                     </div>
                     <div class="costumer_cart">
                         <article class="cart_template">
@@ -358,12 +361,12 @@
                 <img src="ui_icons/cart_cost_pay.svg" alt="">
             </div>
             <div class="payment_grid">
-                <div class="timer_mobile">
-                    <span id="timer_n"></span>
+                <!--         <div class="timer_mobile">
+                    <span class="timer_n"></span>
                     <p>Time to proceed your order</p>
-                </div>
+                </div> -->
                 <div class="payment_info">
-                    <form>
+                    <form id="card_info">
                         <label for="cardname">Card holders name *</label>
                         <input type="text" id="cardname" name="cardname" required>
                         <label for="ccn">Creditcard number *</label>
@@ -379,10 +382,10 @@
                     </form>
                 </div>
                 <div class="payment_timer_card">
-                    <div class="timer">
-                        <span id="timer_n"></span>
+                    <!--       <div class="timer">
+                        <span class="timer_n"></span>
                         <p>Time to proceed your order</p>
-                    </div>
+                    </div> -->
                     <div class="credit_card_visual">
                         <article class="card_template">
 
@@ -405,8 +408,27 @@
             </div>
         </div>
     </div>
+<<<<<<< HEAD
     <script src="checkout.js"></script>
 
+=======
+
+
+    <div id="timesup_popup">
+        <div class="timesup_graphic">😥</div>
+        <div class="timesup_popup_background">
+            <div class="timesup_text">
+                <h4>Damn, your reservation is over</h4>
+                <p>Your ticket has been deleted from the reservation</p>
+
+                <button class="timesup_continue"><a href="tickets.html">Continue</a></button>
+
+            </div>
+        </div>
+    </div>
+
+    <script src="checkout.js"></script>
+>>>>>>> 7d45ebe575fa1ec93cdee62c9ae3784e249704c4
 </body>
 
 </html>
