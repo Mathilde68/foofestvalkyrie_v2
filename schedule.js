@@ -281,6 +281,8 @@ if( act.artist !== "break"){
 
   clone.querySelector("#artist").textContent = act.artist;
 clone.querySelector("#time").textContent = `${act.start} - ${act.end}`;
+clone.querySelector("#artist").addEventListener( "click", seeDetails);
+
 
 
 
@@ -311,5 +313,15 @@ if( mediaQuery.matches){
 }
 }
 }
+
+
+function seeDetails(){
+
+  const id= this.textContent;
+   console.log(id);
+  
+   window.location.href = `single.html?id=${id}`;
+  
+  }
 
 

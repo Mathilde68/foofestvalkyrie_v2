@@ -33,7 +33,8 @@ async function loadJSON() {
   const lineup = await fetch(endpoint);
   const data = await lineup.json();
 
-  prepareData(data);
+  //prepareData(data);
+  displayList(data);
 }
 
 //preparing the data by creating an Artist object for each.
@@ -59,23 +60,34 @@ function prepareData(jsondata) {
 
 /* calls display artist for each artst on the list*/
 function displayList(list) {
-  console.log(list);
+ 
   list.forEach(displayArtist);
 
 }
 
 
 function displayArtist(artist) {
-  console.log(artist.name);
+
 
   const clone = document.querySelector("#template").content.cloneNode(true);
 
 
   clone.querySelector("#artist-name").textContent = artist.name;
 
+  clone.querySelector("#artist-name").addEventListener( "click", seeDetails);
+
   document.querySelector(".list-wrapper #lineup-list").appendChild(clone);
 
 
 }
 
+
+function seeDetails(){
+
+const id= this.textContent;
+ console.log(id);
+
+ window.location.href = `single.html?id=${id}`;
+
+}
 

@@ -31,7 +31,7 @@
  
 }
 /*the buttons for choosing stage in mobile view*/
-#stage-buttons{
+.stage-buttons{
     display: flex;
     flex-direction: column-reverse;
     width: 3rem;
@@ -39,17 +39,23 @@
     align-items: center;
 }
 
-#stage-buttons button{
+.stage-buttons button{
     vertical-align:top;
 	transform:rotateZ(270deg);
     font-size: 1rem;
     width:10rem;    
 }
+
+.stage-buttons button:focus{
+    color: black;
+    background-color: rgb(243, 243, 243);
+    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.274);
+}
 /*each cell in the table*/
 .table-cell{
     padding: 0.9rem;
     width: 19rem;
-    height:8rem;
+    height:9rem;
 }
 /*title of each table - the stagename*/
 .table-title{
@@ -95,7 +101,7 @@
 
    
 
-    #stage-buttons{
+    .stage-buttons{
         display: none;
     }
 
@@ -118,6 +124,7 @@
 #table-wrapper{
     display:flex;
     grid-gap:10px;
+    align-items: flex-start;
 }
 
 
@@ -127,8 +134,6 @@
     font-size: 3rem;
 }
   
-
-
 }
 
 .hidden{
