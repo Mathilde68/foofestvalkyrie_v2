@@ -13,8 +13,6 @@ tent_two:0,
 area:"",
 amount:0
 }
-
-const form = document.querySelector(".vip_fillout");
  
 //Function that starts the whole systaaaaam
 function start(){
@@ -59,19 +57,14 @@ function getUserInput(){
     const reservation = Object.create(Reservation);
     const tentTwo = parseInt(form.elements.amount_tent_two.value);
     const tentFour = parseInt(form.elements.amount_tent_four.value);
-  
-
     reservation.reg_tickets = reg_tickets;
     reservation.vip_tickets = vip_tickets;
     reservation.total_tickets = vip_tickets + reg_tickets;
     reservation.tent_two = tentTwo;
     reservation.tent_four = tentFour;
 
-
     reservation.amount = parseInt(tentTwo + (tentFour*2));
-
     console.log(reservation);
-
      localStorage.setItem("tickets", JSON.stringify(reservation));
      goToCart();
      /*
@@ -80,18 +73,9 @@ function getUserInput(){
    
 }
 
-
-
-
 function goToCart(){
     location.href = "checkout.html";
 }
-
-
-
-
-
-
 
 /* -----------move these functions to checkout.js: loadjson, prepare areas, display camping and put reservation-------------*/
 function showRegDetails() {
@@ -140,12 +124,4 @@ function inVT (){
     document.getElementById('amount_vip_ticket').stepUp();
 
 }
-
-
-/* function increment() {
-    document.getElementById('demoInput').stepUp();
- }
- function decrement() {
-    document.getElementById('demoInput').stepDown();
- } */
 

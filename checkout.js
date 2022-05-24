@@ -15,40 +15,44 @@ const allAreas=[];
 
 const allRes=[];
 
-const Reservation ={
+const ticketRes ={
   id: "",
   total_tickets: 0,
   reg_tickets: 0,
   vip_tickets: 0,
   tent_four:0,
   tent_two:0,
+  area:""
+}
+
+const reservation ={
+  id:"",
   area:"",
   amount:0
 }
+
 
 
 //Function that starts the whole systaaaaam
 function start(){
   console.log("start");
 
+  //Make sure, cart is visible first
+  document.getElementById("cart_section").style.display = "block";
 
   //Here I call functions
   registerButtons();
 
-
   prepareTickets();
-
-  getAvailability();
 }
 
 
 function registerButtons(){
 
   //Here I add buttons for the cart
+  document.querySelector(".cart_p_checkout").addEventListener("click", proceedTC);
 
 }
-
-
 
 function prepareTickets(){
 
@@ -59,13 +63,12 @@ function prepareTickets(){
 console.log(savedTickets);
 
 
-const cart = Object.create(Reservation);
+const cart = Object.create(ticketRes);
 cart.total_tickets = savedTickets.total_tickets;
 cart.reg_tickets = savedTickets.reg_tickets;
 cart.vip_tickets = savedTickets.vip_tickets;
 cart.tent_four = savedTickets.tent_four;
 cart.tent_two = savedTickets.tent_two;
-cart.amount = savedTickets.amount;
 
 
 
@@ -92,31 +95,38 @@ function displayCart(cart){
   
   clone.querySelector("[data-field=cart_regu_ticket]").textContent= ticketNameReg;
   clone.querySelector("[data-field=cart_regu_quantity]").textContent= cart.reg_tickets;
-  clone.querySelector("[data-field=cart_regu_price]").textContent = priceREG + "DKK";
-  clone.querySelector("[data-field=cart_regu_total]").textContent= priceREG * cart.reg_tickets +"DKK";
+  clone.querySelector("[data-field=cart_regu_price]").textContent = priceREG + " DKK";
+  clone.querySelector("[data-field=cart_regu_total]").textContent= priceREG * cart.reg_tickets +" DKK";
  
   clone.querySelector("[data-field=cart_vip_ticket]").textContent= ticketName;
   clone.querySelector("[data-field=cart_vip_quantity]").textContent= cart.vip_tickets;
-  clone.querySelector("[data-field=cart_vip_price]").textContent = priceVIP + "DKK";
-  clone.querySelector("[data-field=cart_vip_total]").textContent= priceVIP * cart.vip_tickets +"DKK";
+  clone.querySelector("[data-field=cart_vip_price]").textContent = priceVIP + " DKK";
+  clone.querySelector("[data-field=cart_vip_total]").textContent= priceVIP * cart.vip_tickets +" DKK";
 
   clone.querySelector("[data-field=cart_two_tent]").textContent= tentTwoName;
   clone.querySelector("[data-field=cart_two_tent_quantity]").textContent= cart.tent_two;
   clone.querySelector("[data-field=cart_two_tent_price]").textContent= tentTwoPrice;
-  clone.querySelector("[data-field=cart_two_tent_total]").textContent = tentTwoPrice * cart.tent_two + "DKK";
+  clone.querySelector("[data-field=cart_two_tent_total]").textContent = tentTwoPrice * cart.tent_two + " DKK";
 
   clone.querySelector("[data-field=cart_four_tent]").textContent= tentFourName;
   clone.querySelector("[data-field=cart_four_tent_quantity]").textContent= cart.tent_four;
   clone.querySelector("[data-field=cart_four_tent_price]").textContent= tentFourPrice;
-  clone.querySelector("[data-field=cart_four_tent_total]").textContent = tentFourPrice * cart.tent_four + "DKK";
+  clone.querySelector("[data-field=cart_four_tent_total]").textContent = tentFourPrice * cart.tent_four + " DKK";
   
   document.querySelector("#cart_table").appendChild(clone);
-
-  timerDesktop();
-
-
 }
 
+
+
+function proceedTC(){
+  console.log("lol");
+   //Make sure, cart is not visible 
+   document.getElementById("cart_section").style.display = "none";
+   document.getElementById("camping_section").style.display = "block";
+
+   getAvailability();
+
+}
 
 
 //Here we fetch the endpoint to load json of the available camping spots
@@ -157,8 +167,7 @@ allAreas.forEach(displayAreaAvailability);
 
 
 function displayAreaAvailability(camping){
-
-
+  document.querySelectorAll("[data-action='area_select']").forEach(input => input.addEventListener("click", reserveAreaSpot));
 
   
 const clone = document.querySelector("#template_camping").content.cloneNode(true);
@@ -201,17 +210,30 @@ document.querySelector("#area_e").textContent= camping.area;
 
 }
   
+function reserveAreaSpot(){
 
+  const storage = localStorage.getItem("tickets");
+  let savedTickets = JSON.parse(storage);
+  
+  const reserved = Object.create(reservation);
 
-} 
+  const hu = this.available - savedTickets.total_tickets;
+  console.log(hu);
+  
+  reserved.amount = savedTickets.total_tickets;
+  
 
-function reserveAreaSpot(reservation){
 
   const campForm= document.querySelector("#camping");
   const area = campForm.camparea.value;
   reservation.area = area;
 
 }
+
+
+} 
+
+
 
 /* 
 function putReservation(reservation){

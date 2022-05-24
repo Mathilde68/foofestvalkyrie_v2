@@ -2,8 +2,9 @@
 
 #cart_section,
 #costumer_section,
-#payment_section {
-  margin: 1rem;
+#payment_section,
+#camping_section {
+ display: none;
 }
 
 /* MOBILE STYLING DEFUALT */
@@ -122,6 +123,7 @@
 }
 
 #order_popup {
+  display: none;
   margin: 0 auto;
 }
 .order_popup_background {
