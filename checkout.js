@@ -123,12 +123,62 @@ function proceedTC() {
   //Make sure, cart is not visible 
   document.getElementById("cart_section").style.display = "none";
   document.getElementById("camping_section").style.display = "block";
-
   getAvailability();
+  document.getElementById("choose_area_btn").addEventListener("click", proceedToInfo);
 
 }
 
 
+function proceedToInfo(){
+  document.getElementById("camping_section").style.display = "none";
+  document.getElementById("costumer_section").style.display = "block";
+
+
+  document.querySelector(".p_buy").addEventListener("click", proceedToCard);
+}
+
+function reservationPost(){
+  const payload = {
+
+    id: "",
+    
+    other: "here goes",
+    
+    };
+    
+    
+    
+    fetch(`https://valkyriefest.herokuapp.com/fullfill-reservation`, {
+    
+    method: "post",
+    
+    body: JSON.stringify(payload),
+    
+    headers: {
+    
+    Accept: "application/json",
+    
+    "Content-Type": "application/json",
+    
+    },
+    
+    })
+    
+    .then((res) => res.json())
+    
+    .then((d) => {});
+}
+
+
+
+function proceedToCard(){
+
+  document.getElementById("costumer_section").style.display = "none";
+  document.getElementById("payment_section").style.display = "block";
+
+  document.querySelector(".p_payment").addEventListener("click", reservationPost);
+
+}
 //Here we fetch the endpoint to load json of the available camping spots
 async function getAvailability() {
 
@@ -232,18 +282,19 @@ function displayAreaAvailability(camping) {
     reserved.amount = savedTickets.total_tickets;
 
     let hu;
+
     if (this.value === camping.area) {
+    
+    if (camping.available > savedTickets.total_tickets){
       hu = camping.available - savedTickets.total_tickets;
       console.log(hu);
       updateDisplay(hu);
+      putReservation(reserved);
 
     }
-
-
   }
 
-
-
+  }
 
   function updateDisplay(hu) {
 
@@ -272,12 +323,14 @@ function displayAreaAvailability(camping) {
     }
 
   }
-
+  /* ableToProceed(reserved); */
 }
 
+/* function ableToProceed(reserved){
+  document.getElementById("choose_area_btn").addEventListener("click", putReservation(reserved));
+} */
 
 
-/* 
 function putReservation(reservation){
 
   const payLoad = {
@@ -309,17 +362,18 @@ function putReservation(reservation){
       function saveReservation(d){
           reservation.id = d.id;
           console.log(reservation);
-          //call timer here
+          timerDesktop();
       }
-} */
+    } 
 
 
 
 //Timer function and times up
 function timerDesktop() {
 
+
   //Here I set the timer layout to be 05:00 as default
-  document.querySelector(".timer").innerHTML = "05" + ":" + "08";
+  document.querySelector(".timer").innerHTML = "05" + ":" + "00";
   //Setting so when calling timerDesktop, the timer for desktop starts
   startTimer();
 
@@ -353,23 +407,10 @@ function timerDesktop() {
     //Here I call the setTimeout function and makes it call the startTImer function every second, therefore its always in loop
     setTimeout(startTimer, 1000);
 
-
-
-
     //Here I make an if statement saying, if the timer seconds hits the string 00, it stops the settimeOut function
     if (s === "00" && m === "00") {
       clearTimeout(setTimeout, timesUp());
-      localStorage.clear("tickets");
-    } else {
-      buy();
-    }
-
-    function buy() {
-      console.log("hej");
-    }
-
-
-
+    } 
   }
   //Here I make the function seconds to make sure when seconds hits under 10 or are over or equal 0, it needs a 0 infront (09), and when its neither its counting down from 59
   function seconds(sec) {
@@ -400,7 +441,6 @@ function timesUp() {
 
     location.href = "index.html";
   }
-
 }
 
 /* let form = document.querySelector("form");
