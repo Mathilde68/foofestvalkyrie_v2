@@ -215,18 +215,46 @@ function reserveAreaSpot(){
   const storage = localStorage.getItem("tickets");
   let savedTickets = JSON.parse(storage);
   
+  const campForm= document.querySelector("#camping");
+  const area = campForm.camparea.value;
+  
   const reserved = Object.create(reservation);
 
-  const hu = this.available - savedTickets.total_tickets;
-  console.log(hu);
+  reserved.area = area;
+  reserved.amount = savedTickets.total_tickets;
+
+  
+
+  
+ let hu;
+  
+  if(area === "Svartheim"){
+  hu = camping.available - savedTickets.total_tickets;
+   
+    }
+    else if(area === "Nilfheim"){
+      hu = camping.available - savedTickets.total_tickets;
+    
+    } else if(area === "Helheim"){
+       hu = camping.available - savedTickets.total_tickets;
+     
+    
+    }  else if(area === "Muspelheim"){
+       hu = camping.available - savedTickets.total_tickets;
+      
+    } else if(area === "Alfheim"){
+     hu = camping.available - savedTickets.total_tickets;
+     
+    }
+    console.log(hu);
+     
+
+
   
   reserved.amount = savedTickets.total_tickets;
   
 
 
-  const campForm= document.querySelector("#camping");
-  const area = campForm.camparea.value;
-  reservation.area = area;
 
 }
 
