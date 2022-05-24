@@ -94,14 +94,6 @@ function goToCart(){
 
 
 /* -----------move these functions to checkout.js: loadjson, prepare areas, display camping and put reservation-------------*/
-
-
-
-function showVipDetails() {
-    const vipDetail = document.querySelector(".vip_fillout");
-    vipDetail.style.display = "block";
-    document.querySelector(".closeVip").addEventListener("click", () => vipDetail.style.display = "none");
-}
 function showRegDetails() {
     const regDetail = document.querySelector(".regu_fillout");
     console.log("LOL");
@@ -148,27 +140,6 @@ function inVT (){
     document.getElementById('amount_vip_ticket').stepUp();
 
 }
-
-function deVTwo (){
-    document.getElementById('amountv_tent_two').stepDown();
-
-}
-function inVTwo (){
-    document.getElementById('amountv_tent_two').stepUp();
-
-}
-
-function deVFour (){
-    document.getElementById('amountv_tent_four').stepDown();
-
-}
-function inVFour (){
-    document.getElementById('amountv_tent_four').stepUp();
-
-}
-
-
-
 
 
 /* function increment() {

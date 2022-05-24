@@ -51,16 +51,6 @@
   box-shadow: inset 5px 10px 10px rgba(0, 0, 0, 0.106), 8px 8px 15px rgba(0, 0, 0, 0.106);
 }
 
-.vip_fillout{
-  display: none;
-  max-width: 90%;
-  margin: 0 auto;
-  outline: solid 5px grey;
-  padding: 1rem;
-  background-color: rgb(244, 244, 244);
-  box-shadow: inset 5px 10px 10px rgba(0, 0, 0, 0.106), 8px 8px 15px rgba(0, 0, 0, 0.106);
-}
-
 .ticket_visual{
   background-image: url("ui_icons/ticket-svgrepo-com.svg");
   width: 3rem;
