@@ -1,3 +1,8 @@
+"use strict";
+
+window.addEventListener("DOMContentLoaded", start);
+
+
 //Adding the same object from ticket
 const Area ={
   area: "area",
@@ -17,8 +22,26 @@ amount:0,
 vip: false
 }
 
-/* console.log("Person object:", savedVIP); */
-prepareData();
+
+//Function that starts the whole systaaaaam
+function start(){
+  console.log("start");
+
+
+  //Here I call functions
+  registerButtons();
+
+
+  prepareData();
+}
+
+
+function registerButtons(){
+
+  //Here I add buttons for the cart
+}
+
+
 
 function prepareData(){
 
@@ -71,26 +94,16 @@ function displayCart(cartVIP){
   
   document.querySelector("#cart_table").appendChild(clone);
 
+  timerDesktop();
+
 }
 
 
-/* function displayAreaAvailability(camping){
-  
-const clone = document.querySelector("#template_camping").content.cloneNode(true);
-  const cloneV = document.querySelector("#template_camping").content.cloneNode(true);
-
-clone.querySelector("[data-field=area]").textContent= camping.area;
-clone.querySelector("[data-field=spots]").textContent= "Spots: "+ camping.spots;
-clone.querySelector("[data-field=available]").textContent= "Available: "+camping.available;
-
-cloneV.querySelector("[data-field=area]").textContent= camping.area;
-cloneV.querySelector("[data-field=spots]").textContent= "Spots: "+ camping.spots;
-cloneV.querySelector("[data-field=available]").textContent= "Available: "+camping.available;
-} */
 //Timer function and times up
 function timerDesktop(){
+
 //Here I set the timer layout to be 05:00 as default
-document.querySelector(".timer").innerHTML = "05" + ":" + "01";
+document.querySelector(".timer").innerHTML = "05" + ":" + "08";
 //Setting so when calling timerDesktop, the timer for desktop starts
 startTimer();
 
@@ -117,16 +130,30 @@ function startTimer(){
  if (m < 0) {
    return;
  }
+
  //Here I add my minute and seconds variables to the inner HTML, so the timers length is added to the other variable of timer default
  document.querySelector(".timer").innerHTML = m + ":" + s;
 
  //Here I call the setTimeout function and makes it call the startTImer function every second, therefore its always in loop
  setTimeout(startTimer, 1000);
 
+
+
+
  //Here I make an if statement saying, if the timer seconds hits the string 00, it stops the settimeOut function
- if(s === "00"){
+ if(s === "00" && m === "00"){
      clearTimeout(setTimeout, timesUp());
+     localStorage.clear("vip");
+ } else {
+  buy();
  }
+ 
+ function buy(){
+   console.log("hej");
+ }
+ 
+
+
 }
 //Here I make the function seconds to make sure when seconds hits under 10 or are over or equal 0, it needs a 0 infront (09), and when its neither its counting down from 59
 function seconds(sec) {
@@ -138,6 +165,8 @@ function seconds(sec) {
   }
   return sec;
 }
+
+
 }
 
 function timesUp(){
@@ -146,14 +175,14 @@ function timesUp(){
   const timesupPop = document.getElementById("timesup_popup");
 
   timesupPop.style.display ="block"
-
-
   document.querySelector(".timesup_continue").addEventListener("click", closeDownTime);
 
 function closeDownTime(){
   const timesupPop = document.getElementById("timesup_popup");
 
   timesupPop.style.display ="none"
+
+  location.href = "index.html";
 }
 
 }
