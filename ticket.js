@@ -12,6 +12,7 @@ const Area ={
 const allAreas=[];
 
 const Reservation ={
+id: "",
 tickets: 0,
 tent_four:0,
 tent_two:0,
@@ -30,7 +31,7 @@ function start(){
     //Here I call functions
     registerButtons();
 
-    // calling the get  camping function
+    // calling the load JSON function
     loadJSON();
 }
 
@@ -56,12 +57,13 @@ function registerButtons(){
    document.getElementById("minus_v_four").addEventListener("click", deVFour);
    document.getElementById("plus_v_four").addEventListener("click", inVFour);
 
+    //eventlistener for the buyy buttons
    document.querySelector(".ticket_buy").addEventListener("click", getUserInputRegu);
    document.querySelector(".ticket_buyVip").addEventListener("click", getUserInputVIP);
 
 }
 
-//Here we fetch the endpoint
+//Here we fetch the endpoint to load json of the available camping spots
 async function loadJSON(){
 
     const endpoint="https://valkyriefest.herokuapp.com/available-spots";
@@ -145,7 +147,7 @@ function getUserInputRegu(){
     const Rtickets =  parseInt(Rform.elements.amount_reg_ticket.value);
     const Rreservation = Object.create(Reservation);
     const RtentTwo = parseInt(Rform.elements.amount_tent_two.value);
-    const RtentFour = parseInt(Rform.elements.amount_tent_four.value*2);
+    const RtentFour = parseInt(Rform.elements.amount_tent_four.value);
     const Rcamp = Rform.elements.camparea.value;
 
     Rreservation.tickets = Rtickets;
@@ -153,7 +155,7 @@ function getUserInputRegu(){
     Rreservation.tent_four = RtentFour;
     Rreservation.area = Rcamp;
 
-    Rreservation.amount = RtentTwo + RtentFour;
+    Rreservation.amount = RtentTwo + (RtentFour*2);
 
     localStorage.setItem("regu", JSON.stringify(Rreservation));
     let storageRegu = localStorage.getItem("regu");
@@ -181,13 +183,51 @@ function getUserInputVIP(){
     Vreservation.amount = VtentTwo + VtentFour;
 
   /*   console.log(Rreservation, Vreservation); */
-  localStorage.setItem("vip", JSON.stringify(Vreservation));
-  location.href = "checkout.html";
+
+  putReservation(Vreservation);
 }
 
 
+function putReservation(reservation){
+
+    const payLoad = {
+        area: reservation.area,
+        amount: reservation.amount,
+      };
+      const postData = JSON.stringify(payLoad);
+      
+    console.log(payLoad);
+       
+      fetch(`https://valkyriefest.herokuapp.com/reserve-spot`, {
+        method: "put",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: postData,
+      })
+        .then((res) => res.json())
+        .then((d) => {
+    console.log(d);
+          if(d.id){
+              saveReservation(d);
+          }else{
+              console.log("Cannot reserve, no spots available in chosen area");
+          }
+
+        });
+
+        function saveReservation(d){
+            reservation.id = d.id;
+            console.log(reservation);
+            localStorage.setItem("vip", JSON.stringify(reservation));
+           goToCart();
+        }
+}
 
 
+function goToCart(){
+    location.href = "checkout.html";
+}
 
 
 function showVipDetails() {

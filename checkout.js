@@ -6,9 +6,10 @@ const Area ={
 
 }
 
-const allAreas=[];
+const allRes=[];
 
 const Reservation ={
+id:"",
 tickets: 0,
 tent_four:0,
 tent_two:0,
@@ -26,17 +27,19 @@ function prepareData(){
  console.log(storageVip);
  let savedVIP = JSON.parse(storageVip);
 
+console.log(savedVIP);
+
 
 const cartVIP = Object.create(Reservation);
-
+cartVIP.id = savedVIP.id;
 cartVIP.tickets = savedVIP.tickets;
-cartVIP.tent_four = savedVIP.tent_four;
+cartVIP.tent_four = savedVIP.tent_four/2;
 cartVIP.tent_two = savedVIP.tent_two;
 cartVIP.area = savedVIP.area;
 
-allAreas.push(cartVIP);
+allRes.push(cartVIP);
 
-allAreas.forEach(displayCart);
+allRes.forEach(displayCart);
 
 
 }
