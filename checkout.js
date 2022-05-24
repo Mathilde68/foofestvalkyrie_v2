@@ -3,7 +3,7 @@
 window.addEventListener("DOMContentLoaded", start);
 
 
-//Adding the same object from ticket
+
 const Area ={
   area: "area",
   spots: 0,
@@ -11,16 +11,19 @@ const Area ={
 
 }
 
+const allAreas=[];
+
 const allRes=[];
 
 const Reservation ={
-id:"",
-tickets: 0,
-tent_four:0,
-tent_two:0,
-area:"",
-amount:0,
-vip: false
+  id: "",
+  total_tickets: 0,
+  reg_tickets: 0,
+  vip_tickets: 0,
+  tent_four:0,
+  tent_two:0,
+  area:"",
+  amount:0
 }
 
 
@@ -33,73 +36,219 @@ function start(){
   registerButtons();
 
 
-  prepareData();
+  prepareTickets();
+
+  getAvailability();
 }
 
 
 function registerButtons(){
 
   //Here I add buttons for the cart
+
 }
 
 
 
-function prepareData(){
+function prepareTickets(){
 
-  let storageVip =localStorage.getItem("vip");
- console.log(storageVip);
- let savedVIP = JSON.parse(storageVip);
+  let storage =localStorage.getItem("tickets");
+ console.log(storage);
+ let savedTickets = JSON.parse(storage);
 
-console.log(savedVIP);
+console.log(savedTickets);
 
 
-const cartVIP = Object.create(Reservation);
-cartVIP.id = savedVIP.id;
-cartVIP.tickets = savedVIP.tickets;
-cartVIP.tent_four = savedVIP.tent_four/2;
-cartVIP.tent_two = savedVIP.tent_two;
-cartVIP.area = savedVIP.area;
+const cart = Object.create(Reservation);
+cart.total_tickets = savedTickets.total_tickets;
+cart.reg_tickets = savedTickets.reg_tickets;
+cart.vip_tickets = savedTickets.vip_tickets;
+cart.tent_four = savedTickets.tent_four;
+cart.tent_two = savedTickets.tent_two;
+cart.amount = savedTickets.amount;
 
-allRes.push(cartVIP);
+
+
+allRes.push(cart);
 
 allRes.forEach(displayCart);
 
 
 }
 
-function displayCart(cartVIP){
+function displayCart(cart){
 
   const clone = document.querySelector("#cart").content.cloneNode(true);
 
-
+  const priceREG = 799;
   const priceVIP = 1299;
   const tentTwoPrice = 299;
   const tentFourPrice = 399;
   const ticketName = "VIP Festival Ticket";
+  const ticketNameReg = "Regular Festival Ticket";
   const tentTwoName = "2 Person tent";
   const tentFourName = "4 Person tent";
 
-  clone.querySelector("[data-field=cart_camp_area]").textContent= cartVIP.area;
+  
+  clone.querySelector("[data-field=cart_regu_ticket]").textContent= ticketNameReg;
+  clone.querySelector("[data-field=cart_regu_quantity]").textContent= cart.reg_tickets;
+  clone.querySelector("[data-field=cart_regu_price]").textContent = priceREG + "DKK";
+  clone.querySelector("[data-field=cart_regu_total]").textContent= priceREG * cart.reg_tickets +"DKK";
+ 
   clone.querySelector("[data-field=cart_vip_ticket]").textContent= ticketName;
-  clone.querySelector("[data-field=cart_vip_quantity]").textContent= cartVIP.tickets;
+  clone.querySelector("[data-field=cart_vip_quantity]").textContent= cart.vip_tickets;
   clone.querySelector("[data-field=cart_vip_price]").textContent = priceVIP + "DKK";
-  clone.querySelector("[data-field=cart_vip_total]").textContent= priceVIP * cartVIP.tickets +"DKK";
+  clone.querySelector("[data-field=cart_vip_total]").textContent= priceVIP * cart.vip_tickets +"DKK";
 
   clone.querySelector("[data-field=cart_two_tent]").textContent= tentTwoName;
-  clone.querySelector("[data-field=cart_two_tent_quantity]").textContent= cartVIP.tent_two;
+  clone.querySelector("[data-field=cart_two_tent_quantity]").textContent= cart.tent_two;
   clone.querySelector("[data-field=cart_two_tent_price]").textContent= tentTwoPrice;
-  clone.querySelector("[data-field=cart_two_tent_total]").textContent = tentTwoPrice * cartVIP.tent_two + "DKK";
+  clone.querySelector("[data-field=cart_two_tent_total]").textContent = tentTwoPrice * cart.tent_two + "DKK";
 
   clone.querySelector("[data-field=cart_four_tent]").textContent= tentFourName;
-  clone.querySelector("[data-field=cart_four_tent_quantity]").textContent= cartVIP.tent_four;
+  clone.querySelector("[data-field=cart_four_tent_quantity]").textContent= cart.tent_four;
   clone.querySelector("[data-field=cart_four_tent_price]").textContent= tentFourPrice;
-  clone.querySelector("[data-field=cart_four_tent_total]").textContent = tentFourPrice * cartVIP.tent_four + "DKK";
+  clone.querySelector("[data-field=cart_four_tent_total]").textContent = tentFourPrice * cart.tent_four + "DKK";
   
   document.querySelector("#cart_table").appendChild(clone);
 
   timerDesktop();
 
+
 }
+
+
+
+//Here we fetch the endpoint to load json of the available camping spots
+async function getAvailability(){
+
+  const endpoint="https://valkyriefest.herokuapp.com/available-spots";
+
+
+  const data = await fetch(endpoint);
+  const json = await data.json();
+
+
+  prepareAreas(json);
+
+}
+
+function prepareAreas(json){
+
+  json.forEach(jsonobject => {
+
+      const camping = Object.create(Area);
+
+      camping.area = jsonobject.area;
+      camping.spots = jsonobject.spots;
+      camping.available = jsonobject.available;
+
+      console.log(camping);
+
+      allAreas.push(camping);
+
+  });
+
+
+console.log(allAreas);
+allAreas.forEach(displayAreaAvailability);
+
+}
+
+
+function displayAreaAvailability(camping){
+
+
+
+  
+const clone = document.querySelector("#template_camping").content.cloneNode(true);
+clone.querySelector("[data-field=spots]").textContent= "Spots: "+ camping.spots;
+clone.querySelector("[data-field=available]").textContent= "Available: "+camping.available;
+
+
+
+
+if(camping.area === "Svartheim"){
+document.querySelector("#area_a").textContent= camping.area;
+
+  document.querySelector("#camping_one").appendChild(clone);
+  
+
+}
+if(camping.area === "Nilfheim"){
+document.querySelector("#area_b").textContent= camping.area;
+
+  document.querySelector("#camping_two").appendChild(clone);
+
+
+
+}  if(camping.area === "Helheim"){
+document.querySelector("#area_c").textContent= camping.area;
+
+  document.querySelector("#camping_three").appendChild(clone);
+
+
+}  if(camping.area === "Muspelheim"){
+document.querySelector("#area_d").textContent= camping.area;
+
+  document.querySelector("#camping_four").appendChild(clone);
+
+
+} else if(camping.area === "Alfheim"){
+document.querySelector("#area_e").textContent= camping.area;
+  document.querySelector("#camping_five").appendChild(clone);
+
+
+}
+  
+
+
+} 
+
+function reserveAreaSpot(reservation){
+
+  const campForm= document.querySelector("#camping");
+  const area = campForm.camparea.value;
+  reservation.area = area;
+
+}
+
+/* 
+function putReservation(reservation){
+
+  const payLoad = {
+      area: reservation.area,
+      amount: reservation.amount,
+    };
+    const postData = JSON.stringify(payLoad);
+    
+  console.log(payLoad);
+     
+    fetch(`https://valkyriefest.herokuapp.com/reserve-spot`, {
+      method: "put",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: postData,
+    })
+      .then((res) => res.json())
+      .then((d) => {
+  console.log(d);
+        if(d.id){
+            saveReservation(d);
+        }else{
+            console.log("Cannot reserve, no spots available in chosen area");
+        }
+
+      });
+
+      function saveReservation(d){
+          reservation.id = d.id;
+          console.log(reservation);
+          //call timer here
+      }
+} */
+
 
 
 //Timer function and times up
@@ -146,7 +295,7 @@ function startTimer(){
  //Here I make an if statement saying, if the timer seconds hits the string 00, it stops the settimeOut function
  if(s === "00" && m === "00"){
      clearTimeout(setTimeout, timesUp());
-     localStorage.clear("vip");
+     localStorage.clear("tickets");
  } else {
   buy();
  }
