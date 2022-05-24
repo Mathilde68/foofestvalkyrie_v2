@@ -220,7 +220,7 @@ function putReservation(reservation){
             reservation.id = d.id;
             console.log(reservation);
             localStorage.setItem("vip", JSON.stringify(reservation));
-          // goToCart();
+          goToCart();
         }
 }
 
