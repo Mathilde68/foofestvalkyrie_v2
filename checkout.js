@@ -4,37 +4,37 @@ window.addEventListener("DOMContentLoaded", start);
 
 
 
-const Area ={
+const Area = {
   area: "area",
   spots: 0,
   available: 0
 
 }
 
-const allAreas=[];
+const allAreas = [];
 
-const allRes=[];
+const allRes = [];
 
-const ticketRes ={
+const ticketRes = {
   id: "",
   total_tickets: 0,
   reg_tickets: 0,
   vip_tickets: 0,
-  tent_four:0,
-  tent_two:0,
-  area:""
+  tent_four: 0,
+  tent_two: 0,
+  area: ""
 }
 
-const reservation ={
-  id:"",
-  area:"",
-  amount:0
+const reservation = {
+  id: "",
+  area: "",
+  amount: 0
 }
 
 
 
 //Function that starts the whole systaaaaam
-function start(){
+function start() {
   console.log("start");
 
   //Make sure, cart is visible first
@@ -47,39 +47,39 @@ function start(){
 }
 
 
-function registerButtons(){
+function registerButtons() {
 
   //Here I add buttons for the cart
   document.querySelector(".cart_p_checkout").addEventListener("click", proceedTC);
 
 }
 
-function prepareTickets(){
+function prepareTickets() {
 
-  let storage =localStorage.getItem("tickets");
- console.log(storage);
- let savedTickets = JSON.parse(storage);
+  let storage = localStorage.getItem("tickets");
+  console.log(storage);
+  let savedTickets = JSON.parse(storage);
 
-console.log(savedTickets);
-
-
-const cart = Object.create(ticketRes);
-cart.total_tickets = savedTickets.total_tickets;
-cart.reg_tickets = savedTickets.reg_tickets;
-cart.vip_tickets = savedTickets.vip_tickets;
-cart.tent_four = savedTickets.tent_four;
-cart.tent_two = savedTickets.tent_two;
+  console.log(savedTickets);
 
 
+  const cart = Object.create(ticketRes);
+  cart.total_tickets = savedTickets.total_tickets;
+  cart.reg_tickets = savedTickets.reg_tickets;
+  cart.vip_tickets = savedTickets.vip_tickets;
+  cart.tent_four = savedTickets.tent_four;
+  cart.tent_two = savedTickets.tent_two;
 
-allRes.push(cart);
 
-allRes.forEach(displayCart);
+
+  allRes.push(cart);
+
+  allRes.forEach(displayCart);
 
 
 }
 
-function displayCart(cart){
+function displayCart(cart) {
 
   const clone = document.querySelector("#cart").content.cloneNode(true);
 
@@ -92,47 +92,47 @@ function displayCart(cart){
   const tentTwoName = "2 Person tent";
   const tentFourName = "4 Person tent";
 
-  
-  clone.querySelector("[data-field=cart_regu_ticket]").textContent= ticketNameReg;
-  clone.querySelector("[data-field=cart_regu_quantity]").textContent= cart.reg_tickets;
-  clone.querySelector("[data-field=cart_regu_price]").textContent = priceREG + " DKK";
-  clone.querySelector("[data-field=cart_regu_total]").textContent= priceREG * cart.reg_tickets +" DKK";
- 
-  clone.querySelector("[data-field=cart_vip_ticket]").textContent= ticketName;
-  clone.querySelector("[data-field=cart_vip_quantity]").textContent= cart.vip_tickets;
-  clone.querySelector("[data-field=cart_vip_price]").textContent = priceVIP + " DKK";
-  clone.querySelector("[data-field=cart_vip_total]").textContent= priceVIP * cart.vip_tickets +" DKK";
 
-  clone.querySelector("[data-field=cart_two_tent]").textContent= tentTwoName;
-  clone.querySelector("[data-field=cart_two_tent_quantity]").textContent= cart.tent_two;
-  clone.querySelector("[data-field=cart_two_tent_price]").textContent= tentTwoPrice;
+  clone.querySelector("[data-field=cart_regu_ticket]").textContent = ticketNameReg;
+  clone.querySelector("[data-field=cart_regu_quantity]").textContent = cart.reg_tickets;
+  clone.querySelector("[data-field=cart_regu_price]").textContent = priceREG + " DKK";
+  clone.querySelector("[data-field=cart_regu_total]").textContent = priceREG * cart.reg_tickets + " DKK";
+
+  clone.querySelector("[data-field=cart_vip_ticket]").textContent = ticketName;
+  clone.querySelector("[data-field=cart_vip_quantity]").textContent = cart.vip_tickets;
+  clone.querySelector("[data-field=cart_vip_price]").textContent = priceVIP + " DKK";
+  clone.querySelector("[data-field=cart_vip_total]").textContent = priceVIP * cart.vip_tickets + " DKK";
+
+  clone.querySelector("[data-field=cart_two_tent]").textContent = tentTwoName;
+  clone.querySelector("[data-field=cart_two_tent_quantity]").textContent = cart.tent_two;
+  clone.querySelector("[data-field=cart_two_tent_price]").textContent = tentTwoPrice;
   clone.querySelector("[data-field=cart_two_tent_total]").textContent = tentTwoPrice * cart.tent_two + " DKK";
 
-  clone.querySelector("[data-field=cart_four_tent]").textContent= tentFourName;
-  clone.querySelector("[data-field=cart_four_tent_quantity]").textContent= cart.tent_four;
-  clone.querySelector("[data-field=cart_four_tent_price]").textContent= tentFourPrice;
+  clone.querySelector("[data-field=cart_four_tent]").textContent = tentFourName;
+  clone.querySelector("[data-field=cart_four_tent_quantity]").textContent = cart.tent_four;
+  clone.querySelector("[data-field=cart_four_tent_price]").textContent = tentFourPrice;
   clone.querySelector("[data-field=cart_four_tent_total]").textContent = tentFourPrice * cart.tent_four + " DKK";
-  
+
   document.querySelector("#cart_table").appendChild(clone);
 }
 
 
 
-function proceedTC(){
+function proceedTC() {
   console.log("lol");
-   //Make sure, cart is not visible 
-   document.getElementById("cart_section").style.display = "none";
-   document.getElementById("camping_section").style.display = "block";
+  //Make sure, cart is not visible 
+  document.getElementById("cart_section").style.display = "none";
+  document.getElementById("camping_section").style.display = "block";
 
-   getAvailability();
+  getAvailability();
 
 }
 
 
 //Here we fetch the endpoint to load json of the available camping spots
-async function getAvailability(){
+async function getAvailability() {
 
-  const endpoint="https://valkyriefest.herokuapp.com/available-spots";
+  const endpoint = "https://valkyriefest.herokuapp.com/available-spots";
 
 
   const data = await fetch(endpoint);
@@ -143,123 +143,137 @@ async function getAvailability(){
 
 }
 
-function prepareAreas(json){
+function prepareAreas(json) {
 
   json.forEach(jsonobject => {
 
-      const camping = Object.create(Area);
+    const camping = Object.create(Area);
 
-      camping.area = jsonobject.area;
-      camping.spots = jsonobject.spots;
-      camping.available = jsonobject.available;
+    camping.area = jsonobject.area;
+    camping.spots = jsonobject.spots;
+    camping.available = jsonobject.available;
 
-      console.log(camping);
+    console.log(camping);
 
-      allAreas.push(camping);
+    allAreas.push(camping);
 
   });
 
 
-console.log(allAreas);
-allAreas.forEach(displayAreaAvailability);
+  console.log(allAreas);
+  allAreas.forEach(displayAreaAvailability);
 
 }
 
 
-function displayAreaAvailability(camping){
+function displayAreaAvailability(camping) {
   document.querySelectorAll("[data-action='area_select']").forEach(input => input.addEventListener("click", reserveAreaSpot));
 
-  
-const clone = document.querySelector("#template_camping").content.cloneNode(true);
-clone.querySelector("[data-field=spots]").textContent= "Spots: "+ camping.spots;
-clone.querySelector("[data-field=available]").textContent= "Available: "+camping.available;
+
+
+  const clone = document.querySelector("#template_camping").content.cloneNode(true);
+  clone.querySelector("[data-field=spots]").textContent = "Spots: " + camping.spots;
+  clone.querySelector("[data-field=available]").textContent = "Available: " + camping.available;
 
 
 
 
-if(camping.area === "Svartheim"){
-document.querySelector("#area_a").textContent= camping.area;
+  if (camping.area === "Svartheim") {
+    document.querySelector("#area_a").textContent = camping.area;
+    clone.querySelector("[data-field=available]").id = "available_a";
 
-  document.querySelector("#camping_one").appendChild(clone);
-  
-
-}
-if(camping.area === "Nilfheim"){
-document.querySelector("#area_b").textContent= camping.area;
-
-  document.querySelector("#camping_two").appendChild(clone);
+    document.querySelector("#camping_one").appendChild(clone);
 
 
 
-}  if(camping.area === "Helheim"){
-document.querySelector("#area_c").textContent= camping.area;
+  }
+  if (camping.area === "Nilfheim") {
+    document.querySelector("#area_b").textContent = camping.area;
+    clone.querySelector("[data-field=available]").id = "available_b";
 
-  document.querySelector("#camping_three").appendChild(clone);
-
-
-}  if(camping.area === "Muspelheim"){
-document.querySelector("#area_d").textContent= camping.area;
-
-  document.querySelector("#camping_four").appendChild(clone);
+    document.querySelector("#camping_two").appendChild(clone);
 
 
-} else if(camping.area === "Alfheim"){
-document.querySelector("#area_e").textContent= camping.area;
-  document.querySelector("#camping_five").appendChild(clone);
+
+  } if (camping.area === "Helheim") {
+    document.querySelector("#area_c").textContent = camping.area;
+    clone.querySelector("[data-field=available]").id = "available_c";
+
+    document.querySelector("#camping_three").appendChild(clone);
 
 
-}
-  
-function reserveAreaSpot(){
+  } if (camping.area === "Muspelheim") {
+    document.querySelector("#area_d").textContent = camping.area;
+    clone.querySelector("[data-field=available]").id = "available_d";
 
-  const storage = localStorage.getItem("tickets");
-  let savedTickets = JSON.parse(storage);
-  
-  const campForm= document.querySelector("#camping");
-  const area = campForm.camparea.value;
-  
-  const reserved = Object.create(reservation);
+    document.querySelector("#camping_four").appendChild(clone);
 
-  reserved.area = area;
-  reserved.amount = savedTickets.total_tickets;
 
-  
+  } else if (camping.area === "Alfheim") {
+    document.querySelector("#area_e").textContent = camping.area;
+    clone.querySelector("[data-field=available]").id = "available_e";
 
-  
- let hu;
-  
-  if(area === "Svartheim"){
-  hu = camping.available - savedTickets.total_tickets;
-   
-    }
-    else if(area === "Nilfheim"){
+    document.querySelector("#camping_five").appendChild(clone);
+
+
+  }
+
+  function reserveAreaSpot() {
+
+    const storage = localStorage.getItem("tickets");
+    let savedTickets = JSON.parse(storage);
+
+    const campForm = document.querySelector("#camping");
+    const area = campForm.camparea.value;
+
+    const reserved = Object.create(reservation);
+
+    reserved.area = area;
+    reserved.amount = savedTickets.total_tickets;
+
+    let hu;
+    if (this.value === camping.area) {
       hu = camping.available - savedTickets.total_tickets;
-    
-    } else if(area === "Helheim"){
-       hu = camping.available - savedTickets.total_tickets;
-     
-    
-    }  else if(area === "Muspelheim"){
-       hu = camping.available - savedTickets.total_tickets;
-      
-    } else if(area === "Alfheim"){
-     hu = camping.available - savedTickets.total_tickets;
-     
+      console.log(hu);
+      updateDisplay(hu);
+
     }
-    console.log(hu);
-     
 
 
-  
-  reserved.amount = savedTickets.total_tickets;
-  
+  }
 
 
+
+
+  function updateDisplay(hu) {
+
+
+    if (camping.area === "Svartheim") {
+      document.querySelector("#available_a").textContent = hu;
+
+
+    }
+    else if (camping.area === "Nilfheim") {
+      document.querySelector("#available_b").textContent = hu;
+
+
+    } else if (camping.area === "Helheim") {
+      document.querySelector("#available_c").textContent = hu;
+
+
+
+    } else if (camping.area === "Muspelheim") {
+      document.querySelector("#available_d").textContent = hu;
+
+
+    } else if (camping.area === "Alfheim") {
+      document.querySelector("#available_e").textContent = hu;
+
+    }
+
+  }
 
 }
-
-
-} 
 
 
 
@@ -302,90 +316,90 @@ function putReservation(reservation){
 
 
 //Timer function and times up
-function timerDesktop(){
+function timerDesktop() {
 
-//Here I set the timer layout to be 05:00 as default
-document.querySelector(".timer").innerHTML = "05" + ":" + "08";
-//Setting so when calling timerDesktop, the timer for desktop starts
-startTimer();
+  //Here I set the timer layout to be 05:00 as default
+  document.querySelector(".timer").innerHTML = "05" + ":" + "08";
+  //Setting so when calling timerDesktop, the timer for desktop starts
+  startTimer();
 
-function startTimer(){
+  function startTimer() {
 
-//Here I make a variable for the innerHTML for the timer
- const min_sec = document.querySelector(".timer").innerHTML;
+    //Here I make a variable for the innerHTML for the timer
+    const min_sec = document.querySelector(".timer").innerHTML;
 
-//Here I split the the string so it becomes an array of only the four digits for minutes and seconds
- const arraytime = min_sec.split(/[:]+/);
+    //Here I split the the string so it becomes an array of only the four digits for minutes and seconds
+    const arraytime = min_sec.split(/[:]+/);
 
- //Here I set m, my minutes variable, as the first part of the array 0
- let m = arraytime[0];
+    //Here I set m, my minutes variable, as the first part of the array 0
+    let m = arraytime[0];
 
- //Here I set s, my seconds variable, as the last part of the array 1 -1 for countdown and call the function seconds
- let s = seconds(arraytime[1] - 1);
+    //Here I set s, my seconds variable, as the last part of the array 1 -1 for countdown and call the function seconds
+    let s = seconds(arraytime[1] - 1);
 
- //Here I make an if statement saying if seconds hits 59, minutes have to decrement 1 value
- if (s == 59) {
-   m = m - 1;
- }
+    //Here I make an if statement saying if seconds hits 59, minutes have to decrement 1 value
+    if (s == 59) {
+      m = m - 1;
+    }
 
- //Here if minutes are smaller than 0, its only the seconds that returns
- if (m < 0) {
-   return;
- }
+    //Here if minutes are smaller than 0, its only the seconds that returns
+    if (m < 0) {
+      return;
+    }
 
- //Here I add my minute and seconds variables to the inner HTML, so the timers length is added to the other variable of timer default
- document.querySelector(".timer").innerHTML = m + ":" + s;
+    //Here I add my minute and seconds variables to the inner HTML, so the timers length is added to the other variable of timer default
+    document.querySelector(".timer").innerHTML = m + ":" + s;
 
- //Here I call the setTimeout function and makes it call the startTImer function every second, therefore its always in loop
- setTimeout(startTimer, 1000);
-
-
+    //Here I call the setTimeout function and makes it call the startTImer function every second, therefore its always in loop
+    setTimeout(startTimer, 1000);
 
 
- //Here I make an if statement saying, if the timer seconds hits the string 00, it stops the settimeOut function
- if(s === "00" && m === "00"){
-     clearTimeout(setTimeout, timesUp());
-     localStorage.clear("tickets");
- } else {
-  buy();
- }
- 
- function buy(){
-   console.log("hej");
- }
- 
 
 
-}
-//Here I make the function seconds to make sure when seconds hits under 10 or are over or equal 0, it needs a 0 infront (09), and when its neither its counting down from 59
-function seconds(sec) {
-  if (sec < 10 && sec >= 0) {
-    sec = "0" + sec;
-  } 
-  if (sec < 0) {
-    sec = "59";
+    //Here I make an if statement saying, if the timer seconds hits the string 00, it stops the settimeOut function
+    if (s === "00" && m === "00") {
+      clearTimeout(setTimeout, timesUp());
+      localStorage.clear("tickets");
+    } else {
+      buy();
+    }
+
+    function buy() {
+      console.log("hej");
+    }
+
+
+
   }
-  return sec;
-}
+  //Here I make the function seconds to make sure when seconds hits under 10 or are over or equal 0, it needs a 0 infront (09), and when its neither its counting down from 59
+  function seconds(sec) {
+    if (sec < 10 && sec >= 0) {
+      sec = "0" + sec;
+    }
+    if (sec < 0) {
+      sec = "59";
+    }
+    return sec;
+  }
 
 
 }
 
-function timesUp(){
+function timesUp() {
   console.log("TIMES UP BIIIIIIITCH");
-  
+
   const timesupPop = document.getElementById("timesup_popup");
 
-  timesupPop.style.display ="block"
+  timesupPop.style.display = "block"
   document.querySelector(".timesup_continue").addEventListener("click", closeDownTime);
 
-function closeDownTime(){
-  const timesupPop = document.getElementById("timesup_popup");
+  function closeDownTime() {
+    const timesupPop = document.getElementById("timesup_popup");
 
-  timesupPop.style.display ="none"
+    timesupPop.style.display = "none"
 
-  location.href = "index.html";
-}
+    location.href = "index.html";
+  }
 
 }
 
