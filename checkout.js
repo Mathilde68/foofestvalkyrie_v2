@@ -130,7 +130,7 @@ function proceedTC() {
 }
 
 
-function proceedToInfo(){
+function proceedToInfo() {
   putReservation();
 
   document.getElementById("camping_section").style.display = "none";
@@ -141,7 +141,7 @@ function proceedToInfo(){
 }
 
 
-function proceedToCard(){
+function proceedToCard() {
 
 
   document.getElementById("costumer_section").style.display = "none";
@@ -151,8 +151,8 @@ function proceedToCard(){
 
 }
 
-function confirmOrder(){
-  
+function confirmOrder() {
+
   document.getElementById("payment_section").style.display = "none";
   document.getElementById("order_popup").style.display = "block";
 
@@ -161,36 +161,37 @@ function confirmOrder(){
 
 
 
-function reservationPost(){
+function reservationPost() {
   const payload = {
 
-    id:reservation.id,
-    
-    };
-    console.log(payload);
-    
-    
-    fetch(`https://valkyriefest.herokuapp.com/fullfill-reservation`, {
-    
+    id: reservation.id,
+
+  };
+  console.log(payload);
+
+
+  fetch(`https://valkyriefest.herokuapp.com/fullfill-reservation`, {
+
     method: "post",
-    
+
     body: JSON.stringify(payload),
-    
+
     headers: {
-    
-    Accept: "application/json",
-    
-    "Content-Type": "application/json",
-    
+
+      Accept: "application/json",
+
+      "Content-Type": "application/json",
+
     },
-    
-    })
-    
+
+  })
+
     .then((res) => res.json())
-    
+
     .then((d) => {
       console.log(d);
-      confirmOrder();});
+      confirmOrder();
+    });
 }
 
 
@@ -211,6 +212,7 @@ async function getAvailability() {
 }
 
 function prepareAreas(json) {
+  allAreas.splice(0, allAreas.length);
 
   json.forEach(jsonobject => {
 
@@ -228,7 +230,15 @@ function prepareAreas(json) {
 
 
   console.log(allAreas);
+
+  document.querySelector("#camping_one").textContent = "";
+  document.querySelector("#camping_two").textContent = "";
+  document.querySelector("#camping_three").textContent = "";
+  document.querySelector("#camping_four").textContent = "";
+  document.querySelector("#camping_five").textContent = "";
   allAreas.forEach(displayAreaAvailability);
+
+
 
 }
 
@@ -247,7 +257,7 @@ function displayAreaAvailability(camping) {
 
   if (camping.area === "Svartheim") {
     document.querySelector("#area_a").textContent = camping.area;
-    clone.querySelector("[data-field=available]").id = "available_a";
+    clone.querySelector("[data-field=available]").id = "Svartheim_a";
 
     document.querySelector("#camping_one").appendChild(clone);
 
@@ -256,7 +266,7 @@ function displayAreaAvailability(camping) {
   }
   if (camping.area === "Nilfheim") {
     document.querySelector("#area_b").textContent = camping.area;
-    clone.querySelector("[data-field=available]").id = "available_b";
+    clone.querySelector("[data-field=available]").id = "Nilfheim_a";
 
     document.querySelector("#camping_two").appendChild(clone);
 
@@ -264,27 +274,26 @@ function displayAreaAvailability(camping) {
 
   } if (camping.area === "Helheim") {
     document.querySelector("#area_c").textContent = camping.area;
-    clone.querySelector("[data-field=available]").id = "available_c";
+    clone.querySelector("[data-field=available]").id = "Helheim_a";
 
     document.querySelector("#camping_three").appendChild(clone);
 
 
   } if (camping.area === "Muspelheim") {
     document.querySelector("#area_d").textContent = camping.area;
-    clone.querySelector("[data-field=available]").id = "available_d";
+    clone.querySelector("[data-field=available]").id = "Muspelheim_a";
 
     document.querySelector("#camping_four").appendChild(clone);
 
 
   } else if (camping.area === "Alfheim") {
     document.querySelector("#area_e").textContent = camping.area;
-    clone.querySelector("[data-field=available]").id = "available_e";
+    clone.querySelector("[data-field=available]").id = "Alfheim_a";
 
     document.querySelector("#camping_five").appendChild(clone);
 
 
   }
-
   function reserveAreaSpot() {
 
     const storage = localStorage.getItem("tickets");
@@ -301,87 +310,64 @@ function displayAreaAvailability(camping) {
     let hu;
 
     if (this.value === camping.area) {
-    
-    if (camping.available > savedTickets.total_tickets){
-      hu = camping.available - savedTickets.total_tickets;
-      console.log(hu);
-      updateDisplay(hu);
-      console.log(reservation);
+      if (camping.available > savedTickets.total_tickets) {
+        hu = camping.available - savedTickets.total_tickets;
 
-    }
-  }
+        const area = this.value;
+        console.log(hu);
+        updateDisplay(hu, area);
 
-  }
-
-  function updateDisplay(hu) {
-
-
-    if (camping.area === "Svartheim") {
-      document.querySelector("#available_a").textContent = hu;
-
-
-    }
-    else if (camping.area === "Nilfheim") {
-      document.querySelector("#available_b").textContent = hu;
-
-
-    } else if (camping.area === "Helheim") {
-      document.querySelector("#available_c").textContent = hu;
-
-
-
-    } else if (camping.area === "Muspelheim") {
-      document.querySelector("#available_d").textContent = hu;
-
-
-    } else if (camping.area === "Alfheim") {
-      document.querySelector("#available_e").textContent = hu;
-
+        console.log(reservation);
+      }
     }
 
   }
-  /* ableToProceed(reserved); */
+
+  function updateDisplay(hu, area) {
+    const area_availability = area + "_a";
+    if (area = camping.area) {
+      document.getElementById(area_availability).textContent = hu;
+    }
+  }
+
 }
 
-/* function ableToProceed(reserved){
-  document.getElementById("choose_area_btn").addEventListener("click", putReservation(reserved));
-} */
 
 
-function putReservation(){
+function putReservation() {
 
   const payLoad = {
-      area: reservation.area,
-      amount: reservation.amount,
-    };
-    const postData = JSON.stringify(payLoad);
-    
+    area: reservation.area,
+    amount: reservation.amount,
+  };
+  const postData = JSON.stringify(payLoad);
+
   console.log(payLoad);
-     
-    fetch(`https://valkyriefest.herokuapp.com/reserve-spot`, {
-      method: "put",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: postData,
-    })
-      .then((res) => res.json())
-      .then((d) => {
-  console.log(d);
-        if(d.id){
-            saveReservation(d);
-        }else{
-            console.log("Cannot reserve, no spots available in chosen area");
-        }
 
-      });
-
-      function saveReservation(d){
-          reservation.id = d.id;
-          console.log(reservation);
-          timerDesktop();
+  fetch(`https://valkyriefest.herokuapp.com/reserve-spot`, {
+    method: "put",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: postData,
+  })
+    .then((res) => res.json())
+    .then((d) => {
+      console.log(d);
+      if (d.id) {
+        saveReservation(d);
+      } else {
+        console.log("Cannot reserve, no spots available in chosen area");
       }
-    } 
+
+    });
+
+  function saveReservation(d) {
+    reservation.id = d.id;
+    console.log(reservation);
+    timerDesktop();
+  }
+}
 
 
 
@@ -427,7 +413,7 @@ function timerDesktop() {
     //Here I make an if statement saying, if the timer seconds hits the string 00, it stops the settimeOut function
     if (s === "00" && m === "00") {
       clearTimeout(setTimeout, timesUp());
-    } 
+    }
   }
   //Here I make the function seconds to make sure when seconds hits under 10 or are over or equal 0, it needs a 0 infront (09), and when its neither its counting down from 59
   function seconds(sec) {
