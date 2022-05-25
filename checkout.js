@@ -70,7 +70,7 @@ function prepareTickets() {
   cart.vip_tickets = savedTickets.vip_tickets;
   cart.tent_four = savedTickets.tent_four;
   cart.tent_two = savedTickets.tent_two;
-
+reservation.amount=savedTickets.total_tickets;
 
 
   allRes.push(cart);
