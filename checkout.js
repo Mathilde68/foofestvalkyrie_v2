@@ -80,6 +80,8 @@ reservation.amount=savedTickets.total_tickets;
 
 }
 
+
+//Here is the function for displaying the cart
 function displayCart(cart) {
 
   const clone = document.querySelector("#cart").content.cloneNode(true);
