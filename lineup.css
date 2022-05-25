@@ -9,7 +9,7 @@
 .list-wrapper{
     position:fixed;
     max-height:45rem;
- margin:1rem;
+    margin:1rem;
     background-color: var(--secondary_bg_3);
     cursor: pointer;
     border: dotted 3px var(--btn_font);
