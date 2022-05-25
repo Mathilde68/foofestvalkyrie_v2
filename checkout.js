@@ -35,6 +35,7 @@ const reservation = {
 
 //Function that starts the whole systaaaaam
 function start() {
+  console.log(reservation);
   console.log("start");
 
   //Make sure, cart is visible first
@@ -130,22 +131,43 @@ function proceedTC() {
 
 
 function proceedToInfo(){
+  putReservation();
+
   document.getElementById("camping_section").style.display = "none";
   document.getElementById("costumer_section").style.display = "block";
 
 
-  document.querySelector(".p_buy").addEventListener("click", proceedToCard);
+  document.querySelector(".p_payment").addEventListener("click", proceedToCard);
 }
+
+
+function proceedToCard(){
+
+
+  document.getElementById("costumer_section").style.display = "none";
+  document.getElementById("payment_section").style.display = "block";
+
+  document.querySelector(".p_buy").addEventListener("click", reservationPost);
+
+}
+
+function confirmOrder(){
+  
+  document.getElementById("payment_section").style.display = "none";
+  document.getElementById("order_popup").style.display = "block";
+
+
+}
+
+
 
 function reservationPost(){
   const payload = {
 
-    id: "",
-    
-    other: "here goes",
+    id:reservation.id,
     
     };
-    
+    console.log(payload);
     
     
     fetch(`https://valkyriefest.herokuapp.com/fullfill-reservation`, {
@@ -166,19 +188,14 @@ function reservationPost(){
     
     .then((res) => res.json())
     
-    .then((d) => {});
+    .then((d) => {
+      console.log(d);
+      confirmOrder();});
 }
 
 
 
-function proceedToCard(){
 
-  document.getElementById("costumer_section").style.display = "none";
-  document.getElementById("payment_section").style.display = "block";
-
-  document.querySelector(".p_payment").addEventListener("click", reservationPost);
-
-}
 //Here we fetch the endpoint to load json of the available camping spots
 async function getAvailability() {
 
@@ -276,10 +293,10 @@ function displayAreaAvailability(camping) {
     const campForm = document.querySelector("#camping");
     const area = campForm.camparea.value;
 
-    const reserved = Object.create(reservation);
 
-    reserved.area = area;
-    reserved.amount = savedTickets.total_tickets;
+
+    reservation.area = area;
+    reservation.amount = savedTickets.total_tickets;
 
     let hu;
 
@@ -289,7 +306,7 @@ function displayAreaAvailability(camping) {
       hu = camping.available - savedTickets.total_tickets;
       console.log(hu);
       updateDisplay(hu);
-      putReservation(reserved);
+      console.log(reservation);
 
     }
   }
@@ -331,7 +348,7 @@ function displayAreaAvailability(camping) {
 } */
 
 
-function putReservation(reservation){
+function putReservation(){
 
   const payLoad = {
       area: reservation.area,
