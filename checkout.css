@@ -1,3 +1,41 @@
+:root {
+  /*  PRIMARY COLORS */
+  --primary_bg_1: white;
+  --primary_bg_2: rgb(255, 255, 194);
+  --primary_bg_3: rgb(130, 184, 255);
+  --font_color_black: black;
+  --font_color_white: white;
+   /*  SECONDARY COLORS */
+  --secondary_bg_1: rgb(137, 207, 134);
+  --secondary_bg_2: rgb(42, 85, 141);
+  --secondary_bg_3: rgb(226, 160, 113);
+  
+   /*  ACCENT COLORS BUTTONS AND LINKS */
+   /* button */
+    --btn_hover_bg: pink;
+    --btn_font_hover: var(--btn_bg);
+    --btn_bg:rgb(255, 135, 30);
+    --btn_font:var(--btn_hover_bg);
+    --btn_inset_shadow:inset 2px 1.5px 6px rgba(255, 255, 255, 0.545);
+    --btn_out_shadow: 1px 3px 4px rgba(0, 0, 0, 0.182);
+    --btn_check_bg: var(--btn_hover_bg);
+    --btn_check_inset: inset 2px 2px 5px rgba(0, 0, 0, 0.274);
+    /* link */
+    --link_color: black;
+    --link_td_color: blue;
+    --link_visit_color: grey;
+    --link_select_color: var(--link_td_color);
+     /* SHADOWS AND INPUTS */
+     --shadow_out: 8px 8px 15px rgba(0, 0, 0, 0.106);
+     --shadow_inset: white;
+     --input_inset:inset 1px 1px 3px rgba(0, 0, 0, 0.199);
+     --input_bg: rgb(255, 255, 255);
+     --input_valid: rgb(208, 255, 191);
+     --input_invalid: rgb(255, 202, 202);
+     --font_color_nfocus: grey;
+  }
+
+
 /* The visual styling of the sections */
 
 #cart_section,
@@ -25,9 +63,9 @@
 
 .timer_mobile {
   display: none;
-  background-color: black;
+  background-color: var(--secondary_bg_2);
   text-align: center;
-  color: white;
+  color: var(--font_color_white);
   width: 100%;
   padding: 1rem;
   border-radius: 20px;
@@ -39,9 +77,9 @@
   width: 99%;
   padding: 2rem;
   border-radius: 6px;
-  background-color: rgb(255, 255, 255);
+  background-color:var(--primary_bg_2);
   border: solid 1px;
-  box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.106);
+  box-shadow: var(--shadow_out);
 }
 
 /*------camp area stylingss----*/
@@ -73,7 +111,7 @@
 #c_c:checked,
 #c_d:checked,
 #c_e:checked {
-  background-color: black;
+  background-color: var(--secondary_bg_3);
   background-size: 20px;
   transform: scale(1.1);
   transition: 1s;
@@ -132,8 +170,8 @@
   margin: 0 auto;
   border: solid 2px;
   border-radius: 6px;
-  background-color: rgb(244, 244, 244);
-  box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.106);
+  background-color: var(--primary_bg_2);
+  box-shadow: var(--shadow_out);
 }
 
 .order_graphic {
@@ -196,10 +234,10 @@
   /*  Styling of timer */
 
   .timer {
-    display: block;
-    background-color: black;
     text-align: center;
-    color: white;
+    color: var(--font_color_white);
+    background-color: var(--secondary_bg_2);
+    display: block;
     max-width: 16rem;
     padding: 1rem;
     border-radius: 20px;
@@ -275,8 +313,8 @@
 
   .costumer_cart {
     border-radius: 6px;
-    background-color: rgb(244, 244, 244);
-    box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.106);
+    background-color: var(--primary_bg_3);
+    box-shadow: var(--shadow_out);
   }
 
   .credit_card_visual {
@@ -302,7 +340,7 @@
     height: 100%;
     z-index: 10;
     margin: 0 auto;
-    background-color: rgba(0, 0, 0, 0.435);
+    background-color: var(--secondary_bg_3);
   }
   .order_popup_background,
   .timesup_popup_background {
@@ -311,8 +349,8 @@
     margin: 0 auto;
     border: solid 2px;
     border-radius: 6px;
-    background-color: rgb(244, 244, 244);
-    box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.106);
+    background-color: var(--primary_bg_3);
+    box-shadow: var(--shadow_out);
   }
 
   .order_graphic {
@@ -342,8 +380,8 @@
 
 #cart {
   width: 100%;
-  background-color: white;
-  box-shadow: inset 5px 5px 10px rgba(0, 0, 0, 0.199);
+  background-color: var(--primary_bg_2);
+  box-shadow: var(--shadow_inset);
   text-align: left;
   border: solid 1px rgb(186, 186, 186);
 }
@@ -352,7 +390,7 @@ th {
   font-family: "Righteous", cursive;
   font-size: 1.3rem;
   padding: 1rem;
-  border-bottom: 2px solid rgb(0, 0, 0);
+  border-bottom: 2px solid var(--font_color_black);
 }
 
 td {

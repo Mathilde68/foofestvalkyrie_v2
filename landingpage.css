@@ -15,12 +15,12 @@ margin-top: 6rem;
 }
 
 #radio_imp:checked, #radio_all:checked{
-    background-color: black;
+    background-color: var(--secondary_bg_3);
 }
 
 .grid_radio_new{
-    box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.236);
-    background-color: rgb(252, 252, 252);
+    box-shadow: var(--shadow_out);
+    background-color: var(--primary_bg_1);
     max-width: 90%;
     text-align: left;
     display: flex;
@@ -75,7 +75,7 @@ margin-top: 6rem;
 }
 
 #ticket{
-background-color:grey;
+background-color:var(--secondary_bg_3);
 width: 17rem;
 padding: 2rem;
 transform: rotate(2deg);
@@ -103,8 +103,6 @@ animation: pulse 1s infinite;
     margin: 0 auto;
     width: 10rem;
     height: 3.5rem;
-    background-color: rgb(71, 71, 71);
-    color: white;
 }
 
 

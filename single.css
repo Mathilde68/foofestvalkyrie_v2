@@ -20,8 +20,8 @@ main {
 
 .img_wrapper {
   flex: 1 0 100%;
-  background-color: rgb(246, 246, 246);
-  box-shadow: inset 0px 0px 6px rgba(0, 0, 0, 0.274);
+  background-color: var(--primary_bg_3);
+  box-shadow: var(--shadow_inset);
 }
 #bandImage {
   padding-top: 1.5rem;
@@ -56,8 +56,8 @@ main {
 }
 
 #back_arrow {
-  background-color: white;
-  color: black;
+  background-color: transparent;
+  color: var(--btn_font_hover);
   margin: 1.5rem 1rem;
   width: min-content;
   height: min-content;
@@ -76,12 +76,12 @@ main {
     flex-direction: row-reverse;
     justify-content: space-around;
     padding: 2rem;
-    background-color: rgb(246, 246, 246);
-    box-shadow: inset 0px 0px 6px rgba(0, 0, 0, 0.274);
+    background-color: var(--primary_bg_3);
+    box-shadow: var(--shadow_inset);
   }
 
   .img_wrapper {
-    background-color: rgba(255, 255, 255, 0);
+    background-color: transparent;
     box-shadow: none;
     padding: 1rem;
     flex: 0 1 25rem;

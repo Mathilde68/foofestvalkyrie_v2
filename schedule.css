@@ -1,13 +1,10 @@
-
-
-
 /*default mobile*/
 #schedule-form{
     -webkit-appearance: none;
     padding: 1rem;
     border-radius: 6px;
-    background-color: rgb(244, 244, 244);
-    box-shadow: 8px 8px 15px rgba(0, 0, 0, 0.106);
+    background-color: var(--primary_bg_3);
+    box-shadow: var(--shadow_out);
 }
 
 #schedule{
@@ -26,8 +23,8 @@
     margin-bottom: -4.5rem;
 }
 .schedule-list{
-    background-color: white;
-    box-shadow: inset 2px 5px 10px rgba(0, 0, 0, 0.106);
+    background-color: var(--primary_bg_3);
+    box-shadow:var(--shadow_inset);
  
 }
 /*the buttons for choosing stage in mobile view*/
@@ -47,9 +44,9 @@
 }
 
 .stage-buttons button:focus{
-    color: black;
-    background-color: rgb(243, 243, 243);
-    box-shadow: inset 2px 2px 5px rgba(0, 0, 0, 0.274);
+    color: var(--btn_font_hover);
+    background-color: var(--btn_hover_bg);
+    box-shadow: var(--shadow_inset);
 }
 /*each cell in the table*/
 .table-cell{

@@ -19,25 +19,12 @@
   margin: 0 auto;
   height: 8rem;
   max-width: 95%;
-  background-color: black;
+  background-color: var(--secondary_bg_1);
   cursor: pointer;
-  border: dotted 3px white;
-  outline: solid 5px black;
+  border: dotted 3px var(--font_color_white);
+  outline: solid 5px var(--secondary_bg_1);
   transition: 1s;
 
-}
-
-.vip_ticket{
-  margin: 0 auto;
-  height: 8rem;
-  max-width: 95%;
-  background-color: grey;
-  outline: solid 5px grey;
-  border: dotted 3px white;
-  cursor: pointer;
-  transition: 1s;
-
-  
 }
 
 .regu_fillout{
@@ -45,10 +32,10 @@
   max-width: 90%;
   margin: 0 auto;
   margin-bottom: 1rem;
-  outline: solid 5px;
+  outline: solid 5px var(--secondary_bg_1);
   padding: 1rem;
-  background-color: rgb(244, 244, 244);
-  box-shadow: inset 5px 10px 10px rgba(0, 0, 0, 0.106), 8px 8px 15px rgba(0, 0, 0, 0.106);
+  background-color: var(--primary_bg_1);
+  box-shadow: var(--shadow_inset), var(--shadow_out);
 }
 
 .ticket_visual{
@@ -96,23 +83,8 @@ padding: 0;
     .regu_ticket{
         height: 10rem;
     }
-
-    .vip_ticket{
-        height: 10rem;
-    }
-
-    .vip_ticket:hover{
-        transform: rotate(-0.5deg);
-        transition: 1s;
-        background-color: black;
-        outline: solid 5px black;
-
-    }
-
         
     .regu_ticket:hover{
-        background-color: grey;
-        outline: solid 5px grey;
         transform: rotate(-0.5deg);
         transition: 1s;
 
@@ -143,58 +115,23 @@ padding: 0;
         margin: 0 auto;
         height: 10rem;
         width: 100%;
-        background-color: black;
         cursor: pointer;
-        border: dotted 3px white;
-        outline: solid 5px black;
         transition: 1s;
 
     }
 
     
     .regu_ticket:hover{
-        background-color: grey;
-        outline: solid 5px grey;
         transform: rotate(-0.5deg);
         transition: 1s;
 
     }
 
-    .vip_ticket{
-        margin: 0 auto;
-        width: 100%;
-        height: 10rem;
-        background-color: grey;
-        outline: solid 5px grey;
-        border: dotted 3px white;
-        cursor: pointer;
-        transition: 1s;
-
-        
-    }
-
-    .vip_ticket:hover{
-        transform: rotate(-0.5deg);
-        transition: 1s;
-        background-color: black;
-        outline: solid 5px black;
-
-    }
 
     .regu_fillout{
         margin: 0 auto;
-        outline: solid 10px;
+        outline: solid 5px var(--secondary_bg_1);
         padding: 1rem;
-        background-color: rgb(244, 244, 244);
-        box-shadow: inset 5px 10px 10px rgba(0, 0, 0, 0.106), 8px 8px 15px rgba(0, 0, 0, 0.106);
-    }
-
-    .vip_fillout{
-        margin: 0 auto;
-        outline: solid 10px grey;
-        padding: 1rem;
-        background-color: rgb(244, 244, 244);
-        box-shadow: inset 5px 10px 10px rgba(0, 0, 0, 0.106), 8px 8px 15px rgba(0, 0, 0, 0.106);
     }
 
     .tent_two_p, .tent_four_p, .select_ticket{
@@ -212,16 +149,8 @@ padding: 0;
     }
 
     .underline{
-        border-bottom: dashed 2px black;
+        border-bottom: dashed 2px var(--font_color_black);
         width: 100%;
-    }
-
-    
-   
-    input[type=radio]:hover{
-        transform: scale(1.1);
-        box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.106);
-        transition: 1s;
     }
 }  
 
