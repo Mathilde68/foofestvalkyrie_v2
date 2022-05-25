@@ -197,7 +197,7 @@ function reservationPost() {
 
 
 
-//Here we fetch the endpoint to load json of the available camping spots
+//Here we fetch the endpoint to load json of the available camping spots*/
 async function getAvailability() {
 
   const endpoint = "https://valkyriefest.herokuapp.com/available-spots";
@@ -260,6 +260,9 @@ function displayAreaAvailability(camping) {
 
 
   }
+  /*appending each area's info to the coresponding list*/
+  /*giving each  area-availability field an id with areaname + _a for available
+   - the id is needed later when changing the available count */
   if (camping.area === "Nilfheim") {
     document.querySelector("#area_b").textContent = camping.area;
     clone.querySelector("[data-field=available]").id = "Nilfheim_a";
@@ -298,32 +301,32 @@ function displayAreaAvailability(camping) {
     const campForm = document.querySelector("#camping");
     const area = campForm.camparea.value;
 
-
-
     reservation.area = area;
     reservation.amount = savedTickets.total_tickets;
 
-    let hu;
-
-    if (this.value === camping.area) {
+    const thisArea = this.value;
+   
+    if (thisArea === camping.area) {
       if (camping.available > savedTickets.total_tickets) {
-        hu = camping.available - savedTickets.total_tickets;
+        const hu = camping.available - savedTickets.total_tickets;
 
-        const area = this.value;
         console.log(hu);
-        updateDisplay(hu, area);
-
+        updateDisplay(hu, thisArea);
         console.log(reservation);
       }
     }
 
   }
 
+/*here i update the display to show the new availability, 
+- it receives the updated available count and the area leading into the function*/ 
   function updateDisplay(hu, area) {
+    /*adding "_a" to the area to match the id for area-availability*/
     const area_availability = area + "_a";
-    if (area = camping.area) {
+
+    /*sets textcontent of areas availability*/
       document.getElementById(area_availability).textContent = hu;
-    }
+    
   }
 
 }
