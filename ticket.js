@@ -59,7 +59,21 @@ function getUserInput(){
     const tentFour = parseInt(form.elements.amount_tent_four.value);
     reservation.reg_tickets = reg_tickets;
     reservation.vip_tickets = vip_tickets;
-    reservation.total_tickets = vip_tickets + reg_tickets;
+    
+
+    // Making an ifstatement so the amount is equal to the amount of tickets you put in the form
+    if(vip_tickets === 0 && reg_tickets > 0){
+        reservation.total_tickets = reg_tickets;
+    } 
+    if(vip_tickets > 0 && reg_tickets === 0){
+        reservation.total_tickets = vip_tickets;
+    } 
+    if(vip_tickets > 0 && reg_tickets > 0){
+        reservation.total_tickets = vip_tickets + reg_tickets;
+    }
+
+
+
     reservation.tent_two = tentTwo;
     reservation.tent_four = tentFour;
 
