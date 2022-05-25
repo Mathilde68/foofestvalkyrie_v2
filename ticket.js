@@ -91,7 +91,7 @@ function goToCart(){
     location.href = "checkout.html";
 }
 
-/* -----------move these functions to checkout.js: loadjson, prepare areas, display camping and put reservation-------------*/
+
 function showRegDetails() {
     const regDetail = document.querySelector(".regu_fillout");
     console.log("LOL");

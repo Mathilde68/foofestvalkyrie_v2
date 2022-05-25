@@ -11,9 +11,9 @@ const Area = {
 
 }
 
-const allAreas = [];
+var allAreas = [];
 
-const allRes = [];
+
 
 const ticketRes = {
   id: "",
@@ -25,10 +25,14 @@ const ticketRes = {
   area: ""
 }
 
+const allTickets = [];
+
 const reservation = {
   id: "",
   area: "",
-  amount: 0
+  amount: 0,
+  confirmed: false
+
 }
 
 
@@ -51,7 +55,7 @@ function start() {
 function registerButtons() {
 
   //Here I add buttons for the cart
-  document.querySelector(".cart_p_checkout").addEventListener("click", proceedTC);
+  document.querySelector(".cart_p_checkout").addEventListener("click", proceedToArea);
 
 }
 
@@ -73,9 +77,9 @@ function prepareTickets() {
 
 
 
-  allRes.push(cart);
+  allTickets.push(cart);
 
-  allRes.forEach(displayCart);
+  allTickets.forEach(displayCart);
 
 
 }
@@ -120,49 +124,92 @@ function displayCart(cart) {
 }
 
 
-
-function proceedTC() {
+//here is teh function for proceeding to area select
+function proceedToArea() {
   console.log("lol");
-  //Make sure, cart is not visible 
+  //Make sure, cart is not visible, and camping is
   document.getElementById("cart_section").style.display = "none";
   document.getElementById("camping_section").style.display = "block";
-  getAvailability();
-  document.getElementById("choose_area_btn").addEventListener("click", proceedToInfo);
+  document.getElementById("no_area_selected").style.display = "none";
 
+  //get availability of the camp areas
+  getAvailability();
+
+  //eventlistenr to proceed to info
+  //here i add click eventlistener, if form is valid it prevents default submit, and calls proceed to cart
+  //its to make sure that each input fiels still  shows as required while the form is invalid, and only prevents default once everything IS valid
+  document.querySelector("#choose_area_btn").addEventListener("click", function (event) {
+    if (document.querySelector('#camping').checkValidity()) {
+      event.preventDefault();
+      proceedToInfo();
+
+    } else {
+      console.log("please choose area!");
+    }
+  });
 }
 
 
+//here is the function for proceeding to info input
 function proceedToInfo() {
-  putReservation();
+  //if statement makes sure you can only go to next section if an available area has been chosen
+   if (reservation.area === "") {
+    document.getElementById("no_area_selected").style.display = "block";
 
-  document.getElementById("camping_section").style.display = "none";
-  document.getElementById("costumer_section").style.display = "block";
+  } else {
+    putReservation();
 
+    document.getElementById("camping_section").style.display = "none";
+    document.getElementById("costumer_section").style.display = "block";
 
-  document.querySelector(".p_payment").addEventListener("click", proceedToCard);
+  } 
+
+  //here i add click eventlistener, if form is valid it prevents default submit, and calls proceed to cart
+  //its to make sure that each input fiels still  shows as required while the form is invalid, and only prevents default once everything IS valid
+  document.querySelector(".p_payment").addEventListener("click", function (event) {
+    if (document.querySelector('.costumer_form form').checkValidity()) {
+      event.preventDefault();
+      proceedToCard();
+
+    } else {
+      console.log("not valid yet");
+    }
+  });
 }
 
 
 function proceedToCard() {
 
-
   document.getElementById("costumer_section").style.display = "none";
   document.getElementById("payment_section").style.display = "block";
 
-  document.querySelector(".p_buy").addEventListener("click", reservationPost);
+
+  //here i add click eventlistener, if form is valid it prevents default submit, and calls reservationPost
+  //dis makes sure that each input fiels still shows as required while the form is invalid, and only prevents default once everything IS valid
+  document.querySelector(".p_buy").addEventListener("click", function (event) {
+    if (document.querySelector('#card_info').checkValidity() === true) {
+      event.preventDefault();
+      reservationPost();
+    } else {
+      console.log("YOU HAVE TO PAY FIRST");
+    }
+  });
 
 }
 
+//here i show the popup showing the order has been confirmed, and stopping the timer as well
 function confirmOrder() {
-
   document.getElementById("payment_section").style.display = "none";
+  document.getElementById("timer_section").style.display = "none";
   document.getElementById("order_popup").style.display = "block";
 
+  //calling the timer again to stop the timer
+  timerDesktop();
 
 }
 
 
-
+//post the reservation with the id as payload
 function reservationPost() {
   const payload = {
 
@@ -187,11 +234,12 @@ function reservationPost() {
     },
 
   })
-
+    //setting reservation confirmed to true, and calling confirm order once reservation has been posted
     .then((res) => res.json())
-
     .then((d) => {
       console.log(d);
+      reservation.confirmed = true;
+      console.log(reservation);
       confirmOrder();
     });
 }
@@ -214,7 +262,7 @@ async function getAvailability() {
 }
 
 function prepareAreas(json) {
-  
+
 
   json.forEach(jsonobject => {
 
@@ -233,45 +281,51 @@ function prepareAreas(json) {
 
   console.log(allAreas);
 
- 
+
   allAreas.forEach(displayAreaAvailability);
 
 
 
 }
 
-
+//Here we display the areas and their availability + add function for reserving spot, and updating the list
 function displayAreaAvailability(camping) {
-  document.querySelectorAll("[data-action='area_select']").forEach(input => input.addEventListener("click", reserveAreaSpot));
 
+  //add eventlistener for each of the area select radio buttons
+  
+
+    document.querySelectorAll("[data-action='area_select']").forEach(input => input.addEventListener("click", reserveAreaSpot));
+  
 
 
   const clone = document.querySelector("#template_camping").content.cloneNode(true);
   clone.querySelector("[data-field=spots]").textContent = "Spots: " + camping.spots;
   clone.querySelector("[data-field=available]").textContent = "Available: " + camping.available;
 
+//if no spots available set text to to sold out (EVT: make radio button unclickable too???)
+  if (camping.available == 0) {  
 
+    clone.querySelector("[data-field=available]").textContent = "SOLD OUT";
 
+  } 
+
+  
+  /*appending each area's info to the coresponding list and changing the name*/
+  /*giving each  area-availability field an id with areaname + _a for available
+   - the id is needed later when changing the available count */
 
   if (camping.area === "Svartheim") {
     document.querySelector("#area_a").textContent = camping.area;
     clone.querySelector("[data-field=available]").id = "Svartheim_a";
 
     document.querySelector("#camping_one").appendChild(clone);
-
-
-
   }
-  /*appending each area's info to the coresponding list*/
-  /*giving each  area-availability field an id with areaname + _a for available
-   - the id is needed later when changing the available count */
+
   if (camping.area === "Nilfheim") {
     document.querySelector("#area_b").textContent = camping.area;
     clone.querySelector("[data-field=available]").id = "Nilfheim_a";
 
     document.querySelector("#camping_two").appendChild(clone);
-
-
 
   } if (camping.area === "Helheim") {
     document.querySelector("#area_c").textContent = camping.area;
@@ -295,46 +349,51 @@ function displayAreaAvailability(camping) {
 
 
   }
+
+  /*Here i add function that saves the reservation area, and updates the display for availability*/
   function reserveAreaSpot() {
 
     const storage = localStorage.getItem("tickets");
     let savedTickets = JSON.parse(storage);
 
-    const campForm = document.querySelector("#camping");
-    const area = campForm.camparea.value;
+    
 
-    reservation.area = area;
-    reservation.amount = savedTickets.total_tickets;
 
-    const thisArea = this.value;
-   
+    /*if the area matches the camping area, and if there is enough spots*/
     if (this.value === camping.area) {
-      if (camping.available > savedTickets.total_tickets) {
-        const hu = camping.available - savedTickets.total_tickets;
+      if (camping.available >= savedTickets.total_tickets) {
 
+        /*then update display is called, and updates  the corresponding available spot fields*/
+        const hu = camping.available - savedTickets.total_tickets;
         console.log(hu);
-        updateDisplay(hu, thisArea);
+        updateDisplay(hu, this.value);
+
+        /*then set the values of reservation to match selected area and amount of tickets*/
+        reservation.area = this.value;
+        reservation.amount = savedTickets.total_tickets;
+
         console.log(reservation);
       }
     }
 
   }
 
-/*here i update the display to show the new availability, 
-- it receives the updated available count and the area leading into the function*/ 
-  function updateDisplay(hu, area) {
-    /*adding "_a" to the area to match the id for area-availability*/
+  /*Here I update the display to show the new availability, 
+      - it receives the updated available count and the clicked area that lead into the function*/
+  function updateDisplay(newAvailability, area) {
+
+    /*adding "_a" to the area to match the id for area-availability data-fields*/
     const area_availability = area + "_a";
 
-    /*sets textcontent of areas availability*/
-      document.getElementById(area_availability).textContent = hu;
-    
+    /*sets textcontent of the areas availability - using the area-availability variable*/
+    document.getElementById(area_availability).textContent = newAvailability;
+
   }
 
 }
 
 
-
+/*put reservation to the reserve spot endpoint, with a paylaod containing the reservations area, and amount*/
 function putReservation() {
 
   const payLoad = {
@@ -354,6 +413,7 @@ function putReservation() {
   })
     .then((res) => res.json())
     .then((d) => {
+      /*if it returns an id, the reservation is saved*/
       console.log(d);
       if (d.id) {
         saveReservation(d);
@@ -362,81 +422,101 @@ function putReservation() {
       }
 
     });
-
+  /*reservation id is saved and the timer starts*/
   function saveReservation(d) {
     reservation.id = d.id;
     console.log(reservation);
     timerDesktop();
+
+
   }
 }
+
 
 
 
 //Timer function and times up
 function timerDesktop() {
-
+  console.log("timer");
 
   //Here I set the timer layout to be 05:00 as default
   document.querySelector(".timer").innerHTML = "05" + ":" + "00";
   //Setting so when calling timerDesktop, the timer for desktop starts
-  startTimer();
 
-  function startTimer() {
 
-    //Here I make a variable for the innerHTML for the timer
-    const min_sec = document.querySelector(".timer").innerHTML;
-
-    //Here I split the the string so it becomes an array of only the four digits for minutes and seconds
-    const arraytime = min_sec.split(/[:]+/);
-
-    //Here I set m, my minutes variable, as the first part of the array 0
-    let m = arraytime[0];
-
-    //Here I set s, my seconds variable, as the last part of the array 1 -1 for countdown and call the function seconds
-    let s = seconds(arraytime[1] - 1);
-
-    //Here I make an if statement saying if seconds hits 59, minutes have to decrement 1 value
-    if (s == 59) {
-      m = m - 1;
-    }
-
-    //Here if minutes are smaller than 0, its only the seconds that returns
-    if (m < 0) {
-      return;
-    }
-
-    //Here I add my minute and seconds variables to the inner HTML, so the timers length is added to the other variable of timer default
-    document.querySelector(".timer").innerHTML = m + ":" + s;
-
-    //Here I call the setTimeout function and makes it call the startTImer function every second, therefore its always in loop
-    setTimeout(startTimer, 1000);
-
-    //Here I make an if statement saying, if the timer seconds hits the string 00, it stops the settimeOut function
-    if (s === "00" && m === "00") {
-      clearTimeout(setTimeout, timesUp());
-    }
+//if the reservation/order has been confirmed, stop the timer, otherwise start the timer;
+  if (reservation.confirmed) {
+    stopTimer();
+  } else {
+    startTimer();
   }
-  //Here I make the function seconds to make sure when seconds hits under 10 or are over or equal 0, it needs a 0 infront (09), and when its neither its counting down from 59
-  function seconds(sec) {
-    if (sec < 10 && sec >= 0) {
-      sec = "0" + sec;
-    }
-    if (sec < 0) {
-      sec = "59";
-    }
-    return sec;
-  }
-
-
 }
 
+function stopTimer() {
+  //Here I reset the timer layout to be 00:00
+  document.querySelector(".timer").innerHTML = "00" + ":" + "00";
+}
+function startTimer() {
+
+  //Here I make a variable for the innerHTML for the timer
+  const min_sec = document.querySelector(".timer").innerHTML;
+
+  //Here I split the the string so it becomes an array of only the four digits for minutes and seconds
+  const arraytime = min_sec.split(/[:]+/);
+
+  //Here I set m, my minutes variable, as the first part of the array 0
+  let m = arraytime[0];
+
+  //Here I set s, my seconds variable, as the last part of the array 1 -1 for countdown and call the function seconds
+  let s = seconds(arraytime[1] - 1);
+
+  //Here I make an if statement saying if seconds hits 59, minutes have to decrement 1 value
+  if (s == 59) {
+    m = m - 1;
+  }
+
+  //Here if minutes are smaller than 0, its only the seconds that returns
+  if (m < 0) {
+    return;
+  }
+
+  //Here I add my minute and seconds variables to the inner HTML, so the timers length is added to the other variable of timer default
+  document.querySelector(".timer").innerHTML = m + ":" + s;
+ 
+
+
+  //Here I call the setTimeout function and makes it call the startTImer function every second, therefore its always in loop
+  setTimeout(startTimer, 1000);
+
+  //Here I make an if statement saying, if the timer seconds hits the string 00, it stops the settimeOut function
+  if (s === "00" && m === "0") {
+    clearTimeout(setTimeout, timesUp());
+  }
+}
+//Here I make the function seconds to make sure when seconds hits under 10 or are over or equal 0, it needs a 0 infront (09), and when its neither its counting down from 59
+function seconds(sec) {
+  if (sec < 10 && sec >= 0) {
+    sec = "0" + sec;
+  }
+  if (sec < 0) {
+    sec = "59";
+  }
+  return sec;
+}
+
+
+
+
+
 function timesUp() {
+
   console.log("TIMES UP BIIIIIIITCH");
 
   const timesupPop = document.getElementById("timesup_popup");
 
   timesupPop.style.display = "block"
   document.querySelector(".timesup_continue").addEventListener("click", closeDownTime);
+
 
   function closeDownTime() {
     const timesupPop = document.getElementById("timesup_popup");
