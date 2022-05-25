@@ -212,7 +212,7 @@ async function getAvailability() {
 }
 
 function prepareAreas(json) {
-  allAreas.splice(0, allAreas.length);
+  
 
   json.forEach(jsonobject => {
 
@@ -231,11 +231,7 @@ function prepareAreas(json) {
 
   console.log(allAreas);
 
-  document.querySelector("#camping_one").textContent = "";
-  document.querySelector("#camping_two").textContent = "";
-  document.querySelector("#camping_three").textContent = "";
-  document.querySelector("#camping_four").textContent = "";
-  document.querySelector("#camping_five").textContent = "";
+ 
   allAreas.forEach(displayAreaAvailability);
 
 
