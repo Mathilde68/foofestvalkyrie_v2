@@ -113,7 +113,7 @@
 
     <!--This sections contains everything for area selection-->
     <section id="camping_section">
-     
+
         <form id="camping" class="camping">
             <h4>Choose your camping area</h4>
             <div id="spot_reservation_info">
@@ -129,41 +129,46 @@
             <div class="camping_grid">
                 <div class="onec">
                     <label id="area_a" for="c_a">Area A</label>
-                    <input data-action="area_select" type="radio" class="c_a" id="Svartheim" name="camparea" value="Svartheim" required>
+                    <input data-action="area_select" type="radio" class="c_a" id="Svartheim" name="camparea"
+                        value="Svartheim" required>
                     <table>
                         <tbody id="camping_one"></tbody>
                     </table>
                 </div>
                 <div class="twoc">
                     <label id="area_b" for="c_b">Area B</label>
-                    <input data-action="area_select" type="radio" class="c_b" id="Nilfheim" name="camparea" value="Nilfheim">
+                    <input data-action="area_select" type="radio" class="c_b" id="Nilfheim" name="camparea"
+                        value="Nilfheim">
                     <table>
                         <tbody id="camping_two"></tbody>
                     </table>
                 </div>
                 <div class="threec">
                     <label id="area_c" for="c_c">Area C</label>
-                    <input data-action="area_select" type="radio" class="c_c" id="Helheim" name="camparea" value="Helheim">
+                    <input data-action="area_select" type="radio" class="c_c" id="Helheim" name="camparea"
+                        value="Helheim">
                     <table>
                         <tbody id="camping_three"></tbody>
                     </table>
                 </div>
                 <div class="fourc">
                     <label id="area_d" for="c_d">Area D</label>
-                    <input data-action="area_select" type="radio" class="c_d" id="Muspelheim" name="camparea" value="Muspelheim">
+                    <input data-action="area_select" type="radio" class="c_d" id="Muspelheim" name="camparea"
+                        value="Muspelheim">
                     <table>
                         <tbody id="camping_four"></tbody>
                     </table>
                 </div>
                 <div class="fivec">
                     <label id="area_e" for="c_e">Area E</label>
-                    <input data-action="area_select" type="radio" class="c_e" id="Alfheim" name="camparea" value="Alfheim">
+                    <input data-action="area_select" type="radio" class="c_e" id="Alfheim" name="camparea"
+                        value="Alfheim">
                     <table>
                         <tbody id="camping_five"></tbody>
                     </table>
                 </div>
             </div>
-          
+
             <div class="proceed_btn_container">
                 <button id="choose_area_btn">Proceed with this area</button>
             </div>
@@ -179,10 +184,10 @@
         </tr>
     </template>
 
-<section id="timer_section">
-    <div class="timer">
-    </div>
-</section>
+    <section id="timer_section">
+        <div class="timer">
+        </div>
+    </section>
     <!-- This section countains everything for the Costumerinfo -->
     <section id="costumer_section">
         <div class="costumer_wrapper">
@@ -459,12 +464,18 @@
                         <input type="tel" id="phone" name="phone" maxlength="4">
                         <div class="costumer_button">
                             <a href="" class="return_cart">Return to cart</a>
-                            <button class="p_payment"  type="submit">Proceed to payment</button>
+                            <button class="p_payment" type="submit">Proceed to payment</button>
                         </div>
+                    </form>
+                    <form class="other_tickets">
+                        <label for="fullname">Full name*</label>
+                        <input type="text" id="fullname" name="fullname" required>
+                        <label for="number">Enter your phone number</label>
+                        <input type="tel" id="phone" name="phone" maxlength="4">
                     </form>
                 </div>
                 <div class="costumer_timer_cart">
-                
+
                     <!--  <div class="costumer_cart">
                         <article class="cart_template">
                             <table id="cart_two">
@@ -547,9 +558,10 @@
                                 <input type="text" id="date" name="date" maxlength="4" pattern="[0-9]+"
                                     required></label>
                             <label for="cvc">CVC *
-                                <input type="text" id="cvc" name="cvc" minlength="3" maxlength="3" pattern="[0-9]+" required></label>
+                                <input type="text" id="cvc" name="cvc" minlength="3" maxlength="3" pattern="[0-9]+"
+                                    required></label>
                         </div>
-                        <button  id="submit" name="submit" class="p_buy">Buy</button>
+                        <button id="submit" name="submit" class="p_buy">Buy</button>
                     </form>
                 </div>
                 <div class="payment_timer_card">
