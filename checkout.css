@@ -68,11 +68,11 @@
 
 }
 
-#c_a:checked,
-#c_b:checked,
-#c_c:checked,
-#c_d:checked,
-#c_e:checked {
+.c_a:checked,
+.c_b:checked,
+.c_c:checked,
+.c_d:checked,
+.c_e:checked {
   background-color: var(--secondary_bg_3);
   background-size: 20px;
   transform: scale(1.1);
@@ -87,24 +87,28 @@
     flex-direction: column;
 }
 
-#c_a {
+.c_a {
   background-color: red;
 }
 
-#c_b {
+.c_b {
   background-color: greenyellow;
 }
-#c_c {
+.c_c {
   background-color: blue;
 }
 
-#c_d {
+.c_d {
   background-color: rgb(175, 47, 255);
 }
-#c_e {
+.c_e {
   background-color: rgb(246, 255, 0);
 }
 
+
+.unclickable{
+  background-color: var(--font_color_black);
+}
 .costumer_grid,
 .payment_grid {
   margin: 0 auto;

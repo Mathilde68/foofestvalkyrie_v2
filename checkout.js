@@ -35,6 +35,9 @@ const reservation = {
 
 }
 
+const storage = localStorage.getItem("tickets");
+let savedTickets = JSON.parse(storage);
+
 
 
 //Function that starts the whole systaaaaam
@@ -61,9 +64,6 @@ function registerButtons() {
 
 function prepareTickets() {
 
-  let storage = localStorage.getItem("tickets");
-  console.log(storage);
-  let savedTickets = JSON.parse(storage);
 
   console.log(savedTickets);
 
@@ -130,7 +130,7 @@ function proceedToArea() {
   //Make sure, cart is not visible, and camping is
   document.getElementById("cart_section").style.display = "none";
   document.getElementById("camping_section").style.display = "block";
-  document.getElementById("no_area_selected").style.display = "none";
+
 
   //get availability of the camp areas
   getAvailability();
@@ -152,17 +152,14 @@ function proceedToArea() {
 
 //here is the function for proceeding to info input
 function proceedToInfo() {
-  //if statement makes sure you can only go to next section if an available area has been chosen
-   if (reservation.area === "") {
-    document.getElementById("no_area_selected").style.display = "block";
 
-  } else {
-    putReservation();
+  putReservation();
 
-    document.getElementById("camping_section").style.display = "none";
-    document.getElementById("costumer_section").style.display = "block";
+  //hiding camping sectiong and make costumer section visible
+  document.getElementById("camping_section").style.display = "none";
+  document.getElementById("costumer_section").style.display = "block";
 
-  } 
+
 
   //here i add click eventlistener, if form is valid it prevents default submit, and calls proceed to cart
   //its to make sure that each input fiels still  shows as required while the form is invalid, and only prevents default once everything IS valid
@@ -262,7 +259,7 @@ async function getAvailability() {
 }
 
 function prepareAreas(json) {
-
+  allAreas = [];
 
   json.forEach(jsonobject => {
 
@@ -272,7 +269,6 @@ function prepareAreas(json) {
     camping.spots = jsonobject.spots;
     camping.available = jsonobject.available;
 
-    console.log(camping);
 
     allAreas.push(camping);
 
@@ -282,34 +278,44 @@ function prepareAreas(json) {
   console.log(allAreas);
 
 
+  prepareList();
+}
+
+function prepareList() {
+
+
+
+  document.querySelector("#camping_one").textContent = "";
+  document.querySelector("#camping_two").textContent = "";
+  document.querySelector("#camping_three").textContent = "";
+  document.querySelector("#camping_four").textContent = "";
+  document.querySelector("#camping_five").textContent = "";
+
   allAreas.forEach(displayAreaAvailability);
-
-
 
 }
 
 //Here we display the areas and their availability + add function for reserving spot, and updating the list
 function displayAreaAvailability(camping) {
 
-  //add eventlistener for each of the area select radio buttons
-  
 
-    document.querySelectorAll("[data-action='area_select']").forEach(input => input.addEventListener("click", reserveAreaSpot));
-  
+  //add eventlistener for each of the area select radio buttons
+  document.querySelectorAll("[data-action='area_select']").forEach(input => input.addEventListener("click", reserveAreaSpot));
 
 
   const clone = document.querySelector("#template_camping").content.cloneNode(true);
-  clone.querySelector("[data-field=spots]").textContent = "Spots: " + camping.spots;
+  clone.querySelector("[data-field=spots]").textContent = camping.spots + " spots";
   clone.querySelector("[data-field=available]").textContent = "Available: " + camping.available;
 
-//if no spots available set text to to sold out (EVT: make radio button unclickable too???)
-  if (camping.available == 0) {  
+  //if no spots available set text to to sold out (EVT: make radio button unclickable too???)
+  if (camping.available === 0) {
 
     clone.querySelector("[data-field=available]").textContent = "SOLD OUT";
+    disableClick();
 
-  } 
+  }
 
-  
+
   /*appending each area's info to the coresponding list and changing the name*/
   /*giving each  area-availability field an id with areaname + _a for available
    - the id is needed later when changing the available count */
@@ -350,46 +356,83 @@ function displayAreaAvailability(camping) {
 
   }
 
+
+
+//if there is less available spots than tickets, disable clicking
+  if (camping.available < savedTickets.total_tickets ) {
+    disableClick();
+  }
+
+  //here is the function that makes sure the button is unclickable and blacks out the btn with unclickable class
+  function disableClick() {
+
+
+    const area = camping.area;
+
+    console.log("disabled " + area);
+
+    document.getElementById(area).checked = false;
+    document.getElementById(area).disabled = true;
+    document.getElementById(area).classList.add("unclickable");
+  }
+
+
+
+
   /*Here i add function that saves the reservation area, and updates the display for availability*/
   function reserveAreaSpot() {
-
-    const storage = localStorage.getItem("tickets");
-    let savedTickets = JSON.parse(storage);
-
-    
+    //first resets the list to make sure availability goes back to orginial value when clicking between areas.
+    resetList();
 
 
-    /*if the area matches the camping area, and if there is enough spots*/
+    //if the clicked area matches the camping area, and if there is enough spots
     if (this.value === camping.area) {
       if (camping.available >= savedTickets.total_tickets) {
 
-        /*then update display is called, and updates  the corresponding available spot fields*/
-        const hu = camping.available - savedTickets.total_tickets;
-        console.log(hu);
-        updateDisplay(hu, this.value);
+        //then calculate new availability - update display updates the corresponding available spot fields
 
-        /*then set the values of reservation to match selected area and amount of tickets*/
+        const newAvailability = camping.available - savedTickets.total_tickets;
+        console.log(newAvailability);
+        updateDisplay(newAvailability, this.value);
+
+        //then set the values of reservation to match selected area and amount of tickets*/
         reservation.area = this.value;
         reservation.amount = savedTickets.total_tickets;
 
         console.log(reservation);
-      }
+      } 
     }
-
   }
+
+
 
   /*Here I update the display to show the new availability, 
       - it receives the updated available count and the clicked area that lead into the function*/
   function updateDisplay(newAvailability, area) {
-
-    /*adding "_a" to the area to match the id for area-availability data-fields*/
     const area_availability = area + "_a";
+    /*adding "_a" to the area to match the id for area-availability data-fields*/
+    if (area = camping.area) {
 
-    /*sets textcontent of the areas availability - using the area-availability variable*/
-    document.getElementById(area_availability).textContent = newAvailability;
+      /*sets textcontent of the areas availability - using the area-availability variable*/
+      document.getElementById(area_availability).textContent = `Available: ${newAvailability}`;
+    }
 
   }
 
+
+
+  //Here i add reset function that makes sure availability goes back to orginial value.
+  //this is to make sure the area availability changes when clicking between areas.
+  function resetList() {
+    const area_availability = camping.area + "_a";
+    if(camping.available === 0){
+    document.getElementById(area_availability).textContent = `SOLD OUT`;
+          
+    }else{
+  
+    document.getElementById(area_availability).textContent = `Available: ${camping.available}`;
+  }
+  }
 }
 
 
@@ -444,7 +487,7 @@ function timerDesktop() {
   //Setting so when calling timerDesktop, the timer for desktop starts
 
 
-//if the reservation/order has been confirmed, stop the timer, otherwise start the timer;
+  //if the reservation/order has been confirmed, stop the timer, otherwise start the timer;
   if (reservation.confirmed) {
     stopTimer();
   } else {
@@ -482,7 +525,7 @@ function startTimer() {
 
   //Here I add my minute and seconds variables to the inner HTML, so the timers length is added to the other variable of timer default
   document.querySelector(".timer").innerHTML = m + ":" + s;
- 
+
 
 
   //Here I call the setTimeout function and makes it call the startTImer function every second, therefore its always in loop
