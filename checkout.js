@@ -304,7 +304,7 @@ function displayAreaAvailability(camping) {
 
 
   const clone = document.querySelector("#template_camping").content.cloneNode(true);
-  clone.querySelector("[data-field=spots]").textContent = "Spots: " + camping.spots;
+  clone.querySelector("[data-field=spots]").textContent = camping.spots + " spots";
   clone.querySelector("[data-field=available]").textContent = "Available: " + camping.available;
 
   //if no spots available set text to to sold out (EVT: make radio button unclickable too???)
