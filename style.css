@@ -44,9 +44,13 @@
 }
 
 /* MAIN STYLING */
-
 body {
   margin: var(--margin-auto);
+  background-color: pink;
+  background-image: url("img/test_background.png");
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+/* background-image: linear-gradient(hsl(10,90,66)); */
 }
 
  main{
