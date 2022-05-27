@@ -99,26 +99,32 @@ function displayCart(cart) {
   const tentTwoName = "2 Person tent";
   const tentFourName = "4 Person tent";
 
+  const regTotal = priceREG * cart.reg_tickets;
+  const vipTotal = priceVIP * cart.vip_tickets;
+  const twoTentTotal = tentTwoPrice * cart.tent_two;
+  const fourTentTotal = tentFourPrice * cart.tent_four;
+  const total = regTotal + vipTotal + twoTentTotal + fourTentTotal + 99;
 
   clone.querySelector("[data-field=cart_regu_ticket]").textContent = ticketNameReg;
   clone.querySelector("[data-field=cart_regu_quantity]").textContent = cart.reg_tickets;
   clone.querySelector("[data-field=cart_regu_price]").textContent = priceREG + " DKK";
-  clone.querySelector("[data-field=cart_regu_total]").textContent = priceREG * cart.reg_tickets + " DKK";
+  clone.querySelector("[data-field=cart_regu_total]").textContent = regTotal + " DKK";
 
   clone.querySelector("[data-field=cart_vip_ticket]").textContent = ticketName;
   clone.querySelector("[data-field=cart_vip_quantity]").textContent = cart.vip_tickets;
   clone.querySelector("[data-field=cart_vip_price]").textContent = priceVIP + " DKK";
-  clone.querySelector("[data-field=cart_vip_total]").textContent = priceVIP * cart.vip_tickets + " DKK";
+  clone.querySelector("[data-field=cart_vip_total]").textContent = vipTotal + " DKK";
 
   clone.querySelector("[data-field=cart_two_tent]").textContent = tentTwoName;
   clone.querySelector("[data-field=cart_two_tent_quantity]").textContent = cart.tent_two;
   clone.querySelector("[data-field=cart_two_tent_price]").textContent = tentTwoPrice;
-  clone.querySelector("[data-field=cart_two_tent_total]").textContent = tentTwoPrice * cart.tent_two + " DKK";
+  clone.querySelector("[data-field=cart_two_tent_total]").textContent = twoTentTotal + " DKK";
 
   clone.querySelector("[data-field=cart_four_tent]").textContent = tentFourName;
   clone.querySelector("[data-field=cart_four_tent_quantity]").textContent = cart.tent_four;
   clone.querySelector("[data-field=cart_four_tent_price]").textContent = tentFourPrice;
-  clone.querySelector("[data-field=cart_four_tent_total]").textContent = tentFourPrice * cart.tent_four + " DKK";
+  clone.querySelector("[data-field=cart_four_tent_total]").textContent = fourTentTotal + " DKK";
+  clone.querySelector("[data-field=cart_total_total]").textContent = total + " DKK";
 
   document.querySelector("#cart_table").appendChild(clone);
 }
@@ -176,6 +182,7 @@ function proceedToInfo() {
 
 
 function proceedToCard() {
+  
 
   document.getElementById("costumer_section").style.display = "none";
   document.getElementById("payment_section").style.display = "block";
@@ -203,26 +210,71 @@ function confirmOrder() {
   //calling the timer again to stop the timer
   timerDesktop();
 
-//calling sendConfirmation to send an email with detials and order confrmation
-sendConfirmation();
+//calling getCostumer info, which reads the forms values and calls
+//sendConfirmation fucntion to send an email with detials and order confrmation
 
+getInfo();
 }
-const myName = "thildolas";
-const myEmail = "mathildeengb@gmail.com";
 
 
+function getInfo(){
+
+const costumerForm = document.querySelector(".costumer_form form");
+const fullname = costumerForm.elements.fullname.value;
+const email = costumerForm.elements.mail.value;
+const total = document.querySelector("[data-field=cart_total_total]").textContent;
 
 
+console.log(fullname);
+console.log(email);
+console.log(total);
 
-function sendConfirmation(){
+
+sendConfirmation(fullname,email,total);
+}
+
+function ticketMessage(){
+  var ticketMessage;
+if(savedTickets.reg_tickets === 0){
+ticketMessage = ` ${savedTickets.total_tickets} total tickets; ${savedTickets.vip_tickets} VIP tickets`;
+}else if(savedTickets.vip_tickets === 0){
+ticketMessage = ` ${savedTickets.total_tickets} total tickets: ${savedTickets.reg_tickets} Regular tickets`;
+}else{
+ticketMessage = ` ${savedTickets.total_tickets} total tickets: ${savedTickets.reg_tickets} Regular tickets and ${savedTickets.vip_tickets} VIP tickets`;
+}
+return ticketMessage;
+}
+
+
+function tentMessage(){
+  var tents;
+if(savedTickets.tent_four === 0 & savedTickets.tent_two > 0){
+tents = ` ${savedTickets.tent_two} 2person tents`;
+}else if(savedTickets.tent_two === 0 & savedTickets.tent_four > 0){
+tents = ` ${savedTickets.tent_four} 4person tents`;
+}else if (savedTickets.tent_four > 0 & savedTickets.tent_two > 0){
+tents = ` ${savedTickets.tent_two} two person tents and ${savedTickets.tent_four} four person tents`;
+}else{
+  tents = "No tents were purchased - so remember to bring your own ;)";
+}
+return tents;
+}
+
+
+function sendConfirmation(name,email,total){
+ const tickets = ticketMessage();
+ const tents = tentMessage();
+
   const payload = {
  service_id: 'service_ngppnvc',
     template_id: 'template_wuxketh',
     user_id: 'dgCgRYkZrhDwvJ2pA',
     template_params: {
-        'to_name': myName,
-        'to_user': myEmail,
-        'message': 'this is just a test'
+        'to_name': name,
+        'to_user': email,
+        'tickets': tickets,
+        'tents': tents,
+        'total': total
     }
   };
   console.log(payload);
