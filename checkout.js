@@ -203,8 +203,53 @@ function confirmOrder() {
   //calling the timer again to stop the timer
   timerDesktop();
 
-}
+//calling sendConfirmation to send an email with detials and order confrmation
+sendConfirmation();
 
+}
+const myName = "thildolas";
+const myEmail = "mathildeengb@gmail.com";
+
+
+
+
+
+function sendConfirmation(){
+  const payload = {
+ service_id: 'service_ngppnvc',
+    template_id: 'template_wuxketh',
+    user_id: 'dgCgRYkZrhDwvJ2pA',
+    template_params: {
+        'to_name': myName,
+        'to_user': myEmail,
+        'message': 'this is just a test'
+    }
+  };
+  console.log(payload);
+
+
+  fetch(`https://api.emailjs.com/api/v1.0/email/send`, {
+
+    method: "post",
+
+    body: JSON.stringify(payload),
+
+    headers: {
+
+      Accept: "application/json",
+
+      "Content-Type": "application/json",
+
+    },
+
+  })
+    
+    .then((res) => res.json())
+    .then((d) => {
+      console.log(d);
+    
+    });
+}
 
 //post the reservation with the id as payload
 function reservationPost() {
