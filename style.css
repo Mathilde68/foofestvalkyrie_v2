@@ -286,6 +286,7 @@ select{
 
 .menu {
   position: absolute;
+  z-index: 1;
   top: 0;
   margin-top: 50px;
   left: 0;
@@ -481,18 +482,20 @@ button{
 
  .highligt_anim {
    height: 5rem;
+   margin: var(--margin-auto);
   line-height: 1.5;
   text-transform: uppercase;
   white-space: nowrap;
   overflow: hidden;
   position: relative;
-  width: 400px;
+  width: 300px;
 }
 
 .message {
   background-color: var(--secondary_bg_1);
   color: var(--font_color_black);
   font-family: bellyBeans;
+  text-align: center;
   font-size: 3rem;
   display: block;
   font-weight: 900;
