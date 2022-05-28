@@ -1,24 +1,26 @@
 :root {
 /*  PRIMARY COLORS */
---primary_bg_1: white;
---primary_bg_2: rgb(255, 255, 194);
---primary_bg_3: rgb(130, 184, 255);
---font_color_black: black;
+--primary_bg_1: #F6E1CE;
+--primary_bg_2: #EFB541;
+--primary_bg_3: #E79DA9;
+--font_color_black: #312F30;
 --font_color_white: white;
  /*  SECONDARY COLORS */
---secondary_bg_1: rgb(137, 207, 134);
---secondary_bg_2: rgb(42, 85, 141);
---secondary_bg_3: rgb(226, 160, 113);
-
+--secondary_bg_1: #2B729B;
+--secondary_bg_2: #312F30;
  /*  ACCENT COLORS BUTTONS AND LINKS */
+--accent_one: #35A293;
+--accent_two:#E14725;
+
  /* button */
-  --btn_hover_bg: pink;
-  --btn_font_hover: var(--btn_bg);
-  --btn_bg:rgb(255, 135, 30);
-  --btn_font:var(--btn_hover_bg);
+  --btn_hover_bg: var(--accent_two);
+  --btn_font_hover: var(--btn_font);
+  --btn_bg: var(--accent_one);
+  --btn_font: #F6E1CE;
   --btn_inset_shadow:inset 2px 1.5px 6px rgba(255, 255, 255, 0.545);
   --btn_out_shadow: 1px 3px 4px rgba(0, 0, 0, 0.182);
-  --btn_check_bg: var(--btn_hover_bg);
+  --btn_check_bg: var(--btn_bg);
+  --btn_check_font: var(--accent_two);
   --btn_check_inset: inset 2px 2px 5px rgba(0, 0, 0, 0.274);
   /* link */
   --link_color: black;
@@ -46,11 +48,7 @@
 /* MAIN STYLING */
 body {
   margin: var(--margin-auto);
-  background-color: pink;
-  background-image: url("img/test_background.png");
-  background-repeat: no-repeat;
-  background-attachment: fixed;
-/* background-image: linear-gradient(hsl(10,90,66)); */
+  background-color: var(--primary_bg_1);
 }
 
  main{
@@ -227,7 +225,7 @@ button{
 }
 
  button:active{
-    color: var(--btn_bg);
+    color: var(--btn_check_font);
     background-color: var(--btn_check_bg);
     box-shadow: var(--btn_check_inset);
 }
@@ -269,13 +267,24 @@ select{
 
 /* Navigation */
 /*navigation top menu*/
+.top-nav p{
+  font-family: 'Righteous', cursive;
+  font-size: 1.2rem;
+  color: var(--font_color_white);
+
+}
 .top-nav {
   display: flex;
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+/*   background-image: url("ui_icons/pattern_one.svg");
+  background-position: center;
+  background-repeat:repeat;
+  background-size: 270px; */
   background-color: var(--secondary_bg_2);
-  color: var(--font_color_white);
+  border-bottom: solid 4px var(--secondary_bg_2);
+  /* color: var(--accent_two); */
   height: 50px;
   padding: 1em;
 }
@@ -309,7 +318,7 @@ select{
   padding: 0.5em 0;
   width: 100%;
   color: var(--secondary_bg_2);
-  background-color: var(--secondary_bg_3);
+  background-color: var(--secondary_bg_1);
   text-decoration: none;
 }
 
@@ -331,7 +340,7 @@ select{
 .menu-button::before,
 .menu-button::after {
   display: block;
-  background-color: var(--btn_bg);
+  background-color: var(--accent_two);
   position: absolute;
   height: 4px;
   width: 30px;
@@ -355,7 +364,7 @@ select{
 }
 
 #menu-toggle:checked + .menu-button-container .menu-button {
-  background: var(--secondary_bg_2);
+  background: var(--accent_two);
 }
 
 #menu-toggle:checked + .menu-button-container .menu-button::after {
@@ -496,7 +505,7 @@ button{
 }
 
 .message {
-  background-color: var(--secondary_bg_1);
+  background-color: var(--primary_bg_2);
   color: var(--font_color_black);
   font-family: bellyBeans;
   text-align: center;

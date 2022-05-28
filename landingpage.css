@@ -16,12 +16,10 @@ margin-top: 6rem;
 }
 
 #radio_imp:checked, #radio_all:checked{
-    background-color: var(--secondary_bg_3);
+    background-color: var(--accent_two);
 }
 
 .grid_radio_new{
-    box-shadow: var(--shadow_out);
-    background-color: var(--primary_bg_1);
     max-width: 100%;
    /*  text-align: left; */
     display: flex;
@@ -29,11 +27,10 @@ margin-top: 6rem;
     gap: 0.5rem;
     flex-direction: column;
     align-items: center;
-    margin: 0 auto;
     margin-top: 1rem;
 }
 .grid_radio_new dd{
-    font-size: 14px;
+    font-size: 1rem;
     font-weight: 400;
    /*  padding: 0.5rem; */
 }
@@ -75,9 +72,11 @@ margin-top: 6rem;
 }
 
 #ticket{
-background-color:var(--secondary_bg_3);
+background-image: url("ui_icons/ticket_done_01.svg");
+background-repeat: no-repeat;
 width: 17rem;
 padding: 2rem;
+cursor: pointer;
 transform: rotate(2deg);
 animation: pulse 1s infinite;
 }
@@ -133,6 +132,38 @@ animation: pulse 1s infinite;
     #ticket{
         width: 45rem;
         padding: 5rem;
+    }
+
+    .newsletter_form{
+        max-width: 40%;
+    }
+
+    .newsletter_form label{
+        margin:0;
+    }
+
+    #newsletter {
+        margin-top: 6rem;
+        }
+
+    .grid_radio_new {
+        gap: 0.5rem;
+        }
+
+    .sign_btn {
+        padding: 1rem;
+        }
+
+    .newslet_radio{
+        height: 10rem;
+        padding: 1rem;
+    }
+
+    .highlight_bg{
+        margin: 0;
+        width: 100%;
+        border-radius: var(--default-b-radius);
+        background-color: var(--primary_bg_2);
     }
     
   }
