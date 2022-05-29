@@ -104,6 +104,7 @@ p{
   font-family: 'Open Sans', sans-serif;
   font-size: 16px;
   margin: 1rem;
+  cursor:context-menu;
 }
 
 li{
