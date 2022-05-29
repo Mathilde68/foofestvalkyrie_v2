@@ -236,6 +236,7 @@ button{
 
  /* unvisited link */
  a:link {
+   font-family:  'Open Sans', sans-serif;
   color: var(--link_color);
   letter-spacing: 1.5px;
   text-decoration: none;
@@ -319,9 +320,8 @@ select{
   margin: 0;
   padding: 0.5em 0;
   width: 100%;
-  color: var(--secondary_bg_2);
   background-color: var(--secondary_bg_1);
-  text-decoration: none;
+  
 }
 
 .menu-button-container {
@@ -366,7 +366,7 @@ select{
 }
 
 #menu-toggle:checked + .menu-button-container .menu-button {
-  background: var(--accent_two);
+  background: var(--secondary_bg_2);
 }
 
 #menu-toggle:checked + .menu-button-container .menu-button::after {

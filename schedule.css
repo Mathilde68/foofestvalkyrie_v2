@@ -2,11 +2,14 @@
 body{
     background-image: url(img/extralong2.svg);
     background-size: 110%;
-    background-position: 10% 15%;
+    background-position: 0% -6rem;
+    max-height: 80rem;
+    
     
 }
 #schedule-form{
     -webkit-appearance: none;
+    
     padding: 1rem;
     border-radius: 6px;
     background-color: var(--primary_bg_3);
@@ -14,7 +17,8 @@ body{
 }
 
 #schedule{
-    margin: 0 auto;
+  
+    margin: 1rem auto;
     width:fit-content;
 }
 
@@ -90,7 +94,16 @@ body{
 /*-----desktop and tablets-----*/
 @media screen and (min-width: 768px)  {
 
+    body{
+        background-size: 110%;
+        background-position: 0% 22.5%;
+    }
+
+    #schedule{
+        height: 110vh;
+    }
     #schedule-form{
+      
         padding:2rem;
     }
 

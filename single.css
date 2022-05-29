@@ -1,13 +1,12 @@
 body{
   background-image: url(img/doublemountain.svg);
   background-size: 105%;
-background-position: 10% 50%;
+background-position: 0% -0%;
 background-repeat: no-repeat;
 }
 .name_wrapper {
   display: flex;
   flex-direction: column;
-  padding: 1rem;
 }
 
 .name_wrapper h1 {
@@ -23,12 +22,12 @@ background-repeat: no-repeat;
 
 .img_wrapper {
   flex: 1 0 100%;
-  background-color: var(--primary_bg_1);
+  background-color: var(--primary_bg_3);
   box-shadow: var(--shadow_inset);
  
 }
 #bandImage {
-  padding-top: 1.5rem;
+  padding-top: 0.5rem;
   width: 100%;
 }
 
@@ -60,12 +59,16 @@ background-repeat: no-repeat;
 }
 
 #back_arrow {
-  background-color: transparent;
   color: var(--btn_font_hover);
-  margin: 1.5rem 1rem;
+  margin: 1.5rem 0.5rem;
   width: min-content;
   height: min-content;
   box-shadow: none;
+}
+
+#back_arrow svg{
+  Width: 2rem;
+ 
 }
 
 /*-----tablet and small desktop----------*/
@@ -92,11 +95,24 @@ background-repeat: no-repeat;
     flex: 0 1 25rem;
   }
 
+body{
+ 
+    background-size: 140%;
+    background-position: 20% 10%;
+    background-repeat: no-repeat;
+}
+  
 
 }
 
 /*-------desktops-----------*/
 @media screen and (min-width: 1200px) {
+  body{
+    
+    background-size: 105%;
+  background-position: 10% 50%;
+  background-repeat: no-repeat;
+  }
   .artist_info_wrapper {
     flex-direction: row;
     flex-wrap: nowrap;
