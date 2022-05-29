@@ -23,7 +23,7 @@
   width: 100%;
 }
 
-.timer_mobile {
+/* .timer_mobile {
   display: none;
   background-color: var(--secondary_bg_2);
   text-align: center;
@@ -32,16 +32,39 @@
   padding: 1rem;
   border-radius: 20px;
   height: auto;
-}
+} */
 
 .cart_products {
-  gap: 1rem;
-  width: 99%;
-  padding: 2rem;
+  margin: 0 auto;
+  width: 98%;
+  padding: 1rem;
   border-radius: 6px;
-  background-color:var(--primary_bg_2);
-  border: solid 1px;
-  box-shadow: var(--shadow_out);
+  background-color:var(--primary_bg_3);
+  box-shadow: var(--shadow_out), var(--shadow_inset);
+}
+
+table{
+  margin: 0 auto;
+}
+
+th {
+  font-family: "Righteous", cursive;
+  font-size: 1.05rem;
+  margin: 0 auto;
+  padding-right: 0.2rem;
+  border-bottom: 2px solid var(--font_color_black);
+}
+
+td {
+  font-size: 0.8rem;
+  padding-top: 2rem;
+  vertical-align: bottom;
+  text-align: center;
+}
+
+#cart_two th {
+  display: none;
+  border: none;
 }
 
 /*------camp area stylingss----*/
@@ -115,13 +138,16 @@
   display: grid;
   gap: 1rem;
 }
-
+tr.total_border td{
+  border-bottom: solid 1px;
+}
 .costumer_button,
 .cart_button {
   display: grid;
-  padding: 1rem;
+  padding: 0.5rem;
   grid-template-columns: 1fr 1fr;
   margin: 0 auto;
+  margin-top: 3rem;
   gap: 0.5rem;
   align-items: center;
 }
@@ -158,6 +184,18 @@
   align-self: center;
 }
 
+#timesup_popup {
+  display: none;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10;
+  margin: 0 auto;
+  background-color: var(--secondary_bg_3);
+}
+
 /* Small devices (landscape phones, 576px and up) */
 
 @media screen and (min-width: 576px) {
@@ -179,6 +217,21 @@
   .payment_wrapper {
     margin: 0 auto;
   }
+
+  th {
+    font-size: 1.5rem;
+    padding: 1rem; 
+  }
+  
+  td {
+    font-size: 1rem;
+    padding: 1rem; 
+  }
+
+  table{
+    width: 80%;
+  }
+
 }
 
 /* Medium devices (tablets, 768px and up) */
@@ -212,6 +265,10 @@
 
   .timer span {
     font-size: 60px;
+  }
+
+  #timer_section{
+    display: none;
   }
 
   #cart_section,
@@ -342,31 +399,10 @@
   .timesup_text {
     text-align: center;
   }
+
+  table{
+    width: 80%;
+    padding: 1rem;
+  }
 }
 
-#cart {
-  width: 100%;
-  background-color: var(--primary_bg_2);
-  box-shadow: var(--shadow_inset);
-  text-align: left;
-  border: solid 1px rgb(186, 186, 186);
-}
-
-th {
-  font-family: "Righteous", cursive;
-  font-size: 1.3rem;
-  padding: 1rem;
-  border-bottom: 2px solid var(--font_color_black);
-}
-
-td {
-  font-size: 1.1rem;
-  padding: 1rem;
-  height: 0.5rem;
-  vertical-align: bottom;
-}
-
-#cart_two th {
-  display: none;
-  border: none;
-}
