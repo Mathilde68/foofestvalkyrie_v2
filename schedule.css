@@ -1,4 +1,10 @@
 /*default mobile*/
+body{
+    background-image: url(img/extralong2.svg);
+    background-size: 110%;
+    background-position: 10% 15%;
+    
+}
 #schedule-form{
     -webkit-appearance: none;
     padding: 1rem;
@@ -52,7 +58,7 @@
 .table-cell{
     padding: 0.9rem;
     width: 19rem;
-    height:9rem;
+    height:5rem;
 }
 /*title of each table - the stagename*/
 .table-title{
@@ -93,7 +99,7 @@
     }
 
     #schedule-form{
-        max-width: 60rem;
+        max-width: 50rem;
     }
 
    
@@ -135,4 +141,15 @@
 
 .hidden{
     display: none;
+}
+
+/* Large devices (desktops, 992px and up) */
+
+@media screen and (min-width: 992px) { 
+
+    #schedule-form{
+        max-width: 60rem;
+    }
+
+
 }

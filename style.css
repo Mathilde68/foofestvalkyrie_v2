@@ -50,10 +50,12 @@
 body {
   margin: var(--margin-auto);
   background-color: var(--primary_bg_1);
+ 
 }
 
  main{
   margin: var(--main-d-margin);
+
 } 
 
 * {
