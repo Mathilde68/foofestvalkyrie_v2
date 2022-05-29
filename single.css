@@ -1,3 +1,9 @@
+body{
+  background-image: url(img/double\ mountain.svg);
+  background-size: 105%;
+background-position: 10% 50%;
+background-repeat: no-repeat;
+}
 .name_wrapper {
   display: flex;
   flex-direction: column;
@@ -17,8 +23,9 @@
 
 .img_wrapper {
   flex: 1 0 100%;
-  background-color: var(--primary_bg_3);
+  background-color: var(--primary_bg_1);
   box-shadow: var(--shadow_inset);
+ 
 }
 #bandImage {
   padding-top: 1.5rem;
@@ -73,8 +80,9 @@
     flex-direction: row-reverse;
     justify-content: space-around;
     padding: 2rem;
-    background-color: var(--primary_bg_3);
+    background-color: var(--primary_bg_1);
     box-shadow: var(--shadow_inset);
+    border-radius: 1rem;
   }
 
   .img_wrapper {
