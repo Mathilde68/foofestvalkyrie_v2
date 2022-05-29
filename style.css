@@ -55,6 +55,8 @@ body {
 
  main{
   margin: var(--main-d-margin);
+  max-width: 1200px;
+
 
 } 
 

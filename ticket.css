@@ -7,13 +7,13 @@
 background-position: 50% 60%;
 background-repeat: no-repeat;
   }
-  
+
   .ticket_grid{
     margin: 0 auto;
   }
 .regu_ticket{
   margin: 0 auto;
-  height: 10rem;
+  height: 8rem;
   margin: 1rem;
   background-image: url("ui_icons/ticket_done_01.svg");
   background-repeat: no-repeat;
@@ -102,6 +102,7 @@ padding: 0;
   .regu_ticket{
     margin: 0 auto;
     cursor: pointer;
+    height: 20rem;
     transition: 1s;
     animation: none;
 }
