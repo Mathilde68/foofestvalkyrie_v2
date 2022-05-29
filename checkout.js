@@ -106,27 +106,55 @@ function displayCart(cart) {
   const total = regTotal + vipTotal + twoTentTotal + fourTentTotal + 99;
 
   clone.querySelector("[data-field=cart_regu_ticket]").textContent = ticketNameReg;
-  clone.querySelector("[data-field=cart_regu_quantity]").textContent = cart.reg_tickets;
-  clone.querySelector("[data-field=cart_regu_price]").textContent = priceREG + " DKK";
+  clone.querySelector("[data-field=cart_regu_quantity]").textContent = cart.reg_tickets+"x";
+  clone.querySelector("[data-field=cart_regu_price]").textContent = priceREG;
   clone.querySelector("[data-field=cart_regu_total]").textContent = regTotal + " DKK";
-
   clone.querySelector("[data-field=cart_vip_ticket]").textContent = ticketName;
-  clone.querySelector("[data-field=cart_vip_quantity]").textContent = cart.vip_tickets;
-  clone.querySelector("[data-field=cart_vip_price]").textContent = priceVIP + " DKK";
+  clone.querySelector("[data-field=cart_vip_quantity]").textContent = cart.vip_tickets+"x";
+  clone.querySelector("[data-field=cart_vip_price]").textContent = priceVIP;
   clone.querySelector("[data-field=cart_vip_total]").textContent = vipTotal + " DKK";
-
   clone.querySelector("[data-field=cart_two_tent]").textContent = tentTwoName;
-  clone.querySelector("[data-field=cart_two_tent_quantity]").textContent = cart.tent_two;
+  clone.querySelector("[data-field=cart_two_tent_quantity]").textContent = cart.tent_two+"x";
   clone.querySelector("[data-field=cart_two_tent_price]").textContent = tentTwoPrice;
   clone.querySelector("[data-field=cart_two_tent_total]").textContent = twoTentTotal + " DKK";
-
   clone.querySelector("[data-field=cart_four_tent]").textContent = tentFourName;
-  clone.querySelector("[data-field=cart_four_tent_quantity]").textContent = cart.tent_four;
+  clone.querySelector("[data-field=cart_four_tent_quantity]").textContent = cart.tent_four+"x";
   clone.querySelector("[data-field=cart_four_tent_price]").textContent = tentFourPrice;
   clone.querySelector("[data-field=cart_four_tent_total]").textContent = fourTentTotal + " DKK";
-  clone.querySelector("[data-field=cart_total_total]").textContent = total + " DKK";
 
-  document.querySelector("#cart_table").appendChild(clone);
+  clone.querySelector("[data-field=cart_total_total]").textContent = total + " DKK"; 
+
+  //Making if statements so if you havent added anything in ticketform it doesnt show up
+  if(cart.reg_tickets === 0){
+    clone.querySelector("[data-field=cart_regu_ticket]").textContent = " ";
+    clone.querySelector("[data-field=cart_regu_quantity]").textContent = " ";
+    clone.querySelector("[data-field=cart_regu_price]").textContent = " ";
+    clone.querySelector("[data-field=cart_regu_total]").textContent = " ";
+  }
+
+  if(cart.vip_tickets === 0){
+    clone.querySelector("[data-field=cart_vip_ticket]").textContent = " ";
+    clone.querySelector("[data-field=cart_vip_quantity]").textContent = " ";
+    clone.querySelector("[data-field=cart_vip_price]").textContent = " ";
+    clone.querySelector("[data-field=cart_vip_total]").textContent = " ";
+  }
+
+  if(cart.tent_two === 0){
+    clone.querySelector("[data-field=cart_two_tent]").textContent = " ";
+    clone.querySelector("[data-field=cart_two_tent_quantity]").textContent = " ";
+    clone.querySelector("[data-field=cart_two_tent_price]").textContent = " ";
+    clone.querySelector("[data-field=cart_two_tent_total]").textContent = " ";
+
+  }
+
+  if(cart.tent_four === 0){
+  clone.querySelector("[data-field=cart_four_tent]").textContent = " ";
+  clone.querySelector("[data-field=cart_four_tent_quantity]").textContent = " ";
+  clone.querySelector("[data-field=cart_four_tent_price]").textContent =  " ";
+  clone.querySelector("[data-field=cart_four_tent_total]").textContent =  " ";
+  }
+
+document.querySelector("#cart_table").appendChild(clone);
 }
 
 

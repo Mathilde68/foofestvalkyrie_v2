@@ -49,102 +49,106 @@
 
 
     <main>
-
         <section id="tickets">
-            <div class="something"></div>
+            <h1>Tickets</h1>
+            <h2>Buy before your nabour ;)</h2>
+            <div class="text_t_p">
+                <p>We at Foofestival want to give YOU the best experience as possible! With music for every soul, for
+                    the
+                    younger cool teens and the older generation that invented groove. With a <strong>regular
+                        ticket</strong>
+                    you will gain access to the festival site and camping area with no limitation of seeing all the
+                    concerts! With a <strong>VIP ticket</strong> you will get access to our mediavillage that offers an
+                    oasis inside the festival area with pool, bars and exclusive DJ-sets at the famous creamsicle bar!
+                </p>
+            </div>
+            <!-- REGULAR ticket -->
+
             <div class="ticket_grid">
-                <!-- REGULAR ticket -->
-                <div class="regu_ticket_wrapper">
-                    <div class="regu_ticket">
+                <div class="regu_ticket"> </div>
+                <!-- BOX FOR ADDING -->
+                <form class="regu_fillout">
+                    <div class="closeRegu">
+                        <p>X</p>
                     </div>
-
-                    <!-- BOX FOR ADDING -->
-                    <form class="regu_fillout">
-                        <div class="closeRegu">
-                            <p>X</p>
-                        </div>
-                        <!-- BOX FOR ADDING TICKETS -->
-                        <div class="tickets">
-                            <h4>1. Step - how many tickets?</h4>
-                            <div class="underline"></div>
-                            <div id="reg_ticket_sel_container" class="ticket_select_container">
-                                <label for="amount_reg_ticket">Regular tickets</label>
-                                <div class="select_ticket">
-                                    <div>
-                                        <p>799 DKK pr.</p>
-                                    </div>
-                                    <div class="ticket_visual"></div>
-                                    <div class="reg_amount">
-                                        <button type="button" class="amount_btn" id="minus_r_t">-</button>
-                                        <input id="amount_reg_ticket" type=number name="amount_reg_ticket" min="0"
-                                            max=10 value="0">
-                                        <button type="button" class="amount_btn" id="plus_r_t">+</button>
-                                    </div>
-
+                    <!-- BOX FOR ADDING TICKETS -->
+                    <div class="tickets">
+                        <h4>1. Step - tickets</h4>
+                        <div class="underline"></div>
+                        <div id="reg_ticket_sel_container" class="ticket_select_container">
+                            <label for="amount_reg_ticket">Regular tickets</label>
+                            <div class="select_ticket">
+                                <div>
+                                    <p>799 DKK</p>
                                 </div>
+                                <div class="ticket_visual"></div>
+                                <div class="reg_amount">
+                                    <button type="button" class="amount_btn" id="minus_r_t">-</button>
+                                    <input id="amount_reg_ticket" type=number name="amount_reg_ticket" min="0" readonly
+                                        max=10 value="0">
+                                    <button type="button" class="amount_btn" id="plus_r_t">+</button>
+                                </div>
+
                             </div>
-                            <div id="vip_ticket_sel_container" class="ticket_select_container">
-                                <label for="amount_vip_ticket">VIP tickets</label>
-                                <div class="select_ticket">
-                                    <div>
-                                        <p>1299 DKK pr.</p>
-                                    </div>
-                                    <div class="ticket_visual"></div>
-                                    <div class="vip_amount">
-                                        <button type="button" class="amount_btn" id="minus_v_t">-</button>
-                                        <input id="amount_vip_ticket" type=number name="amount_vip_ticket" min="0"
-                                            max=10 value="0">
-                                        <button type="button" class="amount_btn" id="plus_v_t">+</button>
-                                    </div>
-
-
+                        </div>
+                        <div id="vip_ticket_sel_container" class="ticket_select_container">
+                            <label for="amount_vip_ticket">VIP tickets</label>
+                            <div class="select_ticket">
+                                <div>
+                                    <p>1299 DKK</p>
+                                </div>
+                                <div class="vip_amount">
+                                    <button type="button" class="amount_btn" id="minus_v_t">-</button>
+                                    <input id="amount_vip_ticket" type=number name="amount_vip_ticket" min="0" readonly
+                                        max=10 value="0">
+                                    <button type="button" class="amount_btn" id="plus_v_t">+</button>
                                 </div>
                             </div>
                         </div>
-                        <!-- BOX FOR ADDING TENT -->
-                        <div class="tent">
-                            <h4>2. Step - choose tents</h4>
-                            <div class="underline"></div>
+                    </div>
+                    <!-- BOX FOR ADDING TENT -->
+                    <div class="tent">
+                        <h4>2. Step - tent?</h4>
+                        <p>If you dont want to transport your tent and set it up, fear not! As an optional and for a
+                            little ekstra, we can set up a tent for you. The only thing we need is what kind of tent
+                            you want and how many, its that simple!</p>
+                        <div class="underline"></div>
+                        <div class="tent_grid">
+                            <label for="amount_reg_ticket">2 Persons tent</label>
                             <div class="tent_two_p">
-                                <div class="ten_two_text">
-                                    <p>2P tent</p>
+                                <div>
+                                    <p>299 DKK</p>
                                 </div>
                                 <div class="tent_two_amount">
                                     <button type="button" class="amount_btn" id="minus_r_two">-</button>
                                     <input id="amount_tent_two" name="amount_tent_two" type="number" min="0" max="10"
-                                        value="0">
+                                        readonly value="0">
                                     <button type="button" class="amount_btn" id="plus_r_two">+</button>
                                 </div>
                             </div>
+                        </div>
+                        <div class="tent_grid">
+                            <label for="amount_reg_ticket">4 Persons tent</label>
                             <div class="tent_four_p">
-                                <div class="ten_four_text">
-                                    <p>4P tent</p>
+                                <div>
+                                    <p>399 DKK</p>
                                 </div>
                                 <div class="tent_four_amount">
                                     <button type="button" class="amount_btn" id="minus_r_four">-</button>
                                     <input id="amount_tent_four" name="amount_tent_four" type="number" min="0" max="10"
-                                        value="0">
+                                        readonly value="0">
                                     <button type="button" class="amount_btn" id="plus_r_four">+</button>
                                 </div>
                             </div>
                         </div>
+                    </div>
 
-
-                    </form>
                     <button class="ticket_buy">Buy</button>
-                </div>
-
-            </div>
-
-
-
+                </form>
             </div>
         </section>
 
     </main>
-
-
-    <!---------------move below to form in checkout.html----------------------------------->
     <!--  BOX FOR ADDING CAMPINGAREA -->
 
 

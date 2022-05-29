@@ -1,6 +1,6 @@
 :root {
 /*  PRIMARY COLORS */
---primary_bg_1: #F6E1CE;
+--primary_bg_1: #fffdfc;
 --primary_bg_2: #EFB541;
 --primary_bg_3: #E79DA9;
 --font_color_black: #312F30;
@@ -8,6 +8,7 @@
  /*  SECONDARY COLORS */
 --secondary_bg_1: #2B729B;
 --secondary_bg_2: #312F30;
+--secondary_bg_3: #F6E1CE;
  /*  ACCENT COLORS BUTTONS AND LINKS */
 --accent_one: #35A293;
 --accent_two:#E14725;
@@ -54,6 +55,8 @@ body {
 
  main{
   margin: var(--main-d-margin);
+  max-width: 1200px;
+
 
 } 
 
@@ -103,6 +106,7 @@ p{
   font-family: 'Open Sans', sans-serif;
   font-size: 16px;
   margin: 1rem;
+  cursor:context-menu;
 }
 
 li{
