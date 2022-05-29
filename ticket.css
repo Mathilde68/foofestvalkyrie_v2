@@ -1,6 +1,13 @@
 
   /* MOBILE DEFAULT */
 
+  body{
+    background-image: url(img/rightmountain.svg);
+    background-size: 100%;
+background-position: 50% 60%;
+background-repeat: no-repeat;
+  }
+
   #tickets{
     margin: 1rem;
 }
