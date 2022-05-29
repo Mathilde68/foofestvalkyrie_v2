@@ -17,12 +17,10 @@
 
 .regu_ticket{
   margin: 0 auto;
-  height: 8rem;
-  max-width: 95%;
-  background-color: var(--secondary_bg_1);
+  height: 10rem;
+  background-image: url("ui_icons/ticket_done_01.svg");
+  background-repeat: no-repeat;
   cursor: pointer;
-  border: dotted 3px var(--font_color_white);
-  outline: solid 5px var(--secondary_bg_1);
   transition: 1s;
 
 }
