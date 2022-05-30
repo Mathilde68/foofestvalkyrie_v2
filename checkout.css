@@ -1,5 +1,23 @@
 /* The visual styling of the sections */
 
+.box_flex{
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  font-weight: 700;
+}
+.box_flex img{
+  width: 6rem;
+}
+
+.process_line{
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin: 4rem;
+}
+
 body{
   background-image: url(img/long1f.svg);
   background-size: 100%;
@@ -361,7 +379,7 @@ tr.total_border td{
   }
 
   .credit_card_visual {
-    background-image: url("ui_icons/credit-card-svgrepo-com\(1\).svg");
+    background-image: url("ui_icons/card_visual-01.svg");
     background-repeat: no-repeat;
     background-size: 198px;
     display: block;
