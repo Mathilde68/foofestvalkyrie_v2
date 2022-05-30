@@ -1,9 +1,9 @@
 /*default mobile*/
 body{
     background-image: url(img/extralong2.svg);
-    background-size: 110%;
-    background-position: 0% -6rem;
-    max-height: 80rem;
+    background-size: 113%;
+    background-position: 0% -5rem;
+   
     
     
 }
@@ -17,8 +17,7 @@ body{
 }
 
 #schedule{
-  
-    margin: 1rem auto;
+    margin: 1rem;
     width:fit-content;
 }
 
@@ -72,6 +71,7 @@ body{
 
 #artist{
     font-weight: bold;
+    cursor: pointer;
 }
 
 /* in mobile - wrapper for the stagebuttons and the single table*/
@@ -93,15 +93,16 @@ body{
 
 /*-----desktop and tablets-----*/
 @media screen and (min-width: 768px)  {
-
     body{
-        background-size: 110%;
-        background-position: 0% 22.5%;
+        background-size: 115%;
+        background-position: 30% 40%;
     }
 
     #schedule{
-        height: 110vh;
+        height: 115vh;
+
     }
+ 
     #schedule-form{
       
         padding:2rem;
@@ -159,7 +160,15 @@ body{
 /* Large devices (desktops, 992px and up) */
 
 @media screen and (min-width: 992px) { 
+    body{
+        background-size: 110%;
+        background-position: 0% 18%;
+    }
 
+    #schedule{
+        height: 125vh;
+
+    }
     #schedule-form{
         max-width: 60rem;
     }

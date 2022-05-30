@@ -1,5 +1,12 @@
 /* The visual styling of the sections */
 
+body{
+  background-image: url(img/long1f.svg);
+  background-size: 100%;
+  background-position: 55% 75%;
+  background-attachment: fixed;
+}
+
 #cart_section,
 #costumer_section,
 #payment_section,

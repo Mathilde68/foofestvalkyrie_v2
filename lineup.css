@@ -1,39 +1,127 @@
-
-body{
+body {
   background-image: url(img/flowerwalk.svg);
-  background-size: 100%;
-background-position: 50% 25%;
-background-repeat: no-repeat;
+  background-size: 120%;
+  background-position: 60% 49%;
+  background-repeat: no-repeat;
 }
 
-#list-section{
-    margin: 0 auto;
-    max-width: 100%;
+.lineup-title {
+  display: flex;
+  align-items: flex-end;
+  margin: 2rem 0;
+  justify-content: center;
+}
+.lineup-title h4 {
+  font-family: bellyBeans;
+  margin: 2rem -1rem;
 }
 
+#list-section {
+  margin: 0 auto;
+  max-width: 100%;
+}
 
-.list-wrapper{
-    position:fixed;
-    max-height:45rem;
-    margin:1rem;
-    background-color: var(--secondary_bg_3);
-    cursor: pointer;
-    border: dotted 3px var(--btn_font);
-    outline: solid 5px var(--secondary_bg_3);
-    transition: 1s;
+#flowertest{
+  margin-top:5px;
+  width:2.5rem;
+  transition: 0s;
+}
+
+#flowertest:hover{
+  transform: rotate(360deg);
+  transition: 1.5s;
+}
+
+.list-wrapper {
+  position: fixed;
+  max-height: 40rem;
+  margin: 0;
+  background-color: var(--primary_bg_3);
+  cursor: pointer;
+  background-image: url(ui_icons/pattern_one.svg);
+  background-size: 29%;
+  background-position: 0% 0%;
+}
+
+#lineup-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  max-height: 65vh;
+  margin: 1rem;
+  padding: 0 1rem;
+  background-image: url(ui_icons/pattern3.svg);
+  background-size: cover;
+  box-shadow: var(--shadow_inset);
+  text-align: center;
+}
+
+#lineup-list h4 {
+  font-family: "Righteous", cursive;
+  margin: 0.4rem 1rem;
+  font-size: 1.6rem;
+  transition: 0.8s;
+}
+
+#lineup-list h4:nth-child(3n + 2) {
+  text-transform: uppercase;
+}
+
+#artist-name:hover {
+  transform: scale(1.02);
+  color: var(--secondary_bg_1);
+}
+
+/* Medium devices (tablets, 768px and up) */
+
+@media screen and (min-width: 768px) {
+
+  body {
+    background-size: 250%;
+    background-position: 65% 21%;
+  }
+
+  .lineup-title{
+    margin: 1rem;
+  }
+  .list-wrapper {
+    max-height: max-content;
+    margin: 2rem 5rem;
+  }
+
+  #lineup-list {
+    max-height: 45rem;
+    max-width: 40rem;
+  }
+
+  #lineup-list h4 {
+    font-size: 1.7rem;
+  }
+}
+
+@media screen and (min-width: 992px) {
+  body {
+
+    background-size: 115%;
+    background-position: 95% 26%;
   
+  }
+  .lineup-title{
+    justify-content: flex-start;
+
+  }
+  .list-wrapper {
+    max-height: 50rem;
+    margin: auto;
+  }
+
+  #lineup-list {
+    max-height: 35rem;
+    max-width: 40rem;
   }
 
 
-  #lineup-list{
   
-    overflow-y:scroll;
-    overflow-x:hidden;
-    max-height:40rem;
-    margin:1rem;
-    background-color: var(--primary_bg_3);
-    box-shadow: var(--shadow_inset);
-    font-size: 1.3rem;
- 
 }
-
