@@ -141,26 +141,26 @@ input{
   padding: 15px;
 }
 
-input:required:valid {
+input[type="text"]:required:valid {
   background: var(--input_valid);
 }
 
-input:required:valid:focus{
+input[type="text"]:required:valid:focus{
   border: none;
 }
 
-input:focus{
+input[type="text"]:focus{
   border: none;
 }
 
-input:focus:invalid {
+input[type="text"]:focus:invalid {
     border: none;
   background: var(--input_invalid);
   animation: bounce .5s;
   
 }
 
-input:focus{
+input[type="text"]:focus{
     color: var(--font_color_black);
     box-shadow: --input_inset;
     border: solid 0.5px;
@@ -169,9 +169,9 @@ input:focus{
     background-color: var(--input_bg);
   }
 
-input:not(:focus){color:var(--font_color_nfocus);}
+  input[type="text"]:not(:focus){color:var(--font_color_nfocus);}
 
-input:optional:focus{
+  input[type="text"]:optional:focus{
   border: none;
 }
 

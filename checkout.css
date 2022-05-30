@@ -95,6 +95,7 @@ td {
   margin: 0 auto;
   border-radius: var(--btn-radius);
   box-shadow: none;
+  cursor: pointer;
 }
 
 .c_a:checked,
