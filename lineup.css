@@ -21,16 +21,7 @@ body {
   max-width: 100%;
 }
 
-#flowertest{
-  margin-top:5px;
-  width:2.5rem;
-  transition: 0s;
-}
 
-#flowertest:hover{
-  transform: rotate(360deg);
-  transition: 1.5s;
-}
 
 .list-wrapper {
   position: fixed;
