@@ -302,11 +302,11 @@ select{
   width:2.5rem;
 height:2.32rem;
   background-repeat: no-repeat;
-  transition: 0s;
+  transition: 0.1s;
 }
 
 #logo:hover{
-  transform: rotate(360deg);
+  transform: rotate(360deg) scale(1.05);
   transition: 1s;
 }
 
