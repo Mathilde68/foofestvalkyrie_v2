@@ -277,7 +277,7 @@ select{
 .top-nav p{
   font-family: 'Righteous', cursive;
   font-size: 1.2rem;
-  color: var(--font_color_white);
+  color: var(--secondary_bg_2);
 
 }
 .top-nav {
@@ -289,11 +289,11 @@ select{
   background-position: center;
   background-repeat:repeat;
   background-size: 270px; */
-  background-color: var(--secondary_bg_2);
+  background-color: var(--secondary_bg_3);
   border-bottom: solid 4px var(--secondary_bg_2);
   /* color: var(--accent_two); */
   height: 50px;
-  padding: 1em;
+  padding: 1.5em;
 }
 
 #cart_ui{
@@ -309,12 +309,12 @@ select{
 
 #cart_ui:hover{
   transition: 1s;
-  animation: pulse 0.5s infinite;
+  animation: pulse 1s infinite;
 }
 
 #logo{
   background-image: url(ui_icons/logo.svg);
-  margin-top:0.4rem;
+  margin-top:0.1rem;
   width:2.5rem;
 height:2.32rem;
   background-repeat: no-repeat;
