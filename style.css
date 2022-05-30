@@ -296,6 +296,22 @@ select{
   padding: 1em;
 }
 
+#cart_ui{
+  background-image: url("ui_icons/cart_nav.svg");
+  width:2rem;
+  height:1.9rem;
+  background-repeat: no-repeat;
+  margin-right: 1rem;
+  margin-top: 0.3rem;
+  animation: none;
+  transition: 2s;
+}
+
+#cart_ui:hover{
+  transition: 1s;
+  animation: pulse 0.5s infinite;
+}
+
 #logo{
   background-image: url(ui_icons/logo.svg);
   margin-top:0.4rem;
