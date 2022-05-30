@@ -45,19 +45,14 @@ function registerButtons() {
 
     //eventlistener for the buyy buttons
 
-    document.querySelector(".ticket_buy").addEventListener("click", function (event) {
-        event.preventDefault();
-        getUserInput();
+    document.querySelector(".ticket_buy").addEventListener("click", getUserInput);
 
 
 
-
-    });
-   // document.querySelector(".ticket_buy").addEventListener("click", getUserInput);
 
 }
 
-
+var hasbeenChecked = false;
 function getUserInput() {
     const form = document.querySelector(".regu_fillout");
     const reg_tickets = parseInt(form.elements.amount_reg_ticket.value);
@@ -81,7 +76,6 @@ function getUserInput() {
     }
 
 
-
     reservation.tent_two = tentTwo;
     reservation.tent_four = tentFour;
 
@@ -89,64 +83,77 @@ function getUserInput() {
     console.log(reservation);
     localStorage.setItem("tickets", JSON.stringify(reservation));
 
-   
 
-    //valid variable that gets updated in checkvalidity function
-    var valid;
-    checkValidity();
 
-    //if form is valid, add click eventlistener to buy button, and go to cart
-    //else remove this eventlistener, so instead get user input is (previous eventlistener)
-    if(valid===true){
-        document.querySelector(".ticket_buy").addEventListener("click",
-        goToCart);
-    } else{
-        document.querySelector(".ticket_buy").removeEventListener("click",
-        goToCart);
+  
+
+
+    const tentSpaceTwo = reservation.tent_two * 2;
+    const tentSpaceFour = reservation.tent_four * 4;
+    const totalSpace = tentSpaceTwo + tentSpaceFour;
+    const ticketErr = document.getElementById("errTicket");
+    const tentErr = document.getElementById("errTent");
+
+    //if all these conditions are met, go to cart, else check validity to show correct err messages
+    //this is so of the user fills the form correctly on the first try, it will go to cart.
+    //the has been checked bool makes sure that go to cart doesnt trigger automatically when getuserinput is called again after clicking amount buttons
+    if (reservation.total_tickets > 0 & reservation.total_tickets <= totalSpace & hasbeenChecked == false || reservation.total_tickets > 0 & totalSpace == 0 & hasbeenChecked == false) {
+       goToCart();
+    } else {
+        checkValidity();
     }
 
-    
+
+
+
+
+    //for each amount button, add click eventlistener that calls getuserinput
+    //this makes sure validity is checked every time there is changes 
+    document.querySelectorAll(".amount_btn").forEach(btn => btn.addEventListener("click", getUserInput));
+
+
+
+
 
     function checkValidity() {
-        const tentSpaceTwo = reservation.tent_two * 2;
-        const tentSpaceFour = reservation.tent_four * 4;
-        const totalSpace = tentSpaceTwo + tentSpaceFour;
-
-        console.log(totalSpace);
-
-
-        const ticketErr = document.getElementById("errTicket");
-        const tentErr = document.getElementById("errTent");
-     
-       //if no tickets selected, show err message 
-        if(reservation.total_tickets  === 0){
-            valid= false;
-            console.log(valid);
-            ticketErr.innerHTML = "Choose some tickets before proceeding";
-            
-
-        } 
-        //if tents have been chosen, but are less than total tickets, show err message, showing how much space is needed
-        else if(reservation.total_tickets > totalSpace & totalSpace > 0) {
-            valid=false;
-            console.log(valid);
-        tentErr.innerHTML = `You need tentspace enough for ${reservation.total_tickets} people!`;
-
+    //valid variable that gets updated in checkvalidity function
+    var valid;
     
-           
-        } 
+    hasbeenChecked = true;
+
+        //if no tickets selected, show err message 
+        //if tents have been chosen, but are less than total tickets, show err message, showing how much space is needed
         //else valid is true and err msg removed
-        else {
-            valid=true;
+        if (reservation.total_tickets === 0) {
+            valid = false;
+            console.log(valid);
+            ticketErr.innerHTML = `<p> !  Choose some tickets before proceeding </p>`;
+
+        } else if (reservation.total_tickets > totalSpace & totalSpace > 0) {
+            valid = false;
+            console.log(valid);
+            tentErr.innerHTML = `<p>!  You need tentspace enough for ${reservation.total_tickets} people!</p>`;
+
+        } else {
+            valid = true;
             ticketErr.innerHTML = "";
             tentErr.innerHTML = "";
             console.log(valid);
         }
 
-        //for each amount button, add click eventlistener that calls getuserinput
-        //this makes sure validity is checked every time there is changes 
-        document.querySelectorAll(".amount_btn").forEach(btn => btn.addEventListener("click", getUserInput));
-        
+        //if form is valid, add click eventlistener to buy button, and go to cart
+        //else remove this eventlistener, so instead get user input is (previous eventlistener)
+        // doing it with click eventlistener so it doesnt go to cart  as soon as valid is true
+        // this way user can still add more tickets or tents spaces
+        if (valid == true) {
+            document.querySelector(".ticket_buy").addEventListener("click",
+                goToCart);
+        } else {
+            document.querySelector(".ticket_buy").removeEventListener("click",
+                goToCart);
+        }
+
+
     }
 
 }
