@@ -43,8 +43,7 @@ body {
   max-height: 65vh;
   margin: 1rem;
   padding: 0 1rem;
-  background-image: url(ui_icons/pattern3.svg);
-  background-size: cover;
+ background-color: var(--primary_bg_2);
   box-shadow: var(--shadow_inset);
   text-align: center;
 }
