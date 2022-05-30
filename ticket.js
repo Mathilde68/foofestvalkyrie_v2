@@ -51,6 +51,8 @@ function registerButtons(){
 
 
 function getUserInput(){
+ 
+    console.log("AAAAAA");
     const form = document.querySelector(".regu_fillout");
     const reg_tickets =  parseInt(form.elements.amount_reg_ticket.value);
     const vip_tickets =  parseInt(form.elements.amount_vip_ticket.value);
@@ -80,6 +82,7 @@ function getUserInput(){
     reservation.amount = parseInt(tentTwo + (tentFour*2));
     console.log(reservation);
      localStorage.setItem("tickets", JSON.stringify(reservation));
+
      goToCart();
      /*
     let storageRegu = localStorage.getItem("regu");
@@ -93,12 +96,27 @@ function goToCart(){
 
 
 function showRegDetails() {
+  
     const regDetail = document.querySelector(".regu_fillout");
     console.log("LOL");
 
     regDetail.style.display = "block";
-    document.querySelector(".closeRegu").addEventListener("click", () => regDetail.style.display = "none");   
+
+    regDetail.scrollIntoView({behavior: "smooth", inline: "nearest"});
+  //  document.querySelector(".closeRegu").addEventListener("click", () => regDetail.style.display = "none"); 
+
+    document.querySelector(".regu_ticket").removeEventListener("click", showRegDetails);
+    document.querySelector(".regu_ticket").addEventListener("click", closeDetails);
+  
+
+    function closeDetails(){
+        console.log("closed");
+         document.querySelector(".regu_fillout").style.display='none';
+         document.querySelector(".regu_ticket").addEventListener("click", showRegDetails);
+
+    }
 }
+
 
 function deRT (){
     document.getElementById('amount_reg_ticket').stepDown();

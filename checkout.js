@@ -277,9 +277,9 @@ return ticketMessage;
 function tentMessage(){
   var tents;
 if(savedTickets.tent_four === 0 & savedTickets.tent_two > 0){
-tents = ` ${savedTickets.tent_two} 2person tents`;
+tents = ` ${savedTickets.tent_two} two person tents`;
 }else if(savedTickets.tent_two === 0 & savedTickets.tent_four > 0){
-tents = ` ${savedTickets.tent_four} 4person tents`;
+tents = ` ${savedTickets.tent_four} four person tents`;
 }else if (savedTickets.tent_four > 0 & savedTickets.tent_two > 0){
 tents = ` ${savedTickets.tent_two} two person tents and ${savedTickets.tent_four} four person tents`;
 }else{
