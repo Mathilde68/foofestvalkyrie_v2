@@ -67,9 +67,10 @@
                 <form class="regu_fillout">
                  
                     <!-- BOX FOR ADDING TICKETS -->
-                    <div class="tickets">
+                    <div class="tickets" required>
                         <h4>1. Step - tickets</h4>
                         <div class="underline"></div>
+                        <div id="errTicket"></div>
                         <div id="reg_ticket_sel_container" class="ticket_select_container">
                             <label for="amount_reg_ticket">Regular tickets</label>
                             <div class="select_ticket">
@@ -108,6 +109,8 @@
                             little ekstra, we can set up a tent for you. The only thing we need is what kind of tent
                             you want and how many, its that simple!</p>
                         <div class="underline"></div>
+                        <div id="errTent"></div>
+
                         <div class="tent_grid">
                             <label for="amount_reg_ticket">2 Persons tent</label>
                             <div class="tent_two_p">
@@ -132,13 +135,13 @@
                                     <button type="button" class="amount_btn" id="minus_r_four">-</button>
                                     <input id="amount_tent_four" name="amount_tent_four" type="number" min="0" max="10"
                                         readonly value="0">
-                                    <button type="button" class="amount_btn" id="plus_r_four">+</button>
+                                    <button  type="button" class="amount_btn" id="plus_r_four">+</button>
                                 </div>
                             </div>
                         </div>
                     </div>
 
-                    <button type="button" class="ticket_buy">Buy</button>
+                    <button type="submit" class="ticket_buy">Buy</button>
                 </form>
             </div>
         </section>
