@@ -296,6 +296,20 @@ select{
   padding: 1em;
 }
 
+#logo{
+  background-image: url(ui_icons/logo.svg);
+  margin-top:0.4rem;
+  width:2.5rem;
+height:2.32rem;
+  background-repeat: no-repeat;
+  transition: 0s;
+}
+
+#logo:hover{
+  transform: rotate(360deg);
+  transition: 1s;
+}
+
 .left-nav{
   display: flex;
   width: 100%;
