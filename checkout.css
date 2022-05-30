@@ -9,6 +9,12 @@
 
 /* MOBILE STYLING DEFUALT */
 
+#camping{
+  margin: 0 auto;
+  margin: 1rem;
+  width: 90%;
+}
+
 .proces_line {
   display: flex;
   max-width: 100%;
@@ -57,7 +63,6 @@ th {
 
 td {
   font-size: 0.8rem;
-  padding-top: 2rem;
   vertical-align: bottom;
   text-align: center;
 }
@@ -72,17 +77,6 @@ td {
 .camping_grid {
   display: flex;
   flex-wrap: wrap;
-  padding: 1rem;
-  gap: 1rem;
-}
-.camping_one,
-.camping_two,
-.camping_three {
-  margin: 0 auto;
-  height: 5rem;
-  width: 40%;
-  border-radius: 20px;
-  cursor: pointer;
 }
 
 .proceed_btn_container{
@@ -91,13 +85,24 @@ td {
 
 }
 
+.c_a,
+.c_b,
+.c_c,
+.c_d,
+.c_e {
+  width: 5rem;
+  height: 3rem;
+  margin: 0 auto;
+  border-radius: var(--btn-radius);
+  box-shadow: none;
+}
+
 .c_a:checked,
 .c_b:checked,
 .c_c:checked,
 .c_d:checked,
 .c_e:checked {
-  background-color: var(--secondary_bg_3);
-  background-size: 20px;
+  background-color: var(--accent_one);
   transform: scale(1.1);
   transition: 1s;
 }
@@ -108,6 +113,8 @@ td {
     margin: 0 auto;
     display: flex;
     flex-direction: column;
+    gap: 0.3rem;
+    
 }
 
 .c_a {
@@ -203,6 +210,11 @@ tr.total_border td{
     gap: 1rem;
     width: 100%;
   }
+  #camping{
+    margin: 0 auto;
+    margin: 1rem;
+    width: 80%;
+  }
 
   .proces_line img {
     width: 50%;
@@ -228,7 +240,7 @@ tr.total_border td{
     padding: 1rem; 
   }
 
-  table{
+  #cart_table{
     width: 80%;
   }
 
@@ -400,9 +412,11 @@ tr.total_border td{
     text-align: center;
   }
 
-  table{
+  #cart_table{
     width: 80%;
     padding: 1rem;
   }
 }
+
+
 
