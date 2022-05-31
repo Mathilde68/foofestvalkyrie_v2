@@ -11,18 +11,16 @@ const Area = {
 
 }
 
-var allAreas = [];
+let allAreas = [];
 
 
 
-const ticketRes = {
-  id: "",
+const cartOrder = {
   total_tickets: 0,
   reg_tickets: 0,
   vip_tickets: 0,
   tent_four: 0,
-  tent_two: 0,
-  area: ""
+  tent_two: 0
 }
 
 const allTickets = [];
@@ -35,6 +33,19 @@ const reservation = {
 
 }
 
+let orderInfo = {
+  fullname: "",
+  adress: "",
+  phone: "",
+  email: "",
+  others: [
+
+  ],
+  total_price: ""
+}
+
+console.log(orderInfo);
+
 const storage = localStorage.getItem("tickets");
 let savedTickets = JSON.parse(storage);
 
@@ -42,7 +53,6 @@ let savedTickets = JSON.parse(storage);
 
 //Function that starts the whole systaaaaam
 function start() {
-  console.log(reservation);
   console.log("start");
 
   //Make sure, cart is visible first
@@ -68,7 +78,7 @@ function prepareTickets() {
   console.log(savedTickets);
 
 
-  const cart = Object.create(ticketRes);
+  const cart = Object.create(cartOrder);
   cart.total_tickets = savedTickets.total_tickets;
   cart.reg_tickets = savedTickets.reg_tickets;
   cart.vip_tickets = savedTickets.vip_tickets;
@@ -77,9 +87,7 @@ function prepareTickets() {
 
 
 
-  allTickets.push(cart);
-
-  allTickets.forEach(displayCart);
+  displayCart(cart);
 
 
 }
@@ -106,40 +114,40 @@ function displayCart(cart) {
   const total = regTotal + vipTotal + twoTentTotal + fourTentTotal + 99;
 
   clone.querySelector("[data-field=cart_regu_ticket]").textContent = ticketNameReg;
-  clone.querySelector("[data-field=cart_regu_quantity]").textContent = cart.reg_tickets+"x";
+  clone.querySelector("[data-field=cart_regu_quantity]").textContent = cart.reg_tickets + "x";
   clone.querySelector("[data-field=cart_regu_price]").textContent = priceREG;
   clone.querySelector("[data-field=cart_regu_total]").textContent = regTotal + " DKK";
   clone.querySelector("[data-field=cart_vip_ticket]").textContent = ticketName;
-  clone.querySelector("[data-field=cart_vip_quantity]").textContent = cart.vip_tickets+"x";
+  clone.querySelector("[data-field=cart_vip_quantity]").textContent = cart.vip_tickets + "x";
   clone.querySelector("[data-field=cart_vip_price]").textContent = priceVIP;
   clone.querySelector("[data-field=cart_vip_total]").textContent = vipTotal + " DKK";
   clone.querySelector("[data-field=cart_two_tent]").textContent = tentTwoName;
-  clone.querySelector("[data-field=cart_two_tent_quantity]").textContent = cart.tent_two+"x";
+  clone.querySelector("[data-field=cart_two_tent_quantity]").textContent = cart.tent_two + "x";
   clone.querySelector("[data-field=cart_two_tent_price]").textContent = tentTwoPrice;
   clone.querySelector("[data-field=cart_two_tent_total]").textContent = twoTentTotal + " DKK";
   clone.querySelector("[data-field=cart_four_tent]").textContent = tentFourName;
-  clone.querySelector("[data-field=cart_four_tent_quantity]").textContent = cart.tent_four+"x";
+  clone.querySelector("[data-field=cart_four_tent_quantity]").textContent = cart.tent_four + "x";
   clone.querySelector("[data-field=cart_four_tent_price]").textContent = tentFourPrice;
   clone.querySelector("[data-field=cart_four_tent_total]").textContent = fourTentTotal + " DKK";
 
-  clone.querySelector("[data-field=cart_total_total]").textContent = total + " DKK"; 
+  clone.querySelector("[data-field=cart_total_total]").textContent = total + " DKK";
 
   //Making if statements so if you havent added anything in ticketform it doesnt show up
-  if(cart.reg_tickets === 0){
+  if (cart.reg_tickets === 0) {
     clone.querySelector("[data-field=cart_regu_ticket]").textContent = " ";
     clone.querySelector("[data-field=cart_regu_quantity]").textContent = " ";
     clone.querySelector("[data-field=cart_regu_price]").textContent = " ";
     clone.querySelector("[data-field=cart_regu_total]").textContent = " ";
   }
 
-  if(cart.vip_tickets === 0){
+  if (cart.vip_tickets === 0) {
     clone.querySelector("[data-field=cart_vip_ticket]").textContent = " ";
     clone.querySelector("[data-field=cart_vip_quantity]").textContent = " ";
     clone.querySelector("[data-field=cart_vip_price]").textContent = " ";
     clone.querySelector("[data-field=cart_vip_total]").textContent = " ";
   }
 
-  if(cart.tent_two === 0){
+  if (cart.tent_two === 0) {
     clone.querySelector("[data-field=cart_two_tent]").textContent = " ";
     clone.querySelector("[data-field=cart_two_tent_quantity]").textContent = " ";
     clone.querySelector("[data-field=cart_two_tent_price]").textContent = " ";
@@ -147,14 +155,14 @@ function displayCart(cart) {
 
   }
 
-  if(cart.tent_four === 0){
-  clone.querySelector("[data-field=cart_four_tent]").textContent = " ";
-  clone.querySelector("[data-field=cart_four_tent_quantity]").textContent = " ";
-  clone.querySelector("[data-field=cart_four_tent_price]").textContent =  " ";
-  clone.querySelector("[data-field=cart_four_tent_total]").textContent =  " ";
+  if (cart.tent_four === 0) {
+    clone.querySelector("[data-field=cart_four_tent]").textContent = " ";
+    clone.querySelector("[data-field=cart_four_tent_quantity]").textContent = " ";
+    clone.querySelector("[data-field=cart_four_tent_price]").textContent = " ";
+    clone.querySelector("[data-field=cart_four_tent_total]").textContent = " ";
   }
 
-document.querySelector("#cart_table").appendChild(clone);
+  document.querySelector("#cart_table").appendChild(clone);
 }
 
 
@@ -180,7 +188,7 @@ function proceedToArea() {
 
     } else {
       document.getElementById("campErr").innerHTML = `<p>Please choose a camparea to continue</p>`;
-  
+
     }
   });
 }
@@ -195,13 +203,13 @@ function proceedToInfo() {
   document.getElementById("camping_section").style.display = "none";
   document.getElementById("costumer_section").style.display = "block";
 
-//for loop that calls add ticket info for the amount of tickets
+  //for loop that calls add ticket info for the amount of tickets
   for (var x = 1; x < savedTickets.total_tickets; x++) {
     console.log(x);
     addTicketInfo();
   }
 
-  
+
 
 
 
@@ -219,12 +227,12 @@ function proceedToInfo() {
 }
 
 //add ticket info makes a new instance of the formsection class
-function addTicketInfo(){
+function addTicketInfo() {
   const otherTicket = new Formsections("otherTicket");
 }
 
 function proceedToCard() {
-  
+
 
   document.getElementById("costumer_section").style.display = "none";
   document.getElementById("payment_section").style.display = "block";
@@ -252,71 +260,139 @@ function confirmOrder() {
   //calling the timer again to stop the timer
   timerDesktop();
 
-//calling getCostumer info, which reads the forms values and calls
-//sendConfirmation fucntion to send an email with detials and order confrmation
-
-getInfo();
+  //calling Saveorder info, which reads the forms values, and saves everything about the order in a object
+  saveOrderInfo();
 }
 
+function saveOrderInfo() {
 
-function getInfo(){
+//reading values from the costumer form
+  const costumerForm = document.querySelector(".costumer_form form");
+  const fullname = costumerForm.elements.fullname.value;
+  const email = costumerForm.elements.mail.value;
+  const address = costumerForm.elements.address.value + ", "+ costumerForm.elements.city.value;
+  const phone = costumerForm.elements.phone.value;
+  const total = document.querySelector("[data-field=cart_total_total]").textContent;
 
-const costumerForm = document.querySelector(".costumer_form form");
-const fullname = costumerForm.elements.fullname.value;
-const email = costumerForm.elements.mail.value;
-const total = document.querySelector("[data-field=cart_total_total]").textContent;
+  //array for fullnames and phones
+  const fullnames = [];
+  const phones = [];
+
+ //for each fullname input, add object containing  the name to fullname array, same with phones
+  document.querySelectorAll(".fullnames").forEach(input => {
+    const fullname ={
+      fullname:input.value
+    } 
+    fullnames.push(fullname);
+
+  });
+  document.querySelectorAll(".phonenums").forEach(input => {
+
+    const phone ={
+      phone:input.value
+    }
+    phones.push(phone);
+  });
+
+  //maps the arrays to combine fullname and phone into their own individual arrays
+  const Others = fullnames.map(function (value, index) {
+    return [value, phones[index]]
+  });
+
+  
+//create new order object from Orderinfo template
+  let newOrder = Object.create(orderInfo);
+
+  //combining all the information from tickets and reservation in the order object, by using spread
+  newOrder = { ...savedTickets, ...reservation }
+  newOrder.fullname = fullname;
+  newOrder.email = email;
+  newOrder.address = address;
+  newOrder.phone = phone;
+  newOrder.others = Others;
+  newOrder.total_price = total;
+  console.log(newOrder);
 
 
-console.log(fullname);
-console.log(email);
-console.log(total);
-
-
-sendConfirmation(fullname,email,total);
+//calling post info with the neworder object, to post order to our database
+ postOrderInfo(newOrder);
 }
 
-function ticketMessage(){
+//this function posts to our database the neccesary info from the order object, 
+//then it calls sendConfirmation with the neccesary info from order
+function postOrderInfo(order){
+  const payload = {
+    name:order.fullname,
+    email:order.email,
+    phone:order.phone,
+    adress:order.address,
+    area:order.area,
+    reg_ticket:order.reg_tickets,
+    vip_ticket:order.vip_tickets,
+    two_tents:order.tent_two,
+    four_tents:order.tent_four,
+    others:order.others,
+    total_price:order.total_price
+  };
+  console.log(payload);
+  fetch('https://foobooking-7e65.restdb.io/rest/bookings', {
+    method: "post",
+    headers: {
+      "Content-Type": "application/json",
+      "x-apikey": "62965c79c4d5c3756d35a402",
+    },
+    body: JSON.stringify(payload),
+
+  }).then((res) => res.json())
+    .then((d) => {
+      console.log(d);
+      sendConfirmation(order.fullname,order.email,order.total);
+    });
+
+}
+
+function ticketMessage() {
   var ticketMessage;
-if(savedTickets.reg_tickets === 0){
-ticketMessage = ` ${savedTickets.total_tickets} total tickets; ${savedTickets.vip_tickets} VIP tickets`;
-}else if(savedTickets.vip_tickets === 0){
-ticketMessage = ` ${savedTickets.total_tickets} total tickets: ${savedTickets.reg_tickets} Regular tickets`;
-}else{
-ticketMessage = ` ${savedTickets.total_tickets} total tickets: ${savedTickets.reg_tickets} Regular tickets and ${savedTickets.vip_tickets} VIP tickets`;
-}
-return ticketMessage;
+  if (savedTickets.reg_tickets === 0) {
+    ticketMessage = ` ${savedTickets.total_tickets} total tickets; ${savedTickets.vip_tickets} VIP tickets`;
+  } else if (savedTickets.vip_tickets === 0) {
+    ticketMessage = ` ${savedTickets.total_tickets} total tickets: ${savedTickets.reg_tickets} Regular tickets`;
+  } else {
+    ticketMessage = ` ${savedTickets.total_tickets} total tickets: ${savedTickets.reg_tickets} Regular tickets and ${savedTickets.vip_tickets} VIP tickets`;
+  }
+  return ticketMessage;
 }
 
 
-function tentMessage(){
+function tentMessage() {
   var tents;
-if(savedTickets.tent_four === 0 & savedTickets.tent_two > 0){
-tents = ` ${savedTickets.tent_two} two person tents`;
-}else if(savedTickets.tent_two === 0 & savedTickets.tent_four > 0){
-tents = ` ${savedTickets.tent_four} four person tents`;
-}else if (savedTickets.tent_four > 0 & savedTickets.tent_two > 0){
-tents = ` ${savedTickets.tent_two} two person tents and ${savedTickets.tent_four} four person tents`;
-}else{
-  tents = "No tents were purchased - so remember to bring your own ;)";
-}
-return tents;
+  if (savedTickets.tent_four === 0 & savedTickets.tent_two > 0) {
+    tents = ` ${savedTickets.tent_two} two person tents`;
+  } else if (savedTickets.tent_two === 0 & savedTickets.tent_four > 0) {
+    tents = ` ${savedTickets.tent_four} four person tents`;
+  } else if (savedTickets.tent_four > 0 & savedTickets.tent_two > 0) {
+    tents = ` ${savedTickets.tent_two} two person tents and ${savedTickets.tent_four} four person tents`;
+  } else {
+    tents = "No tents were purchased - so remember to bring your own ;)";
+  }
+  return tents;
 }
 
 
-function sendConfirmation(name,email,total){
- const tickets = ticketMessage();
- const tents = tentMessage();
+function sendConfirmation(name, email, total) {
+  const tickets = ticketMessage();
+  const tents = tentMessage();
 
   const payload = {
- service_id: 'service_ngppnvc',
+    service_id: 'service_ngppnvc',
     template_id: 'template_wuxketh',
     user_id: 'dgCgRYkZrhDwvJ2pA',
     template_params: {
-        'to_name': name,
-        'to_user': email,
-        'tickets': tickets,
-        'tents': tents,
-        'total': total
+      'to_name': name,
+      'to_user': email,
+      'tickets': tickets,
+      'tents': tents,
+      'total': total
     }
   };
   console.log(payload);
@@ -337,11 +413,12 @@ function sendConfirmation(name,email,total){
     },
 
   })
-    
+
     .then((res) => res.json())
     .then((d) => {
       console.log(d);
-    
+
+
     });
 }
 
@@ -497,8 +574,8 @@ function displayAreaAvailability(camping) {
 
 
 
-//if there is less available spots than tickets, disable clicking
-  if (camping.available < savedTickets.total_tickets ) {
+  //if there is less available spots than tickets, disable clicking
+  if (camping.available < savedTickets.total_tickets) {
     disableClick();
   }
 
@@ -539,7 +616,7 @@ function displayAreaAvailability(camping) {
         reservation.amount = savedTickets.total_tickets;
 
         console.log(reservation);
-      } 
+      }
     }
   }
 
@@ -564,13 +641,13 @@ function displayAreaAvailability(camping) {
   //this is to make sure the area availability changes when clicking between areas.
   function resetList() {
     const area_availability = camping.area + "_a";
-    if(camping.available === 0){
-    document.getElementById(area_availability).textContent = `SOLD OUT`;
-          
-    }else{
-  
-    document.getElementById(area_availability).textContent = `Available: ${camping.available}`;
-  }
+    if (camping.available === 0) {
+      document.getElementById(area_availability).textContent = `SOLD OUT`;
+
+    } else {
+
+      document.getElementById(area_availability).textContent = `Available: ${camping.available}`;
+    }
   }
 }
 
@@ -620,7 +697,7 @@ function putReservation() {
 //Timer function and times up
 function timerDesktop() {
   console.log("timer");
-  document.querySelector("#timer_section").style.display ="block"
+  document.querySelector("#timer_section").style.display = "block"
 
   //Here I set the timer layout to be 05:00 as default
   document.querySelector(".timer").innerHTML = "25" + ":" + "00";
@@ -711,7 +788,7 @@ function timesUp() {
 //it creates two input field with a label each, and appends it to a div formsection, 
 //which is then appended to the end of the costumer info form
 class Formsections {
-  constructor (id) {
+  constructor(id) {
 
     const labelName = document.createElement('label');
     labelName.for = 'fullname_guest';
@@ -719,31 +796,35 @@ class Formsections {
 
     const inputName = document.createElement('input');
     inputName.name = 'fullname_guest';
+    inputName.classList.add('fullnames');
     inputName.type = 'text';
     inputName.required = true;
 
     const labelTel = document.createElement('label');
     labelTel.for = 'phone_guest';
     labelTel.innerHTML = 'Enter your phone number';
-    
+
     const inputTel = document.createElement('input');
     inputTel.name = 'phone_guest';
+    inputTel.classList.add('phonenums');
     inputTel.type = 'tel';
     inputTel.maxLength = '8';
     inputTel.pattern = '[0-9]+';
-    
-  this.labelName = labelName;
-  this.inputName = inputName;
-  this.labelTel = labelTel;
-  this.inputTel = inputTel;
+
+    this.labelName = labelName;
+    this.inputName = inputName;
+    this.labelTel = labelTel;
+    this.inputTel = inputTel;
 
 
 
     const formsection = document.createElement('div');
-      formsection.appendChild(labelName);
-      formsection.appendChild(inputName);
-      formsection.appendChild(labelTel);
-      formsection.appendChild(inputTel);
-      document.getElementById(id).appendChild(formsection);
+    formsection.classList.add("others_form");
+    formsection.appendChild(labelName);
+    formsection.appendChild(inputName);
+    formsection.appendChild(labelTel);
+    formsection.appendChild(inputTel);
+    document.getElementById(id).appendChild(formsection);
   }
 }
+
