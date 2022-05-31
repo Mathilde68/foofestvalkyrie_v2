@@ -486,18 +486,15 @@
                         <label for="mail">Email*</label>
                         <input type="email" id="mail" name="mail" required>
                         <label for="number">Enter your phone number</label>
-                        <input type="tel" id="phone" name="phone" maxlength="4">
+                        <input type="tel" id="phone" name="phone" maxlength="8" pattern="[0-9]+">
+
+                        <div id="otherTicket"></div>
                         <div class="costumer_button">
                             <a href="" class="return_cart">Return to cart</a>
                             <button class="p_payment" type="submit">Proceed to payment</button>
                         </div>
                     </form>
-                    <form class="other_tickets">
-                        <label for="fullname">Full name*</label>
-                        <input type="text" id="fullname2" name="fullname2" required>
-                        <label for="number">Enter your phone number</label>
-                        <input type="tel" id="phone" name="phone" maxlength="4">
-                    </form>
+                   
                 </div>
             </div>
         </div>

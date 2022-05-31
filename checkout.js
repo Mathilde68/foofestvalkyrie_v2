@@ -195,6 +195,14 @@ function proceedToInfo() {
   document.getElementById("camping_section").style.display = "none";
   document.getElementById("costumer_section").style.display = "block";
 
+//for loop that calls add ticket info for the amount of tickets
+  for (var x = 1; x < savedTickets.total_tickets; x++) {
+    console.log(x);
+    addTicketInfo();
+  }
+
+  
+
 
 
   //here i add click eventlistener, if form is valid it prevents default submit, and calls proceed to cart
@@ -210,6 +218,10 @@ function proceedToInfo() {
   });
 }
 
+//add ticket info makes a new instance of the formsection class
+function addTicketInfo(){
+  const otherTicket = new Formsections("otherTicket");
+}
 
 function proceedToCard() {
   
@@ -676,9 +688,6 @@ function seconds(sec) {
 }
 
 
-
-
-
 function timesUp() {
 
   console.log("TIMES UP BIIIIIIITCH");
@@ -698,4 +707,43 @@ function timesUp() {
   }
 }
 
+//our formsection class to construct extra input fields for the additional ticket owners
+//it creates two input field with a label each, and appends it to a div formsection, 
+//which is then appended to the end of the costumer info form
+class Formsections {
+  constructor (id) {
 
+    const labelName = document.createElement('label');
+    labelName.for = 'fullname_guest';
+    labelName.innerHTML = 'Fullname*';
+
+    const inputName = document.createElement('input');
+    inputName.name = 'fullname_guest';
+    inputName.type = 'text';
+    inputName.required = true;
+
+    const labelTel = document.createElement('label');
+    labelTel.for = 'phone_guest';
+    labelTel.innerHTML = 'Enter your phone number';
+    
+    const inputTel = document.createElement('input');
+    inputTel.name = 'phone_guest';
+    inputTel.type = 'tel';
+    inputTel.maxLength = '8';
+    inputTel.pattern = '[0-9]+';
+    
+  this.labelName = labelName;
+  this.inputName = inputName;
+  this.labelTel = labelTel;
+  this.inputTel = inputTel;
+
+
+
+    const formsection = document.createElement('div');
+      formsection.appendChild(labelName);
+      formsection.appendChild(inputName);
+      formsection.appendChild(labelTel);
+      formsection.appendChild(inputTel);
+      document.getElementById(id).appendChild(formsection);
+  }
+}
