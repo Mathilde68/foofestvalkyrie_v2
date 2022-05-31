@@ -174,11 +174,13 @@ function proceedToArea() {
   //its to make sure that each input fiels still  shows as required while the form is invalid, and only prevents default once everything IS valid
   document.querySelector("#choose_area_btn").addEventListener("click", function (event) {
     if (document.querySelector('#camping').checkValidity()) {
+      document.getElementById("campErr").innerHTML = "";
       event.preventDefault();
       proceedToInfo();
 
     } else {
-      console.log("please choose area!");
+      document.getElementById("campErr").innerHTML = `<p>Please choose a camparea to continue</p>`;
+  
     }
   });
 }

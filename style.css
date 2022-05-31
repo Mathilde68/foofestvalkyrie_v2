@@ -213,6 +213,34 @@ input, form, button{
    -o-appearance:none;
  }
 
+ /*error message style and animation*/
+ .errmsg p{
+  color: var(--accent_two);
+  font-size: 0.9rem;
+  font-weight: 600;
+  background-color: var(--input_invalid);
+  padding:0.8rem;
+  width: max-content;
+  border-radius: 5px; 
+  animation: shake 0.2s;
+  animation-iteration-count: 2;
+}
+
+
+@keyframes shake {
+  0% { transform:  rotate(0deg); }
+  10% { transform:  rotate(-1deg); }
+  20% { transform:  rotate(1deg); }
+  30% { transform:  rotate(0deg); }
+  40% { transform:  rotate(1deg); }
+  50% { transform:  rotate(-1deg); }
+  60% { transform: rotate(0deg); }
+  70% { transform:  rotate(-1deg); }
+  80% { transform:  rotate(1deg); }
+  90% { transform:  rotate(0deg); }
+  100% { transform:  rotate(-1deg); }
+}
+
 
 
 /* UI AND LINK STYLING */
