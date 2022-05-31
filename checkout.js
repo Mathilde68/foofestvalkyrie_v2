@@ -50,7 +50,6 @@ const storage = localStorage.getItem("tickets");
 let savedTickets = JSON.parse(storage);
 
 
-
 //Function that starts the whole systaaaaam
 function start() {
   console.log("start");
@@ -61,14 +60,24 @@ function start() {
   //Here I call functions
   registerButtons();
 
-  prepareTickets();
 }
 
 
 function registerButtons() {
+  console.log(localStorage);
 
-  //Here I add buttons for the cart
-  document.querySelector(".cart_p_checkout").addEventListener("click", proceedToArea);
+  //adds eventlistener and hides cart if localstorage is empty or if no tickets, calls prepare tickets of there is anything in local storage
+  //otherwise, hide the proceed button and show cart empty message
+  if (localStorage.getItem("tickets") === null) {
+    document.querySelector(".cart_p_checkout").style.display = "none";
+    document.querySelector(".emptyCart").style.display = "block";
+  } else {
+    prepareTickets();
+    document.querySelector(".cart_p_checkout").style.display = "block";
+    document.querySelector(".emptyCart").style.display = "none";
+    document.querySelector(".cart_p_checkout").addEventListener("click", proceedToArea);
+
+  }
 
 }
 
@@ -169,7 +178,7 @@ function displayCart(cart) {
 //here is teh function for proceeding to area select
 function proceedToArea() {
   console.log("lol");
-  //Make sure, cart is not visible, and camping is
+  //Make sure, cart is not visible, and camping is not
   document.getElementById("cart_section").style.display = "none";
   document.getElementById("camping_section").style.display = "block";
 
@@ -257,6 +266,13 @@ function confirmOrder() {
   document.getElementById("timer_section").style.display = "none";
   document.getElementById("order_popup").style.display = "block";
 
+  //eventlistener button
+  document.querySelector(".order_continue").addEventListener("click", () => {
+    location.href = "schedule.html";
+  });
+
+
+
   //calling the timer again to stop the timer
   timerDesktop();
 
@@ -266,11 +282,11 @@ function confirmOrder() {
 
 function saveOrderInfo() {
 
-//reading values from the costumer form
+  //reading values from the costumer form
   const costumerForm = document.querySelector(".costumer_form form");
   const fullname = costumerForm.elements.fullname.value;
   const email = costumerForm.elements.mail.value;
-  const address = costumerForm.elements.address.value + ", "+ costumerForm.elements.city.value;
+  const address = costumerForm.elements.address.value + ", " + costumerForm.elements.city.value;
   const phone = costumerForm.elements.phone.value;
   const total = document.querySelector("[data-field=cart_total_total]").textContent;
 
@@ -278,18 +294,18 @@ function saveOrderInfo() {
   const fullnames = [];
   const phones = [];
 
- //for each fullname input, add object containing  the name to fullname array, same with phones
+  //for each fullname input, add object containing  the name to fullname array, same with phones
   document.querySelectorAll(".fullnames").forEach(input => {
-    const fullname ={
-      fullname:input.value
-    } 
+    const fullname = {
+      fullname: input.value
+    }
     fullnames.push(fullname);
 
   });
   document.querySelectorAll(".phonenums").forEach(input => {
 
-    const phone ={
-      phone:input.value
+    const phone = {
+      phone: input.value
     }
     phones.push(phone);
   });
@@ -299,8 +315,8 @@ function saveOrderInfo() {
     return [value, phones[index]]
   });
 
-  
-//create new order object from Orderinfo template
+
+  //create new order object from Orderinfo template
   let newOrder = Object.create(orderInfo);
 
   //combining all the information from tickets and reservation in the order object, by using spread
@@ -314,25 +330,25 @@ function saveOrderInfo() {
   console.log(newOrder);
 
 
-//calling post info with the neworder object, to post order to our database
- postOrderInfo(newOrder);
+  //calling post info with the neworder object, to post order to our database
+  postOrderInfo(newOrder);
 }
 
 //this function posts to our database the neccesary info from the order object, 
 //then it calls sendConfirmation with the neccesary info from order
-function postOrderInfo(order){
+function postOrderInfo(order) {
   const payload = {
-    name:order.fullname,
-    email:order.email,
-    phone:order.phone,
-    adress:order.address,
-    area:order.area,
-    reg_ticket:order.reg_tickets,
-    vip_ticket:order.vip_tickets,
-    two_tents:order.tent_two,
-    four_tents:order.tent_four,
-    others:order.others,
-    total_price:order.total_price
+    name: order.fullname,
+    email: order.email,
+    phone: order.phone,
+    adress: order.address,
+    area: order.area,
+    reg_ticket: order.reg_tickets,
+    vip_ticket: order.vip_tickets,
+    two_tents: order.tent_two,
+    four_tents: order.tent_four,
+    others: order.others,
+    total_price: order.total_price
   };
   console.log(payload);
   fetch('https://foobooking-7e65.restdb.io/rest/bookings', {
@@ -346,7 +362,7 @@ function postOrderInfo(order){
   }).then((res) => res.json())
     .then((d) => {
       console.log(d);
-      sendConfirmation(order.fullname,order.email,order.total);
+      sendConfirmation(order.fullname, order.email, order.total);
     });
 
 }
@@ -713,8 +729,11 @@ function timerDesktop() {
 }
 
 function stopTimer() {
-  //Here I reset the timer layout to be 00:00
+  //Here I reset the timer layout to be 00:00, this is done after order completion
   document.querySelector(".timer").innerHTML = "00" + ":" + "00";
+
+  //clearing the local storage
+  localStorage.clear("tickets");
 }
 function startTimer() {
 
@@ -773,6 +792,9 @@ function timesUp() {
 
   timesupPop.style.display = "block"
   document.querySelector(".timesup_continue").addEventListener("click", closeDownTime);
+
+  //clearing the local storage
+  localStorage.clear("tickets");
 
 
   function closeDownTime() {

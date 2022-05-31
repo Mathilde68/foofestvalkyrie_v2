@@ -81,7 +81,6 @@ function getUserInput() {
 
     reservation.amount = parseInt(tentTwo + (tentFour * 2));
     console.log(reservation);
-    localStorage.setItem("tickets", JSON.stringify(reservation));
 
 
 
@@ -97,7 +96,7 @@ function getUserInput() {
     //this is so of the user fills the form correctly on the first try, it will go to cart.
     //the has been checked bool makes sure that go to cart doesnt trigger automatically when getuserinput is called again after clicking amount buttons
     if (reservation.total_tickets > 0 & reservation.total_tickets <= totalSpace & hasbeenChecked == false || reservation.total_tickets > 0 & totalSpace == 0 & hasbeenChecked == false) {
-       goToCart();
+        goToCart();
     } else {
         checkValidity();
     }
@@ -159,14 +158,16 @@ function getUserInput() {
 
 
     }
-
+    
+    function goToCart() {
+        localStorage.setItem("tickets", JSON.stringify(reservation));
+        location.href = "checkout.html";
+    }
 }
 
 
 
-function goToCart() {
-    location.href = "checkout.html";
-}
+
 
 
 function showRegDetails() {
