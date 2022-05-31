@@ -4,18 +4,20 @@
   margin: 0 auto;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   text-align: center;
-  font-weight: 700;
+  font-size: 0.8rem;
+  font-weight: 900;
 }
 .box_flex img{
-  width: 6rem;
+  width: 5rem;
 }
 
 .process_line{
   display: flex;
   justify-content: center;
   gap: 1rem;
-  margin: 4rem;
+  margin: 4rem auto;
 }
 
 body{
@@ -39,31 +41,6 @@ body{
   margin: 1rem;
   width: 90%;
 }
-
-.proces_line {
-  display: flex;
-  max-width: 100%;
-  justify-content: center;
-  background-repeat: no-repeat;
-  background-size: 500px;
-  margin: 0 auto;
-  margin-bottom: 1rem;
-}
-
-.proces_line img {
-  width: 100%;
-}
-
-/* .timer_mobile {
-  display: none;
-  background-color: var(--secondary_bg_2);
-  text-align: center;
-  color: var(--font_color_white);
-  width: 100%;
-  padding: 1rem;
-  border-radius: 20px;
-  height: auto;
-} */
 
 .cart_products {
   margin: 0 auto;
@@ -217,6 +194,37 @@ tr.total_border td{
   align-self: center;
 }
 
+/* TIMER STYLING */
+#timer_section{
+  position: relative;
+  top: -91rem;
+  width: 100%;
+}
+
+#camping_section form, #costumer_section form, #payment_section form{
+  margin: 6rem auto;
+}
+
+.timegrid {
+  color: var(--primary_bg_1);
+  background-color: var(--secondary_bg_2);
+  text-align: center;
+  border: solid 3px var(--secondary_bg_3);
+  border-radius: var(--default-b-radius);
+  }
+
+  .timegrid p{
+    color: var(--primary_bg_1);
+  }
+
+.timer {
+  width: 100%;
+  font-family: 'Righteous', cursive;
+  color: var(--primary_bg_1);
+font-size: 2rem;
+padding: 0.5rem;
+  }
+
 /* Small devices (landscape phones, 576px and up) */
 
 @media screen and (min-width: 576px) {
@@ -232,6 +240,10 @@ tr.total_border td{
   form {
     gap: 1rem;
     width: 100%;
+  }
+
+  .box_flex{
+    font-size: 1rem;
   }
   #camping{
     margin: 0 auto;
@@ -268,6 +280,34 @@ tr.total_border td{
 /* Medium devices (tablets, 768px and up) */
 
 @media screen and (min-width: 768px) {
+
+   /*  Styling of timer */
+   #timer_section{
+    max-width: 25%;
+    top: -83rem;
+    left: 66%;
+  }
+
+  .timegrid {
+    padding: 3rem;
+    outline: solid 4px var(--secondary_bg_3);
+    }
+
+    .timegrid p{
+      font-size: 0.8rem;
+    }
+
+    .timer{
+      font-size: 2rem;
+      padding: 0;
+    }
+
+    .costumer_grid{
+    margin: 0 auto;
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: 2fr 1fr;
+  }
 }
 
 /* Large devices (desktops, 992px and up) */
@@ -282,25 +322,22 @@ tr.total_border td{
   }
 
   /*  Styling of timer */
-
-  .timer {
-    text-align: center;
-    color: var(--font_color_white);
-    background-color: var(--secondary_bg_2);
-    display: block;
-    max-width: 16rem;
-    padding: 1rem;
-    border-radius: 20px;
-    height: auto;
-  }
-
-  .timer span {
-    font-size: 60px;
-  }
-
   #timer_section{
-    display: none;
+    max-width: 25%;
+    top: -91rem;
+    left: 67%;
   }
+
+  .timegrid {
+    padding: 3rem;
+    font-size: 5rem;
+    outline: solid 4px var(--secondary_bg_3);
+    }
+
+    .timer{
+      font-size: 3rem;
+      padding: 0;
+    }
 
   /* STYLING AF POP */
   .order_popup_background {
@@ -371,11 +408,7 @@ tr.total_border td{
     justify-content: center;
   }
 
-  .costumer_cart {
-    border-radius: 6px;
-    background-color: var(--primary_bg_3);
-    box-shadow: var(--shadow_out);
-  }
+
 
   .credit_card_visual {
     background-image: url("ui_icons/card_visual-01.svg");

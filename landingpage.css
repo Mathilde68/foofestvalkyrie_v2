@@ -69,8 +69,14 @@ margin-top: 6rem;
 .title_wrapper p{
     margin: 0 auto;
     text-align: center;
-    max-width: 80%;
     margin-top: 2rem;
+    padding: 3rem;
+    background-color: var(--secondary_bg_1);
+    border-image: url("img/cloud.svg") 30 round;
+    border: solid 7px var(--primary_bg_3);
+    border-radius: var(--default-b-radius);
+    box-shadow: var(--shadow_out);
+    font-weight: 600;
 }
 
 .title_wrapper h1{

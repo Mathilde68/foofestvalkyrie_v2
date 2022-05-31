@@ -45,6 +45,9 @@
     </header>
 
     <main></main>
+
+
+
     <!-- This section contains everything for the cart -->
     <section id="cart_section">
         <h2>YOUR CART</h2>
@@ -203,10 +206,6 @@
         </tr>
     </template>
 
-    <section id="timer_section">
-        <div class="timer">
-        </div>
-    </section>
     <!-- This section countains everything for the Costumerinfo -->
     <section id="costumer_section">
         <div class="process_line">
@@ -224,14 +223,7 @@
             </div>
         </div>
         <div class="costumer_wrapper">
-            <div class="proces_line">
-                <img src="ui_icons/cart_cost.svg" alt="">
-            </div>
             <div class="costumer_grid">
-                <!--                 <div class="timer_mobile">
-                    <p>Time to proceed your order</p>
-                </div> -->
-
                 <div class="costumer_form">
                     <form>
                         <label for="fullname">Full name*</label>
@@ -507,8 +499,6 @@
                         <input type="tel" id="phone" name="phone" maxlength="4">
                     </form>
                 </div>
-                <div class="costumer_timer_cart">
-                </div>
             </div>
         </div>
     </section>
@@ -530,8 +520,6 @@
             </div>
         </div>
         <div class="payment_wrapper">
-            <div class="proces_line">
-            </div>
             <div class="payment_grid">
                 <!--         <div class="timer_mobile">
                     <span class="timer_n"></span>
@@ -569,7 +557,7 @@
         </div>
     </section>
 
-    <!-- This section is for the order completion popup window -->
+    <!-- This section is for the order completion and times up popup window -->
     <div id="order_popup">
         <div class="order_graphic"></div>
         <div class="order_popup_background">
@@ -592,6 +580,17 @@
                 <button class="timesup_continue"><a href="tickets.html">Continue</a></button>
 
             </div>
+        </div>
+    </div>
+
+
+    <!-- This is for the timeup popup during reservation -->
+
+    <div id="timer_section">
+        <div class="timegrid">
+            <div class="timer">
+            </div>
+            <p>Time left to buy order</p>
         </div>
     </div>
 
