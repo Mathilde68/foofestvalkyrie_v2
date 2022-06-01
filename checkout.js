@@ -147,32 +147,32 @@ function displayCart(cart) {
 
   //Making if statements so if you havent added anything in ticketform it doesnt show up
   if (cart.reg_tickets === 0) {
-    clone.querySelector("[data-field=cart_regu_ticket]").textContent = " ";
-    clone.querySelector("[data-field=cart_regu_quantity]").textContent = " ";
-    clone.querySelector("[data-field=cart_regu_price]").textContent = " ";
-    clone.querySelector("[data-field=cart_regu_total]").textContent = " ";
+    clone.querySelector("[data-field=cart_regu_ticket]").style.display = "none";
+    clone.querySelector("[data-field=cart_regu_quantity]").style.display = "none";
+    clone.querySelector("[data-field=cart_regu_price]").style.display = "none";
+    clone.querySelector("[data-field=cart_regu_total]").style.display = "none";
   }
 
   if (cart.vip_tickets === 0) {
-    clone.querySelector("[data-field=cart_vip_ticket]").textContent = " ";
-    clone.querySelector("[data-field=cart_vip_quantity]").textContent = " ";
-    clone.querySelector("[data-field=cart_vip_price]").textContent = " ";
-    clone.querySelector("[data-field=cart_vip_total]").textContent = " ";
+    clone.querySelector("[data-field=cart_vip_ticket]").style.display = "none";
+    clone.querySelector("[data-field=cart_vip_quantity]").style.display = "none";
+    clone.querySelector("[data-field=cart_vip_price]").style.display = "none";
+    clone.querySelector("[data-field=cart_vip_total]").style.display = "none";
   }
 
   if (cart.tent_two === 0) {
-    clone.querySelector("[data-field=cart_two_tent]").textContent = " ";
-    clone.querySelector("[data-field=cart_two_tent_quantity]").textContent = " ";
-    clone.querySelector("[data-field=cart_two_tent_price]").textContent = " ";
-    clone.querySelector("[data-field=cart_two_tent_total]").textContent = " ";
+    clone.querySelector("[data-field=cart_two_tent]").style.display = "none";
+    clone.querySelector("[data-field=cart_two_tent_quantity]").style.display = "none";
+    clone.querySelector("[data-field=cart_two_tent_price]").style.display = "none";
+    clone.querySelector("[data-field=cart_two_tent_total]").style.display = "none";
 
   }
 
   if (cart.tent_four === 0) {
-    clone.querySelector("[data-field=cart_four_tent]").textContent = " ";
-    clone.querySelector("[data-field=cart_four_tent_quantity]").textContent = " ";
-    clone.querySelector("[data-field=cart_four_tent_price]").textContent = " ";
-    clone.querySelector("[data-field=cart_four_tent_total]").textContent = " ";
+    clone.querySelector("[data-field=cart_four_tent]").style.display = "none";
+    clone.querySelector("[data-field=cart_four_tent_quantity]").style.display = "none";
+    clone.querySelector("[data-field=cart_four_tent_price]").style.display = "none";
+    clone.querySelector("[data-field=cart_four_tent_total]").style.display = "none";
   }
 
   document.querySelector("#cart_table").appendChild(clone);
@@ -270,6 +270,7 @@ function confirmOrder() {
   document.getElementById("payment_section").style.display = "none";
   document.getElementById("timer_section").style.display = "none";
   document.getElementById("order_popup").style.display = "block";
+ 
 
   //eventlistener button
   document.querySelector(".order_continue").addEventListener("click", () => {
@@ -279,7 +280,7 @@ function confirmOrder() {
 
 
   //calling the timer again to stop the timer
-  timerDesktop();
+  timer();
 
   //calling Saveorder info, which reads the forms values, and saves everything about the order in a object
   saveOrderInfo();
@@ -706,7 +707,7 @@ function putReservation() {
   function saveReservation(d) {
     reservation.id = d.id;
     console.log(reservation);
-    timerDesktop();
+    timer();
 
 
   }
@@ -716,13 +717,13 @@ function putReservation() {
 
 
 //Timer function and times up
-function timerDesktop() {
+function timer() {
   console.log("timer");
   document.querySelector("#timer_section").style.display = "block"
 
   //Here I set the timer layout to be 05:00 as default
   document.querySelector(".timer").innerHTML = "25" + ":" + "00";
-  //Setting so when calling timerDesktop, the timer for desktop starts
+  //Setting so when calling timer, the timer for desktop starts
 
 
   //if the reservation/order has been confirmed, stop the timer, otherwise start the timer;
@@ -736,6 +737,8 @@ function timerDesktop() {
 function stopTimer() {
   //Here I reset the timer layout to be 00:00, this is done after order completion
   document.querySelector(".timer").innerHTML = "00" + ":" + "00";
+  //here i hide the timer
+  document.getElementById("timer_section").style.display="none";
 
   //clearing the local storage
   localStorage.clear("tickets");
@@ -793,10 +796,15 @@ function timesUp() {
 
   console.log("TIMES UP BIIIIIIITCH");
 
+
   const timesupPop = document.getElementById("timesup_popup");
 
+  //show time sup popup
   timesupPop.style.display = "block"
   document.querySelector(".timesup_continue").addEventListener("click", closeDownTime);
+
+    //here i hide the timer
+    document.getElementById("timer_section").style.display="none";
 
   //clearing the local storage
   localStorage.clear("tickets");
@@ -807,7 +815,7 @@ function timesUp() {
 
     timesupPop.style.display = "none"
 
-    location.href = "index.html";
+    location.href = "checkout.html";
   }
 }
 
