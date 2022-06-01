@@ -178,6 +178,7 @@ tr.total_border td{
   width: 100%;
   background-color: #312F30F2;
   top: 0;
+  left: 0;
   display: none;
 }
 .order_popup_background {
