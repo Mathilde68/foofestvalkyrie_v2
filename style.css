@@ -506,12 +506,18 @@ button{
 /* Medium devices (tablets, 768px and up) */
 
 @media screen and (min-width: 768px) {
+  main{
+    margin:3rem;
+  }
   
 }
 
 /* Large devices (desktops, 992px and up) */
 
 @media screen and (min-width: 992px) {
+  main{
+    margin:3rem;
+  }
 
   
 }
@@ -519,6 +525,9 @@ button{
 /* X-Large devices (large desktops, 1200px and up) */
 
 @media screen and (min-width: 1200px) {
+  main{
+    margin: 0 auto;
+  }
  
   
 }

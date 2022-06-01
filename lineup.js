@@ -23,6 +23,9 @@ function start() {
 
   //load my json
   loadJSON();
+
+  //eventlist for schedule button
+  document.querySelector(".schedule_link").addEventListener("click",()=>{location.href="schedule.html"});
 }
 
 //async function fetching the json from the bands endpoint

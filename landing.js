@@ -7,6 +7,9 @@ const form = document.querySelector(".newsletter_form");
 
 function start() {
 
+    document.querySelector(".lineup_button").addEventListener("click", () => { location.href="line_up.html"});
+    document.querySelector(".schedule_button").addEventListener("click", () => { location.href="schedule.html"});
+
     document.getElementById("sign_up").addEventListener("click", function (event) {
         if (form.checkValidity()) {
             event.preventDefault();

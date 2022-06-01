@@ -56,19 +56,23 @@ function start() {
 
   //Make sure, cart is visible first
   document.getElementById("cart_section").style.display = "block";
+  //hiding timer
+  document.getElementById("timer_section").style.display = "none";
+
 
   //Here I call functions
-  registerButtons();
+  checkCart();
+
 
 }
 
 
-function registerButtons() {
+function checkCart() {
   console.log(localStorage);
 
   //adds eventlistener and hides cart if localstorage is empty or if no tickets, calls prepare tickets of there is anything in local storage
   //otherwise, hide the proceed button and show cart empty message
-  if (localStorage.getItem("tickets") === null) {
+if (localStorage.getItem("tickets") === null || savedTickets.reg_tickets === 0 & savedTickets.vip_tickets === 0) {
     document.querySelector(".cart_p_checkout").style.display = "none";
     document.querySelector(".emptyCart").style.display = "block";
   } else {
@@ -211,6 +215,7 @@ function proceedToInfo() {
   //hiding camping sectiong and make costumer section visible
   document.getElementById("camping_section").style.display = "none";
   document.getElementById("costumer_section").style.display = "block";
+  document.getElementById("timer_section").style.display = "block";
 
   //for loop that calls add ticket info for the amount of tickets
   for (var x = 1; x < savedTickets.total_tickets; x++) {

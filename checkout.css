@@ -7,25 +7,30 @@
   justify-content: center;
   text-align: center;
   font-size: 0.8rem;
-  font-weight: 900;
+  font-weight: 800;
+  font-family: 'Open Sans', sans-serif;
+  color:var(--font_color_black);
 }
 .box_flex img{
-  width: 5rem;
+  width: 3rem;
+  margin:0 auto;
 }
 
 .process_line{
   display: flex;
   justify-content: center;
   gap: 1rem;
-  margin: 4rem auto;
+  margin: 2rem;
 }
 
-body{
-  background-image: url(img/long1f.svg);
-  background-size: 100%;
-  background-position: 55% 75%;
+body {
+  background-image: url(img/long2f.svg);
+  background-size: 120%;
+  background-position: 10% 5%;
   background-attachment: fixed;
+  background-repeat: no-repeat;
 }
+
 
 #cart_section,
 #costumer_section,
@@ -49,6 +54,9 @@ body{
   border-radius: 6px;
   background-color:var(--primary_bg_3);
   box-shadow: var(--shadow_out), var(--shadow_inset);
+}
+.cart_wrapper {
+  margin: 3rem 1rem;
 }
 
 table{
@@ -121,21 +129,21 @@ td {
 }
 
 .c_a {
-  background-color: red;
+  background-color: #ef421f;
 }
 
 .c_b {
-  background-color: greenyellow;
+  background-color: #2ba345;
 }
 .c_c {
-  background-color: blue;
+  background-color: #106da4;;
 }
 
 .c_d {
-  background-color: rgb(175, 47, 255);
+  background-color: #b94db6;
 }
 .c_e {
-  background-color: rgb(246, 255, 0);
+  background-color: var(--primary_bg_2);
 }
 
 
@@ -195,9 +203,9 @@ tr.total_border td{
 }
 
 /* TIMER STYLING */
-#timer_section{
-  position: relative;
-  top: -91rem;
+#timer_section {
+  position: absolute;
+  top: 23%;
   width: 100%;
 }
 
@@ -211,7 +219,8 @@ tr.total_border td{
   text-align: center;
   border: solid 3px var(--secondary_bg_3);
   border-radius: var(--default-b-radius);
-  }
+  width: 100%;
+}
 
   .timegrid p{
     color: var(--primary_bg_1);
@@ -313,6 +322,10 @@ padding: 0.5rem;
 /* Large devices (desktops, 992px and up) */
 
 @media screen and (min-width: 992px) {
+  body{
+    background-size: 100%;
+    background-position: 55% 75%;
+  }
   /*camping styling*/
   .camping_grid {
     display: flex;

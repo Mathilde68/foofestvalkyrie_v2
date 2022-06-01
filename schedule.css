@@ -72,6 +72,13 @@ body{
 #artist{
     font-weight: bold;
     cursor: pointer;
+    transition: 1s;;
+}
+
+#artist:hover{
+    transform: scale(1.05);
+   
+
 }
 
 /* in mobile - wrapper for the stagebuttons and the single table*/
