@@ -7,25 +7,30 @@
   justify-content: center;
   text-align: center;
   font-size: 0.8rem;
-  font-weight: 900;
+  font-weight: 800;
+  font-family: 'Open Sans', sans-serif;
+  color:var(--font_color_black);
 }
 .box_flex img{
-  width: 5rem;
+  width: 3rem;
+  margin:0 auto;
 }
 
 .process_line{
   display: flex;
   justify-content: center;
   gap: 1rem;
-  margin: 4rem auto;
+  margin: 2rem;
 }
 
-body{
-  background-image: url(img/long1f.svg);
-  background-size: 100%;
-  background-position: 55% 75%;
+body {
+  background-image: url(img/long2f.svg);
+  background-size: 120%;
+  background-position: 10% 5%;
   background-attachment: fixed;
+  background-repeat: no-repeat;
 }
+
 
 #cart_section,
 #costumer_section,
@@ -50,9 +55,13 @@ body{
   background-color:var(--primary_bg_3);
   box-shadow: var(--shadow_out), var(--shadow_inset);
 }
+.cart_wrapper {
+  margin: 3rem 1rem;
+}
 
 table{
   margin: 0 auto;
+  width: 100%;
 }
 
 th {
@@ -121,21 +130,21 @@ td {
 }
 
 .c_a {
-  background-color: red;
+  background-color: #ef421f;
 }
 
 .c_b {
-  background-color: greenyellow;
+  background-color: #2ba345;
 }
 .c_c {
-  background-color: blue;
+  background-color: #106da4;;
 }
 
 .c_d {
-  background-color: rgb(175, 47, 255);
+  background-color: #b94db6;
 }
 .c_e {
-  background-color: rgb(246, 255, 0);
+  background-color: var(--primary_bg_2);
 }
 
 
@@ -169,6 +178,7 @@ tr.total_border td{
   width: 100%;
   background-color: #312F30F2;
   top: 0;
+  left: 0;
   display: none;
 }
 .order_popup_background {
@@ -195,23 +205,26 @@ tr.total_border td{
 }
 
 /* TIMER STYLING */
-#timer_section{
-  position: relative;
-  top: -91rem;
+#timer_section {
+  position: absolute;
+  top: 23%;
   width: 100%;
 }
 
-#camping_section form, #costumer_section form, #payment_section form{
-  margin: 6rem auto;
+ #costumer_section form, #payment_section form{
+  margin: 9rem auto;
 }
-
+#camping_section form{
+  margin: 2rem auto;
+}
 .timegrid {
   color: var(--primary_bg_1);
   background-color: var(--secondary_bg_2);
   text-align: center;
   border: solid 3px var(--secondary_bg_3);
   border-radius: var(--default-b-radius);
-  }
+  width: 100%;
+}
 
   .timegrid p{
     color: var(--primary_bg_1);
@@ -256,10 +269,11 @@ padding: 0.5rem;
   }
 
   .cart_wrapper,
-  .costumer_wrapper,
   .payment_wrapper {
-    margin: 0 auto;
+    margin: 3rem;
   }
+
+
 
   th {
     font-size: 1.5rem;
@@ -275,24 +289,39 @@ padding: 0.5rem;
     width: 80%;
   }
 
+  #timer_section {
+    width: 50%;
+    margin: 0 10rem;
+}
+
 }
 
 /* Medium devices (tablets, 768px and up) */
 
 @media screen and (min-width: 768px) {
 
-   /*  Styling of timer */
-   #timer_section{
-    max-width: 25%;
-    top: -83rem;
+ 
+#costumer_section form, #payment_section form{
+  margin: 5rem auto;
+}
+.costumer_wrapper{
+  margin: 1rem;
+}
+.payment_wrapper{
+  margin:0;
+}
+  /*  Styling of timer */
+  #timer_section {
+    
+    top: 30%;
     left: 66%;
-  }
-
-  .timegrid {
-    padding: 3rem;
-    outline: solid 4px var(--secondary_bg_3);
-    }
-
+    margin: 0;
+}
+.timegrid {
+  width: 30%;
+  position: fixed;
+  padding: 2rem;
+}
     .timegrid p{
       font-size: 0.8rem;
     }
@@ -302,17 +331,43 @@ padding: 0.5rem;
       padding: 0;
     }
 
-    .costumer_grid{
+    .costumer_grid, .payment_grid{
     margin: 0 auto;
     display: grid;
     gap: 2rem;
     grid-template-columns: 2fr 1fr;
+  }
+
+  .payment_info{
+    margin:0 1rem;
+  }
+  .costumer_timer_cart, .payment_timer_card {
+    display: grid;
+    gap: 3rem;
+    justify-content: center;
+    align-items: end;
+    height: 90%;
+    margin-right: 2rem;
+}
+
+  .credit_card_visual {
+    background-image: url("ui_icons/card_visual-01.svg");
+    background-repeat: no-repeat;
+    background-size: 230px;
+    display: block;
+    width: 16rem;
+    background-position: center;
+    height: 19rem;
   }
 }
 
 /* Large devices (desktops, 992px and up) */
 
 @media screen and (min-width: 992px) {
+  body{
+    background-size: 100%;
+    background-position: 55% 75%;
+  }
   /*camping styling*/
   .camping_grid {
     display: flex;
@@ -324,12 +379,12 @@ padding: 0.5rem;
   /*  Styling of timer */
   #timer_section{
     max-width: 25%;
-    top: -91rem;
-    left: 67%;
+    top: 40%;
+    left: 60%;
   }
 
   .timegrid {
-    padding: 3rem;
+    padding: 2rem;
     font-size: 5rem;
     outline: solid 4px var(--secondary_bg_3);
     }
@@ -348,19 +403,23 @@ padding: 0.5rem;
   #cart_section,
   #costumer_section,
   #payment_section {
-    margin: 6rem;
-  }
-
-  .proces_line {
-    margin-bottom: 4rem;
-  }
-
-  .cart_wrapper,
-  .costumer_wrapper,
-  .payment_wrapper {
     margin: 0 auto;
-    display: grid;
-    justify-content: center;
+  }
+
+  .process_line {
+    margin: 4rem;
+  }
+
+  .box_flex img {
+    width: 5rem;
+    margin: auto;
+}
+
+  .cart_wrapper
+  {
+    margin: 0 auto;
+    width:80%
+    
   }
 
   .cart_p_checkout {
@@ -392,6 +451,7 @@ padding: 0.5rem;
     display: grid;
     gap: 2rem;
     grid-template-columns: 1fr 1fr;
+    width:90%;
   }
 
   .costumer_button {
@@ -411,13 +471,7 @@ padding: 0.5rem;
 
 
   .credit_card_visual {
-    background-image: url("ui_icons/card_visual-01.svg");
-    background-repeat: no-repeat;
-    background-size: 198px;
-    display: block;
-    width: 17rem;
-    background-position: center;
-    height: 11rem;
+    height: 14rem;
   }
 
 

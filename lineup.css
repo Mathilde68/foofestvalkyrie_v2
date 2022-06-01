@@ -15,10 +15,14 @@ body {
   font-family: bellyBeans;
   margin: 2rem -1rem;
 }
+.lineup-title h1{
+  margin-left: 0;
+}
 
 #list-section {
   margin: 0 auto;
   max-width: 100%;
+  
 }
 
 
@@ -32,6 +36,15 @@ body {
   background-image: url(ui_icons/pattern_one.svg);
   background-size: 29%;
   background-position: 0% 0%;
+}
+
+.schedule_link{
+  background-color: var(--secondary_bg_2);
+  width: 11rem;
+  background-position: 0% 0%;
+  border-radius: 1rem 1rem 0rem 0rem;
+  
+
 }
 
 #lineup-list {
@@ -61,7 +74,7 @@ body {
 
 #artist-name:hover {
   transform: scale(1.02);
-  color: var(--secondary_bg_1);
+  color: var(--accent_one);
 }
 
 /* Medium devices (tablets, 768px and up) */
@@ -72,13 +85,14 @@ body {
     background-size: 250%;
     background-position: 65% 21%;
   }
-
+  #list-section {
+    margin: 2rem 5rem;
+  }
   .lineup-title{
     margin: 1rem;
   }
   .list-wrapper {
     max-height: max-content;
-    margin: 2rem 5rem;
   }
 
   #lineup-list {
@@ -98,13 +112,18 @@ body {
     background-position: 95% 26%;
   
   }
+  #list-section {
+    margin: 0 auto;
+  }
   .lineup-title{
     justify-content: flex-start;
 
   }
   .list-wrapper {
+
     max-height: 50rem;
-    margin: auto;
+    margin: 0 auto;
+    margin-bottom: ;
   }
 
   #lineup-list {

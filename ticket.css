@@ -42,15 +42,7 @@
   margin: 0 auto;
 }
 
-.errmsg p{
-  color: var(--accent_two);
-  font-size: 0.9rem;
-  font-weight: 600;
-  background-color: var(--input_invalid);
-  padding:0.8rem;
-  width: max-content;
-  border-radius: 5px; 
-}
+
 
 .text_t_p{
   margin: 0 auto;
