@@ -147,32 +147,32 @@ function displayCart(cart) {
 
   //Making if statements so if you havent added anything in ticketform it doesnt show up
   if (cart.reg_tickets === 0) {
-    clone.querySelector("[data-field=cart_regu_ticket]").style.display = "none";
-    clone.querySelector("[data-field=cart_regu_quantity]").style.display = "none";
-    clone.querySelector("[data-field=cart_regu_price]").style.display = "none";
-    clone.querySelector("[data-field=cart_regu_total]").style.display = "none";
+    clone.querySelector("[data-field=cart_regu_ticket]").textContent=" ";
+    clone.querySelector("[data-field=cart_regu_quantity]").textContent=" ";
+    clone.querySelector("[data-field=cart_regu_price]").textContent=" ";
+    clone.querySelector("[data-field=cart_regu_total]").textContent="";
   }
 
   if (cart.vip_tickets === 0) {
-    clone.querySelector("[data-field=cart_vip_ticket]").style.display = "none";
-    clone.querySelector("[data-field=cart_vip_quantity]").style.display = "none";
-    clone.querySelector("[data-field=cart_vip_price]").style.display = "none";
-    clone.querySelector("[data-field=cart_vip_total]").style.display = "none";
+    clone.querySelector("[data-field=cart_vip_ticket]").textContent=" ";
+    clone.querySelector("[data-field=cart_vip_quantity]").textContent=" ";
+    clone.querySelector("[data-field=cart_vip_price]").textContent=" ";
+    clone.querySelector("[data-field=cart_vip_total]").textContent=" ";
   }
 
   if (cart.tent_two === 0) {
-    clone.querySelector("[data-field=cart_two_tent]").style.display = "none";
-    clone.querySelector("[data-field=cart_two_tent_quantity]").style.display = "none";
-    clone.querySelector("[data-field=cart_two_tent_price]").style.display = "none";
-    clone.querySelector("[data-field=cart_two_tent_total]").style.display = "none";
+    clone.querySelector("[data-field=cart_two_tent]").textContent=" ";
+    clone.querySelector("[data-field=cart_two_tent_quantity]").textContent="";
+    clone.querySelector("[data-field=cart_two_tent_price]").textContent="";
+    clone.querySelector("[data-field=cart_two_tent_total]").textContent="";
 
   }
 
   if (cart.tent_four === 0) {
-    clone.querySelector("[data-field=cart_four_tent]").style.display = "none";
-    clone.querySelector("[data-field=cart_four_tent_quantity]").style.display = "none";
-    clone.querySelector("[data-field=cart_four_tent_price]").style.display = "none";
-    clone.querySelector("[data-field=cart_four_tent_total]").style.display = "none";
+    clone.querySelector("[data-field=cart_four_tent]").textContent=" ";
+    clone.querySelector("[data-field=cart_four_tent_quantity]").textContent=" ";
+    clone.querySelector("[data-field=cart_four_tent_price]").textContent="";
+    clone.querySelector("[data-field=cart_four_tent_total]").textContent="";
   }
 
   document.querySelector("#cart_table").appendChild(clone);
@@ -851,15 +851,16 @@ class Formsections {
     this.labelTel = labelTel;
     this.inputTel = inputTel;
 
-
-
+    
     const formsection = document.createElement('div');
     formsection.classList.add("others_form");
     formsection.appendChild(labelName);
     formsection.appendChild(inputName);
     formsection.appendChild(labelTel);
     formsection.appendChild(inputTel);
-    document.getElementById(id).appendChild(formsection);
+    document.getElementById(id).appendChild(formsection); 
+
+  
   }
 }
 
