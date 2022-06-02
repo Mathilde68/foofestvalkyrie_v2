@@ -73,6 +73,7 @@ margin: 3rem 1rem;
     text-align: center;
     margin: 0;
     background-color: #2b729b;
+    color: var(--primary_bg_1);
     letter-spacing: 4px;
     padding-top: 1rem;
 }
@@ -164,6 +165,7 @@ animation: pulse 1s infinite;
     }
     .title_wrapper h1{
         letter-spacing: 20px;
+        color: var(--secondary_bg_2);
     }
 
     #ticket{
@@ -183,7 +185,8 @@ animation: pulse 1s infinite;
     }
         .title_wrapper h1{
             letter-spacing: 25px;
-            background-color: transparent;;
+            background-color: transparent;
+            color: var(--secondary_bg_2);
         }
         
         .title_text_wrapper {
@@ -218,7 +221,8 @@ animation: pulse 1s infinite;
 
     .title_wrapper h1{
         letter-spacing: 25px;
-        background-color: transparent;;
+        background-color: transparent;
+        color: var(--secondary_bg_2);
     }
 
     #ticket{
