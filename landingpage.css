@@ -201,7 +201,6 @@ animation: pulse 1s infinite;
             width: 28rem;
             text-align: center;
             font-weight: 400;
-            color: var(--secondary_bg_3);
         }
 
         #newsletter {
