@@ -75,12 +75,13 @@ margin: 3rem 1rem;
     background-color: #2b729b;
     color: var(--primary_bg_1);
     letter-spacing: 4px;
+    font-size: 3.4rem;
     padding-top: 1rem;
 }
 
 .title_text_wrapper {
     position: relative;
-    margin-top: -7rem;
+    margin-top: -2rem;
     background-image: url(img/cloudblue.svg);
     background-size: 160%;
     background-repeat: no-repeat;
@@ -91,6 +92,8 @@ margin: 3rem 1rem;
 }
 
 .title_wrapper p {
+    width: 100%;
+    position: relative;
     margin: 0 auto;
     text-align: center;
     font-weight: 400;
@@ -137,7 +140,8 @@ animation: pulse 1s infinite;
 
 @media screen and (max-width: 410px) {
     .title_text_wrapper {
-        height:25rem;
+        height:15rem;
+        margin-top: -4rem;
         background-size: 180%;
         background-position: 50% 104%;
        
