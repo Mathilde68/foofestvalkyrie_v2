@@ -64,7 +64,7 @@
   outline: solid 5px var(--secondary_bg_1);
   padding: 0.5rem;
   background-color: var(--primary_bg_1);
-  box-shadow: var(--shadow_inset), var(--shadow_out);
+  box-shadow: /* var(--shadow_inset), */ var(--shadow_out);
 }
 
 .tent_two_p, .tent_four_p, .select_ticket{

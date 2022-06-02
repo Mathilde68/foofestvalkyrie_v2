@@ -9,27 +9,29 @@
   --secondary_bg_1: #2b729b;
   --secondary_bg_2: #312f30;
   --secondary_bg_3: #f6e1ce;
+  --secondary_bg_4: #35a293;
   /*  ACCENT COLORS BUTTONS AND LINKS */
-  --accent_one: #35a293;
-  --accent_two: #e14725;
+  --accent_one: #B600E8;
+  --accent_two: #B600E8;
+  --accent_three:#0B13E3;
 
   /* button */
-  --btn_hover_bg: var(--accent_two);
-  --btn_font_hover: var(--btn_font);
-  --btn_bg: var(--accent_one);
-  --btn_font: #f6e1ce;
+  --btn_hover_bg: var(--primary_bg_1);
+  --btn_font_hover: var(--accent_two);
+  --btn_bg: var(--accent_two);
+  --btn_font: var(--primary_bg_1);
   --btn_inset_shadow: inset 2px 1.5px 6px rgba(255, 255, 255, 0.545);
-  --btn_out_shadow: 1px 3px 4px rgba(0, 0, 0, 0.182);
+  --btn_out_shadow: 1px 3px 4px rgba(0, 0, 0, 0.477);
   --btn_check_bg: var(--btn_bg);
   --btn_check_font: var(--accent_two);
   --btn_check_inset: inset 2px 2px 5px rgba(0, 0, 0, 0.274);
   /* link */
   --link_color: black;
-  --link_td_color: blue;
-  --link_visit_color: red;
+  --link_td_color: var(--accent_one);
+  --link_visit_color: var(--accent_three);
   --link_select_color: var(--link_td_color);
   /* SHADOWS AND INPUTS */
-  --shadow_out: 8px 8px 15px rgba(0, 0, 0, 0.106);
+  --shadow_out: 8px 8px 15px rgba(0, 0, 0, 0.477);
   --shadow_inset: white;
   --input_inset: inset 1px 1px 3px rgba(0, 0, 0, 0.199);
   --input_bg: rgb(255, 255, 255);
@@ -215,7 +217,7 @@ button {
   font-weight: 600;
   background-color: var(--input_invalid);
   padding: 0.8rem;
-  width: max-content;
+  max-width: 100%;
   border-radius: 5px;
   animation: shake 0.2s;
   animation-iteration-count: 2;
@@ -325,7 +327,7 @@ select {
   background-position: center;
   background-repeat:repeat;
   background-size: 270px; */
-  background-color: var(--secondary_bg_3);
+  background-color: var(--primary_bg_1);
   border-bottom: solid 4px var(--secondary_bg_2);
   /* color: var(--accent_two); */
   height: 50px;
@@ -383,20 +385,24 @@ select {
   padding-left: 0;
 }
 
-.menu > a {
+.menu > li {
   overflow: hidden;
   display: flex;
   justify-content: center;
   margin: 0;
   padding: 0.5em 0;
   width: 100%;
-  background-color: var(--accent_two);
-  color: black;
-  font-family: "Open Sans", sans-serif;
-  font-size: 1.3rem;
-  font-weight: 500;
+  background-color: var(--primary_bg_1);
 }
-.menu > a:hover {
+
+.menu a{
+  color: var(--font_color_black);
+  font-family: "Open Sans", sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.menu > li:hover {
   background-color: var(--accent_one);
   text-decoration: none;
 }
@@ -451,14 +457,14 @@ select {
   transform: rotate(-405deg);
 }
 
-#menu-toggle ~ .menu a {
+#menu-toggle ~ .menu li {
   height: 0;
   margin: 0;
   padding: 0;
   border: 0;
   transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
 }
-#menu-toggle:checked ~ .menu a {
+#menu-toggle:checked ~ .menu li {
   height: 2.5em;
   padding: 0.5em;
   transition: height 400ms cubic-bezier(0.23, 1, 0.32, 1);
@@ -537,7 +543,7 @@ footer section.right {
   }
 
   button:hover {
-    color: var(--btn_bg);
+    color: var(--btn_font_hover);
     background-color: var(--btn_hover_bg);
   }
 

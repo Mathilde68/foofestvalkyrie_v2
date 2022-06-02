@@ -36,9 +36,9 @@
                 <div class='menu-button'></div>
             </label>
             <ul class="menu">
-                <a href="line_up.html">Lineup</a>
-                <a href="schedule.html">Schedule</a>
-                <a href="tickets.html">Get tickets</a>
+                <li><a href="line_up.html">Lineup</a></li>
+                <li><a href="schedule.html">Schedule</a></li>
+                <li><a href="tickets.html">Get Tickets</a></li>
             </ul>
 
         </nav>
@@ -48,304 +48,305 @@
 
 
 
-    <!-- This section contains everything for the cart -->
-    <section id="cart_section">
-        <h2>YOUR CART</h2>
-        <h3>Are you ready to join foofestival?</h3>
-        <div class="cart_wrapper">
-            <div class="cart_products">
-                <table id="cart_table">
-                    <div class="emptyCart">
-                        <h4>Cart is empty</h4>
-                        <p> You can add tickets by navigating to the tickets page or click
-                            return shopping.
-                        </p> <div>
-                </table>
-                <div class="cart_button">
-                    <a href="tickets.html" class="return_buy">Return shopping</a>
-                    <button class="cart_p_checkout">Proceed to checkout</button>
-                </div>
-            </div>
-        </div>
-    </section>
-
-
-
-    <!--cart template-->
-    <template id="cart">
-        <tbody>
-            <tr>
-                <th>Product</th>
-                <th>Quantity</th>
-                <th>Price</th>
-                <th>Subtotal</th>
-            </tr>
-            <tr>
-                <td data-field="cart_regu_ticket"></td>
-                <td data-field="cart_regu_quantity"></td>
-                <td data-field="cart_regu_price"></td>
-                <td data-field="cart_regu_total"></td>
-            </tr>
-
-            <tr>
-                <td data-field="cart_vip_ticket"></td>
-                <td data-field="cart_vip_quantity"></td>
-                <td data-field="cart_vip_price"></td>
-                <td data-field="cart_vip_total"></td>
-            </tr>
-            <tr>
-                <td data-field="cart_two_tent"></td>
-                <td data-field="cart_two_tent_quantity"></td>
-                <td data-field="cart_two_tent_price"></td>
-                <td data-field="cart_two_tent_total"></td>
-            </tr>
-            <tr>
-                <td data-field="cart_four_tent"></td>
-                <td data-field="cart_four_tent_quantity"></td>
-                <td data-field="cart_four_tent_price"></td>
-                <td data-field="cart_four_tent_total"></td>
-            </tr>
-            <tr>
-                <td data-field="cart_booking">Fixed Booking Fee</td>
-                <td data-field="cart_booking_quantity">1x</td>
-                <td data-field="cart_booking_price">99</td>
-                <td data-field="cart_booking_total">99 DKK</td>
-            </tr>
-
-        
-            <tr class="total_border">
-                <td data-field="card_total_title"><strong>Total</strong></td>
-                <td></td>
-                <td></td>
-                <td data-field="cart_total_total"></td>
-            </tr>
-
-        </tbody>
-    </template>
-
-
-    <!--This sections contains everything for area selection-->
-    <section id="camping_section">
-        <div class="process_line">
-            <div class="box_flex">
-                <img src="ui_icons/progress_checked.svg" alt="">
-                <span>Choose Camp</span>
-            </div>
-            <div class="box_flex">
-                <img src="ui_icons/progress_n_checked.svg" alt="">
-                <span>Costumer Info</span>
-            </div>
-            <div class="box_flex">
-                <img src="ui_icons/progress_n_checked.svg" alt="">
-                <span>Payment</span>
-            </div>
-        </div>
-
-        <form id="camping" class="camping">
-            <h4>Choose your camping area</h4>
-            <div id="spot_reservation_info">
-
-                <p> <svg xmlns="http://www.w3.org/2000/svg" width="17" height="18" fill="currentColor"
-                        class="bi bi-info-circle" viewBox="0 0 16 16">
-                        <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
-                        <path
-                            d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
-                    </svg> Please be aware your spots will be reserved for 5 min. after proceeding</p>
-            </div>
-            <div id="campErr" class="errmsg"></div>
-            <div class="camping_grid">
-                <div class="onec">
-                    <label id="area_a" for="c_a">Svartheim</label>
-                    <input data-action="area_select" type="radio" class="c_a" id="Svartheim" name="camparea"
-                        value="Svartheim" required>
-                    <table>
-                        <tbody id="camping_one"></tbody>
+        <!-- This section contains everything for the cart -->
+        <section id="cart_section">
+            <h2>YOUR CART</h2>
+            <h3>Are you ready to join foofestival?</h3>
+            <div class="cart_wrapper">
+                <div class="cart_products">
+                    <table id="cart_table">
+                        <div class="emptyCart">
+                            <h4>Cart is empty</h4>
+                            <p> You can add tickets by navigating to the tickets page or click
+                                return shopping.
+                            </p>
+                            <div>
                     </table>
-                </div>
-                <div class="twoc">
-                    <label id="area_b" for="c_b">Nilfheim</label>
-                    <input data-action="area_select" type="radio" class="c_b" id="Nilfheim" name="camparea"
-                        value="Nilfheim">
-                    <table>
-                        <tbody id="camping_two"></tbody>
-                    </table>
-                </div>
-                <div class="threec">
-                    <label id="area_c" for="c_c">Helheim</label>
-                    <input data-action="area_select" type="radio" class="c_c" id="Helheim" name="camparea"
-                        value="Helheim">
-                    <table>
-                        <tbody id="camping_three"></tbody>
-                    </table>
-                </div>
-                <div class="fourc">
-                    <label id="area_d" for="c_d">Muspelheim</label>
-                    <input data-action="area_select" type="radio" class="c_d" id="Muspelheim" name="camparea"
-                        value="Muspelheim">
-                    <table>
-                        <tbody id="camping_four"></tbody>
-                    </table>
-                </div>
-                <div class="fivec">
-                    <label id="area_e" for="c_e">Alfheim</label>
-                    <input data-action="area_select" type="radio" class="c_e" id="Alfheim" name="camparea"
-                        value="Alfheim">
-                    <table>
-                        <tbody id="camping_five"></tbody>
-                    </table>
-                </div>
-            </div>
-
-            <div class="proceed_btn_container">
-                <button id="choose_area_btn">Proceed with this area</button>
-            </div>
-        </form>
-    </section>
-    <template id="template_camping">
-        <tr>
-            <td class="table-cell_camping">
-                <p id="area" data-field="area"></p>
-                <p id="spots" data-field="spots"></p>
-                <p id="available" data-field="available"></p>
-            </td>
-        </tr>
-    </template>
-
-    <!-- This section countains everything for the Costumerinfo -->
-    <section id="costumer_section">
-        <div class="process_line">
-            <div class="box_flex">
-                <img src="ui_icons/progress_checked.svg" alt="">
-                <span>Choose Camp</span>
-            </div>
-            <div class="box_flex">
-                <img src="ui_icons/progress_checked.svg" alt="">
-                <span>Costumer Info</span>
-            </div>
-            <div class="box_flex">
-                <img src="ui_icons/progress_n_checked.svg" alt="">
-                <span>Payment</span>
-            </div>
-        </div>
-        <div class="costumer_wrapper">
-            <div class="costumer_grid">
-                <div class="costumer_form">
-                    <form id="info_form">
-                        <label for="fullname">Full name*</label>
-                        <input type="text" id="fullname" name="fullname" required>
-                        <label for="address">Address*</label>
-                        <input type="text" id="Address" name="address" required>
-                        <label for="city">City*</label>
-                        <input type="text" id="city" name="city" required>
-                        <label for="mail">Email*</label>
-                        <input type="email" id="mail" name="mail" required>
-                        <label for="number">Enter your phone number</label>
-                        <input type="tel" id="phone" name="phone" maxlength="8" pattern="[0-9]+">
-
-                        <div id="otherTicket"></div>
-                        <div class="costumer_button">
-                            <a href="" class="return_cart">Return to cart</a>
-                            <button class="p_payment" type="submit">Proceed to payment</button>
-                        </div>
-                    </form>
-
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- This section is for payment -->
-    <section id="payment_section">
-        <div class="process_line">
-            <div class="box_flex">
-                <img src="ui_icons/progress_checked.svg" alt="">
-                <span>Choose Camp</span>
-            </div>
-            <div class="box_flex">
-                <img src="ui_icons/progress_checked.svg" alt="">
-                <span>Costumer Info</span>
-            </div>
-            <div class="box_flex">
-                <img src="ui_icons/progress_checked.svg" alt="">
-                <span>Payment</span>
-            </div>
-        </div>
-        <div class="payment_wrapper">
-            <div class="payment_grid">
-                <!--         <div class="timer_mobile">
-                    <span class="timer_n"></span>
-                    <p>Time to proceed your order</p>
-                </div> -->
-                <div class="payment_info">
-                    <form id="card_info">
-                        <label for="cardname">Card holders name *</label>
-                        <input type="text" id="cardname" name="cardname" required>
-                        <label for="ccn">Creditcard number *</label>
-                        <input type="text" id="ccn" name="ccn" required maxlength="16" pattern="[0-9]+">
-                        <div class="date_cvc">
-                            <label for="date">Date *
-                                <input type="text" id="date" name="date" maxlength="4" pattern="[0-9]+"
-                                    required></label>
-                            <label for="cvc">CVC *
-                                <input type="text" id="cvc" name="cvc" minlength="3" maxlength="3" pattern="[0-9]+"
-                                    required></label>
-                        </div>
-                        <button id="submit" name="submit" class="p_buy">Buy</button>
-                    </form>
-                </div>
-                <div class="payment_timer_card">
-                    <!--       <div class="timer">
-                        <span class="timer_n"></span>
-                        <p>Time to proceed your order</p>
-                    </div> -->
-                    <div class="credit_card_visual">
-                        <article class="card_template">
-
-                        </article>
+                    <div class="cart_button">
+                        <a href="tickets.html" class="return_buy">Return shopping</a>
+                        <button class="cart_p_checkout">Proceed to checkout</button>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- This section is for the order completion and times up popup window -->
-    <div id="order_popup">
-        <div class="order_graphic"></div>
-        <div class="order_popup_background">
-            <div class="order_text">
-                <h4>Your Order Was Successful!</h4>
-                <p>Your tickets has been sent to your email with all the details 🤩</p>
-                <p>You can go check out the schedule here! </p>
 
-                <button class="order_continue">Continue</button>
+
+        <!--cart template-->
+        <template id="cart">
+            <tbody>
+                <tr>
+                    <th>Product</th>
+                    <th>Quantity</th>
+                    <th>Price</th>
+                    <th>Subtotal</th>
+                </tr>
+                <tr>
+                    <td data-field="cart_regu_ticket"></td>
+                    <td data-field="cart_regu_quantity"></td>
+                    <td data-field="cart_regu_price"></td>
+                    <td data-field="cart_regu_total"></td>
+                </tr>
+
+                <tr>
+                    <td data-field="cart_vip_ticket"></td>
+                    <td data-field="cart_vip_quantity"></td>
+                    <td data-field="cart_vip_price"></td>
+                    <td data-field="cart_vip_total"></td>
+                </tr>
+                <tr>
+                    <td data-field="cart_two_tent"></td>
+                    <td data-field="cart_two_tent_quantity"></td>
+                    <td data-field="cart_two_tent_price"></td>
+                    <td data-field="cart_two_tent_total"></td>
+                </tr>
+                <tr>
+                    <td data-field="cart_four_tent"></td>
+                    <td data-field="cart_four_tent_quantity"></td>
+                    <td data-field="cart_four_tent_price"></td>
+                    <td data-field="cart_four_tent_total"></td>
+                </tr>
+                <tr>
+                    <td data-field="cart_booking">Fixed Booking Fee</td>
+                    <td data-field="cart_booking_quantity">1x</td>
+                    <td data-field="cart_booking_price">99</td>
+                    <td data-field="cart_booking_total">99 DKK</td>
+                </tr>
+
+
+                <tr class="total_border">
+                    <td data-field="card_total_title"><strong>Total</strong></td>
+                    <td></td>
+                    <td></td>
+                    <td data-field="cart_total_total"></td>
+                </tr>
+
+            </tbody>
+        </template>
+
+
+        <!--This sections contains everything for area selection-->
+        <section id="camping_section">
+            <div class="process_line">
+                <div class="box_flex">
+                    <img src="ui_icons/progress_checked.svg" alt="">
+                    <span>Choose Camp</span>
+                </div>
+                <div class="box_flex">
+                    <img src="ui_icons/progress_n_checked.svg" alt="">
+                    <span>Costumer Info</span>
+                </div>
+                <div class="box_flex">
+                    <img src="ui_icons/progress_n_checked.svg" alt="">
+                    <span>Payment</span>
+                </div>
+            </div>
+
+            <form id="camping" class="camping">
+                <h4>Choose your camping area</h4>
+                <div id="spot_reservation_info">
+
+                    <p> <svg xmlns="http://www.w3.org/2000/svg" width="17" height="18" fill="currentColor"
+                            class="bi bi-info-circle" viewBox="0 0 16 16">
+                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                            <path
+                                d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
+                        </svg> Please be aware your spots will be reserved for 5 min. after proceeding</p>
+                </div>
+                <div id="campErr" class="errmsg"></div>
+                <div class="camping_grid">
+                    <div class="onec">
+                        <label id="area_a" for="c_a">Svartheim</label>
+                        <input data-action="area_select" type="radio" class="c_a" id="Svartheim" name="camparea"
+                            value="Svartheim" required>
+                        <table>
+                            <tbody id="camping_one"></tbody>
+                        </table>
+                    </div>
+                    <div class="twoc">
+                        <label id="area_b" for="c_b">Nilfheim</label>
+                        <input data-action="area_select" type="radio" class="c_b" id="Nilfheim" name="camparea"
+                            value="Nilfheim">
+                        <table>
+                            <tbody id="camping_two"></tbody>
+                        </table>
+                    </div>
+                    <div class="threec">
+                        <label id="area_c" for="c_c">Helheim</label>
+                        <input data-action="area_select" type="radio" class="c_c" id="Helheim" name="camparea"
+                            value="Helheim">
+                        <table>
+                            <tbody id="camping_three"></tbody>
+                        </table>
+                    </div>
+                    <div class="fourc">
+                        <label id="area_d" for="c_d">Muspelheim</label>
+                        <input data-action="area_select" type="radio" class="c_d" id="Muspelheim" name="camparea"
+                            value="Muspelheim">
+                        <table>
+                            <tbody id="camping_four"></tbody>
+                        </table>
+                    </div>
+                    <div class="fivec">
+                        <label id="area_e" for="c_e">Alfheim</label>
+                        <input data-action="area_select" type="radio" class="c_e" id="Alfheim" name="camparea"
+                            value="Alfheim">
+                        <table>
+                            <tbody id="camping_five"></tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="proceed_btn_container">
+                    <button id="choose_area_btn">Proceed with this area</button>
+                </div>
+            </form>
+        </section>
+        <template id="template_camping">
+            <tr>
+                <td class="table-cell_camping">
+                    <p id="area" data-field="area"></p>
+                    <p id="spots" data-field="spots"></p>
+                    <p id="available" data-field="available"></p>
+                </td>
+            </tr>
+        </template>
+
+        <!-- This section countains everything for the Costumerinfo -->
+        <section id="costumer_section">
+            <div class="process_line">
+                <div class="box_flex">
+                    <img src="ui_icons/progress_checked.svg" alt="">
+                    <span>Choose Camp</span>
+                </div>
+                <div class="box_flex">
+                    <img src="ui_icons/progress_checked.svg" alt="">
+                    <span>Costumer Info</span>
+                </div>
+                <div class="box_flex">
+                    <img src="ui_icons/progress_n_checked.svg" alt="">
+                    <span>Payment</span>
+                </div>
+            </div>
+            <div class="costumer_wrapper">
+                <div class="costumer_grid">
+                    <div class="costumer_form">
+                        <form id="info_form">
+                            <label for="fullname">Full name*</label>
+                            <input type="text" id="fullname" name="fullname" required>
+                            <label for="address">Address*</label>
+                            <input type="text" id="Address" name="address" required>
+                            <label for="city">City*</label>
+                            <input type="text" id="city" name="city" required>
+                            <label for="mail">Email*</label>
+                            <input type="email" id="mail" name="mail" required>
+                            <label for="number">Enter your phone number</label>
+                            <input type="tel" id="phone" name="phone" maxlength="8" pattern="[0-9]+">
+
+                            <div id="otherTicket"></div>
+                            <div class="costumer_button">
+                                <a href="checkout.html" class="return_cart">Return to cart</a>
+                                <button class="p_payment" type="submit">Proceed to payment</button>
+                            </div>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- This section is for payment -->
+        <section id="payment_section">
+            <div class="process_line">
+                <div class="box_flex">
+                    <img src="ui_icons/progress_checked.svg" alt="">
+                    <span>Choose Camp</span>
+                </div>
+                <div class="box_flex">
+                    <img src="ui_icons/progress_checked.svg" alt="">
+                    <span>Costumer Info</span>
+                </div>
+                <div class="box_flex">
+                    <img src="ui_icons/progress_checked.svg" alt="">
+                    <span>Payment</span>
+                </div>
+            </div>
+            <div class="payment_wrapper">
+                <div class="payment_grid">
+                    <!--         <div class="timer_mobile">
+                    <span class="timer_n"></span>
+                    <p>Time to proceed your order</p>
+                </div> -->
+                    <div class="payment_info">
+                        <form id="card_info">
+                            <label for="cardname">Card holders name *</label>
+                            <input type="text" id="cardname" name="cardname" required>
+                            <label for="ccn">Creditcard number *</label>
+                            <input type="text" id="ccn" name="ccn" required maxlength="16" pattern="[0-9]+">
+                            <div class="date_cvc">
+                                <label for="date">Date *
+                                    <input type="text" id="date" name="date" maxlength="4" pattern="[0-9]+"
+                                        required></label>
+                                <label for="cvc">CVC *
+                                    <input type="text" id="cvc" name="cvc" minlength="3" maxlength="3" pattern="[0-9]+"
+                                        required></label>
+                            </div>
+                            <button id="submit" name="submit" class="p_buy">Buy</button>
+                        </form>
+                    </div>
+                    <div class="payment_timer_card">
+                        <!--       <div class="timer">
+                        <span class="timer_n"></span>
+                        <p>Time to proceed your order</p>
+                    </div> -->
+                        <div class="credit_card_visual">
+                            <article class="card_template">
+
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- This section is for the order completion and times up popup window -->
+        <div id="order_popup">
+            <div class="order_graphic"></div>
+            <div class="order_popup_background">
+                <div class="order_text">
+                    <h4>Your Order Was Successful!</h4>
+                    <p>Your tickets has been sent to your email with all the details 🤩</p>
+                    <p>You can go check out the schedule here! </p>
+
+                    <button class="order_continue">Continue</button>
+                </div>
             </div>
         </div>
-    </div>
 
 
-    <div id="timesup_popup">
-        <div class="order_popup_background">
-            <div class="order_text">
-                <h4>Damn, your reservation is over</h4>
-                <p>Your tickets has been deleted from the reservation 😥</p>
+        <div id="timesup_popup">
+            <div class="order_popup_background">
+                <div class="order_text">
+                    <h4>Damn, your reservation is over</h4>
+                    <p>Your tickets has been deleted from the reservation 😥</p>
 
-                <button class="timesup_continue">Continnue</button>
+                    <button class="timesup_continue">Continnue</button>
 
+                </div>
             </div>
         </div>
-    </div>
 
 
-    <!-- This is for the timeup popup during reservation -->
+        <!-- This is for the timeup popup during reservation -->
 
-    <div id="timer_section">
-        <div class="timegrid">
-            <div class="timer">
+        <div id="timer_section">
+            <div class="timegrid">
+                <div class="timer">
+                </div>
+                <p>Time left to buy order</p>
             </div>
-            <p>Time left to buy order</p>
         </div>
-    </div>
-</main>
+    </main>
 
 
 
@@ -354,23 +355,24 @@
 <footer>
     <section class="right">
         <div class="footer_logo"></div>
-      <ul>
-        <li><a href="">foofestival@mail.com</a></li>
-        <li><a href="">+45 40043611</a></li>
-      </ul>
+        <ul>
+            <li>foofestival@mail.com</li>
+            <li>+45 40043611</li>
+        </ul>
     </section>
     <section class="left">
-   
-      <div>
-        <ul>
-          <li><a href="tickets.html">Tickets</a></li>
-          <li><a href="schedule.html">Schedule</a></li>
-          <li><a href="line_up.html">Lineup</a></li>
-          <li><a href="checkout.html">Cart</a></li>
-        </ul>
-      </div>
+
+        <div>
+            <ul>
+                <li><a href="tickets.html">Tickets</a></li>
+                <li><a href="schedule.html">Schedule</a></li>
+                <li><a href="line_up.html">Lineup</a></li>
+                <li><a href="checkout.html">Cart</a></li>
+            </ul>
+        </div>
     </section>
-  </footer>
-  
+</footer>
+
 <script src="checkout.js"></script>
+
 </html>
