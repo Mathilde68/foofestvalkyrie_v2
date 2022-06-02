@@ -217,7 +217,7 @@ button {
   font-weight: 600;
   background-color: var(--input_invalid);
   padding: 0.8rem;
-  width: max-content;
+  max-width: 100%;
   border-radius: 5px;
   animation: shake 0.2s;
   animation-iteration-count: 2;
