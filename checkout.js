@@ -169,8 +169,8 @@ function displayCart(cart) {
   }
 
   if (cart.tent_four === 0) {
-    clone.querySelector("[data-field=cart_four_tent]").textContent=" ";
-    clone.querySelector("[data-field=cart_four_tent_quantity]").textContent=" ";
+    clone.querySelector("[data-field=cart_four_tent]").textContent="";
+    clone.querySelector("[data-field=cart_four_tent_quantity]").textContent="";
     clone.querySelector("[data-field=cart_four_tent_price]").textContent="";
     clone.querySelector("[data-field=cart_four_tent_total]").textContent="";
   }
@@ -242,7 +242,7 @@ function proceedToInfo() {
 
 //add ticket info makes a new instance of the formsection class
 function addTicketInfo() {
-  const otherTicket = new Formsections("otherTicket");
+  const otherTicket = new Formsections("info_form");
 }
 
 function proceedToCard() {
@@ -368,7 +368,7 @@ function postOrderInfo(order) {
   }).then((res) => res.json())
     .then((d) => {
       console.log(d);
-      sendConfirmation(order.fullname, order.email, order.total);
+      sendConfirmation(order.fullname, order.email, order.total_price);
     });
 
 }
