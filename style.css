@@ -474,7 +474,9 @@ footer {
   justify-content: center;
   background-color: var(--secondary_bg_3);
   margin-top: 5vh;
-}
+
+ }
+
 
 footer .footer_logo {
   height: 4rem;

@@ -29,6 +29,10 @@ body {
   background-position: 10% 5%;
   background-attachment: fixed;
   background-repeat: no-repeat;
+
+}
+main{
+  min-height: 90vh;
 }
 
 

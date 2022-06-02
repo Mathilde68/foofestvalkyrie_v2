@@ -3,6 +3,7 @@ body {
   background-size: 120%;
   background-position: 60% 49%;
   background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 .lineup-title {
@@ -82,11 +83,11 @@ body {
 @media screen and (min-width: 768px) {
 
   body {
-    background-size: 250%;
-    background-position: 65% 21%;
-  }
+    background-size: 150%;
+    background-position: 65% 100%;
+}
   #list-section {
-    margin: 2rem 5rem;
+    margin:0;
   }
   .lineup-title{
     margin: 1rem;
@@ -108,8 +109,8 @@ body {
 @media screen and (min-width: 992px) {
   body {
 
-    background-size: 115%;
-    background-position: 95% 26%;
+    background-size: 120%;
+    background-position: 55% 75%;
   
   }
   #list-section {
@@ -121,16 +122,36 @@ body {
   }
   .list-wrapper {
 
-    max-height: 50rem;
+    max-height: 20rem;
     margin: 0 auto;
-    margin-bottom: ;
   }
 
   #lineup-list {
-    max-height: 35rem;
+    max-height: 36vh;
     max-width: 40rem;
   }
 
 
   
+}
+
+@media screen and (min-width: 1200px) { 
+
+  body {
+
+    background-size: 115%;
+    background-position: 95% 60%;
+  
+  }
+  .list-wrapper {
+
+    max-height: 50vh;
+    margin: 0 auto;
+  }
+
+  #lineup-list {
+    max-height: 45vh;
+    max-width: 40rem;
+  }
+
 }
