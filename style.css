@@ -9,13 +9,15 @@
   --secondary_bg_1: #2b729b;
   --secondary_bg_2: #312f30;
   --secondary_bg_3: #f6e1ce;
+  --secondary_bg_4: #35a293;
   /*  ACCENT COLORS BUTTONS AND LINKS */
-  --accent_one: #35a293;
-  --accent_two: #97260d;
+  --accent_one: #B600E8;
+  --accent_two: #B600E8;
+  --accent_three:#0B13E3;
 
   /* button */
-  --btn_hover_bg: var(--secondary_bg_2);
-  --btn_font_hover: var(--primary_bg_1);
+  --btn_hover_bg: var(--primary_bg_1);
+  --btn_font_hover: var(--accent_two);
   --btn_bg: var(--accent_two);
   --btn_font: var(--primary_bg_1);
   --btn_inset_shadow: inset 2px 1.5px 6px rgba(255, 255, 255, 0.545);
@@ -25,8 +27,8 @@
   --btn_check_inset: inset 2px 2px 5px rgba(0, 0, 0, 0.274);
   /* link */
   --link_color: black;
-  --link_td_color: blue;
-  --link_visit_color: red;
+  --link_td_color: var(--accent_one);
+  --link_visit_color: var(--accent_three);
   --link_select_color: var(--link_td_color);
   /* SHADOWS AND INPUTS */
   --shadow_out: 8px 8px 15px rgba(0, 0, 0, 0.106);
@@ -325,7 +327,7 @@ select {
   background-position: center;
   background-repeat:repeat;
   background-size: 270px; */
-  background-color: var(--secondary_bg_3);
+  background-color: var(--primary_bg_1);
   border-bottom: solid 4px var(--secondary_bg_2);
   /* color: var(--accent_two); */
   height: 50px;
@@ -390,11 +392,11 @@ select {
   margin: 0;
   padding: 0.5em 0;
   width: 100%;
-  background-color: var(--primary_bg_3);
+  background-color: var(--primary_bg_1);
 }
 
 .menu a{
-  color: black;
+  color: var(--font_color_black);
   font-family: "Open Sans", sans-serif;
   font-size: 1rem;
   font-weight: 600;
