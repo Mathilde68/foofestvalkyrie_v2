@@ -390,8 +390,7 @@ select {
   margin: 0;
   padding: 0.5em 0;
   width: 100%;
-  
-  background-color: var(--accent_two);
+  background-color: var(--primary_bg_3);
 }
 
 .menu a{
@@ -542,7 +541,7 @@ footer section.right {
   }
 
   button:hover {
-    color: var(--btn_bg);
+    color: var(--btn_font_hover);
     background-color: var(--btn_hover_bg);
   }
 
