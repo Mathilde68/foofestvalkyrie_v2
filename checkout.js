@@ -242,7 +242,9 @@ function proceedToInfo() {
 
 //add ticket info makes a new instance of the formsection class
 function addTicketInfo() {
-  const otherTicket = new Formsections("info_form");
+  
+  const otherTicket = new Formsections("otherTicket");
+
 }
 
 function proceedToCard() {
@@ -722,7 +724,7 @@ function timer() {
   document.querySelector("#timer_section").style.display = "block"
 
   //Here I set the timer layout to be 05:00 as default
-  document.querySelector(".timer").innerHTML = "25" + ":" + "00";
+  document.querySelector(".timer").innerHTML = "5" + ":" + "00";
   //Setting so when calling timer, the timer for desktop starts
 
 
@@ -824,6 +826,7 @@ function timesUp() {
 //which is then appended to the end of the costumer info form
 class Formsections {
   constructor(id) {
+  
 
     const labelName = document.createElement('label');
     labelName.for = 'fullname_guest';
