@@ -165,7 +165,7 @@ animation: pulse 1s infinite;
     }
     .title_wrapper h1{
         letter-spacing: 20px;
-        color: var(--secondary_bg_2);
+        color: var(--primary_bg_1);
     }
 
     #ticket{
