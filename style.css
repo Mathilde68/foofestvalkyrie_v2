@@ -15,7 +15,7 @@
 
   /* button */
   --btn_hover_bg: var(--secondary_bg_2);
-  --btn_font_hover: var(--btn_font);
+  --btn_font_hover: var(--primary_bg_1);
   --btn_bg: var(--accent_two);
   --btn_font: var(--primary_bg_1);
   --btn_inset_shadow: inset 2px 1.5px 6px rgba(255, 255, 255, 0.545);
