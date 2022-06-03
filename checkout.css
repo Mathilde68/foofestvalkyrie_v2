@@ -208,7 +208,7 @@ tr.total_border td{
   flex-direction: column;
   gap: 1rem;
   width: 99%;
-  border-bottom: dashed 2px black;
+  border-bottom: dashed 2px var(--accent_one);
   padding-bottom: 1rem;
   width: 100%;
 }
