@@ -1,0 +1,24 @@
+{
+  "name": "y",
+  "version": "1.0.0",
+  "description": "3rd semester exam project",
+  "main": "checkout.js",
+  "scripts": {
+    "dev": "vite", 
+    "build": "vite build", 
+    "preview": "vite preview" 
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kgvedel/foofestvalkyrie.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kgvedel/foofestvalkyrie/issues"
+  },
+  "homepage": "https://github.com/kgvedel/foofestvalkyrie#readme",
+  "devDependencies": {
+    "vite": "^2.9.9"
+  }
+}
