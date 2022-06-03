@@ -198,12 +198,19 @@ tr.total_border td{
   top: 50%;
   margin-top: -145px;  /* Negative half of height. */
 }
-
+#otherTicket_title{
+  padding-top: 2rem;
+  font-size: 1.26rem;
+  font-weight: 800;
+}
 .others_form{
   display: flex;
   flex-direction: column;
   gap: 1rem;
   width: 99%;
+  border-bottom: dashed 2px black;
+  padding-bottom: 1rem;
+  width: 100%;
 }
 
 .order_text {
