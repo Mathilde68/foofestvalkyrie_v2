@@ -520,10 +520,7 @@ footer section.right {
     justify-content: space-between;
   }
 
-  .title_wrapper h1 {
-    margin: 0 auto;
-    letter-spacing: 20px;
-  }
+ 
 
   /* desktop font hierachy perfect fifth ratio */
   h1 {
