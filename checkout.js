@@ -242,7 +242,7 @@ function proceedToInfo() {
 
 //add ticket info makes a new instance of the formsection class
 function addTicketInfo() {
-  
+  document.getElementById("otherTicket_title").style.display="block";
   const otherTicket = new Formsections("otherTicket");
 
 }

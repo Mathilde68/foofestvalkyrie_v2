@@ -199,6 +199,7 @@ tr.total_border td{
   margin-top: -145px;  /* Negative half of height. */
 }
 #otherTicket_title{
+  display: none;
   padding-top: 2rem;
   font-size: 1.26rem;
   font-weight: 800;
