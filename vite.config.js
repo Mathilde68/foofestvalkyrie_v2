@@ -10,8 +10,10 @@ module.exports = defineConfig({
         nested: resolve(__dirname, 'nested/checkout.html'),
         nested: resolve(__dirname, 'nested/line_up.html'),
         nested: resolve(__dirname, 'nested/schedule.html'),
-        nested: resolve(__dirname, 'nested/single.html'),
-        nested: resolve(__dirname, 'nested/tickets.html')
+        nested: resolve(__dirname, 'nested/tickets.html'),
+        nested: resolve(__dirname, 'nested/single.html')
+        
+        
       }
     }
   }
