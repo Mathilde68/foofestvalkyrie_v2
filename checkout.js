@@ -216,7 +216,7 @@ function proceedToInfo() {
   document.getElementById("camping_section").style.display = "none";
   document.getElementById("costumer_section").style.display = "block";
   document.getElementById("timer_section").style.display = "block";
-
+  document.getElementById("otherTicket_title").style.display="none";
   //for loop that calls add ticket info for the amount of tickets
   for (var x = 1; x < savedTickets.total_tickets; x++) {
     console.log(x);
