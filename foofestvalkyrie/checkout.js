@@ -1,3 +1,4 @@
+import './style.css'
 "use strict";
 
 window.addEventListener("DOMContentLoaded", start);
