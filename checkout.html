@@ -142,74 +142,102 @@
                 </div>
             </div>
 
+            <div id="areainfo_popup">
+                <div class="areainfo_popup_background">
+                    <h4 id="title">Map of our festival area</h4>
+                    <img src="img/map.png" alt="map overview of camp areas">
+
+                    <button type="button" class="close_map">Close</button>
+                </div>
+            </div>
+
             <form id="camping" class="camping">
                 <h4>Choose your camping area</h4>
-                <div id="spot_reservation_info">
 
-                    <p> <svg xmlns="http://www.w3.org/2000/svg" width="17" height="18" fill="currentColor"
-                            class="bi bi-info-circle" viewBox="0 0 16 16">
-                            <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
-                            <path
-                                d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
-                        </svg> Please be aware your spots will be reserved for 5 min. after proceeding</p>
+                <div id="map_overview_info">
+
+                    <p> Not sure which camp to choose? <br>
+                        Click here to see a map of the Foofestival Camp placement</p>
+                    <button type="button" class="view_map">MAP</button>
                 </div>
+
+
                 <div id="campErr" class="errmsg"></div>
                 <div class="camping_grid">
                     <div class="onec">
+
                         <label id="area_a" for="c_a">Svartheim</label>
                         <input data-action="area_select" type="radio" class="c_a" id="Svartheim" name="camparea"
                             value="Svartheim" required>
+
                         <table>
                             <tbody id="camping_one"></tbody>
                         </table>
                     </div>
                     <div class="twoc">
+
                         <label id="area_b" for="c_b">Nilfheim</label>
                         <input data-action="area_select" type="radio" class="c_b" id="Nilfheim" name="camparea"
                             value="Nilfheim">
+
                         <table>
                             <tbody id="camping_two"></tbody>
                         </table>
                     </div>
                     <div class="threec">
+
                         <label id="area_c" for="c_c">Helheim</label>
                         <input data-action="area_select" type="radio" class="c_c" id="Helheim" name="camparea"
                             value="Helheim">
+
                         <table>
                             <tbody id="camping_three"></tbody>
                         </table>
                     </div>
                     <div class="fourc">
+
                         <label id="area_d" for="c_d">Muspelheim</label>
                         <input data-action="area_select" type="radio" class="c_d" id="Muspelheim" name="camparea"
                             value="Muspelheim">
-                        <table>
-                            <tbody id="camping_four"></tbody>
+
+                        <table id="camping_four">
+
                         </table>
                     </div>
                     <div class="fivec">
+
                         <label id="area_e" for="c_e">Alfheim</label>
                         <input data-action="area_select" type="radio" class="c_e" id="Alfheim" name="camparea"
                             value="Alfheim">
+
                         <table>
                             <tbody id="camping_five"></tbody>
                         </table>
                     </div>
                 </div>
 
-                <div class="proceed_btn_container">
+                <div class="btn_container">
+                    <div id="spot_reservation_info">
+
+                        <p> <svg xmlns="http://www.w3.org/2000/svg" width="17" height="18" fill="currentColor"
+                                class="bi bi-info-circle" viewBox="0 0 16 16">
+                                <path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z" />
+                                <path
+                                    d="M8.93 6.588l-2.29.287-.082.38.45.083c.294.07.352.176.288.469l-.738 3.468c-.194.897.105 1.319.808 1.319.545 0 1.178-.252 1.465-.598l.088-.416c-.2.176-.492.246-.686.246-.275 0-.375-.193-.304-.533L8.93 6.588zM9 4.5a1 1 0 1 1-2 0 1 1 0 0 1 2 0z" />
+                            </svg> Please be aware your spots will be reserved for 5 min. after proceeding</p>
+                    </div>
                     <button id="choose_area_btn">Proceed with this area</button>
                 </div>
             </form>
         </section>
         <template id="template_camping">
-            <tr>
-                <td class="table-cell_camping">
-                    <p id="area" data-field="area"></p>
-                    <p id="spots" data-field="spots"></p>
-                    <p id="available" data-field="available"></p>
-                </td>
-            </tr>
+
+            <td class="table-cell_camping">
+                <p id="area" data-field="area"></p>
+                <p id="spots" data-field="spots"></p>
+                <p id="available" data-field="available"></p>
+            </td>
+
         </template>
 
         <!-- This section countains everything for the Costumerinfo -->

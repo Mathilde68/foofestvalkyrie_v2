@@ -47,6 +47,7 @@
   --btn-radius: 25px;
 }
 
+
 /* MAIN STYLING */
 body {
   margin: var(--margin-auto);
@@ -58,6 +59,8 @@ main {
   margin: var(--margin-auto);
   max-width: 1200px;
 }
+
+
 
 * {
   box-sizing: border-box;
@@ -332,6 +335,7 @@ select {
   /* color: var(--accent_two); */
   height: 50px;
   padding: 1.5em;
+
 }
 
 #cart_ui {

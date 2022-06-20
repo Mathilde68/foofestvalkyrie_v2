@@ -185,6 +185,8 @@ function proceedToArea() {
   //Make sure, cart is not visible, and camping is not
   document.getElementById("cart_section").style.display = "none";
   document.getElementById("camping_section").style.display = "block";
+  document.querySelector(".view_map").addEventListener("click", ()=>  {document.getElementById("areainfo_popup").style.display = "block";});
+  document.querySelector(".close_map").addEventListener("click", ()=>  {document.getElementById("areainfo_popup").style.display = "none";});
 
 
   //get availability of the camp areas
@@ -204,6 +206,11 @@ function proceedToArea() {
 
     }
   });
+}
+
+function showAreaMap(){
+  
+
 }
 
 
@@ -551,6 +558,7 @@ function displayAreaAvailability(camping) {
   if (camping.available === 0) {
 
     clone.querySelector("[data-field=available]").textContent = "SOLD OUT";
+    clone.querySelector("[data-field=available]").style.fontWeight = "bold";
     disableClick();
 
   }

@@ -1,6 +1,6 @@
 /* The visual styling of the sections */
 
-.box_flex{
+.box_flex {
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -8,15 +8,15 @@
   text-align: center;
   font-size: 0.8rem;
   font-weight: 800;
-  font-family: 'Open Sans', sans-serif;
-  color:var(--font_color_black);
+  font-family: "Open Sans", sans-serif;
+  color: var(--font_color_black);
 }
-.box_flex img{
+.box_flex img {
   width: 3rem;
-  margin:0 auto;
+  margin: 0 auto;
 }
 
-.process_line{
+.process_line {
   display: flex;
   justify-content: center;
   gap: 1rem;
@@ -29,23 +29,21 @@ body {
   background-position: 10% 5%;
   background-attachment: fixed;
   background-repeat: no-repeat;
-
 }
-main{
+main {
   min-height: 90vh;
 }
-
 
 #cart_section,
 #costumer_section,
 #payment_section,
 #camping_section {
- display: none;
+  display: none;
 }
 
 /* MOBILE STYLING DEFUALT */
 
-#camping{
+#camping {
   margin: 0 auto;
   margin: 1rem;
   width: 90%;
@@ -56,14 +54,14 @@ main{
   width: 98%;
   padding: 1rem;
   border-radius: 6px;
-  background-color:var(--primary_bg_3);
+  background-color: var(--primary_bg_3);
   box-shadow: var(--shadow_out), var(--shadow_inset);
 }
 .cart_wrapper {
   margin: 3rem 1rem;
 }
 
-table{
+table {
   margin: 0 auto;
   width: 100%;
 }
@@ -94,23 +92,60 @@ td {
   flex-wrap: wrap;
 }
 
-.proceed_btn_container{
-    display: flex;
-    justify-content: center;
+.btn_container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+#map_overview_info{
+  display: flex;
+  justify-content: space-around;
+}
+
+.view_map{
+  background-image: url(img/mapicon.svg);
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  width: 6rem;
+  border-radius: 0;
+box-shadow: none;
+transition: 0.2s;
+}
+
+.view_map:hover{
+ transition: 1s;;
+  background-color: transparent;
+  transform: scale(1.2) rotate(2deg);
 
 }
+#spot_reservation_info:first-child{
+  font-weight: 700;
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
 
 .c_a,
 .c_b,
 .c_c,
 .c_d,
 .c_e {
-  width: 5rem;
-  height: 3rem;
+  width: 8rem;
+  height: 8rem;
   margin: 0 auto;
   border-radius: var(--btn-radius);
   box-shadow: none;
   cursor: pointer;
+  background-color: transparent;
+  background-size: 92%;
+  object-fit: contain;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .c_a:checked,
@@ -118,50 +153,129 @@ td {
 .c_c:checked,
 .c_d:checked,
 .c_e:checked {
-  background-color: var(--accent_one);
-  transform: scale(1.1);
+  box-shadow: inset var(--shadow_out);
+  transform: scale(1.15);
   transition: 1s;
 }
 
-
-.onec, .twoc, .threec, .fourc, .fivec{
-    text-align: center;
-    margin: 0 auto;
-    display: flex;
-    flex-direction: column;
-    gap: 0.3rem;
-    
+.onec,
+.twoc,
+.threec,
+.fourc,
+.fivec {
+  text-align: center;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
 }
 
 .c_a {
-  background-color: #ef421f;
+  background-image: url(img/svartheim.png);
+}
+
+.c_a:hover {
+  background-color: var(--secondary_bg_3);
+}
+
+.c_a:checked {
+  background-color: var(--secondary_bg_3);
 }
 
 .c_b {
-  background-color: #2ba345;
+  background-image: url(img/nilfheim.png);
 }
+
+.c_b:hover {
+  background-color: #df523c;
+}
+
+.c_b:checked {
+  background-color: #df523c;
+}
+
+
 .c_c {
-  background-color: #106da4;;
+  background-image: url(img/helheim.png);
+}
+
+.c_c:hover {
+  background-color: var(--secondary_bg_1);
+}
+
+.c_c:checked {
+  background-color: var(--secondary_bg_1);
 }
 
 .c_d {
-  background-color: #b94db6;
+  background-image: url(img/muspelheim.png);
+}
+
+.c_d:hover {
+  background-color: #bb3cc9;
+}
+.c_d:checked {
+  background-color: #bb3cc9;
 }
 .c_e {
+  background-image: url(img/alfheim.png);
+  background-size: 70%;
+}
+.c_e:hover {
+  background-color: var(--primary_bg_2);
+}
+.c_e:checked {
   background-color: var(--primary_bg_2);
 }
 
-
-.unclickable{
-  background-color: var(--font_color_black);
+.unclickable {
+  filter: grayscale(100%) contrast(120%);
+  background-color: transparent;
+  cursor: auto;
 }
+
+.unclickable:hover {
+  background-color: transparent;
+}
+
+
+
+#areainfo_popup{
+  margin: 0 auto;
+  position: fixed;
+  height: 100%;
+  width: 100%;
+  background-color: #312f30f2;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  display: none;
+}
+
+.areainfo_popup_background{
+  text-align: center;
+
+  gap: 2rem;
+  position: fixed;
+  padding: 2rem;
+  margin: 0 auto;
+  border-radius: 6px;
+  background-color: var(--secondary_bg_3);
+  box-shadow: var(--shadow_out);
+  top: 15%;
+  left: 20%;
+  right: 20%;
+ 
+
+}
+
 .costumer_grid,
 .payment_grid {
   margin: 0 auto;
   display: grid;
   gap: 1rem;
 }
-tr.total_border td{
+tr.total_border td {
   border-bottom: solid 1px;
 }
 .costumer_button,
@@ -175,16 +289,20 @@ tr.total_border td{
   align-items: center;
 }
 
-#order_popup, #timesup_popup {
+#order_popup,
+#timesup_popup {
   margin: 0 auto;
   position: fixed;
   height: 100%;
   width: 100%;
-  background-color: #312F30F2;
+  background-color: #312f30f2;
   top: 0;
   left: 0;
   display: none;
 }
+
+
+
 .order_popup_background {
   position: fixed;
   padding: 2rem;
@@ -196,15 +314,15 @@ tr.total_border td{
   box-shadow: var(--shadow_out);
   width: 100%;
   top: 50%;
-  margin-top: -145px;  /* Negative half of height. */
+  margin-top: -145px; /* Negative half of height. */
 }
-#otherTicket_title{
+#otherTicket_title {
   display: none;
   padding-top: 2rem;
   font-size: 1.26rem;
   font-weight: 800;
 }
-.others_form{
+.others_form {
   display: flex;
   flex-direction: column;
   gap: 1rem;
@@ -229,10 +347,11 @@ tr.total_border td{
   width: 100%;
 }
 
- #costumer_section form, #payment_section form{
+#costumer_section form,
+#payment_section form {
   margin: 9rem auto;
 }
-#camping_section form{
+#camping_section form {
   margin: 2rem auto;
 }
 .timegrid {
@@ -244,28 +363,27 @@ tr.total_border td{
   width: 100%;
 }
 
-  .timegrid p{
-    color: var(--primary_bg_1);
-  }
+.timegrid p {
+  color: var(--primary_bg_1);
+}
 
 .timer {
   width: 100%;
-  font-family: 'Righteous', cursive;
+  font-family: "Righteous", cursive;
   color: var(--primary_bg_1);
-font-size: 2rem;
-padding: 0.5rem;
-  }
+  font-size: 2rem;
+  padding: 0.5rem;
+}
 
 /* Small devices (landscape phones, 576px and up) */
 
 @media screen and (min-width: 576px) {
-
   .order_popup_background {
     width: 500px;
-  top: 50%;
-  left: 50%;
-  margin-top: -145px;  /* Negative half of height. */
-  margin-left: -252px;  /* Negative half of width. */
+    top: 50%;
+    left: 50%;
+    margin-top: -145px; /* Negative half of height. */
+    margin-left: -252px; /* Negative half of width. */
   }
 
   form {
@@ -273,10 +391,10 @@ padding: 0.5rem;
     width: 100%;
   }
 
-  .box_flex{
+  .box_flex {
     font-size: 1rem;
   }
-  #camping{
+  #camping {
     margin: 0 auto;
     margin: 1rem;
     width: 80%;
@@ -291,82 +409,79 @@ padding: 0.5rem;
     margin: 3rem;
   }
 
-
-
   th {
     font-size: 1.5rem;
-    padding: 1rem; 
-  }
-  
-  td {
-    font-size: 1rem;
-    padding: 1rem; 
+    padding: 1rem;
   }
 
-  #cart_table{
+  td {
+    font-size: 1rem;
+    padding: 0.5rem;
+  }
+
+  #cart_table {
     width: 80%;
   }
 
   #timer_section {
     width: 50%;
     margin: 0 10rem;
-}
-
+  }
 }
 
 /* Medium devices (tablets, 768px and up) */
 
 @media screen and (min-width: 768px) {
-
- 
-#costumer_section form, #payment_section form{
-  margin: 5rem auto;
-}
-.costumer_wrapper{
-  margin: 1rem;
-}
-.payment_wrapper{
-  margin:0;
-}
+  #costumer_section form,
+  #payment_section form {
+    margin: 5rem auto;
+  }
+  .costumer_wrapper {
+    margin: 1rem;
+  }
+  .payment_wrapper {
+    margin: 0;
+  }
   /*  Styling of timer */
   #timer_section {
-    
     top: 30%;
     left: 66%;
     margin: 0;
-}
-.timegrid {
-  width: 30%;
-  position: fixed;
-  padding: 2rem;
-}
-    .timegrid p{
-      font-size: 0.8rem;
-    }
+  }
+  .timegrid {
+    width: 30%;
+    position: fixed;
+    padding: 2rem;
+  }
+  .timegrid p {
+    font-size: 0.8rem;
+  }
 
-    .timer{
-      font-size: 2rem;
-      padding: 0;
-    }
+  .timer {
+    font-size: 2rem;
+    padding: 0;
+  }
 
-    .costumer_grid, .payment_grid{
+  .costumer_grid,
+  .payment_grid {
     margin: 0 auto;
     display: grid;
     gap: 2rem;
     grid-template-columns: 2fr 1fr;
   }
 
-  .payment_info{
-    margin:0 1rem;
+  .payment_info {
+    margin: 0 1rem;
   }
-  .costumer_timer_cart, .payment_timer_card {
+  .costumer_timer_cart,
+  .payment_timer_card {
     display: grid;
     gap: 3rem;
     justify-content: center;
     align-items: end;
     height: 90%;
     margin-right: 2rem;
-}
+  }
 
   .credit_card_visual {
     background-image: url("ui_icons/card_visual-01.svg");
@@ -382,7 +497,7 @@ padding: 0.5rem;
 /* Large devices (desktops, 992px and up) */
 
 @media screen and (min-width: 992px) {
-  body{
+  body {
     background-size: 100%;
     background-position: 55% 75%;
   }
@@ -395,7 +510,7 @@ padding: 0.5rem;
   }
 
   /*  Styling of timer */
-  #timer_section{
+  #timer_section {
     max-width: 25%;
     top: 40%;
     left: 60%;
@@ -405,18 +520,18 @@ padding: 0.5rem;
     padding: 2rem;
     font-size: 5rem;
     outline: solid 4px var(--secondary_bg_3);
-    }
+  }
 
-    .timer{
-      font-size: 3rem;
-      padding: 0;
-    }
+  .timer {
+    font-size: 3rem;
+    padding: 0;
+  }
 
   /* STYLING AF POP */
   .order_popup_background {
     width: 630px;
     margin-left: -319px;
-    }
+  }
 
   #cart_section,
   #costumer_section,
@@ -431,13 +546,11 @@ padding: 0.5rem;
   .box_flex img {
     width: 5rem;
     margin: auto;
-}
+  }
 
-  .cart_wrapper
-  {
+  .cart_wrapper {
     margin: 0 auto;
-    width:80%
-    
+    width: 80%;
   }
 
   .cart_p_checkout {
@@ -469,7 +582,7 @@ padding: 0.5rem;
     display: grid;
     gap: 2rem;
     grid-template-columns: 1fr 1fr;
-    width:90%;
+    width: 90%;
   }
 
   .costumer_button {
@@ -486,22 +599,16 @@ padding: 0.5rem;
     justify-content: center;
   }
 
-
-
   .credit_card_visual {
     height: 14rem;
   }
-
 
   .order_text {
     text-align: center;
   }
 
-  #cart_table{
+  #cart_table {
     width: 80%;
     padding: 1rem;
   }
 }
-
-
-
