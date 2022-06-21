@@ -98,37 +98,39 @@ td {
   align-items: center;
 }
 
-#map_overview_info{
+#map_overview_info {
   display: flex;
-  justify-content: space-around;
+  justify-content: flex-start;
+  flex-direction: column;
+  align-items: center;
 }
 
-.view_map{
-  background-image: url(img/mapicon.svg);
-  background-size: contain;
-  background-position: center;
-  background-repeat: no-repeat;
+.view_map {
   background-color: transparent;
-  width: 6rem;
+
   border-radius: 0;
-box-shadow: none;
-transition: 0.2s;
+  box-shadow: none;
+  transition: 0.2s;
+ 
+  width: 95%;
+
+  margin-left: 0;
+  transition: 0.5s;
+  cursor: pointer;
 }
 
-.view_map:hover{
- transition: 1s;;
+.view_map:hover {
+  transition: 1s;
   background-color: transparent;
-  transform: scale(1.2) rotate(2deg);
-
+  transform: scale(1.05) rotate(3deg);
 }
-#spot_reservation_info:first-child{
+#spot_reservation_info:first-child {
   font-weight: 700;
   display: flex;
   gap: 5px;
   align-items: center;
   justify-content: space-evenly;
 }
-
 
 .c_a,
 .c_b,
@@ -194,7 +196,6 @@ transition: 0.2s;
   background-color: #df523c;
 }
 
-
 .c_c {
   background-image: url(img/helheim.png);
 }
@@ -238,9 +239,7 @@ transition: 0.2s;
   background-color: transparent;
 }
 
-
-
-#areainfo_popup{
+#areainfo_popup {
   margin: 0 auto;
   position: fixed;
   height: 100%;
@@ -252,21 +251,21 @@ transition: 0.2s;
   display: none;
 }
 
-.areainfo_popup_background{
+.areainfo_popup_background {
   text-align: center;
-
-  gap: 2rem;
   position: fixed;
-  padding: 2rem;
+  padding: 1rem;
   margin: 0 auto;
   border-radius: 6px;
   background-color: var(--secondary_bg_3);
   box-shadow: var(--shadow_out);
   top: 15%;
-  left: 20%;
-  right: 20%;
+  width: 100%;
  
+}
 
+.areainfo_popup_background img {
+  max-width: 100%;
 }
 
 .costumer_grid,
@@ -300,8 +299,6 @@ tr.total_border td {
   left: 0;
   display: none;
 }
-
-
 
 .order_popup_background {
   position: fixed;
@@ -378,6 +375,12 @@ tr.total_border td {
 /* Small devices (landscape phones, 576px and up) */
 
 @media screen and (min-width: 576px) {
+
+  .view_map {
+    width: 85%;
+    justify-items: flex-end;
+    margin-left: 0;
+}
   .order_popup_background {
     width: 500px;
     top: 50%;
@@ -432,6 +435,9 @@ tr.total_border td {
 /* Medium devices (tablets, 768px and up) */
 
 @media screen and (min-width: 768px) {
+
+
+
   #costumer_section form,
   #payment_section form {
     margin: 5rem auto;
@@ -497,10 +503,33 @@ tr.total_border td {
 /* Large devices (desktops, 992px and up) */
 
 @media screen and (min-width: 992px) {
+  .view_map {
+
+    width: 20rem;
+  
+    justify-items: flex-end;
+    margin-left: 0;
+  }
+    #map_overview_info {
+     justify-content: space-around; 
+    flex-direction: row;
+
+
+ }
+  .areainfo_popup_background {
+    top: 15%;
+    left: 10%;
+    right: 10%;
+    width: 40rem;
+}
+
   body {
     background-size: 100%;
     background-position: 55% 75%;
   }
+
+  
+  
   /*camping styling*/
   .camping_grid {
     display: flex;
@@ -611,4 +640,24 @@ tr.total_border td {
     width: 80%;
     padding: 1rem;
   }
+}
+
+@media screen and (min-width:  1200px) {
+   
+.view_map {
+
+  width: 18rem;
+}
+  #map_overview_info {
+    justify-items: flex-start;
+    flex-direction: row;
+  
+    margin-top: -5rem;
+ }
+  .areainfo_popup_background {
+    top: 15%;
+    left: 20%;
+    right: 20%;
+    width: 45rem;
+}
 }
