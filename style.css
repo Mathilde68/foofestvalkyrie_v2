@@ -129,15 +129,15 @@ label {
 /* FORM AND INPUT STYLING */
 
 input {
-  width: 100%;
-  height: 2rem;
-  border-radius: var(--default-b-radius);
-  list-style: none;
-  border: none;
-  box-shadow: var(--input_inset);
-  transition: 0.5s;
-  background-color: var(--input_bg);
-  padding: 15px;
+      height: 2rem;
+      border-radius: var(--default-b-radius);
+      list-style: none;
+      border: none;
+      box-shadow: var(--input_inset);
+      transition: 0.5s;
+      background-color: var(--input_bg);
+      padding: 15px;
+      margin: 0 1rem;
 }
 
 input[type="text"]:required:valid {
@@ -221,6 +221,7 @@ button {
   background-color: var(--input_invalid);
   padding: 0.8rem;
   max-width: 100%;
+  width: fit-content;
   border-radius: 5px;
   animation: shake 0.2s;
   animation-iteration-count: 2;
@@ -348,6 +349,7 @@ select {
   animation: none;
   transition: 2s;
 }
+
 
 #cart_ui:hover {
   transition: 1s;

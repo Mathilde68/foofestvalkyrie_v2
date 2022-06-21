@@ -30,7 +30,7 @@
                 </a>
                 <p>1/8 - 7/8 2022</p>
             </div>
-            <a id="cart_ui" href="checkout.html"></a>
+            <a id="cart_ui"  href="checkout.html"></a>
             <input id="menu-toggle" type="checkbox" />
             <label class='menu-button-container' for="menu-toggle">
                 <div class='menu-button'></div>
@@ -127,6 +127,7 @@
 
         <!--This sections contains everything for area selection-->
         <section id="camping_section">
+            <div id="process_line_bg">
             <div class="process_line">
                 <div class="box_flex">
                     <img src="ui_icons/progress_checked.svg" alt="">
@@ -141,15 +142,8 @@
                     <span>Payment</span>
                 </div>
             </div>
+        </div>
 
-            <div id="areainfo_popup">
-                <div class="areainfo_popup_background">
-                    <h4 id="title">Map of our festival area</h4>
-                    <img src="img/map.png" alt="map overview of camp areas">
-
-                    <button type="button" class="close_map">Close</button>
-                </div>
-            </div>
 
             <form id="camping" class="camping">
                 <h4>Choose your camping area</h4>
@@ -162,7 +156,7 @@
                 </div>
 
 
-                <div id="campErr" class="errmsg"></div>
+              
                 <div class="camping_grid">
                     <div class="onec">
 
@@ -215,6 +209,7 @@
                         </table>
                     </div>
                 </div>
+                <div id="campErr" class="errmsg"></div>
 
                 <div class="btn_container">
                     <div id="spot_reservation_info">
@@ -229,6 +224,16 @@
                     <button id="choose_area_btn">Proceed with this area</button>
                 </div>
             </form>
+
+            
+            <div id="areainfo_popup">
+                <div class="areainfo_popup_background">
+                    <h4 id="title">Map of our festival area</h4>
+                    <img src="img/map.png" alt="map overview of camp areas">
+
+                    <button type="button" class="close_map">Close</button>
+                </div>
+            </div>
         </section>
         <template id="template_camping">
 
@@ -242,24 +247,29 @@
 
         <!-- This section countains everything for the Costumerinfo -->
         <section id="costumer_section">
-            <div class="process_line">
-                <div class="box_flex">
-                    <img src="ui_icons/progress_checked.svg" alt="">
-                    <span>Choose Camp</span>
-                </div>
-                <div class="box_flex">
-                    <img src="ui_icons/progress_checked.svg" alt="">
-                    <span>Customer Info</span>
-                </div>
-                <div class="box_flex">
-                    <img src="ui_icons/progress_n_checked.svg" alt="">
-                    <span>Payment</span>
+            <div id="process_line_bg">
+                <div class="process_line">
+                    <div class="box_flex">
+                        <img src="ui_icons/progress_checked.svg" alt="">
+                        <span>Choose Camp</span>
+                    </div>
+                    <div class="box_flex">
+                        <img src="ui_icons/progress_checked.svg" alt="">
+                        <span>Customer Info</span>
+                    </div>
+                    <div class="box_flex">
+                        <img src="ui_icons/progress_n_checked.svg" alt="">
+                        <span>Payment</span>
+                    </div>
                 </div>
             </div>
             <div class="costumer_wrapper">
+              
                 <div class="costumer_grid">
                     <div class="costumer_form">
+                   
                         <form id="info_form">
+                            <h4>Your Information</h4>
                             <label for="fullname">Full name*</label>
                             <input type="text" id="fullname" name="fullname" required>
                             <label for="address">Address*</label>
@@ -289,18 +299,20 @@
 
         <!-- This section is for payment -->
         <section id="payment_section">
-            <div class="process_line">
-                <div class="box_flex">
-                    <img src="ui_icons/progress_checked.svg" alt="">
-                    <span>Choose Camp</span>
-                </div>
-                <div class="box_flex">
-                    <img src="ui_icons/progress_checked.svg" alt="">
-                    <span>Customer Info</span>
-                </div>
-                <div class="box_flex">
-                    <img src="ui_icons/progress_checked.svg" alt="">
-                    <span>Payment</span>
+            <div id="process_line_bg">
+                <div class="process_line">
+                    <div class="box_flex">
+                        <img src="ui_icons/progress_checked.svg" alt="">
+                        <span>Choose Camp</span>
+                    </div>
+                    <div class="box_flex">
+                        <img src="ui_icons/progress_checked.svg" alt="">
+                        <span>Customer Info</span>
+                    </div>
+                    <div class="box_flex">
+                        <img src="ui_icons/progress_checked.svg" alt="">
+                        <span>Payment</span>
+                    </div>
                 </div>
             </div>
             <div class="payment_wrapper">

@@ -52,6 +52,10 @@ let savedTickets = JSON.parse(storage);
 
 //Function that starts the whole systaaaaam
 function start() {
+
+   
+   
+  
   console.log("start");
 
   //Make sure, cart is visible first
@@ -256,7 +260,7 @@ function addTicketInfo() {
 
 function proceedToCard() {
 
-
+  document.body.scrollTop = document.documentElement.scrollTop = 0;
   document.getElementById("costumer_section").style.display = "none";
   document.getElementById("payment_section").style.display = "block";
 
