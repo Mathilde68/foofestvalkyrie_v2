@@ -23,7 +23,7 @@ const cartOrder = {
   tent_two: 0
 }
 
-const allTickets = [];
+/*const allTickets = [];*/
 
 const reservation = {
   id: "",
@@ -33,7 +33,7 @@ const reservation = {
 
 }
 
-let orderInfo = {
+const orderInfo = {
   fullname: "",
   adress: "",
   phone: "",
@@ -53,9 +53,6 @@ let savedTickets = JSON.parse(storage);
 //Function that starts the whole systaaaaam
 function start() {
 
-   
-   
-  
   console.log("start");
 
   //Make sure, cart is visible first
@@ -186,7 +183,7 @@ function displayCart(cart) {
 //here is teh function for proceeding to area select
 function proceedToArea() {
   console.log("lol");
-  //Make sure, cart is not visible, and camping is not
+  //Make sure, cart is not visible, and camping is 
   document.getElementById("cart_section").style.display = "none";
   document.getElementById("camping_section").style.display = "block";
   document.querySelector(".view_map").addEventListener("click", ()=>  {document.getElementById("areainfo_popup").style.display = "block";});
@@ -535,7 +532,7 @@ function prepareAreas(json) {
 function prepareList() {
 
 
-
+//clearing the list, so it only shows one, once updated
   document.querySelector("#camping_one").textContent = "";
   document.querySelector("#camping_two").textContent = "";
   document.querySelector("#camping_three").textContent = "";

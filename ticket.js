@@ -52,7 +52,7 @@ function registerButtons() {
 
 }
 
-var hasbeenChecked = false;
+let hasbeenChecked = false;
 function getUserInput() {
     const form = document.querySelector(".regu_fillout");
     const reg_tickets = parseInt(form.elements.amount_reg_ticket.value);

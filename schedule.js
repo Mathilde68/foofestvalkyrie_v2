@@ -84,12 +84,18 @@ function prepareData(jsondata) {
   const stages = Object.entries(jsondata);
   stages.forEach(stage => {
 
+    console.log(stage);
+
     const days = Object.entries(stage[1]);
     days.forEach(day => {
+
+      console.log(day);
 
       const times = Object.entries(day[1]);
 
       times.forEach(time => {
+
+     
 
         const act = Object.create(Act);
 
@@ -133,7 +139,7 @@ function prepareData(jsondata) {
 
 //sets filter to value of input day field
 function selectDay() {
-  const inputday = input.value
+  const inputday = input.value;
   const filter = inputday;
   console.log(`user selected: ${filter}`);
   setDay(filter);
