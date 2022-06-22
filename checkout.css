@@ -37,7 +37,7 @@
 
 
 body {
-  background-image:   linear-gradient(#faeadb40, #f6e1ce00),url(img/long2f.svg);
+  background-image:   linear-gradient(#eed8ca29 10%, #eed8c604 50%),url(img/long2f.svg);
   background-size: 156%;
   background-position: 26% 100%;
   background-attachment: fixed;
